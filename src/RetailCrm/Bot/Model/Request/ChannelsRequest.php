@@ -3,28 +3,35 @@
 /**
  * PHP version 7.0
  *
- * CurlException
+ * Channels Request
  *
- * @package  RetailCrm\Bot\Exception
+ * @package  RetailCrm\RetailCrm\Bot\Model\Request
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
 
-namespace RetailCrm\Bot\Exception;
-
-use RuntimeException;
+namespace RetailCrm\RetailCrm\Bot\Model\Request;
 
 /**
  * PHP version 7.0
  *
- * Class CurlException
+ * ChannelsRequest class
  *
- * @package  RetailCrm\Bot\Exception
+ * @package  RetailCrm\RetailCrm\Bot\Model\Request
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
-class CurlException extends RuntimeException
+class ChannelsRequest
 {
+    public $id;
+
+    public $types;
+
+    public $active;
+
+    public $since;
+
+    public $until;
 }

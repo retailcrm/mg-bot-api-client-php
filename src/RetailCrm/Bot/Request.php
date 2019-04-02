@@ -5,8 +5,7 @@
  *
  * Request
  *
- * @category RetailCrm
- * @package  Bot
+ * @package  RetailCrm\Bot
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
@@ -25,8 +24,7 @@ use InvalidArgumentException;
  *
  * Request class
  *
- * @category RetailCrm
- * @package  Bot
+ * @package  RetailCrm\Bot
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
@@ -37,6 +35,9 @@ class Request
     const METHOD_POST = 'POST';
     const METHOD_PUT = 'PUT';
     const METHOD_DELETE = 'DELETE';
+
+    const SERIALIZE_ARRAY = 0;
+    const SERIALIZE_JSON = 1;
 
     protected $url;
     protected $token;

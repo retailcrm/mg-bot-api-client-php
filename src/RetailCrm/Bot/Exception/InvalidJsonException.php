@@ -5,8 +5,7 @@
  *
  * CurlException
  *
- * @category RetailCrm
- * @package  Bot
+ * @package  RetailCrm\Bot\Exception
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
@@ -21,8 +20,7 @@ use DomainException;
  *
  * Class InvalidJsonException
  *
- * @category RetailCrm
- * @package  Bot
+ * @package  RetailCrm\Bot\Exception
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers

@@ -5,8 +5,7 @@
  *
  * Client
  *
- * @category RetailCrm
- * @package  Bot
+ * @package  RetailCrm\Bot
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
@@ -24,8 +23,7 @@ use InvalidArgumentException;
  *
  * Client class
  *
- * @category RetailCrm
- * @package  Bot
+ * @package  RetailCrm\Bot
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
