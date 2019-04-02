@@ -18,7 +18,7 @@ use DomainException;
 /**
  * PHP version 7.0
  *
- * Class LimitException
+ * Class CurlException
  *
  * @package  RetailCrm\Common\Exception
  * @author   retailCRM <integration@retailcrm.ru>

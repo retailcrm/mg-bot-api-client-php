@@ -3,27 +3,27 @@
 /**
  * PHP version 7.0
  *
- * RequestHelper
+ * Request Helper
  *
- * @package  RetailCrm\Helper
+ * @package  RetailCrm\Mg\Bot
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
 
-namespace RetailCrm\Helper;
+namespace RetailCrm\Mg\Bot;
 
 /**
  * PHP version 7.0
  *
  * RequestHelper class
  *
- * @package  RetailCrm\Helper
+ * @package  RetailCrm\Mg\Bot
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
-class RequestHelper
+class IntegrationHelper
 {
     /**
      * Prepare module data
