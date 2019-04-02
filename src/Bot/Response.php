@@ -5,29 +5,30 @@
  *
  * Request
  *
- * @package  RetailCrm\Bot
+ * @package  RetailCrm\Mg\Bot
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
 
-namespace RetailCrm\Bot;
+namespace RetailCrm\Mg\Bot;
 
+use ArrayAccess;
 use BadMethodCallException;
 use InvalidArgumentException;
-use RetailCrm\Bot\Exception\InvalidJsonException;
+use RetailCrm\Common\Exception\InvalidJsonException;
 
 /**
  * PHP version 7.0
  *
  * Request class
  *
- * @package  RetailCrm\Bot
+ * @package  RetailCrm\Mg\Bot
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
-class Response implements \ArrayAccess
+class Response implements ArrayAccess
 {
     // HTTP response status code
     protected $statusCode;
@@ -48,7 +49,7 @@ class Response implements \ArrayAccess
      */
     public function __construct($statusCode, $responseBody = null)
     {
-        $this->statusCode = (int) $statusCode;
+        $this->statusCode = $statusCode;
         $this->raw = $responseBody;
         $this->response = self::parseJSON($responseBody);
     }

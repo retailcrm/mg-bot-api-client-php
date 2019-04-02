@@ -5,13 +5,13 @@
  *
  * CurlException
  *
- * @package  RetailCrm\Bot\Exception
+ * @package  RetailCrm\Common\Exception
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
 
-namespace RetailCrm\Bot\Exception;
+namespace RetailCrm\Common\Exception;
 
 use RuntimeException;
 
@@ -20,7 +20,7 @@ use RuntimeException;
  *
  * Class CurlException
  *
- * @package  RetailCrm\Bot\Exception
+ * @package  RetailCrm\Common\Exception
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers

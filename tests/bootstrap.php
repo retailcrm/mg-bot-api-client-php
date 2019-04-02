@@ -7,4 +7,4 @@ if (function_exists('date_default_timezone_set')
 }
 
 $loader = include dirname(__DIR__) . '/vendor/autoload.php';
-$loader->add('RetailCrm\\Test', __DIR__);
+$loader->add('RetailCrm\\Mg\\Bot\\Test', __DIR__);

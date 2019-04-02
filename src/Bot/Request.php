@@ -5,17 +5,17 @@
  *
  * Request
  *
- * @package  RetailCrm\Bot
+ * @package  RetailCrm\Mg\Bot
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
 
-namespace RetailCrm\Bot;
+namespace RetailCrm\Mg\Bot;
 
-use RetailCrm\Bot\Exception\CurlException;
-use RetailCrm\Bot\Exception\InvalidJsonException;
-use RetailCrm\Bot\Exception\LimitException;
+use JMS\Serializer\SerializerBuilder;
+use RetailCrm\Common\Exception\CurlException;
+use RetailCrm\Common\Exception\LimitException;
 use Exception;
 use InvalidArgumentException;
 
@@ -24,7 +24,7 @@ use InvalidArgumentException;
  *
  * Request class
  *
- * @package  RetailCrm\Bot
+ * @package  RetailCrm\Mg\Bot
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
@@ -36,12 +36,13 @@ class Request
     const METHOD_PUT = 'PUT';
     const METHOD_DELETE = 'DELETE';
 
-    const SERIALIZE_ARRAY = 0;
-    const SERIALIZE_JSON = 1;
+    const S_ARRAY = 0;
+    const S_JSON = 1;
 
     protected $url;
     protected $token;
     private $debug;
+    private $allowedMethods;
 
     /**
      * Client constructor.
@@ -59,44 +60,26 @@ class Request
         $this->url = $url;
         $this->token = $token;
         $this->debug = $debug;
+        $this->allowedMethods = [self::METHOD_GET, self::METHOD_POST, self::METHOD_PUT, self::METHOD_DELETE];
     }
 
     /**
      * Make HTTP request
      *
-     * @param string $path       request url
-     * @param string $method     (default: 'GET')
-     * @param array  $parameters (default: array())
-     *
-     * @throws \InvalidArgumentException
-     * @throws \Exception
-     * @throws CurlException
-     * @throws InvalidJsonException
+     * @param string $path   request url
+     * @param string $method (default: 'GET')
+     * @param mixed  $request (default: null)
+     * @param int    $serializeTo
      *
      * @return Response
+     * @throws \Exception
      */
-    public function makeRequest(
-        $path,
-        $method,
-        array $parameters = []
-    ) {
-        $allowedMethods = [self::METHOD_GET, self::METHOD_POST, self::METHOD_PUT, self::METHOD_DELETE];
+    public function makeRequest($path, $method, $request = null, $serializeTo = self::S_JSON)
+    {
+        $this->validateMethod($method);
 
-        if (!in_array($method, $allowedMethods, false)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    'Method "%s" is not valid. Allowed methods are %s',
-                    $method,
-                    implode(', ', $allowedMethods)
-                )
-            );
-        }
-
-        $url = $this->url . $path;
-
-        if (self::METHOD_GET === $method && count($parameters)) {
-            $url .= '?' . http_build_query($parameters, '', '&');
-        }
+        $parameters = $this->serialize($request, $serializeTo);
+        $url = $this->buildUrl($path, $method, $parameters);
 
         $curlHandler = curl_init();
         curl_setopt($curlHandler, CURLOPT_URL, $url);
@@ -116,7 +99,7 @@ class Request
 
         if (in_array($method, [self::METHOD_POST, self::METHOD_PUT, self::METHOD_DELETE])) {
             curl_setopt($curlHandler, CURLOPT_CUSTOMREQUEST, $method);
-            curl_setopt($curlHandler, CURLOPT_POSTFIELDS, json_encode($parameters));
+            curl_setopt($curlHandler, CURLOPT_POSTFIELDS, $parameters);
         }
 
         $responseBody = curl_exec($curlHandler);
@@ -148,5 +131,84 @@ class Request
         }
 
         return new Response($statusCode, $responseBody);
+    }
+
+    /**
+     * Check trailing slash into url
+     *
+     * @param string $url
+     *
+     * @return string
+     */
+    public static function normalizeUrl($url)
+    {
+        if ('/' !== $url[strlen($url) - 1]) {
+            $url .= '/';
+        }
+
+        return $url;
+    }
+
+    /**
+     * Validate HTTP method
+     *
+     * @param string $method
+     */
+    private function validateMethod($method)
+    {
+        if (!in_array($method, $this->allowedMethods, false)) {
+            throw new InvalidArgumentException(
+                sprintf(
+                    'Method "%s" is not valid. Allowed methods are %s',
+                    $method,
+                    implode(', ', $this->allowedMethods)
+                )
+            );
+        }
+    }
+
+    /**
+     * Serialize given object to JSON or Array
+     *
+     * @param object $request
+     * @param int    $serialize
+     *
+     * @return array|string
+     */
+    private function serialize($request, $serialize)
+    {
+        $serialized = null;
+
+        switch ($serialize) {
+            case self::S_ARRAY:
+                $serialized = (array)$request;
+                break;
+            case self::S_JSON:
+                $serializer = SerializerBuilder::create()->build();
+                $serialized = $serializer->serialize($request, 'json');
+        }
+
+        return $serialized;
+    }
+
+    /**
+     * Build request url
+     *
+     * @param string $path
+     * @param string $method
+     * @param array  $parameters
+     *
+     * @return string
+     */
+    private function buildUrl($path, $method, $parameters)
+    {
+        $url = $this->url . $path;
+
+        if (self::METHOD_GET === $method && count($parameters)) {
+            $queryString = http_build_query($parameters, '', '&');
+            $url = sprintf("%s?%s", $url, $queryString);
+        }
+
+        return $url;
     }
 }

@@ -5,17 +5,16 @@
  *
  * Test case class
  *
- * @category RetailCrm
  * @package  Test
  * @author   RetailCrm <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://www.retailcrm.ru/docs/Developers/ApiVersion5
  */
 
-namespace RetailCrm\Test;
+namespace RetailCrm\Mg\Bot\Test;
 
 use PHPUnit\Framework\TestCase as BaseCase;
-use RetailCrm\Bot\Client;
+use RetailCrm\Mg\Bot\Client;
 
 /**
  * Class TestCase
