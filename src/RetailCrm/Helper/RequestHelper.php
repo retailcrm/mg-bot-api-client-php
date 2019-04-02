@@ -5,8 +5,7 @@
  *
  * RequestHelper
  *
- * @category RetailCrm
- * @package  Helper
+ * @package  RetailCrm\Helper
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
@@ -19,8 +18,7 @@ namespace RetailCrm\Helper;
  *
  * RequestHelper class
  *
- * @category RetailCrm
- * @package  Helper
+ * @package  RetailCrm\Helper
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
