@@ -13,7 +13,9 @@
 
 namespace RetailCrm\Mg\Bot\Tests;
 
+use InvalidArgumentException;
 use RetailCrm\Mg\Bot\Client;
+use RetailCrm\Mg\Bot\Model\Request\CommandEditRequest;
 use RetailCrm\Mg\Bot\Test\TestCase;
 
 /**
@@ -57,6 +59,17 @@ class ClientTest extends TestCase
         self::assertTrue(1 == 1);
     }
 
+    public function testCommandEditException()
+    {
+        self::expectException(InvalidArgumentException::class);
+
+        $client = self::getApiClient();
+        $command = new CommandEditRequest();
+        $command->setDescription("qwerty");
+
+        $client->commandEdit($command);
+    }
+
     public function testBots()
     {
         self::assertTrue(1 == 1);
@@ -68,11 +81,6 @@ class ClientTest extends TestCase
     }
 
     public function testDialogs()
-    {
-        self::assertTrue(1 == 1);
-    }
-
-    public function test__construct()
     {
         self::assertTrue(1 == 1);
     }

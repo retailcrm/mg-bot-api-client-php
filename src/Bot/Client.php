@@ -62,7 +62,7 @@ class Client
      */
     public function bots(Model\Request\BotsRequest $request)
     {
-        return $this->client->makeRequest('/bots', 'GET', $request, Request::S_ARRAY);
+        return $this->client->makeRequest('/bots', Request::METHOD_GET, $request, Request::S_ARRAY);
     }
 
     /**
@@ -75,7 +75,7 @@ class Client
      */
     public function channels(Model\Request\ChannelsRequest $request)
     {
-        return $this->client->makeRequest('/channels', 'GET', $request, Request::S_ARRAY);
+        return $this->client->makeRequest('/channels', Request::METHOD_GET, $request, Request::S_ARRAY);
     }
 
     /**
@@ -92,7 +92,7 @@ class Client
      */
     public function chats(Model\Request\ChatsRequest $request)
     {
-        return $this->client->makeRequest('/chats', 'GET', $request, Request::S_ARRAY);
+        return $this->client->makeRequest('/chats', Request::METHOD_GET, $request, Request::S_ARRAY);
     }
 
     /**
@@ -109,7 +109,55 @@ class Client
      */
     public function commands(Model\Request\CommandsRequest $request)
     {
-        return $this->client->makeRequest('/my/commands', 'GET', $request, Request::S_ARRAY);
+        return $this->client->makeRequest('/my/commands', Request::METHOD_GET, $request, Request::S_ARRAY);
+    }
+
+    /**
+     * Edit commands for exact bot
+     *
+     * @param Model\Request\CommandEditRequest $request
+     *
+     * @throws InvalidArgumentException
+     * @throws CurlException
+     * @throws InvalidJsonException
+     * @throws Exception
+     *
+     * @return Response
+     */
+    public function commandEdit(Model\Request\CommandEditRequest $request)
+    {
+        $validation = Component\Validator::validate($request);
+
+        if (!empty($validation)) {
+            throw new InvalidArgumentException($validation);
+        }
+
+        return $this->client->makeRequest(
+            sprintf("/my/commands/%s", $request->getName()),
+            Request::METHOD_PUT,
+            $request
+        );
+    }
+
+    /**
+     * Delete command for exact bot
+     *
+     * @param string $request
+     *
+     * @throws InvalidArgumentException
+     * @throws CurlException
+     * @throws InvalidJsonException
+     * @throws Exception
+     *
+     * @return Response
+     */
+    public function commandDelete(string $request)
+    {
+        return $this->client->makeRequest(
+            sprintf("/my/commands/%s", $request),
+            Request::METHOD_DELETE,
+            $request
+        );
     }
 
     /**
@@ -126,7 +174,7 @@ class Client
      */
     public function customers(Model\Request\CustomersRequest $request)
     {
-        return $this->client->makeRequest('/customers', 'GET', $request, Request::S_ARRAY);
+        return $this->client->makeRequest('/customers', Request::METHOD_GET, $request, Request::S_ARRAY);
     }
 
     /**
@@ -143,7 +191,7 @@ class Client
      */
     public function dialogs(Model\Request\DialogsRequest $request)
     {
-        return $this->client->makeRequest('/dialogs', 'GET', $request, Request::S_ARRAY);
+        return $this->client->makeRequest('/dialogs', Request::METHOD_GET, $request, Request::S_ARRAY);
     }
 
     /**
@@ -160,7 +208,7 @@ class Client
      */
     public function members(Model\Request\MembersRequest $request)
     {
-        return $this->client->makeRequest('/members', 'GET', $request, Request::S_ARRAY);
+        return $this->client->makeRequest('/members', Request::METHOD_GET, $request, Request::S_ARRAY);
     }
 
     /**
@@ -177,7 +225,7 @@ class Client
      */
     public function messages(Model\Request\MessagesRequest $request)
     {
-        return $this->client->makeRequest('/messages', 'GET', $request, Request::S_ARRAY);
+        return $this->client->makeRequest('/messages', Request::METHOD_GET, $request, Request::S_ARRAY);
     }
 
     /**
@@ -194,6 +242,6 @@ class Client
      */
     public function users(Model\Request\UsersRequest $request)
     {
-        return $this->client->makeRequest('/users', 'GET', $request, Request::S_ARRAY);
+        return $this->client->makeRequest('/users', Request::METHOD_GET, $request, Request::S_ARRAY);
     }
 }
