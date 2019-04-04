@@ -18,6 +18,7 @@ use RetailCrm\Common\Exception\CurlException;
 use RetailCrm\Common\Exception\LimitException;
 use Exception;
 use InvalidArgumentException;
+use Symfony\Component\Validator\Validation;
 
 /**
  * PHP version 7.0
@@ -77,9 +78,12 @@ class Request
     public function makeRequest($path, $method, $request = null, $serializeTo = self::S_JSON)
     {
         $this->validateMethod($method);
+        $this->validateRequest($request);
 
         $parameters = $this->serialize($request, $serializeTo);
         $url = $this->buildUrl($path, $method, $parameters);
+
+        var_dump($url);
 
         $curlHandler = curl_init();
         curl_setopt($curlHandler, CURLOPT_URL, $url);
@@ -164,6 +168,27 @@ class Request
                     implode(', ', $this->allowedMethods)
                 )
             );
+        }
+    }
+
+    /**
+     * Validate given class
+     *
+     * @param string $class
+     *
+     * @return void
+     */
+    private function validateRequest($class)
+    {
+        $validator = Validation::createValidatorBuilder()
+            ->addMethodMapping('loadValidatorMetadata')
+            ->getValidator();
+
+        $errors = $validator->validate($class);
+
+        if ($errors->count() > 0) {
+            $message = (string) $errors;
+            throw new InvalidArgumentException($message);
         }
     }
 
