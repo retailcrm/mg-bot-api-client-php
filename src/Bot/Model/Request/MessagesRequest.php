@@ -115,7 +115,7 @@ class MessagesRequest
     /**
      * @return int
      */
-    public function getChatId(): int
+    public function getChatId()
     {
         return $this->chatId;
     }
@@ -131,7 +131,7 @@ class MessagesRequest
     /**
      * @return int
      */
-    public function getDialogId(): int
+    public function getDialogId()
     {
         return $this->dialogId;
     }
@@ -147,7 +147,7 @@ class MessagesRequest
     /**
      * @return int
      */
-    public function getUserId(): int
+    public function getUserId()
     {
         return $this->userId;
     }
@@ -163,7 +163,7 @@ class MessagesRequest
     /**
      * @return int
      */
-    public function getCustomerId(): int
+    public function getCustomerId()
     {
         return $this->customerId;
     }
@@ -179,7 +179,7 @@ class MessagesRequest
     /**
      * @return int
      */
-    public function getBotId(): int
+    public function getBotId()
     {
         return $this->botId;
     }
@@ -195,7 +195,7 @@ class MessagesRequest
     /**
      * @return int
      */
-    public function getChannelId(): int
+    public function getChannelId()
     {
         return $this->channelId;
     }
@@ -211,7 +211,7 @@ class MessagesRequest
     /**
      * @return string
      */
-    public function getChannelType(): string
+    public function getChannelType()
     {
         return $this->channelType;
     }
@@ -227,7 +227,7 @@ class MessagesRequest
     /**
      * @return string
      */
-    public function getScope(): string
+    public function getScope()
     {
         return $this->scope;
     }
@@ -243,7 +243,7 @@ class MessagesRequest
     /**
      * @return string
      */
-    public function getType(): string
+    public function getType()
     {
         return $this->type;
     }

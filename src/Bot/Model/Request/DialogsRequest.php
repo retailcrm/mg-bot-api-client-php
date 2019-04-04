@@ -79,7 +79,7 @@ class DialogsRequest
     /**
      * @return int
      */
-    public function getChatId(): int
+    public function getChatId()
     {
         return $this->chatId;
     }
@@ -95,7 +95,7 @@ class DialogsRequest
     /**
      * @return int
      */
-    public function getUserId(): int
+    public function getUserId()
     {
         return $this->userId;
     }
@@ -111,7 +111,7 @@ class DialogsRequest
     /**
      * @return int
      */
-    public function getBotId(): int
+    public function getBotId()
     {
         return $this->botId;
     }
@@ -127,7 +127,7 @@ class DialogsRequest
     /**
      * @return int
      */
-    public function getActive(): int
+    public function getActive()
     {
         return $this->active;
     }
@@ -143,7 +143,7 @@ class DialogsRequest
     /**
      * @return int
      */
-    public function getAssign(): int
+    public function getAssign()
     {
         return $this->assign;
     }

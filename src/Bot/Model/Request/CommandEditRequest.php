@@ -52,7 +52,7 @@ class CommandEditRequest
     /**
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->name;
     }
@@ -68,7 +68,7 @@ class CommandEditRequest
     /**
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription()
     {
         return $this->description;
     }

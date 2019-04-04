@@ -10,13 +10,13 @@
 
     <testsuites>
         <testsuite name="RetailCrm">
-            <directory>tests/RetailCrm/Tests</directory>
+            <directory>tests/Bot/Tests</directory>
         </testsuite>
     </testsuites>
 
     <filter>
         <whitelist>
-            <directory suffix=".php">./src/RetailCrm</directory>
+            <directory suffix=".php">./src/Bot</directory>
         </whitelist>
     </filter>
 </phpunit>

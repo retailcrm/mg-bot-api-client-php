@@ -77,7 +77,7 @@ class MembersRequest
     /**
      * @return int
      */
-    public function getChatId(): int
+    public function getChatId()
     {
         return $this->chatId;
     }
@@ -93,7 +93,7 @@ class MembersRequest
     /**
      * @return int
      */
-    public function getUserId(): int
+    public function getUserId()
     {
         return $this->userId;
     }
@@ -109,7 +109,7 @@ class MembersRequest
     /**
      * @return string
      */
-    public function getState(): string
+    public function getState()
     {
         return $this->state;
     }
@@ -125,7 +125,7 @@ class MembersRequest
     /**
      * @return string
      */
-    public function getSince(): string
+    public function getSince()
     {
         return $this->since;
     }
@@ -141,7 +141,7 @@ class MembersRequest
     /**
      * @return string
      */
-    public function getUntil(): string
+    public function getUntil()
     {
         return $this->until;
     }

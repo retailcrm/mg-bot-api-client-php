@@ -33,7 +33,7 @@ class IntegrationHelper
      *
      * @return array
      */
-    public static function moduleRequest(array $config, string $clientId): array
+    public static function moduleRequest(array $config, string $clientId)
     {
         $config['host'] = str_replace("https://", '', $config['host']);
 

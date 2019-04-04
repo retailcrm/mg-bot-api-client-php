@@ -126,12 +126,6 @@ class Client
      */
     public function commandEdit(Model\Request\CommandEditRequest $request)
     {
-        $validation = Component\Validator::validate($request);
-
-        if (!empty($validation)) {
-            throw new InvalidArgumentException($validation);
-        }
-
         return $this->client->makeRequest(
             sprintf("/my/commands/%s", $request->getName()),
             Request::METHOD_PUT,

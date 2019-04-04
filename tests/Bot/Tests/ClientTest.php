@@ -14,7 +14,7 @@
 namespace RetailCrm\Mg\Bot\Tests;
 
 use InvalidArgumentException;
-use RetailCrm\Mg\Bot\Client;
+use RetailCrm\Mg\Bot\Model\Request\ChannelsRequest;
 use RetailCrm\Mg\Bot\Model\Request\CommandEditRequest;
 use RetailCrm\Mg\Bot\Test\TestCase;
 
@@ -33,10 +33,19 @@ class ClientTest extends TestCase
 
     /**
      * @group("list")
+     * @throws \Exception
      */
     public function testChannels()
     {
-        self::assertTrue(1 == 1);
+        $client = self::getApiClient();
+        $request = new ChannelsRequest();
+        $request->setActive(true);
+        $request->setTypes(['viber']);
+        $channels = $client->channels($request);
+
+        var_dump($channels->getResponse());
+
+        self::assertTrue($channels->isSuccessful() == true);
     }
 
     public function testChats()
