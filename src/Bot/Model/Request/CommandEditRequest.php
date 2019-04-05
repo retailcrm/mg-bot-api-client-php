@@ -37,6 +37,7 @@ class CommandEditRequest
       * @Type("string")
       * @Accessor(getter="getName",setter="setName")
       * @SkipWhenEmpty
+      * @Assert\NotBlank
      */
     private $name;
 
@@ -79,13 +80,5 @@ class CommandEditRequest
     public function setDescription(string $description)
     {
         $this->description = $description;
-    }
-
-    /**
-     * @param \Symfony\Component\Validator\Mapping\ClassMetadata $metadata
-     */
-    public static function loadValidatorMetadata(ClassMetadata $metadata)
-    {
-        $metadata->addPropertyConstraint('name', new Assert\NotBlank());
     }
 }

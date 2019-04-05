@@ -46,11 +46,11 @@ class BotsRequest
     private $self;
 
     /**
-     * @Type("string")
-     * @Accessor(getter="getRole",setter="setRole")
+     * @Type("array")
+     * @Accessor(getter="getRoles",setter="setRoles")
      * @SkipWhenEmpty
      */
-    private $role;
+    private $roles;
 
     /**
      * @return int
@@ -85,18 +85,18 @@ class BotsRequest
     }
 
     /**
-     * @return string
+     * @return array
      */
-    public function getRole()
+    public function getRoles()
     {
-        return $this->role;
+        return $this->roles;
     }
 
     /**
-     * @param string $role
+     * @param array $roles
      */
-    public function setRole($role)
+    public function setRoles($roles)
     {
-        $this->role = $role;
+        $this->roles = $roles;
     }
 }

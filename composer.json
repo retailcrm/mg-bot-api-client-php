@@ -34,7 +34,8 @@
         "psr-4": {
             "RetailCrm\\Mg\\": ["src/", "tests/"],
             "RetailCrm\\Common\\": "src/"
-        }
+        },
+        "files": ["extra/autoloader.php"]
     },
     "extra": {
         "branch-alias": {

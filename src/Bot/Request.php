@@ -83,8 +83,6 @@ class Request
         $parameters = $this->serialize($request, $serializeTo);
         $url = $this->buildUrl($path, $method, $parameters);
 
-        var_dump($url);
-
         $curlHandler = curl_init();
         curl_setopt($curlHandler, CURLOPT_URL, $url);
         curl_setopt($curlHandler, CURLOPT_RETURNTRANSFER, 1);
@@ -181,7 +179,7 @@ class Request
     private function validateRequest($class)
     {
         $validator = Validation::createValidatorBuilder()
-            ->addMethodMapping('loadValidatorMetadata')
+            ->enableAnnotationMapping()
             ->getValidator();
 
         $errors = $validator->validate($class);
@@ -206,7 +204,8 @@ class Request
 
         switch ($serialize) {
             case self::S_ARRAY:
-                $serialized = (array)$request;
+                $serializer = SerializerBuilder::create()->build();
+                $serialized = $serializer->toArray($request);
                 break;
             case self::S_JSON:
                 $serializer = SerializerBuilder::create()->build();

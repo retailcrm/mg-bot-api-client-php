@@ -14,6 +14,8 @@
 namespace RetailCrm\Mg\Bot\Tests;
 
 use InvalidArgumentException;
+use RetailCrm\Mg\Bot\Model\Constants;
+use RetailCrm\Mg\Bot\Model\Request\BotsRequest;
 use RetailCrm\Mg\Bot\Model\Request\ChannelsRequest;
 use RetailCrm\Mg\Bot\Model\Request\CommandEditRequest;
 use RetailCrm\Mg\Bot\Test\TestCase;
@@ -40,10 +42,8 @@ class ClientTest extends TestCase
         $client = self::getApiClient();
         $request = new ChannelsRequest();
         $request->setActive(true);
-        $request->setTypes(['viber']);
+        $request->setTypes([Constants::CHANNEL_TYPE_FACEBOOK]);
         $channels = $client->channels($request);
-
-        var_dump($channels->getResponse());
 
         self::assertTrue($channels->isSuccessful() == true);
     }
@@ -68,6 +68,9 @@ class ClientTest extends TestCase
         self::assertTrue(1 == 1);
     }
 
+    /**
+     * @throws \Exception
+     */
     public function testCommandEditException()
     {
         self::expectException(InvalidArgumentException::class);
@@ -79,9 +82,31 @@ class ClientTest extends TestCase
         $client->commandEdit($command);
     }
 
+    /**
+     * @throws \Exception
+     */
+    public function testCommandDeleteException()
+    {
+        self::expectException(\Exception::class);
+
+        $client = self::getApiClient();
+        $command = "qwerty";
+
+        $client->commandDelete($command);
+    }
+
+    /**
+     * @throws \Exception
+     */
     public function testBots()
     {
-        self::assertTrue(1 == 1);
+        $client = self::getApiClient();
+        $request = new BotsRequest();
+        $request->setActive(1);
+        $request->setRoles([Constants::BOT_ROLE_RESPONSIBLE]);
+        $bots = $client->bots($request);
+
+        self::assertTrue($bots->isSuccessful() == true);
     }
 
     public function testUsers()
