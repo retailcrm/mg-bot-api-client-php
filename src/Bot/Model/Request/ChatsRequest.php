@@ -3,7 +3,7 @@
 /**
  * PHP version 7.0
  *
- * Chats Request
+ * Chats list request
  *
  * @package  RetailCrm\Mg\Bot\Model\Request
  * @author   retailCRM <integration@retailcrm.ru>
@@ -34,14 +34,14 @@ class ChatsRequest
     /**
      * @Type("int")
      * @Accessor(getter="getChannelId",setter="setChannelId")
-     * @SkipWhenEmpty
+     * @SkipWhenEmpty()
      */
     private $channelId;
 
-     /**
+    /**
      * @Type("string")
      * @Accessor(getter="getChannelType",setter="setChannelType")
-     * @SkipWhenEmpty
+     * @SkipWhenEmpty()
      */
     private $channelType;
 

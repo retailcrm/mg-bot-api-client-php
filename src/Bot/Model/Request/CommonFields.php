@@ -3,7 +3,7 @@
 /**
  * PHP version 7.0
  *
- * Common Fields
+ * Common fields
  *
  * @package  RetailCrm\Mg\Bot\Model\Request
  * @author   retailCRM <integration@retailcrm.ru>

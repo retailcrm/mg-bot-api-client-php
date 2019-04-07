@@ -3,7 +3,7 @@
 /**
  * PHP version 7.0
  *
- * Edit Command Request
+ * Bot info request
  *
  * @package  RetailCrm\Mg\Bot\Model\Request
  * @author   retailCRM <integration@retailcrm.ru>
@@ -16,48 +16,45 @@ namespace RetailCrm\Mg\Bot\Model\Request;
 use JMS\Serializer\Annotation\Accessor;
 use JMS\Serializer\Annotation\SkipWhenEmpty;
 use JMS\Serializer\Annotation\Type;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * PHP version 7.0
  *
- * CommandEditRequest class
+ * InfoRequest class
  *
  * @package  RetailCrm\Mg\Bot\Model\Request
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
-class CommandEditRequest
+class InfoRequest
 {
-    /**
-     * @var int $botId
-     *
-     * @Type("int")
-     * @Accessor(getter="getBotId",setter="setBotId")
-     *
-     * @Assert\NotBlank
-     */
-    private $botId;
-
     /**
      * @var string $name
      *
      * @Type("string")
      * @Accessor(getter="getName",setter="setName")
-     *
-     * @Assert\NotBlank
+     * @SkipWhenEmpty()
      */
     private $name;
 
     /**
-     * @var string $description
+     * @var string $avatarUrl
      *
      * @Type("string")
-     * @Accessor(getter="getDescription",setter="setDescription")
-     * @SkipWhenEmpty
+     * @Accessor(getter="getAvatarUrl",setter="setAvatarUrl")
+     * @SkipWhenEmpty()
      */
-    private $description;
+    private $avatarUrl;
+
+    /**
+     * @var array $roles
+     *
+     * @Type("array")
+     * @Accessor(getter="getRoles",setter="setRoles")
+     * @SkipWhenEmpty()
+     */
+    private $roles;
 
     /**
      * @return string
@@ -78,32 +75,32 @@ class CommandEditRequest
     /**
      * @return string
      */
-    public function getDescription()
+    public function getAvatarUrl()
     {
-        return $this->description;
+        return $this->avatarUrl;
     }
 
     /**
-     * @param string $description
+     * @param string $avatarUrl
      */
-    public function setDescription(string $description)
+    public function setAvatarUrl(string $avatarUrl)
     {
-        $this->description = $description;
+        $this->avatarUrl = $avatarUrl;
     }
 
     /**
-     * @return int
+     * @return array
      */
-    public function getBotId()
+    public function getRoles()
     {
-        return $this->botId;
+        return $this->roles;
     }
 
     /**
-     * @param int $botId
+     * @param array $roles
      */
-    public function setBotId(int $botId)
+    public function setRoles(array $roles)
     {
-        $this->botId = $botId;
+        $this->roles = $roles;
     }
 }

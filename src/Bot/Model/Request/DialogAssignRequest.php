@@ -3,7 +3,7 @@
 /**
  * PHP version 7.0
  *
- * Users list request
+ * Dialog assign request
  *
  * @package  RetailCrm\Mg\Bot\Model\Request
  * @author   retailCRM <integration@retailcrm.ru>
@@ -20,83 +20,87 @@ use JMS\Serializer\Annotation\Type;
 /**
  * PHP version 7.0
  *
- * UsersRequest class
+ * DialogAssignRequest class
  *
  * @package  RetailCrm\Mg\Bot\Model\Request
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
-class UsersRequest
+class DialogAssignRequest
 {
-    use CommonFields;
-
     /**
-     * @Type("string")
-     * @Accessor(getter="getExternalId",setter="setExternalId")
-     * @SkipWhenEmpty
-     */
-    private $externalId;
-
-    /**
+     * @var int $dialogId
+     *
      * @Type("int")
-     * @Accessor(getter="getActive",setter="setActive")
+     * @Accessor(getter="getDialogId,setter="setDialogId")
      * @SkipWhenEmpty
      */
-    private $active;
+    private $dialogId;
 
     /**
+     * @var int $userId
+     *
      * @Type("int")
-     * @Accessor(getter="getOnline",setter="setOnline")
+     * @Accessor(getter="getUserId",setter="setUserId")
      * @SkipWhenEmpty
      */
-    private $online;
+    private $userId;
 
     /**
-     * @return string
+     * @var int $botId
+     *
+     * @Type("int")
+     * @Accessor(getter="getBotId",setter="setBotId")
+     * @SkipWhenEmpty()
      */
-    public function getExternalId()
+    private $botId;
+
+    /**
+     * @return int
+     */
+    public function getDialogId()
     {
-        return $this->externalId;
+        return $this->dialogId;
     }
 
     /**
-     * @param string $externalId
+     * @param int $dialogId
      */
-    public function setExternalId($externalId)
+    public function setDialogId(int $dialogId)
     {
-        $this->externalId = $externalId;
+        $this->dialogId = $dialogId;
     }
 
     /**
      * @return int
      */
-    public function getActive()
+    public function getUserId()
     {
-        return $this->active;
+        return $this->userId;
     }
 
     /**
-     * @param int $active
+     * @param int $userId
      */
-    public function setActive($active)
+    public function setUserId(int $userId)
     {
-        $this->active = $active;
+        $this->userId = $userId;
     }
 
     /**
      * @return int
      */
-    public function getOnline()
+    public function getBotId()
     {
-        return $this->online;
+        return $this->botId;
     }
 
     /**
-     * @param int $online
+     * @param int $botId
      */
-    public function setOnline($online)
+    public function setBotId(int $botId)
     {
-        $this->online = $online;
+        $this->botId = $botId;
     }
 }

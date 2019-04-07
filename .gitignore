@@ -82,7 +82,7 @@ fabric.properties
 ### NetBeans template
 nbproject/private/
 nbbuild/
-dist/
+/dist/
 nbdist/
 .nb-gradle/
 ### Eclipse template
@@ -183,3 +183,4 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+/.php_cs.cache

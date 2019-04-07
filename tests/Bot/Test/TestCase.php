@@ -28,22 +28,22 @@ use RetailCrm\Mg\Bot\Client;
 class TestCase extends BaseCase
 {
     /**
-     * Return ApiClient object
+     * Return bot api client object
      *
      * @param string $url     (default: null)
      * @param string $key     (default: null)
      * @param bool   $debug   (default: false)
      *
-     * @return Client
+     * @return \RetailCrm\Mg\Bot\Client
      */
     public static function getApiClient(
         $url = null,
         $key = null,
         $debug = false
     ) {
-        $configUrl = getenv('MG_BOT_URL') ?: $_SERVER['MG_BOT_URL'];
-        $configKey = getenv('MG_BOT_KEY') ?: $_SERVER['MG_BOT_KEY'];
-        $configDbg = getenv('MG_BOT_DBG') ?: $_SERVER['MG_BOT_DBG'];
+        $configUrl = getenv('MG_BOT_URL');
+        $configKey = getenv('MG_BOT_KEY');
+        $configDbg = getenv('MG_BOT_DBG');
 
         return new Client(
             $url ?: $configUrl,

@@ -3,7 +3,7 @@
 /**
  * PHP version 7.0
  *
- * Commands Request
+ * Dialogs list request
  *
  * @package  RetailCrm\Mg\Bot\Model\Request
  * @author   retailCRM <integration@retailcrm.ru>
@@ -20,7 +20,7 @@ use JMS\Serializer\Annotation\Type;
 /**
  * PHP version 7.0
  *
- * CommandsRequest class
+ * DialogsRequest class
  *
  * @package  RetailCrm\Mg\Bot\Model\Request
  * @author   retailCRM <integration@retailcrm.ru>

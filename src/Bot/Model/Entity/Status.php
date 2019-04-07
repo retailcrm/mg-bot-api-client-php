@@ -3,15 +3,15 @@
 /**
  * PHP version 7.0
  *
- * Commands list request
+ * Status entity
  *
- * @package  RetailCrm\Mg\Bot\Model\Request
+ * @package  RetailCrm\Mg\Bot\Model\Entity
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
 
-namespace RetailCrm\Mg\Bot\Model\Request;
+namespace RetailCrm\Mg\Bot\Model\Entity;
 
 use JMS\Serializer\Annotation\Accessor;
 use JMS\Serializer\Annotation\SkipWhenEmpty;
@@ -20,23 +20,48 @@ use JMS\Serializer\Annotation\Type;
 /**
  * PHP version 7.0
  *
- * CommandsRequest class
+ * Status class
  *
- * @package  RetailCrm\Mg\Bot\Model\Request
+ * @package  RetailCrm\Mg\Bot\Model\Entity
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
-class CommandsRequest
+class Status
 {
-    use CommonFields;
+    /**
+     * @var string $code
+     *
+     * @Type("string")
+     * @Accessor(getter="getCode",setter="setCode")
+     * @SkipWhenEmpty()
+     */
+    private $code;
 
     /**
+     * @var string $name
+     *
      * @Type("string")
      * @Accessor(getter="getName",setter="setName")
-     * @SkipWhenEmpty
+     * @SkipWhenEmpty()
      */
     private $name;
+
+    /**
+     * @return string
+     */
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    /**
+     * @param string $code
+     */
+    public function setCode(string $code)
+    {
+        $this->code = $code;
+    }
 
     /**
      * @return string
@@ -49,7 +74,7 @@ class CommandsRequest
     /**
      * @param string $name
      */
-    public function setName($name)
+    public function setName(string $name)
     {
         $this->name = $name;
     }

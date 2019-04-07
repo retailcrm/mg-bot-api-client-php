@@ -10,7 +10,7 @@ deps:
 test:
 	@echo "==> Running tests"
 	@cd $(ROOT_DIR)
-	@php -d memory_limit=-1 $(BIN_DIR)/phpunit -c phpunit.xml.dist --log-junit test-report.xml
+	@php -d memory_limit=-1 $(BIN_DIR)/phpunit -c phpunit.xml.dist --log-junit $(ROOT_DIR)/test-report.xml
 	@echo "==> Testing  complete"
 
 stan:

@@ -35,9 +35,9 @@ class Constants
     const CHANNEL_TYPE_CONSULTANT = "consultant";
     const CHANNEL_TYPE_CUSTOM     = "custom";
 
-    const CHAT_MEMBER_STATEACTIVE = "active";
-    const CHAT_MEMBER_STATEKICKED = "kicked";
-    const CHAT_MEMBER_STATELEAVED = "leaved";
+    const CHAT_MEMBER_STATE_ACTIVE = "active";
+    const CHAT_MEMBER_STATE_KICKED = "kicked";
+    const CHAT_MEMBER_STATE_LEAVED = "leaved";
 
     const CHANNEL_FEATURE_NONE    = "none";
     const CHANNEL_FEATURE_RECEIVE = "receive";
@@ -82,10 +82,4 @@ class Constants
     const WS_EVENT_BOT_UPDATED         = "bot_updated";
     const WS_EVENT_CHANNEL_UPDATED     = "channel_updated";
     const WS_EVENT_SETTINGS_UPDATED    = "settings_updated";
-
-
-
-
-
-
 }
