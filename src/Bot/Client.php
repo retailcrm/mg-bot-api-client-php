@@ -17,10 +17,16 @@ use Psr\Http\Message\ResponseInterface;
 use RetailCrm\Common\Exception\InvalidJsonException;
 use RetailCrm\Common\Url;
 use RetailCrm\Common\Serializer;
+<<<<<<< HEAD
 use RetailCrm\Mg\Bot\Model\Request\UploadFileByUrlRequest;
 use RetailCrm\Mg\Bot\Model\Response\FullFileResponse;
 use RetailCrm\Mg\Bot\Model\Response\ListResponse;
 use RetailCrm\Mg\Bot\Model\Response\UploadFileResponse;
+=======
+use RetailCrm\Mg\Bot\Model;
+use Exception;
+use InvalidArgumentException;
+>>>>>>> 0e28925... add request model (except ws and files), move serializer & url handling into separate namespace
 
 /**
  * PHP version 7.0
@@ -60,7 +66,11 @@ class Client
     public function __construct($url, $token, $debug = false, $handler = null)
     {
         $url = sprintf("%sapi/bot/%s", Url::normalizeUrl($url), self::VERSION);
+<<<<<<< HEAD
         $this->client = new HttpClient($url, $token, $debug ? STDOUT : null, $handler);
+=======
+        $this->client = new Request($url, $token, $debug);
+>>>>>>> 0e28925... add request model (except ws and files), move serializer & url handling into separate namespace
     }
 
     /**
@@ -165,6 +175,7 @@ class Client
      */
     public function bots(Model\Request\BotsRequest $request)
     {
+<<<<<<< HEAD
         return $this->submitRequest(
             '/bots',
             HttpClient::METHOD_GET,
@@ -172,11 +183,15 @@ class Client
             static::getEntityClass('Bot'),
             true
         );
+=======
+        return $this->client->makeRequest('/bots', Request::METHOD_GET, $request, Serializer::S_ARRAY);
+>>>>>>> 0e28925... add request model (except ws and files), move serializer & url handling into separate namespace
     }
 
     /**
      * Edit bot info
      *
+<<<<<<< HEAD
      * @param Model\Request\InfoRequest $request Request parameters
      *
      * @return \RetailCrm\Mg\Bot\Model\Response\ErrorOnlyResponse|object
@@ -190,6 +205,20 @@ class Client
             $request,
             static::getResponseClass(self::ERROR_ONLY_RESPONSE)
         );
+=======
+     * @param Model\Request\InfoRequest $request
+     *
+     * @throws InvalidArgumentException
+     * @throws CurlException
+     * @throws CurlException
+     * @throws Exception
+     *
+     * @return Response
+     */
+    public function info(Model\Request\InfoRequest $request)
+    {
+        return $this->client->makeRequest('/my/info', Request::METHOD_PATCH, $request);
+>>>>>>> 0e28925... add request model (except ws and files), move serializer & url handling into separate namespace
     }
 
     /**
@@ -202,6 +231,7 @@ class Client
      */
     public function channels(Model\Request\ChannelsRequest $request)
     {
+<<<<<<< HEAD
         return $this->submitRequest(
             '/channels',
             HttpClient::METHOD_GET,
@@ -209,6 +239,9 @@ class Client
             static::getEntityClass('Channel', 'Channel'),
             true
         );
+=======
+        return $this->client->makeRequest('/channels', Request::METHOD_GET, $request, Serializer::S_ARRAY);
+>>>>>>> 0e28925... add request model (except ws and files), move serializer & url handling into separate namespace
     }
 
     /**
@@ -221,6 +254,7 @@ class Client
      */
     public function chats(Model\Request\ChatsRequest $request)
     {
+<<<<<<< HEAD
         return $this->submitRequest(
             '/chats',
             HttpClient::METHOD_GET,
@@ -228,6 +262,9 @@ class Client
             static::getEntityClass('Chat', 'Chat'),
             true
         );
+=======
+        return $this->client->makeRequest('/chats', Request::METHOD_GET, $request, Serializer::S_ARRAY);
+>>>>>>> 0e28925... add request model (except ws and files), move serializer & url handling into separate namespace
     }
 
     /**
@@ -240,6 +277,7 @@ class Client
      */
     public function commands(Model\Request\CommandsRequest $request)
     {
+<<<<<<< HEAD
         return $this->submitRequest(
             '/my/commands',
             HttpClient::METHOD_GET,
@@ -247,6 +285,9 @@ class Client
             static::getEntityClass('Command'),
             true
         );
+=======
+        return $this->client->makeRequest('/my/commands', Request::METHOD_GET, $request, Serializer::S_ARRAY);
+>>>>>>> 0e28925... add request model (except ws and files), move serializer & url handling into separate namespace
     }
 
     /**
@@ -277,12 +318,16 @@ class Client
      */
     public function commandDelete(string $request)
     {
+<<<<<<< HEAD
         return $this->submitRequest(
             sprintf("/my/commands/%s", $request),
             HttpClient::METHOD_DELETE,
             null,
             static::getResponseClass(self::ERROR_ONLY_RESPONSE)
         );
+=======
+        return $this->client->makeRequest(sprintf("/my/commands/%s", $request), Request::METHOD_DELETE);
+>>>>>>> 0e28925... add request model (except ws and files), move serializer & url handling into separate namespace
     }
 
     /**
@@ -295,6 +340,7 @@ class Client
      */
     public function customers(Model\Request\CustomersRequest $request)
     {
+<<<<<<< HEAD
         return $this->submitRequest(
             '/customers',
             HttpClient::METHOD_GET,
@@ -302,6 +348,9 @@ class Client
             static::getEntityClass('Customer'),
             true
         );
+=======
+        return $this->client->makeRequest('/customers', Request::METHOD_GET, $request, Serializer::S_ARRAY);
+>>>>>>> 0e28925... add request model (except ws and files), move serializer & url handling into separate namespace
     }
 
     /**
@@ -314,6 +363,7 @@ class Client
      */
     public function dialogs(Model\Request\DialogsRequest $request)
     {
+<<<<<<< HEAD
         return $this->submitRequest(
             '/dialogs',
             HttpClient::METHOD_GET,
@@ -321,6 +371,47 @@ class Client
             static::getEntityClass('Dialog'),
             true
         );
+=======
+        return $this->client->makeRequest('/dialogs', Request::METHOD_GET, $request, Serializer::S_ARRAY);
+    }
+
+    /**
+     * Assign dialog to exact user
+     *
+     * @param Model\Request\DialogAssignRequest $request
+     *
+     * @throws InvalidArgumentException
+     * @throws CurlException
+     * @throws InvalidJsonException
+     * @throws Exception
+     *
+     * @return Response
+     */
+    public function dialogAssign(Model\Request\DialogAssignRequest $request)
+    {
+        return $this->client->makeRequest(
+            sprintf("/dialogs/%d/assign", $request->getDialogId()),
+            Request::METHOD_PATCH,
+            $request
+        );
+    }
+
+    /**
+     * Close exact dialog
+     *
+     * @param string $request
+     *
+     * @throws InvalidArgumentException
+     * @throws CurlException
+     * @throws InvalidJsonException
+     * @throws Exception
+     *
+     * @return Response
+     */
+    public function dialogClose(string $request)
+    {
+        return $this->client->makeRequest(sprintf("/dialogs/%d/close", $request), Request::METHOD_DELETE);
+>>>>>>> 0e28925... add request model (except ws and files), move serializer & url handling into separate namespace
     }
 
     /**
@@ -369,6 +460,7 @@ class Client
      */
     public function members(Model\Request\MembersRequest $request)
     {
+<<<<<<< HEAD
         return $this->submitRequest(
             '/members',
             HttpClient::METHOD_GET,
@@ -376,6 +468,9 @@ class Client
             static::getEntityClass('Chat', 'ChatMember'),
             true
         );
+=======
+        return $this->client->makeRequest('/members', Request::METHOD_GET, $request, Serializer::S_ARRAY);
+>>>>>>> 0e28925... add request model (except ws and files), move serializer & url handling into separate namespace
     }
 
     /**
@@ -388,6 +483,7 @@ class Client
      */
     public function messages(Model\Request\MessagesRequest $request)
     {
+<<<<<<< HEAD
         return $this->submitRequest(
             '/messages',
             HttpClient::METHOD_GET,
@@ -395,6 +491,60 @@ class Client
             self::getEntityClass('Message', 'Message'),
             true
         );
+=======
+        return $this->client->makeRequest('/messages', Request::METHOD_GET, $request, Serializer::S_ARRAY);
+    }
+
+    /**
+     * Send a message
+     *
+     * @param Model\Request\MessageSendRequest $request
+     *
+     * @throws InvalidArgumentException
+     * @throws CurlException
+     * @throws InvalidJsonException
+     * @throws Exception
+     *
+     * @return Response
+     */
+    public function messageSend(Model\Request\MessageSendRequest $request)
+    {
+        return $this->client->makeRequest('/messages', Request::METHOD_POST, $request);
+    }
+
+    /**
+     * Edit a message
+     *
+     * @param Model\Request\MessageEditRequest $request
+     *
+     * @throws InvalidArgumentException
+     * @throws CurlException
+     * @throws InvalidJsonException
+     * @throws Exception
+     *
+     * @return Response
+     */
+    public function messageEdit(Model\Request\MessageEditRequest $request)
+    {
+        return $this->client->makeRequest('/messages/%d', Request::METHOD_PATCH, $request->getId());
+    }
+
+    /**
+     * Delete a message
+     *
+     * @param string $request
+     *
+     * @throws InvalidArgumentException
+     * @throws CurlException
+     * @throws InvalidJsonException
+     * @throws Exception
+     *
+     * @return Response
+     */
+    public function messageDelete(string $request)
+    {
+        return $this->client->makeRequest(sprintf("/messages/%d", $request), Request::METHOD_DELETE);
+>>>>>>> 0e28925... add request model (except ws and files), move serializer & url handling into separate namespace
     }
 
     /**
@@ -461,6 +611,7 @@ class Client
      */
     public function users(Model\Request\UsersRequest $request)
     {
+<<<<<<< HEAD
         return $this->submitRequest(
             '/users',
             HttpClient::METHOD_GET,
@@ -529,5 +680,8 @@ class Client
         );
 
         return ($obj instanceof FullFileResponse) ? $obj : null;
+=======
+        return $this->client->makeRequest('/users', Request::METHOD_GET, $request, Serializer::S_ARRAY);
+>>>>>>> 0e28925... add request model (except ws and files), move serializer & url handling into separate namespace
     }
 }
