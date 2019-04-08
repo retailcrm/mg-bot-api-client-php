@@ -34,8 +34,7 @@ class Product
      *
      * @Type("int")
      * @Accessor(getter="getId",setter="setId")
-     *
-     * @Assert\NotBlank
+     * @SkipWhenEmpty()
      */
     private $id;
 
@@ -44,8 +43,7 @@ class Product
      *
      * @Type("string")
      * @Accessor(getter="getName",setter="setName")
-     *
-     * @Assert\NotBlank
+     * @SkipWhenEmpty()
      */
     private $name;
 
@@ -77,18 +75,18 @@ class Product
     private $img;
 
     /**
-     * @var \RetailCrm\Mg\Bot\Model\Entity\Cost $cost
+     * @var Cost $cost
      *
-     * @Type("\RetailCrm\Mg\Bot\Model\Entity\Cost")
+     * @Type("Cost")
      * @Accessor(getter="getCost",setter="setCost")
      * @SkipWhenEmpty()
      */
     private $cost;
 
     /**
-     * @var \RetailCrm\Mg\Bot\Model\Entity\Quantity $quantity
+     * @var Quantity $quantity
      *
-     * @Type("\RetailCrm\Mg\Bot\Model\Entity\Quantity")
+     * @Type("Quantity")
      * @Accessor(getter="getQuantity",setter="setQuantity)
      * @SkipWhenEmpty()
      */
@@ -175,7 +173,7 @@ class Product
     }
 
     /**
-     * @return \RetailCrm\Mg\Bot\Model\Entity\Cost
+     * @return Cost
      */
     public function getCost()
     {
@@ -183,7 +181,7 @@ class Product
     }
 
     /**
-     * @param \RetailCrm\Mg\Bot\Model\Entity\Cost $cost
+     * @param Cost $cost
      */
     public function setCost(Cost $cost)
     {
@@ -191,7 +189,7 @@ class Product
     }
 
     /**
-     * @return \RetailCrm\Mg\Bot\Model\Entity\Quantity
+     * @return Quantity
      */
     public function getQuantity()
     {
@@ -199,7 +197,7 @@ class Product
     }
 
     /**
-     * @param \RetailCrm\Mg\Bot\Model\Entity\Quantity $quantity
+     * @param Quantity $quantity
      */
     public function setQuantity(Quantity $quantity)
     {

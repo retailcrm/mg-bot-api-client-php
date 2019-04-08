@@ -16,6 +16,7 @@ namespace RetailCrm\Mg\Bot\Model\Request;
 use JMS\Serializer\Annotation\Accessor;
 use JMS\Serializer\Annotation\SkipWhenEmpty;
 use JMS\Serializer\Annotation\Type;
+use Symfony\Component\Validator\Constraints as Assert;
 use RetailCrm\Mg\Bot\Model\Entity\Order;
 use RetailCrm\Mg\Bot\Model\Entity\Product;
 
@@ -45,23 +46,24 @@ class MessageSendRequest
      *
      * @Type("string")
      * @Accessor(getter="getContent",setter="setContent")
-     * @SkipWhenEmpty()
+     *
+     * @Assert\NotBlank
      */
     private $content;
 
     /**
-     * @var \RetailCrm\Mg\Bot\Model\Entity\Product $product
+     * @var Product $product
      *
-     * @Type("\RetailCrm\Mg\Bot\Model\Entity\Product")
+     * @Type("Product")
      * @Accessor(getter="getProduct",setter="setProduct")
      * @SkipWhenEmpty()
      */
     private $product;
 
     /**
-     * @var \RetailCrm\Mg\Bot\Model\Entity\Order $order
+     * @var Order $order
      *
-     * @Type("\RetailCrm\Mg\Bot\Model\Entity\Order")
+     * @Type("Order")
      * @Accessor(getter="getOrder",setter="setOrder")
      * @SkipWhenEmpty()
      */
@@ -81,7 +83,8 @@ class MessageSendRequest
      *
      * @Type("string")
      * @Accessor(getter="getScope",setter="setScope")
-     * @SkipWhenEmpty()
+     *
+     * @Assert\NotBlank
      */
     private $scope;
 
@@ -90,7 +93,8 @@ class MessageSendRequest
      *
      * @Type("int")
      * @Accessor(getter="getChatId",setter="setChatId")
-     * @SkipWhenEmpty
+     *
+     * @Assert\NotBlank
      */
     private $chatId;
 
@@ -170,7 +174,7 @@ class MessageSendRequest
     }
 
     /**
-     * @return \RetailCrm\Mg\Bot\Model\Entity\Product
+     * @return Product
      */
     public function getProduct()
     {
@@ -178,7 +182,7 @@ class MessageSendRequest
     }
 
     /**
-     * @param \RetailCrm\Mg\Bot\Model\Entity\Product $product
+     * @param Product $product
      */
     public function setProduct(Product $product)
     {
@@ -186,7 +190,7 @@ class MessageSendRequest
     }
 
     /**
-     * @return \RetailCrm\Mg\Bot\Model\Entity\Order
+     * @return Order
      */
     public function getOrder()
     {
@@ -194,7 +198,7 @@ class MessageSendRequest
     }
 
     /**
-     * @param \RetailCrm\Mg\Bot\Model\Entity\Order $order
+     * @param Order $order
      */
     public function setOrder(Order $order)
     {
