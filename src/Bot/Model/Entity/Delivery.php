@@ -40,9 +40,9 @@ class Delivery
     private $name;
 
     /**
-     * @var \RetailCrm\Mg\Bot\Model\Entity\Cost $price
+     * @var Cost $price
      *
-     * @Type("\RetailCrm\Mg\Bot\Model\Entity\Cost")
+     * @Type("Cost")
      * @Accessor(getter="getPrice",setter="setPrice")
      *
      * @Assert\Currency
@@ -84,7 +84,7 @@ class Delivery
     }
 
     /**
-     * @return \RetailCrm\Mg\Bot\Model\Entity\Cost
+     * @return Cost
      */
     public function getPrice()
     {
@@ -92,7 +92,7 @@ class Delivery
     }
 
     /**
-     * @param \RetailCrm\Mg\Bot\Model\Entity\Cost $price
+     * @param Cost $price
      */
     public function setPrice(Cost $price)
     {

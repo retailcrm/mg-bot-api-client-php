@@ -126,6 +126,7 @@ class Request
 
         $response = Response::parseJSON($responseBody);
         $errorMessage = !empty($response['errorMsg']) ? $response['errorMsg'] : '';
+        $errorMessage = !empty($response['errors']) ? $this->getErrors($response['errors']) : $errorMessage;
 
         /**
          * responses with 400 & 460 http codes contains extended error data
@@ -189,5 +190,16 @@ class Request
             $message = (string) $errors;
             throw new InvalidArgumentException($message);
         }
+    }
+
+    private function getErrors(array $errors)
+    {
+        $errorString = '';
+
+        foreach ($errors as $error) {
+            $errorString .= $error . " ";
+        }
+
+        return $errorString;
     }
 }

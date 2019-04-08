@@ -39,18 +39,18 @@ class Payment
     private $name;
 
     /**
-     * @var \RetailCrm\Mg\Bot\Model\Entity\PaymentStatus $status
+     * @var PaymentStatus $status
      *
-     * @Type("\RetailCrm\Mg\Bot\Model\Entity\PaymentStatus")
+     * @Type("PaymentStatus")
      * @Accessor(getter="getStatus",setter="setStatus")
      * @SkipWhenEmpty()
      */
     private $status;
 
     /**
-     * @var \RetailCrm\Mg\Bot\Model\Entity\Cost $amount
+     * @var Cost $amount
      *
-     * @Type("\RetailCrm\Mg\Bot\Model\Entity\Cost")
+     * @Type("Cost")
      * @Accessor(getter="getAmount",setter="setAmount")
      * @SkipWhenEmpty()
      */
@@ -73,7 +73,7 @@ class Payment
     }
 
     /**
-     * @return \RetailCrm\Mg\Bot\Model\Entity\PaymentStatus
+     * @return PaymentStatus
      */
     public function getStatus()
     {
@@ -81,7 +81,7 @@ class Payment
     }
 
     /**
-     * @param \RetailCrm\Mg\Bot\Model\Entity\PaymentStatus $status
+     * @param PaymentStatus $status
      */
     public function setStatus(PaymentStatus $status)
     {
@@ -89,7 +89,7 @@ class Payment
     }
 
     /**
-     * @return \RetailCrm\Mg\Bot\Model\Entity\Cost
+     * @return Cost
      */
     public function getAmount()
     {
@@ -97,7 +97,7 @@ class Payment
     }
 
     /**
-     * @param \RetailCrm\Mg\Bot\Model\Entity\Cost $amount
+     * @param Cost $amount
      */
     public function setAmount(Cost $amount)
     {

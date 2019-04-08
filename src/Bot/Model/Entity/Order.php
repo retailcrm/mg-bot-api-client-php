@@ -34,8 +34,7 @@ class Order
      *
      * @Type("string")
      * @Accessor(getter="getNumber",setter="setNumber")
-     *
-     * @Assert\NotBlank
+     * @SkipWhenEmpty()
      */
     private $number;
 
@@ -58,27 +57,27 @@ class Order
     private $date;
 
     /**
-     * @var \RetailCrm\Mg\Bot\Model\Entity\Cost $cost
+     * @var Cost $cost
      *
-     * @Type("\RetailCrm\Mg\Bot\Model\Entity\Cost")
+     * @Type("Cost")
      * @Accessor(getter="getCost",setter="setCost")
      * @SkipWhenEmpty()
      */
     private $cost;
 
     /**
-     * @var \RetailCrm\Mg\Bot\Model\Entity\Status $status
+     * @var Status $status
      *
-     * @Type("\RetailCrm\Mg\Bot\Model\Entity\Status")
+     * @Type("Status")
      * @Accessor(getter="getStatus",setter="setStatus")
      * @SkipWhenEmpty()
      */
     private $status;
 
     /**
-     * @var \RetailCrm\Mg\Bot\Model\Entity\Delivery $delivery
+     * @var Delivery $delivery
      *
-     * @Type("\RetailCrm\Mg\Bot\Model\Entity\Delivery")
+     * @Type("Delivery")
      * @Accessor(getter="getDelivery",setter="setDelivery")
      * @SkipWhenEmpty()
      */
@@ -151,7 +150,7 @@ class Order
     }
 
     /**
-     * @return \RetailCrm\Mg\Bot\Model\Entity\Cost
+     * @return Cost
      */
     public function getCost()
     {
@@ -159,7 +158,7 @@ class Order
     }
 
     /**
-     * @param \RetailCrm\Mg\Bot\Model\Entity\Cost $cost
+     * @param Cost $cost
      */
     public function setCost(Cost $cost)
     {
@@ -167,7 +166,7 @@ class Order
     }
 
     /**
-     * @return \RetailCrm\Mg\Bot\Model\Entity\Status
+     * @return Status
      */
     public function getStatus()
     {
@@ -175,7 +174,7 @@ class Order
     }
 
     /**
-     * @param \RetailCrm\Mg\Bot\Model\Entity\Status $status
+     * @param Status $status
      */
     public function setStatus(Status $status)
     {
@@ -183,7 +182,7 @@ class Order
     }
 
     /**
-     * @return \RetailCrm\Mg\Bot\Model\Entity\Delivery
+     * @return Delivery
      */
     public function getDelivery()
     {
@@ -191,7 +190,7 @@ class Order
     }
 
     /**
-     * @param \RetailCrm\Mg\Bot\Model\Entity\Delivery $delivery
+     * @param Delivery $delivery
      */
     public function setDelivery(Delivery $delivery)
     {

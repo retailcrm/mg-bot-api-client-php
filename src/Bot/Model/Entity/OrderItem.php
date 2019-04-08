@@ -57,18 +57,18 @@ class OrderItem
     private $img;
 
     /**
-     * @var \RetailCrm\Mg\Bot\Model\Entity\Cost $price
+     * @var Cost $price
      *
-     * @Type("\RetailCrm\Mg\Bot\Model\Entity\Cost")
+     * @Type("Cost")
      * @Accessor(getter="getPrice",setter="setPrice")
      * @SkipWhenEmpty()
      */
     private $price;
 
     /**
-     * @var \RetailCrm\Mg\Bot\Model\Entity\Quantity $quantity
+     * @var Quantity $quantity
      *
-     * @Type("\RetailCrm\Mg\Bot\Model\Entity\Quantity")
+     * @Type("Quantity")
      * @Accessor(getter="getQuantity",setter="setQuantity)
      * @SkipWhenEmpty()
      */
@@ -123,7 +123,7 @@ class OrderItem
     }
 
     /**
-     * @return \RetailCrm\Mg\Bot\Model\Entity\Cost
+     * @return Cost
      */
     public function getPrice()
     {
@@ -131,7 +131,7 @@ class OrderItem
     }
 
     /**
-     * @param \RetailCrm\Mg\Bot\Model\Entity\Cost $price
+     * @param Cost $price
      */
     public function setPrice(Cost $price)
     {
@@ -139,7 +139,7 @@ class OrderItem
     }
 
     /**
-     * @return \RetailCrm\Mg\Bot\Model\Entity\Quantity
+     * @return Quantity
      */
     public function getQuantity()
     {
@@ -147,7 +147,7 @@ class OrderItem
     }
 
     /**
-     * @param \RetailCrm\Mg\Bot\Model\Entity\Quantity $quantity
+     * @param Quantity $quantity
      */
     public function setQuantity(Quantity $quantity)
     {
