@@ -8,9 +8,9 @@ use Composer\Autoload\ClassLoader;
  * @var ClassLoader $loader
  */
 
-$autoloadFile = file_exist(__DIR__ . '/../vendor/autoload.php') 
+$autoloadFile = file_exists(__DIR__ . '/../vendor/autoload.php') 
     ? __DIR__ . '/../vendor/autoload.php'
-    : __DIR__ . '/../../../autoload.php'
+    : __DIR__ . '/../../../autoload.php';
       
 $loader = require $autoloadFile;
 
