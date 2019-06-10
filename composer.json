@@ -1,0 +1,50 @@
+{
+    "name": "retailcrm/mg-bot-api-client-php",
+    "description": "PHP client for retailCRM MG Bot API",
+    "type": "library",
+    "keywords": ["API", "retailCRM", "REST", "bot"],
+    "homepage": "http://www.retailcrm.ru/",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "retailCRM",
+            "email": "support@retailcrm.ru"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "jms/serializer": "1.13.*",
+        "symfony/validator": "^4.2",
+        "doctrine/annotations": "^1.6",
+        "doctrine/cache": "^1.8"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "6.5.*",
+        "phpmd/phpmd": "2.6.*",
+        "phpstan/phpstan": "0.9.*",
+        "squizlabs/php_codesniffer": "3.4.*",
+        "symfony/dotenv": "^4.2",
+        "friendsofphp/php-cs-fixer": "^2.14"
+    },
+    "support": {
+        "email": "support@retailcrm.ru"
+    },
+    "autoload": {
+        "psr-4": {
+            "RetailCrm\\Mg\\": ["src/", "tests/"],
+            "RetailCrm\\Common\\": "src/"
+        },
+        "files": ["extra/autoloader.php"]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x-dev"
+        }
+    },
+    "config": {
+        "bin-dir": "bin",
+        "process-timeout": 600
+    }
+}
