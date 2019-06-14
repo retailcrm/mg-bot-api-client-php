@@ -3,7 +3,7 @@
 /**
  * PHP version 7.0
  *
- * Request
+ * HttpClient
  *
  * @package  RetailCrm\Mg\Bot
  * @author   retailCRM <integration@retailcrm.ru>
@@ -13,25 +13,30 @@
 
 namespace RetailCrm\Mg\Bot;
 
-use RetailCrm\Common\Exception\CurlException;
+use RetailCrm\Common\Exception\InvalidJsonException;
 use RetailCrm\Common\Exception\LimitException;
-use Exception;
 use InvalidArgumentException;
 use RetailCrm\Common\Serializer;
 use RetailCrm\Common\Url;
 use Symfony\Component\Validator\Validation;
+use GuzzleHttp\Client;
+use GuzzleHttp\HandlerStack;
+use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\Exception\GuzzleException;
+use Psr\Http\Message\ResponseInterface;
+use function GuzzleHttp\Psr7\stream_for;
 
 /**
  * PHP version 7.0
  *
- * Request class
+ * HttpClient class
  *
  * @package  RetailCrm\Mg\Bot
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
-class Request
+class HttpClient
 {
     const METHOD_GET = 'GET';
     const METHOD_POST = 'POST';
@@ -39,30 +44,34 @@ class Request
     const METHOD_PATCH = 'PATCH';
     const METHOD_DELETE = 'DELETE';
 
-    protected $url;
+    protected $basePath;
     protected $token;
-    private $debug;
     private $allowedMethods;
     private $stdout;
+    private $client;
 
     /**
      * Client constructor.
      *
      * @param string        $url    api url
      * @param string        $token  api token
-     * @param bool          $debug  make request verbose
      * @param bool|resource $stdout default output for debug
+     * @param HandlerStack  $handler
      */
-    public function __construct($url, $token, $debug, $stdout = STDOUT)
+    public function __construct($url, $token, $stdout = STDOUT, $handler = null)
     {
         if (false === stripos($url, 'https://')) {
             throw new InvalidArgumentException('API schema requires HTTPS protocol');
         }
 
-        $this->url = $url;
+        $this->basePath = parse_url($url, PHP_URL_PATH);
         $this->token = $token;
-        $this->debug = $debug;
         $this->stdout = $stdout;
+        $this->client = new Client(array_filter([
+            'base_uri' => Url::normalizeUrl($url),
+            'timeout' => 60,
+            'handler' => $handler
+        ]));
         $this->allowedMethods = [
             self::METHOD_GET,
             self::METHOD_POST,
@@ -80,7 +89,7 @@ class Request
      * @param mixed  $request (default: null)
      * @param int    $serializeTo
      *
-     * @return Response
+     * @return ResponseInterface
      * @throws \Exception
      */
     public function makeRequest($path, $method, $request = null, $serializeTo = Serializer::S_JSON)
@@ -91,40 +100,38 @@ class Request
             $this->validateRequest($request);
         }
 
-        $urlBuilder = new Url();
-
         $parameters = is_null($request) ? null : Serializer::serialize($request, $serializeTo);
-        $url = $method == self::METHOD_GET
-            ? $this->url . $urlBuilder->buildUrl($path, $parameters, Url::RFC_CUSTOM)
-            : $this->url . $path
-            ;
-
-        $curlHandler = curl_init();
-        curl_setopt($curlHandler, CURLOPT_URL, $url);
-        curl_setopt($curlHandler, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($curlHandler, CURLOPT_FOLLOWLOCATION, 1);
-        curl_setopt($curlHandler, CURLOPT_FAILONERROR, false);
-        curl_setopt($curlHandler, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($curlHandler, CURLOPT_SSL_VERIFYHOST, false);
-        curl_setopt($curlHandler, CURLOPT_TIMEOUT, 60);
-        curl_setopt($curlHandler, CURLOPT_CONNECTTIMEOUT, 60);
-        curl_setopt($curlHandler, CURLOPT_VERBOSE, $this->debug);
-        curl_setopt($curlHandler, CURLOPT_STDERR, $this->stdout);
-
-        curl_setopt($curlHandler, CURLOPT_HTTPHEADER, [
-            'Content-Type: application/json',
-            sprintf("X-Bot-Token: %s", $this->token)
-        ]);
+        $request = new Request(
+            $method,
+            \sprintf("%s%s", $this->basePath, $path),
+            [
+                'Content-Type' => 'application/json',
+                'X-Bot-Token' => $this->token
+            ]
+        );
 
         if (in_array($method, [self::METHOD_POST, self::METHOD_PUT, self::METHOD_PATCH, self::METHOD_DELETE])) {
-            curl_setopt($curlHandler, CURLOPT_CUSTOMREQUEST, $method);
-            curl_setopt($curlHandler, CURLOPT_POSTFIELDS, $parameters);
+            $request = $request->withBody(stream_for($parameters));
         }
 
-        $responseBody = curl_exec($curlHandler);
-        $statusCode = curl_getinfo($curlHandler, CURLINFO_HTTP_CODE);
+        $responseObject = null;
 
-        $response = Response::parseJSON($responseBody);
+        try {
+            $responseObject = $this->client->send(
+                $request,
+                [
+                    'debug' => $this->stdout,
+                    'allow_redirects' => true,
+                    'http_errors' => false,
+                    'verify' => false
+                ]
+            );
+        } catch (GuzzleException $exception) {
+            throw new \Exception($exception->getMessage(), $exception->getCode(), $exception);
+        }
+
+        $statusCode = $responseObject->getStatusCode();
+        $response = self::parseJSON((string) $responseObject->getBody());
         $errorMessage = !empty($response['errorMsg']) ? $response['errorMsg'] : '';
         $errorMessage = !empty($response['errors']) ? $this->getErrors($response['errors']) : $errorMessage;
 
@@ -132,25 +139,15 @@ class Request
          * responses with 400 & 460 http codes contains extended error data
          * therefore they are not handled as exceptions
          */
-
         if (in_array($statusCode, [403, 404, 500])) {
-            throw new Exception($errorMessage);
+            throw new \Exception($errorMessage);
         }
 
         if ($statusCode == 503) {
             throw new LimitException($errorMessage);
         }
 
-        $errno = curl_errno($curlHandler);
-        $error = curl_error($curlHandler);
-
-        curl_close($curlHandler);
-
-        if ($errno) {
-            throw new CurlException($error, $errno);
-        }
-
-        return new Response($statusCode, $responseBody);
+        return $responseObject;
     }
 
     /**
@@ -201,5 +198,27 @@ class Request
         }
 
         return $errorString;
+    }
+
+    /**
+     * @param string $responseBody
+     *
+     * @return array
+     */
+    public static function parseJSON($responseBody): array
+    {
+        $result = [];
+
+        if (!empty($responseBody)) {
+            $response = json_decode($responseBody, true);
+
+            if (!$response && JSON_ERROR_NONE !== ($error = json_last_error())) {
+                throw new InvalidJsonException("Invalid JSON in the API response body. Error code #$error", $error);
+            }
+
+            $result = $response;
+        }
+
+        return $result;
     }
 }
