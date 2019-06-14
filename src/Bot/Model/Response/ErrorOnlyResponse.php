@@ -13,8 +13,6 @@
 
 namespace RetailCrm\Mg\Bot\Model\Response;
 
-use RetailCrm\Mg\Bot\Model\Response\ErrorTrait;
-
 /**
  * PHP version 7.0
  *
@@ -25,7 +23,4 @@ use RetailCrm\Mg\Bot\Model\Response\ErrorTrait;
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
-class ErrorOnlyResponse
-{
-    use ErrorTrait;
-}
+class ErrorOnlyResponse extends CommonFields {}

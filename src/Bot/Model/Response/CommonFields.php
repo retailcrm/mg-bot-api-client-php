@@ -3,7 +3,7 @@
 /**
  * PHP version 7.0
  *
- * GenericListResponse
+ * ErrorTrait
  *
  * @package  RetailCrm\Mg\Bot\Model\Response
  * @author   retailCRM <integration@retailcrm.ru>
@@ -13,45 +13,36 @@
 
 namespace RetailCrm\Mg\Bot\Model\Response;
 
+use JMS\Serializer\Annotation as Serializer;
 use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\Type;
-use RetailCrm\Mg\Bot\Model\Response\ErrorTrait;
+use JMS\Serializer\Annotation\SkipWhenEmpty;
+use LazyJsonMapper\LazyJsonMapper;
+use RetailCrm\Mg\Bot\Model\Entity\Error;
 
 /**
  * PHP version 7.0
  *
- * GenericListResponse class
+ * Error trait
  *
  * @package  RetailCrm\Mg\Bot\Model\Response
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
+ *
+ * @method array getErrors()
+ * @method $this setErrors(array $value)
  */
-class GenericListResponse
+class CommonFields extends LazyJsonMapper
 {
-    use ErrorTrait;
+    const JSON_PROPERTY_MAP = [
+        'errors' => 'string[]'
+    ];
 
     /**
-     * @var array $result
-     *
-     * @Type("array")
-     * @Accessor(setter="setResult", getter="getResult")
+     * @return bool
      */
-    private $result;
-
-    /**
-     * @return array
-     */
-    public function getResult()
+    public function isError()
     {
-        return $this->result;
-    }
-
-    /**
-     * @param array $result
-     */
-    public function setResult(array $result)
-    {
-        $this->result = $result;
+        return !empty($this->getErrors());
     }
 }

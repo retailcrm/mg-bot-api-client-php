@@ -13,16 +13,12 @@
 
 namespace RetailCrm\Mg\Bot;
 
-use RetailCrm\Common\Deserializer;
-use RetailCrm\Common\Exception\CurlException;
 use RetailCrm\Common\Exception\InvalidJsonException;
 use RetailCrm\Common\Url;
 use RetailCrm\Common\Serializer;
 use RetailCrm\Mg\Bot\Model\Response\AssignResponse;
-use RetailCrm\Mg\Bot\Model\Response\GenericListResponse;
 use RetailCrm\Mg\Bot\Model\Response\ErrorOnlyResponse;
-use Exception;
-use InvalidArgumentException;
+use RetailCrm\Mg\Bot\Model\Response\ListResponse;
 use RetailCrm\Mg\Bot\Model\Response\MessageSendResponse;
 
 /**
@@ -38,12 +34,11 @@ use RetailCrm\Mg\Bot\Model\Response\MessageSendResponse;
 class Client
 {
     const VERSION = 'v1';
+    const ERROR_ONLY_RESPONSE = 'ErrorOnlyResponse';
 
-    const ENTITY_CLASSPATH = 'RetailCrm\\Mg\\Bot\\Model\\Entity\\';
-    const RESPONSE_MODEL_CLASSPATH = 'RetailCrm\\Mg\\Bot\\Model\\Response\\';
-    const GENERIC_LIST_RESPONSE = self::RESPONSE_MODEL_CLASSPATH . 'GenericListResponse';
-    const ERROR_ONLY_RESPONSE = self::RESPONSE_MODEL_CLASSPATH . 'ErrorOnlyResponse';
-
+    /**
+     * @var HttpClient
+     */
     protected $client;
 
     /**
@@ -65,18 +60,18 @@ class Client
      * @param object $request
      * @param string $responseType
      * @param int    $serializeTo
-     * @param string $deserializeType
+     * @param bool   $arrayOfObjects
      *
-     * @return object|null
+     * @return object|array|null
      * @throws \Exception
      */
     private function getData(
         $path,
         $method,
         $request,
-        $responseType = self::GENERIC_LIST_RESPONSE,
+        $responseType,
         $serializeTo = Serializer::S_JSON,
-        $deserializeType = Deserializer::DS_JSON
+        $arrayOfObjects = false
     ) {
         $response = $this->client->makeRequest(
             $path,
@@ -85,11 +80,54 @@ class Client
             $serializeTo
         );
 
-        return Deserializer::deserialize(
-            (string) $response->getBody(),
-            $responseType,
-            $deserializeType
-        );
+        $data = json_decode((string) $response->getBody(), true);
+
+        if (json_last_error() == JSON_ERROR_NONE) {
+            if ($arrayOfObjects) {
+                return new ListResponse($responseType, $data);
+            } else {
+                return new $responseType($data);
+            }
+        } else {
+            throw new InvalidJsonException('Received invalid JSON', 1);
+        }
+    }
+
+    /**
+     * @param bool $fromRoot
+     * @param string ...$classes
+     *
+     * @return string
+     */
+    private static function concatClasspath($fromRoot, ...$classes)
+    {
+        $path = $fromRoot ? '\\' : '';
+
+        foreach($classes as $class) {
+            $path .= '\\' . $class;
+        }
+
+        return str_replace('\\\\', '\\', $path);
+    }
+
+    /**
+     * @param string ...$classes
+     *
+     * @return string
+     */
+    private static function getEntityClass(...$classes)
+    {
+        return static::concatClasspath(true, 'RetailCrm', 'Mg', 'Bot', 'Model', 'Entity', ...$classes);
+    }
+
+    /**
+     * @param string ...$classes
+     *
+     * @return string
+     */
+    private static function getResponseClass(...$classes)
+    {
+        return static::concatClasspath(true, 'RetailCrm', 'Mg', 'Bot', 'Model', 'Response', ...$classes);
     }
 
     /**
@@ -97,12 +135,8 @@ class Client
      *
      * @param Model\Request\BotsRequest $request
      *
-     * @throws InvalidArgumentException
-     * @throws CurlException
-     * @throws InvalidJsonException
-     * @throws Exception
-     *
-     * @return array
+     * @return ListResponse|object|null
+     * @throws \Exception
      */
     public function bots(Model\Request\BotsRequest $request)
     {
@@ -110,8 +144,9 @@ class Client
             '/bots',
             HttpClient::METHOD_GET,
             $request,
-            self::GENERIC_LIST_RESPONSE,
-            Serializer::S_ARRAY
+            static::getEntityClass('Bot', 'Bot'),
+            Serializer::S_ARRAY,
+            true
         );
     }
 
@@ -120,16 +155,17 @@ class Client
      *
      * @param Model\Request\InfoRequest $request
      *
-     * @throws InvalidArgumentException
-     * @throws CurlException
-     * @throws CurlException
-     * @throws Exception
-     *
      * @return ErrorOnlyResponse|object|null
+     * @throws \Exception
      */
     public function info(Model\Request\InfoRequest $request)
     {
-        return $this->getData('/my/info', HttpClient::METHOD_PATCH, $request, self::ERROR_ONLY_RESPONSE);
+        return $this->getData(
+            '/my/info',
+            HttpClient::METHOD_PATCH,
+            $request,
+            static::getResponseClass(self::ERROR_ONLY_RESPONSE)
+        );
     }
 
     /**
@@ -137,16 +173,18 @@ class Client
      *
      * @param Model\Request\ChannelsRequest $request
      *
-     * @return array|object|null
+     * @return ListResponse|object|null
      * @throws \Exception
      */
     public function channels(Model\Request\ChannelsRequest $request)
     {
         return $this->getData(
             '/channels',
-            HttpClient::METHOD_GET, $request,
-            \sprintf("array<%s%s>", self::ENTITY_CLASSPATH, 'Channel\\Channel'),
-            Serializer::S_ARRAY
+            HttpClient::METHOD_GET,
+            $request,
+            static::getEntityClass('Channel', 'Channel'),
+            Serializer::S_ARRAY,
+            true
         );
     }
 
@@ -155,12 +193,8 @@ class Client
      *
      * @param Model\Request\ChatsRequest $request
      *
-     * @throws InvalidArgumentException
-     * @throws CurlException
-     * @throws InvalidJsonException
-     * @throws Exception
-     *
-     * @return GenericListResponse|object|null
+     * @return ListResponse|object|null
+     * @throws \Exception
      */
     public function chats(Model\Request\ChatsRequest $request)
     {
@@ -168,8 +202,9 @@ class Client
             '/chats',
             HttpClient::METHOD_GET,
             $request,
-            self::GENERIC_LIST_RESPONSE,
-            Serializer::S_ARRAY
+            static::getEntityClass('Chat', 'Chat'),
+            Serializer::S_ARRAY,
+            true
         );
     }
 
@@ -178,20 +213,18 @@ class Client
      *
      * @param Model\Request\CommandsRequest $request
      *
-     * @throws InvalidArgumentException
-     * @throws CurlException
-     * @throws InvalidJsonException
-     * @throws Exception
-     *
-     * @return GenericListResponse|object|null
+     * @return ListResponse|object|null
+     * @throws \Exception
      */
     public function commands(Model\Request\CommandsRequest $request)
     {
         return $this->getData(
             '/my/commands',
-            HttpClient::METHOD_GET, $request,
-            self::GENERIC_LIST_RESPONSE,
-            Serializer::S_ARRAY
+            HttpClient::METHOD_GET,
+            $request,
+            static::getEntityClass('Command'),
+            Serializer::S_ARRAY,
+            true
         );
     }
 
@@ -200,12 +233,8 @@ class Client
      *
      * @param Model\Request\CommandEditRequest $request
      *
-     * @throws InvalidArgumentException
-     * @throws CurlException
-     * @throws InvalidJsonException
-     * @throws Exception
-     *
      * @return ErrorOnlyResponse|object|null
+     * @throws \Exception
      */
     public function commandEdit(Model\Request\CommandEditRequest $request)
     {
@@ -213,7 +242,8 @@ class Client
             sprintf("/my/commands/%s", $request->getName()),
             HttpClient::METHOD_PUT,
             $request,
-            self::ERROR_ONLY_RESPONSE
+            static::getResponseClass(self::ERROR_ONLY_RESPONSE),
+            true
         );
     }
 
@@ -222,21 +252,17 @@ class Client
      *
      * @param string $request
      *
-     * @throws InvalidArgumentException
-     * @throws CurlException
-     * @throws InvalidJsonException
-     * @throws Exception
-     *
      * @return ErrorOnlyResponse|object|null
+     * @throws \Exception
      */
     public function commandDelete(string $request)
     {
-        $response = $this->client->makeRequest(sprintf("/my/commands/%s", $request), HttpClient::METHOD_DELETE);
-
-        return Deserializer::deserialize(
-            $response->getResponse(),
-            self::ERROR_ONLY_RESPONSE,
-            Deserializer::DS_ARRAY
+        return $this->getData(
+            sprintf("/my/commands/%s", $request),
+            HttpClient::METHOD_DELETE,
+            null,
+            static::getResponseClass(self::ERROR_ONLY_RESPONSE),
+            Serializer::S_JSON
         );
     }
 
@@ -245,12 +271,8 @@ class Client
      *
      * @param Model\Request\CustomersRequest $request
      *
-     * @throws InvalidArgumentException
-     * @throws CurlException
-     * @throws InvalidJsonException
-     * @throws Exception
-     *
-     * @return GenericListResponse|object|null
+     * @return ListResponse|object|null
+     * @throws \Exception
      */
     public function customers(Model\Request\CustomersRequest $request)
     {
@@ -258,8 +280,9 @@ class Client
             '/customers',
             HttpClient::METHOD_GET,
             $request,
-            self::GENERIC_LIST_RESPONSE,
-            Serializer::S_ARRAY
+            static::getEntityClass('Customer'),
+            Serializer::S_ARRAY,
+            true
         );
     }
 
@@ -268,12 +291,8 @@ class Client
      *
      * @param Model\Request\DialogsRequest $request
      *
-     * @throws InvalidArgumentException
-     * @throws CurlException
-     * @throws InvalidJsonException
-     * @throws Exception
-     *
-     * @return GenericListResponse|object|null
+     * @return ListResponse|object|null
+     * @throws \Exception
      */
     public function dialogs(Model\Request\DialogsRequest $request)
     {
@@ -281,8 +300,9 @@ class Client
             '/dialogs',
             HttpClient::METHOD_GET,
             $request,
-            self::GENERIC_LIST_RESPONSE,
-            Serializer::S_ARRAY
+            static::getEntityClass('Dialog'),
+            Serializer::S_ARRAY,
+            true
         );
     }
 
@@ -291,12 +311,8 @@ class Client
      *
      * @param Model\Request\DialogAssignRequest $request
      *
-     * @throws InvalidArgumentException
-     * @throws CurlException
-     * @throws InvalidJsonException
-     * @throws Exception
-     *
      * @return AssignResponse|object|null
+     * @throws \Exception
      */
     public function dialogAssign(Model\Request\DialogAssignRequest $request)
     {
@@ -304,7 +320,8 @@ class Client
             sprintf("/dialogs/%d/assign", $request->getDialogId()),
             HttpClient::METHOD_PATCH,
             $request,
-            self::RESPONSE_MODEL_CLASSPATH . 'AssignResponse'
+            static::getResponseClass('AssignResponse'),
+            Serializer::S_JSON
         );
     }
 
@@ -313,12 +330,8 @@ class Client
      *
      * @param string $request
      *
-     * @throws InvalidArgumentException
-     * @throws CurlException
-     * @throws InvalidJsonException
-     * @throws Exception
-     *
      * @return ErrorOnlyResponse|object|null
+     * @throws \Exception
      */
     public function dialogClose(string $request)
     {
@@ -326,7 +339,7 @@ class Client
             sprintf("/dialogs/%d/close", $request),
             HttpClient::METHOD_DELETE,
             null,
-            self::ERROR_ONLY_RESPONSE
+            static::getResponseClass(self::ERROR_ONLY_RESPONSE)
         );
     }
 
@@ -335,12 +348,8 @@ class Client
      *
      * @param Model\Request\MembersRequest $request
      *
-     * @throws InvalidArgumentException
-     * @throws CurlException
-     * @throws InvalidJsonException
-     * @throws Exception
-     *
-     * @return GenericListResponse|object|null
+     * @return ListResponse|object|null
+     * @throws \Exception
      */
     public function members(Model\Request\MembersRequest $request)
     {
@@ -348,8 +357,9 @@ class Client
             '/members',
             HttpClient::METHOD_GET,
             $request,
-            self::GENERIC_LIST_RESPONSE,
-            Serializer::S_ARRAY
+            static::getEntityClass('Chat', 'ChatMember'),
+            Serializer::S_ARRAY,
+            true
         );
     }
 
@@ -358,12 +368,8 @@ class Client
      *
      * @param Model\Request\MessagesRequest $request
      *
-     * @throws InvalidArgumentException
-     * @throws CurlException
-     * @throws InvalidJsonException
-     * @throws Exception
-     *
-     * @return GenericListResponse|object|null
+     * @return ListResponse|object|null
+     * @throws \Exception
      */
     public function messages(Model\Request\MessagesRequest $request)
     {
@@ -371,8 +377,9 @@ class Client
             '/messages',
             HttpClient::METHOD_GET,
             $request,
-            self::GENERIC_LIST_RESPONSE,
-            Serializer::S_ARRAY
+            self::getEntityClass('Message', 'Message'),
+            Serializer::S_ARRAY,
+            true
         );
     }
 
@@ -381,12 +388,8 @@ class Client
      *
      * @param Model\Request\MessageSendRequest $request
      *
-     * @throws InvalidArgumentException
-     * @throws CurlException
-     * @throws InvalidJsonException
-     * @throws Exception
-     *
      * @return MessageSendResponse|object|null
+     * @throws \Exception
      */
     public function messageSend(Model\Request\MessageSendRequest $request)
     {
@@ -394,7 +397,7 @@ class Client
             '/messages',
             HttpClient::METHOD_POST,
             $request,
-            self::RESPONSE_MODEL_CLASSPATH . 'MessageSendResponse'
+            static::getResponseClass('MessageSendResponse')
         );
     }
 
@@ -403,12 +406,8 @@ class Client
      *
      * @param Model\Request\MessageEditRequest $request
      *
-     * @throws InvalidArgumentException
-     * @throws CurlException
-     * @throws InvalidJsonException
-     * @throws Exception
-     *
      * @return MessageSendResponse|object|null
+     * @throws \Exception
      */
     public function messageEdit(Model\Request\MessageEditRequest $request)
     {
@@ -416,7 +415,7 @@ class Client
             sprintf("/messages/%d", $request->getId()),
             HttpClient::METHOD_PATCH,
             $request,
-            self::RESPONSE_MODEL_CLASSPATH . 'MessageSendResponse'
+            static::getResponseClass('MessageSendResponse')
         );
     }
 
@@ -425,12 +424,8 @@ class Client
      *
      * @param string $request
      *
-     * @throws InvalidArgumentException
-     * @throws CurlException
-     * @throws InvalidJsonException
-     * @throws Exception
-     *
      * @return ErrorOnlyResponse|object|null
+     * @throws \Exception
      */
     public function messageDelete(string $request)
     {
@@ -438,7 +433,7 @@ class Client
             sprintf("/messages/%d", $request),
             HttpClient::METHOD_DELETE,
             null,
-            self::ERROR_ONLY_RESPONSE
+            static::getResponseClass(self::ERROR_ONLY_RESPONSE)
         );
     }
 
@@ -447,12 +442,8 @@ class Client
      *
      * @param Model\Request\UsersRequest $request
      *
-     * @throws InvalidArgumentException
-     * @throws CurlException
-     * @throws InvalidJsonException
-     * @throws Exception
-     *
-     * @return GenericListResponse|object|null
+     * @return ListResponse|object|null
+     * @throws \Exception
      */
     public function users(Model\Request\UsersRequest $request)
     {
@@ -460,8 +451,9 @@ class Client
             '/users',
             HttpClient::METHOD_GET,
             $request,
-            self::GENERIC_LIST_RESPONSE,
-            Serializer::S_ARRAY
+            self::getEntityClass('User'),
+            Serializer::S_ARRAY,
+            true
         );
     }
 }

@@ -3,32 +3,37 @@
 /**
  * PHP version 7.0
  *
- * FileMeta entity
+ * MessageCost entity
  *
- * @package  RetailCrm\Mg\Bot\Model\Entity
+ * @package  RetailCrm\Mg\Bot\Model\Entity\Message
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
 
-namespace RetailCrm\Mg\Bot\Model\Entity;
+namespace RetailCrm\Mg\Bot\Model\Entity\Message;
 
 use LazyJsonMapper\LazyJsonMapper;
 
 /**
  * PHP version 7.0
  *
- * FileMeta class
+ * MessageCost class
  *
- * @package  RetailCrm\Mg\Bot\Model\Entity
+ * @package  RetailCrm\Mg\Bot\Model\Entity\Message
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
+ *
+ * @method string getCurrency()
+ * @method $this setCurrency(string $value)
+ * @method float getValue()
+ * @method $this setValue(float $value)
  */
-class FileMeta extends LazyJsonMapper
+class MessageCost extends LazyJsonMapper
 {
     const JSON_PROPERTY_MAP = [
-        'height' => 'int',
-        'width' => 'int'
+        'currency' => 'string',
+        'value' => 'float'
     ];
 }

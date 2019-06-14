@@ -14,6 +14,7 @@
 namespace RetailCrm\Mg\Bot\Tests;
 
 use RetailCrm\Mg\Bot\Model\Constants;
+use RetailCrm\Mg\Bot\Model\Entity\Dialog;
 use RetailCrm\Mg\Bot\Model\Request;
 use RetailCrm\Mg\Bot\Model\Response;
 use RetailCrm\Mg\Bot\Test\TestCase;
@@ -44,9 +45,8 @@ class ClientListTest extends TestCase
         $request->setTypes([Constants::CHANNEL_TYPE_FACEBOOK, Constants::CHANNEL_TYPE_INSTAGRAM]);
 
         $response = $client->channels($request);
-        var_dump($response[0]);
 
-        //self::assertTrue($response->isSuccessful() == true);
+        print_r($response->get(0));
     }
 
     /**
@@ -62,7 +62,7 @@ class ClientListTest extends TestCase
 
         $response = $client->chats($request);
 
-        self::assertTrue($response->isSuccessful() == true);
+        print_r($response);
     }
 
     /**
@@ -77,7 +77,7 @@ class ClientListTest extends TestCase
 
         $response = $client->members($request);
 
-        self::assertTrue($response->isSuccessful() == true);
+        print_r($response);
     }
 
     /**
@@ -94,7 +94,7 @@ class ClientListTest extends TestCase
 
         $response = $client->messages($request);
 
-        self::assertTrue($response->isSuccessful() == true);
+        print_r($response);
     }
 
     /**
@@ -109,7 +109,7 @@ class ClientListTest extends TestCase
 
         $response = $client->commands($request);
 
-        self::assertTrue($response->isSuccessful() == true);
+        print_r($response);
     }
 
     /**
@@ -126,7 +126,7 @@ class ClientListTest extends TestCase
 
         $data = $client->bots($request);
 
-        self::assertTrue($data instanceof \RetailCrm\Mg\Bot\Model\Response\GenericListResponse);
+        print_r($data);
     }
 
     /**
@@ -143,7 +143,7 @@ class ClientListTest extends TestCase
 
         $response = $client->users($request);
 
-        self::assertTrue($response->isSuccessful() == true);
+        print_r($response);
     }
 
     /**
@@ -159,8 +159,6 @@ class ClientListTest extends TestCase
         $request->setAssign(1);
 
         $response = $client->dialogs($request);
-
-        self::assertTrue($response->isSuccessful() == true);
     }
 
     /**
@@ -175,6 +173,6 @@ class ClientListTest extends TestCase
 
         $response = $client->customers($request);
 
-        self::assertTrue($response->isSuccessful() == true);
+        print_r($response);
     }
 }

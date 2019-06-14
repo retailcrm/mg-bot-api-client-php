@@ -3,41 +3,40 @@
 /**
  * PHP version 7.0
  *
- * FullFileResponse
+ * Item entity
  *
- * @package  RetailCrm\Mg\Bot\Model\Response
+ * @package  RetailCrm\Mg\Bot\Model\Entity\Message
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
 
-namespace RetailCrm\Mg\Bot\Model\Response;
+namespace RetailCrm\Mg\Bot\Model\Entity\Message;
+
+use RetailCrm\Mg\Bot\Model\Entity\CommonFields;
 
 /**
  * PHP version 7.0
  *
- * FullFileResponse class
+ * Item class
  *
- * @package  RetailCrm\Mg\Bot\Model\Response
+ * @package  RetailCrm\Mg\Bot\Model\Entity\Message
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  *
- * @method string getId()
- * @method $this setId(string $value)
+ * @method int getId()
+ * @method $this setId(int $value)
  * @method int getSize()
  * @method $this setSize(int $value)
- * @method string getType()
- * @method $this setType(string $value)
- * @method string getUrl()
- * @method $this setUrl(string $value)
+ * @method string getCaption()
+ * @method $this setCaption(string $value)
  */
-class FullFileResponse extends CommonFields
+class Item extends CommonFields
 {
     const JSON_PROPERTY_MAP = [
-        'id' => 'string',
+        'id' => 'int',
         'size' => 'int',
-        'type' => 'string',
-        'url' => 'string'
+        'caption' => 'string'
     ];
 }

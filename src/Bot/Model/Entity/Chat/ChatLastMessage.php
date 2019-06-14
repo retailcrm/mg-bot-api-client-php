@@ -3,35 +3,41 @@
 /**
  * PHP version 7.0
  *
- * MessageSendResponse
+ * ChatLastMessage entity
  *
- * @package  RetailCrm\Mg\Bot\Model\Response
+ * @package  RetailCrm\Mg\Bot\Model\Entity\Chat
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
 
-namespace RetailCrm\Mg\Bot\Model\Response;
+namespace RetailCrm\Mg\Bot\Model\Entity\Chat;
+
+
+use LazyJsonMapper\LazyJsonMapper;
 
 /**
  * PHP version 7.0
  *
- * MessageSendResponse class
+ * ChatLastMessage class
  *
- * @package  RetailCrm\Mg\Bot\Model\Response
+ * @package  RetailCrm\Mg\Bot\Model\Entity\Chat
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  *
- * @method int getMessageId()
- * @method $this setMessageId(int $value)
+ * @method int getId()
+ * @method $this setId(int $value)
  * @method string getTime()
  * @method $this setTime(string $value)
+ * @method string getType()
+ * @method $this setType(string $value)
  */
-class MessageSendResponse extends CommonFields
+class ChatLastMessage extends LazyJsonMapper
 {
     const JSON_PROPERTY_MAP = [
-        'message_id' => 'int',
-        'time' => 'string'
+        'id' => 'int',
+        'time' => 'string',
+        'type' => 'string'
     ];
 }

@@ -15,6 +15,7 @@ namespace RetailCrm\Mg\Bot\Model\Entity;
 
 use JMS\Serializer\Annotation\Accessor;
 use JMS\Serializer\Annotation\Type;
+use LazyJsonMapper\LazyJsonMapper;
 
 /**
  * PHP version 7.0
@@ -26,77 +27,11 @@ use JMS\Serializer\Annotation\Type;
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
-class Responsible
+class Responsible extends LazyJsonMapper
 {
-    /**
-     * @var string $assignedAt
-     *
-     * @Type("string")
-     * @Accessor(getter="getAssignedAt",setter="setAssignedAt")
-     */
-    private $assignedAt;
-
-    /**
-     * @var int $id
-     *
-     * @Type("int")
-     * @Accessor(getter="getId",setter="setId")
-     */
-    private $id;
-
-    /**
-     * @var string $type
-     *
-     * @Type("string")
-     * @Accessor(getter="getType",setter="setType")
-     */
-    private $type;
-
-    /**
-     * @return string
-     */
-    public function getAssignedAt()
-    {
-        return $this->assignedAt;
-    }
-
-    /**
-     * @param string $assignedAt
-     */
-    public function setAssignedAt(string $assignedAt)
-    {
-        $this->assignedAt = $assignedAt;
-    }
-
-    /**
-     * @return int
-     */
-    public function getId(): int
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param int $id
-     */
-    public function setId(int $id)
-    {
-        $this->id = $id;
-    }
-
-    /**
-     * @return string
-     */
-    public function getType(): string
-    {
-        return $this->type;
-    }
-
-    /**
-     * @param string $type
-     */
-    public function setType(string $type)
-    {
-        $this->type = $type;
-    }
+    const JSON_PROPERTY_MAP = [
+        'assigned_at' => 'string',
+        'id' => 'int',
+        'type' => 'string'
+    ];
 }
