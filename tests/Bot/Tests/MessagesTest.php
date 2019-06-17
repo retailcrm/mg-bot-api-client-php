@@ -13,12 +13,7 @@
 
 namespace RetailCrm\Mg\Bot\Tests;
 
-use Exception;
-use InvalidArgumentException;
-use RetailCrm\Common\Exception\CurlException;
-use RetailCrm\Common\Exception\InvalidJsonException;
 use RetailCrm\Mg\Bot\Model\Constants;
-use RetailCrm\Mg\Bot\Model\Request\CommandEditRequest;
 use RetailCrm\Mg\Bot\Model\Request\MessageSendRequest;
 use RetailCrm\Mg\Bot\Test\TestCase;
 

@@ -17,3 +17,12 @@ stan:
 	@echo "==> Running analysis"
 	@php $(BIN_DIR)/phpstan analyse -l 4 -c $(ROOT_DIR)/phpstan.neon $(SRC_DIR)
 	@echo "==> Analysis complete"
+
+docs:
+	@echo "==> Building docs"
+ifeq ($(wildcard *.phar), )
+	@wget https://github.com/phpDocumentor/phpDocumentor2/releases/download/v3.0.0-alpha.3/phpDocumentor.phar -O phpDocumentor.phar
+	@wget https://github.com/phpDocumentor/phpDocumentor2/releases/download/v3.0.0-alpha.3/phpDocumentor.phar.pubkey -O phpDocumentor.phar.pubkey
+	@chmod +x phpDocumentor.phar
+	@php phpDocumentor.phar --config $(ROOT_DIR)/phpdoc.dist.xml
+endif

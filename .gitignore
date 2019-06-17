@@ -185,3 +185,9 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 /.php_cs.cache
+
+# phpDocumentor
+phpDocumentor.phar
+phpDocumentor.phar.pubkey
+mg-bot-api-client-php.pages/*
+build/*

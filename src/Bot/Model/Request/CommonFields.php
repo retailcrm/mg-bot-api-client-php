@@ -13,88 +13,50 @@
 
 namespace RetailCrm\Mg\Bot\Model\Request;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SkipWhenEmpty;
-use JMS\Serializer\Annotation\Type;
+use LazyJsonMapper\LazyJsonMapper;
 
 /**
  * PHP version 7.0
  *
- * CommonFields trait
+ * CommonFields class. Parametres:
+ *
+ * | Parameter name | Data type |
+ * |----------------|-----------|
+ * | id             | int       |
+ * | since          | string    |
+ * | until          | string    |
  *
  * @package  RetailCrm\Mg\Bot\Model\Request
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
+ *
+ * @method int    getId()                 "Get `id` value"
+ * @method $this  setId(int $value)       "Set `id` value"
+ * @method string getSince()              "Get `since` value"
+ * @method $this  setSince(string $value) "Set `since` value"
+ * @method string getUntil()              "Get `until` value"
+ * @method $this  setUntil(string $value) "Set `until` value"
  */
-trait CommonFields
+class CommonFields extends LazyJsonMapper
 {
     /**
-     * @Type("int")
-     * @Accessor(getter="getId",setter="setId")
-     * @SkipWhenEmpty
+     * JSON fields. Use setters and getters to work with this values.
+     * Setters will return model instance, so you can construct any model like this:
+     * ```
+     * $request = (new InfoRequest())
+     *              ->setName("...")
+     *              ->setRoles([...]);
+     *```
+     * Model constructor can accept array as initial data. You can use
+     * this to initialize models:
+     * ```
+     * $request = new InfoRequest(["name" => "...", "roles" => [...]]);
+     * ```
      */
-    private $id;
-
-    /**
-     * @Type("string")
-     * @Accessor(getter="getSince",setter="setSince")
-     * @SkipWhenEmpty
-     */
-    private $since;
-
-    /**
-     * @Type("string")
-     * @Accessor(getter="getUntil",setter="setUntil")
-     * @SkipWhenEmpty
-     */
-    private $until;
-
-    /**
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param int $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
-
-    /**
-     * @return string
-     */
-    public function getSince()
-    {
-        return $this->since;
-    }
-
-    /**
-     * @param string $since
-     */
-    public function setSince($since)
-    {
-        $this->since = $since;
-    }
-
-    /**
-     * @return string
-     */
-    public function getUntil()
-    {
-        return $this->until;
-    }
-
-    /**
-     * @param string $until
-     */
-    public function setUntil($until)
-    {
-        $this->until = $until;
-    }
+    const JSON_PROPERTY_MAP = [
+        'id' => 'int',
+        'since' => 'string',
+        'until' => 'string'
+    ];
 }

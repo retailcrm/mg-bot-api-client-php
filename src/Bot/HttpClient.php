@@ -38,10 +38,29 @@ use function GuzzleHttp\Psr7\stream_for;
  */
 class HttpClient
 {
+    /**
+     * GET HTTP Method constant
+     */
     const METHOD_GET = 'GET';
+
+    /**
+     * POST HTTP Method constant
+     */
     const METHOD_POST = 'POST';
+
+    /**
+     * PUT HTTP Method constant
+     */
     const METHOD_PUT = 'PUT';
+
+    /**
+     * PATCH HTTP Method constant
+     */
     const METHOD_PATCH = 'PATCH';
+
+    /**
+     * DELETE HTTP Method constant
+     */
     const METHOD_DELETE = 'DELETE';
 
     protected $basePath;
@@ -51,14 +70,15 @@ class HttpClient
     private $client;
 
     /**
-     * Client constructor.
+     * HTTP Client constructor.
+     * Provide $stdout (for example: STDOUT) to log all requests.
      *
-     * @param string        $url    api url
-     * @param string        $token  api token
-     * @param bool|resource $stdout default output for debug
-     * @param HandlerStack  $handler
+     * @param string                   $url     MG API URL
+     * @param string                   $token   MG API Key
+     * @param null|resource            $stdout  Output to log all requests (optional, default: null)
+     * @param \GuzzleHttp\HandlerStack $handler GuzzleHttp::HandlerStack instance (default: null)
      */
-    public function __construct($url, $token, $stdout = STDOUT, $handler = null)
+    public function __construct($url, $token, $stdout = null, $handler = null)
     {
         if (false === stripos($url, 'https://')) {
             throw new InvalidArgumentException('API schema requires HTTPS protocol');
@@ -84,10 +104,10 @@ class HttpClient
     /**
      * Make HTTP request
      *
-     * @param string $path   request url
-     * @param string $method (default: 'GET')
-     * @param mixed  $request (default: null)
-     * @param int    $serializeTo
+     * @param string $path   Request URL
+     * @param string $method Request method (default: 'GET')
+     * @param mixed  $request Request model (default: null)
+     * @param int    $serializeTo Serializer::S_JSON or Serializer::S_ARRAY
      *
      * @return ResponseInterface
      * @throws \Exception

@@ -13,94 +13,50 @@
 
 namespace RetailCrm\Mg\Bot\Model\Request;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SkipWhenEmpty;
-use JMS\Serializer\Annotation\Type;
+use LazyJsonMapper\LazyJsonMapper;
 
 /**
  * PHP version 7.0
  *
- * InfoRequest class
+ * InfoRequest class. Parameters:
+ *
+ * | Parameter name | Data type |
+ * |----------------|-----------|
+ * | name           | string    |
+ * | avatarUrl      | string    |
+ * | roles          | array     |
  *
  * @package  RetailCrm\Mg\Bot\Model\Request
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
+ *
+ * @method string   getName()                   "Get `name` value"
+ * @method $this    setName(string $value)      "Set `name` value"
+ * @method string   getAvatarUrl()              "Get `avatarUrl` value"
+ * @method $this    setAvatarUrl(string $value) "Set `avatarUrl` value"
+ * @method array    getRoles()                  "Get `roles` value"
+ * @method $this    setRoles(array $value)      "Set `roles` value"
  */
-class InfoRequest
+class InfoRequest extends LazyJsonMapper
 {
     /**
-     * @var string $name
-     *
-     * @Type("string")
-     * @Accessor(getter="getName",setter="setName")
-     * @SkipWhenEmpty()
+     * JSON fields. Use setters and getters to work with this values.
+     * Setters will return model instance, so you can construct any model like this:
+     * ```
+     * $request = (new InfoRequest())
+     *              ->setName("...")
+     *              ->setRoles([...]);
+     *```
+     * Model constructor can accept array as initial data. You can use
+     * this to initialize models:
+     * ```
+     * $request = new InfoRequest(["name" => "...", "roles" => [...]]);
+     * ```
      */
-    private $name;
-
-    /**
-     * @var string $avatarUrl
-     *
-     * @Type("string")
-     * @Accessor(getter="getAvatarUrl",setter="setAvatarUrl")
-     * @SkipWhenEmpty()
-     */
-    private $avatarUrl;
-
-    /**
-     * @var array $roles
-     *
-     * @Type("array")
-     * @Accessor(getter="getRoles",setter="setRoles")
-     * @SkipWhenEmpty()
-     */
-    private $roles;
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param string $name
-     */
-    public function setName(string $name)
-    {
-        $this->name = $name;
-    }
-
-    /**
-     * @return string
-     */
-    public function getAvatarUrl()
-    {
-        return $this->avatarUrl;
-    }
-
-    /**
-     * @param string $avatarUrl
-     */
-    public function setAvatarUrl(string $avatarUrl)
-    {
-        $this->avatarUrl = $avatarUrl;
-    }
-
-    /**
-     * @return array
-     */
-    public function getRoles()
-    {
-        return $this->roles;
-    }
-
-    /**
-     * @param array $roles
-     */
-    public function setRoles(array $roles)
-    {
-        $this->roles = $roles;
-    }
+    const JSON_PROPERTY_MAP = [
+        'name' => 'string',
+        'avatarUrl' => 'string',
+        'roles' => 'string[]'
+    ];
 }

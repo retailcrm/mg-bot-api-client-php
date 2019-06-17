@@ -33,7 +33,14 @@ use RetailCrm\Mg\Bot\Model\Response\MessageSendResponse;
  */
 class Client
 {
+    /**
+     * @internal
+     */
     const VERSION = 'v1';
+
+    /**
+     * @internal
+     */
     const ERROR_ONLY_RESPONSE = 'ErrorOnlyResponse';
 
     /**
@@ -44,25 +51,26 @@ class Client
     /**
      * Init
      *
-     * @param string $url   api url
-     * @param string $token api key
-     * @param bool   $debug debug flag
+     * @param string $url   MG API URL
+     * @param string $token MG API Key
+     * @param bool   $debug Enable or disable debug mode - will log all requests to STDOUT (default: false)
+     * @param \GuzzleHttp\HandlerStack $handler GuzzleHttp::HandlerStack instance (default: null)
      */
-    public function __construct($url, $token, $debug = false)
+    public function __construct($url, $token, $debug = false, $handler = null)
     {
         $url = sprintf("%sapi/bot/%s", Url::normalizeUrl($url), self::VERSION);
-        $this->client = new HttpClient($url, $token, $debug);
+        $this->client = new HttpClient($url, $token, $debug ? STDOUT : null, $handler);
     }
 
     /**
      * @param string $path
      * @param string $method
-     * @param object $request
+     * @param object $request Request parameters
      * @param string $responseType
      * @param int    $serializeTo
      * @param bool   $arrayOfObjects
      *
-     * @return object|array|null
+     * @return object
      * @throws \Exception
      */
     private function getData(
@@ -133,9 +141,9 @@ class Client
     /**
      * Returns filtered bots list
      *
-     * @param Model\Request\BotsRequest $request
+     * @param Model\Request\BotsRequest $request Request parameters
      *
-     * @return ListResponse|object|null
+     * @return \RetailCrm\Mg\Bot\Model\Response\ListResponse|object
      * @throws \Exception
      */
     public function bots(Model\Request\BotsRequest $request)
@@ -144,7 +152,7 @@ class Client
             '/bots',
             HttpClient::METHOD_GET,
             $request,
-            static::getEntityClass('Bot', 'Bot'),
+            static::getEntityClass('Bot'),
             Serializer::S_ARRAY,
             true
         );
@@ -153,9 +161,9 @@ class Client
     /**
      * Edit bot info
      *
-     * @param Model\Request\InfoRequest $request
+     * @param Model\Request\InfoRequest $request Request parameters
      *
-     * @return ErrorOnlyResponse|object|null
+     * @return \RetailCrm\Mg\Bot\Model\Response\ErrorOnlyResponse|object
      * @throws \Exception
      */
     public function info(Model\Request\InfoRequest $request)
@@ -171,9 +179,9 @@ class Client
     /**
      * Returns filtered channels list
      *
-     * @param Model\Request\ChannelsRequest $request
+     * @param Model\Request\ChannelsRequest $request Request parameters
      *
-     * @return ListResponse|object|null
+     * @return \RetailCrm\Mg\Bot\Model\Response\ListResponse|object
      * @throws \Exception
      */
     public function channels(Model\Request\ChannelsRequest $request)
@@ -191,9 +199,9 @@ class Client
     /**
      * Returns filtered chats list
      *
-     * @param Model\Request\ChatsRequest $request
+     * @param Model\Request\ChatsRequest $request Request parameters
      *
-     * @return ListResponse|object|null
+     * @return \RetailCrm\Mg\Bot\Model\Response\ListResponse|object
      * @throws \Exception
      */
     public function chats(Model\Request\ChatsRequest $request)
@@ -211,9 +219,9 @@ class Client
     /**
      * Returns filtered commands list
      *
-     * @param Model\Request\CommandsRequest $request
+     * @param Model\Request\CommandsRequest $request Request parameters
      *
-     * @return ListResponse|object|null
+     * @return \RetailCrm\Mg\Bot\Model\Response\ListResponse|object
      * @throws \Exception
      */
     public function commands(Model\Request\CommandsRequest $request)
@@ -231,9 +239,9 @@ class Client
     /**
      * Edit commands for exact bot
      *
-     * @param Model\Request\CommandEditRequest $request
+     * @param Model\Request\CommandEditRequest $request Request parameters
      *
-     * @return ErrorOnlyResponse|object|null
+     * @return \RetailCrm\Mg\Bot\Model\Response\ErrorOnlyResponse|object
      * @throws \Exception
      */
     public function commandEdit(Model\Request\CommandEditRequest $request)
@@ -250,9 +258,9 @@ class Client
     /**
      * Delete command for exact bot
      *
-     * @param string $request
+     * @param string $request Request parameters
      *
-     * @return ErrorOnlyResponse|object|null
+     * @return \RetailCrm\Mg\Bot\Model\Response\ErrorOnlyResponse|object
      * @throws \Exception
      */
     public function commandDelete(string $request)
@@ -269,9 +277,9 @@ class Client
     /**
      * Returns filtered customers list
      *
-     * @param Model\Request\CustomersRequest $request
+     * @param Model\Request\CustomersRequest $request Request parameters
      *
-     * @return ListResponse|object|null
+     * @return \RetailCrm\Mg\Bot\Model\Response\ListResponse|object
      * @throws \Exception
      */
     public function customers(Model\Request\CustomersRequest $request)
@@ -289,9 +297,9 @@ class Client
     /**
      * Returns filtered dialogs list
      *
-     * @param Model\Request\DialogsRequest $request
+     * @param Model\Request\DialogsRequest $request Request parameters
      *
-     * @return ListResponse|object|null
+     * @return \RetailCrm\Mg\Bot\Model\Response\ListResponse|object
      * @throws \Exception
      */
     public function dialogs(Model\Request\DialogsRequest $request)
@@ -309,9 +317,9 @@ class Client
     /**
      * Assign dialog to exact user
      *
-     * @param Model\Request\DialogAssignRequest $request
+     * @param Model\Request\DialogAssignRequest $request Request parameters
      *
-     * @return AssignResponse|object|null
+     * @return \RetailCrm\Mg\Bot\Model\Response\AssignResponse|object
      * @throws \Exception
      */
     public function dialogAssign(Model\Request\DialogAssignRequest $request)
@@ -328,9 +336,9 @@ class Client
     /**
      * Close exact dialog
      *
-     * @param string $request
+     * @param string $request Request parameters
      *
-     * @return ErrorOnlyResponse|object|null
+     * @return \RetailCrm\Mg\Bot\Model\Response\ErrorOnlyResponse|object
      * @throws \Exception
      */
     public function dialogClose(string $request)
@@ -346,9 +354,9 @@ class Client
     /**
      * Returns filtered members list
      *
-     * @param Model\Request\MembersRequest $request
+     * @param Model\Request\MembersRequest $request Request parameters
      *
-     * @return ListResponse|object|null
+     * @return \RetailCrm\Mg\Bot\Model\Response\ListResponse|object
      * @throws \Exception
      */
     public function members(Model\Request\MembersRequest $request)
@@ -366,9 +374,9 @@ class Client
     /**
      * Returns filtered messages list
      *
-     * @param Model\Request\MessagesRequest $request
+     * @param Model\Request\MessagesRequest $request Request parameters
      *
-     * @return ListResponse|object|null
+     * @return \RetailCrm\Mg\Bot\Model\Response\ListResponse|object
      * @throws \Exception
      */
     public function messages(Model\Request\MessagesRequest $request)
@@ -386,9 +394,9 @@ class Client
     /**
      * Send a message
      *
-     * @param Model\Request\MessageSendRequest $request
+     * @param Model\Request\MessageSendRequest $request Request parameters
      *
-     * @return MessageSendResponse|object|null
+     * @return \RetailCrm\Mg\Bot\Model\Response\MessageSendResponse|object
      * @throws \Exception
      */
     public function messageSend(Model\Request\MessageSendRequest $request)
@@ -404,9 +412,9 @@ class Client
     /**
      * Edit a message
      *
-     * @param Model\Request\MessageEditRequest $request
+     * @param Model\Request\MessageEditRequest $request Request parameters
      *
-     * @return MessageSendResponse|object|null
+     * @return \RetailCrm\Mg\Bot\Model\Response\MessageSendResponse|object
      * @throws \Exception
      */
     public function messageEdit(Model\Request\MessageEditRequest $request)
@@ -422,9 +430,9 @@ class Client
     /**
      * Delete a message
      *
-     * @param string $request
+     * @param string $request Request parameters
      *
-     * @return ErrorOnlyResponse|object|null
+     * @return \RetailCrm\Mg\Bot\Model\Response\ErrorOnlyResponse|object
      * @throws \Exception
      */
     public function messageDelete(string $request)
@@ -440,9 +448,9 @@ class Client
     /**
      * Returns filtered users list
      *
-     * @param Model\Request\UsersRequest $request
+     * @param Model\Request\UsersRequest $request Request parameters
      *
-     * @return ListResponse|object|null
+     * @return \RetailCrm\Mg\Bot\Model\Response\ListResponse|object
      * @throws \Exception
      */
     public function users(Model\Request\UsersRequest $request)

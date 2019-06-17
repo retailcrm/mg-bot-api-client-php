@@ -13,8 +13,6 @@
 
 namespace RetailCrm\Common;
 
-use JMS\Serializer\SerializerBuilder;
-
 /**
  * PHP version 7.0
  *
@@ -27,7 +25,14 @@ use JMS\Serializer\SerializerBuilder;
  */
 class Serializer
 {
+    /**
+     * Serialization flag: serialize object to PHP Array
+     */
     const S_ARRAY = 0;
+
+    /**
+     * Serialization flag: serialize object to JSON string
+     */
     const S_JSON = 1;
 
     /**
@@ -41,15 +46,14 @@ class Serializer
     public static function serialize($request, $serialize = self::S_JSON)
     {
         $serialized = null;
-        $serializer = SerializerBuilder::create()->build();
 
         switch ($serialize) {
             case self::S_ARRAY:
-                $serialized = $serializer->toArray($request);
+                $serialized = $request->asArray();
                 break;
             case self::S_JSON:
             default:
-                $serialized = $serializer->serialize($request, 'json');
+                $serialized = $request->asJson();
                 break;
         }
 

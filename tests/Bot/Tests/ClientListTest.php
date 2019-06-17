@@ -126,7 +126,7 @@ class ClientListTest extends TestCase
 
         $data = $client->bots($request);
 
-        print_r($data);
+        print_r($data[0]);
     }
 
     /**

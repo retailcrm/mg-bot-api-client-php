@@ -13,227 +13,72 @@
 
 namespace RetailCrm\Mg\Bot\Model\Request;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SkipWhenEmpty;
-use JMS\Serializer\Annotation\Type;
-use Symfony\Component\Validator\Constraints as Assert;
+use LazyJsonMapper\LazyJsonMapper;
 use RetailCrm\Mg\Bot\Model\Entity\Order;
 use RetailCrm\Mg\Bot\Model\Entity\Product;
 
 /**
  * PHP version 7.0
  *
- * MessageSendRequest class
+ * MessageSendRequest class. Parameters:
+ *
+ * | Parameter name   | Data type      |
+ * |------------------|----------------|
+ * | type             | string         |
+ * | content          | string         |
+ * | product          | MessageProduct |
+ * | order            | MessageOrder   |
+ * | items            | array          |
+ * | scope            | string         |
+ * | chat_id          | int            |
+ * | quote_message_id | int            |
  *
  * @package  RetailCrm\Mg\Bot\Model\Request
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
+ *
+ * @method string         getType()                         "Get `type` value"
+ * @method $this          setType(string $value)            "Set `type` value"
+ * @method string         getContent()                      "Get `content` value"
+ * @method $this          setContent(string $value)         "Set `content` value"
+ * @method MessageProduct getProduct()                      "Get `product` value"
+ * @method $this          setProduct(MessageProduct $value) "Set `product` value"
+ * @method MessageOrder   getOrder()                        "Get `order` value"
+ * @method $this          setOrder(MessageOrder $value)     "Set `order` value"
+ * @method array          getItems()                        "Get `items` value"
+ * @method $this          setItems(array $value)            "Set `items` value"
+ * @method string         getScope()                        "Get `scope` value"
+ * @method $this          setScope(string $value)           "Set `scope` value"
+ * @method int            getChatId()                       "Get `chat_id` value"
+ * @method $this          setChatId(int $value)             "Set `chat_id` value"
+ * @method int            getQuoteMessageId()               "Get `quote_message_id` value"
+ * @method $this          setQuoteMessageId(int $value)     "Set `quote_message_id` value"
  */
-class MessageSendRequest
+class MessageSendRequest extends LazyJsonMapper
 {
     /**
-     * @var string $type
-     *
-     * @Type("string")
-     * @Accessor(getter="getType",setter="setType")
-     * @SkipWhenEmpty()
+     * JSON fields. Use setters and getters to work with this values.
+     * Setters will return model instance, so you can construct any model like this:
+     * ```
+     * $request = (new InfoRequest())
+     *              ->setName("...")
+     *              ->setRoles([...]);
+     *```
+     * Model constructor can accept array as initial data. You can use
+     * this to initialize models:
+     * ```
+     * $request = new InfoRequest(["name" => "...", "roles" => [...]]);
+     * ```
      */
-    private $type;
-
-    /**
-     * @var string $content
-     *
-     * @Type("string")
-     * @Accessor(getter="getContent",setter="setContent")
-     *
-     * @Assert\NotBlank
-     */
-    private $content;
-
-    /**
-     * @var Product $product
-     *
-     * @Type("Product")
-     * @Accessor(getter="getProduct",setter="setProduct")
-     * @SkipWhenEmpty()
-     */
-    private $product;
-
-    /**
-     * @var Order $order
-     *
-     * @Type("Order")
-     * @Accessor(getter="getOrder",setter="setOrder")
-     * @SkipWhenEmpty()
-     */
-    private $order;
-
-    /**
-     * @var array $items
-     *
-     * @Type("array")
-     * @Accessor(getter="getItems",setter="setItems")
-     * @SkipWhenEmpty()
-     */
-    private $items;
-
-    /**
-     * @var string $scope
-     *
-     * @Type("string")
-     * @Accessor(getter="getScope",setter="setScope")
-     *
-     * @Assert\NotBlank
-     */
-    private $scope;
-
-    /**
-     * @var int $chatId
-     *
-     * @Type("int")
-     * @Accessor(getter="getChatId",setter="setChatId")
-     *
-     * @Assert\NotBlank
-     */
-    private $chatId;
-
-
-    /**
-     * @var int $quoteMessageId
-     *
-     * @Type("int")
-     * @Accessor(getter="getQuoteMessageId",setter="setQuoteMessageId")
-     * @SkipWhenEmpty
-     */
-    private $quoteMessageId;
-
-
-    /**
-     * @return int
-     */
-    public function getChatId()
-    {
-        return $this->chatId;
-    }
-
-    /**
-     * @param int $chatId
-     */
-    public function setChatId(int $chatId)
-    {
-        $this->chatId = $chatId;
-    }
-
-    /**
-     * @return string
-     */
-    public function getScope()
-    {
-        return $this->scope;
-    }
-
-    /**
-     * @param string $scope
-     */
-    public function setScope(string $scope)
-    {
-        $this->scope = $scope;
-    }
-
-    /**
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
-     * @param string $type
-     */
-    public function setType(string $type)
-    {
-        $this->type = $type;
-    }
-
-    /**
-     * @return string
-     */
-    public function getContent()
-    {
-        return $this->content;
-    }
-
-    /**
-     * @param string $content
-     */
-    public function setContent(string $content)
-    {
-        $this->content = $content;
-    }
-
-    /**
-     * @return Product
-     */
-    public function getProduct()
-    {
-        return $this->product;
-    }
-
-    /**
-     * @param Product $product
-     */
-    public function setProduct(Product $product)
-    {
-        $this->product = $product;
-    }
-
-    /**
-     * @return Order
-     */
-    public function getOrder()
-    {
-        return $this->order;
-    }
-
-    /**
-     * @param Order $order
-     */
-    public function setOrder(Order $order)
-    {
-        $this->order = $order;
-    }
-
-    /**
-     * @return array
-     */
-    public function getItems()
-    {
-        return $this->items;
-    }
-
-    /**
-     * @param array $items
-     */
-    public function setItems(array $items)
-    {
-        $this->items = $items;
-    }
-
-    /**
-     * @return int
-     */
-    public function getQuoteMessageId()
-    {
-        return $this->quoteMessageId;
-    }
-
-    /**
-     * @param int $quoteMessageId
-     */
-    public function setQuoteMessageId(int $quoteMessageId)
-    {
-        $this->quoteMessageId = $quoteMessageId;
-    }
+    const JSON_PROPERTY_MAP = [
+        'type' => 'string',
+        'content' => 'string',
+        'product' => '\RetailCrm\Mg\Bot\Model\Entity\Message\MessageProduct',
+        'order' => '\RetailCrm\Mg\Bot\Model\Entity\Message\MessageOrder',
+        'items' => '\RetailCrm\Mg\Bot\Model\Entity\Message\Item[]',
+        'scope' => 'string',
+        'chat_id' => 'int',
+        'quote_message_id' => 'int'
+    ];
 }

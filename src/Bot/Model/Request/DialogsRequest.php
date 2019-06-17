@@ -13,146 +13,56 @@
 
 namespace RetailCrm\Mg\Bot\Model\Request;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SkipWhenEmpty;
-use JMS\Serializer\Annotation\Type;
-
 /**
  * PHP version 7.0
  *
- * DialogsRequest class
+ * DialogsRequest class. Parametres:
+ *
+ * | Parameter name | Data type |
+ * |----------------|-----------|
+ * | chat_id        | int       |
+ * | user_id        | int       |
+ * | bot_id         | int       |
+ * | active         | int       |
+ * | assign         | int       |
  *
  * @package  RetailCrm\Mg\Bot\Model\Request
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
+ *
+ * @method int   getChatId()           "Get `chat_id` value"
+ * @method $this setChatId(int $value) "Set `chat_id` value"
+ * @method int   getUserId()           "Get `user_id` value"
+ * @method $this setUserId(int $value) "Set `user_id` value"
+ * @method int   getBotId()            "Get `bot_id` value"
+ * @method $this setBotId(int $value)  "Set `bot_id` value"
+ * @method int   getActive()           "Get `active` value"
+ * @method $this setActive(int $value) "Set `active` value"
+ * @method int   getAssign()           "Get `assign` value"
+ * @method $this setAssign(int $value) "Set `assign` value"
  */
-class DialogsRequest
+class DialogsRequest extends CommonFields
 {
-    use CommonFields;
-
     /**
-     * @var int $chatId
-     *
-     * @Type("int")
-     * @Accessor(getter="getChatId",setter="setChatId")
-     * @SkipWhenEmpty
+     * JSON fields. Use setters and getters to work with this values.
+     * Setters will return model instance, so you can construct any model like this:
+     * ```
+     * $request = (new InfoRequest())
+     *              ->setName("...")
+     *              ->setRoles([...]);
+     *```
+     * Model constructor can accept array as initial data. You can use
+     * this to initialize models:
+     * ```
+     * $request = new InfoRequest(["name" => "...", "roles" => [...]]);
+     * ```
      */
-    private $chatId;
-
-    /**
-     * @var int $userId
-     *
-     * @Type("int")
-     * @Accessor(getter="getUserId",setter="setUserId")
-     * @SkipWhenEmpty
-     */
-    private $userId;
-
-    /**
-     * @var int $botId
-     *
-     * @Type("int")
-     * @Accessor(getter="getBotId",setter="setBotId")
-     * @SkipWhenEmpty()
-     */
-    private $botId;
-
-    /**
-     * @var int $active
-     *
-     * @Type("int")
-     * @Accessor(getter="getActive",setter="setActive")
-     * @SkipWhenEmpty
-     */
-    private $active;
-
-    /**
-     * @var int $assign
-     *
-     * @Type("int")
-     * @Accessor(getter="getAssign",setter="setAssign")
-     * @SkipWhenEmpty
-     */
-    private $assign;
-
-    /**
-     * @return int
-     */
-    public function getChatId()
-    {
-        return $this->chatId;
-    }
-
-    /**
-     * @param int $chatId
-     */
-    public function setChatId(int $chatId)
-    {
-        $this->chatId = $chatId;
-    }
-
-    /**
-     * @return int
-     */
-    public function getUserId()
-    {
-        return $this->userId;
-    }
-
-    /**
-     * @param int $userId
-     */
-    public function setUserId(int $userId)
-    {
-        $this->userId = $userId;
-    }
-
-    /**
-     * @return int
-     */
-    public function getBotId()
-    {
-        return $this->botId;
-    }
-
-    /**
-     * @param int $botId
-     */
-    public function setBotId(int $botId)
-    {
-        $this->botId = $botId;
-    }
-
-    /**
-     * @return int
-     */
-    public function getActive()
-    {
-        return $this->active;
-    }
-
-    /**
-     * @param int $active
-     */
-    public function setActive(int $active)
-    {
-        $this->active = $active;
-    }
-
-    /**
-     * @return int
-     */
-    public function getAssign()
-    {
-        return $this->assign;
-    }
-
-    /**
-     * @param int $assign
-     */
-    public function setAssign(int $assign)
-    {
-        $this->assign = $assign;
-    }
+    const JSON_PROPERTY_MAP = [
+        'chat_id' => 'int',
+        'user_id' => 'int',
+        'bot_id' => 'int',
+        'active' => 'int',
+        'assign' => 'int'
+    ];
 }

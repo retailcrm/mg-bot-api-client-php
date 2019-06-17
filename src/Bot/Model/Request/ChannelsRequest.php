@@ -13,67 +13,44 @@
 
 namespace RetailCrm\Mg\Bot\Model\Request;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SkipWhenEmpty;
-use JMS\Serializer\Annotation\Type;
-
 /**
  * PHP version 7.0
  *
- * ChannelsRequest class
+ * ChannelsRequest class. Parameters:
+ *
+ * | Parameter name | Data type |
+ * |----------------|-----------|
+ * | types          | array     |
+ * | active         | int       |
  *
  * @package  RetailCrm\Mg\Bot\Model\Request
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
+ *
+ * @method array    getTypes()                "Get `types` value"
+ * @method $this    setTypes(array $value)    "Set `types` value"
+ * @method int      getActive()               "Get `active` value"
+ * @method $this    setActive(int $value)     "Set `active` value"
  */
-class ChannelsRequest
+class ChannelsRequest extends CommonFields
 {
-    use CommonFields;
-
     /**
-     * @Type("array")
-     * @Accessor(getter="getTypes",setter="setTypes")
-     * @SkipWhenEmpty
+     * JSON fields. Use setters and getters to work with this values.
+     * Setters will return model instance, so you can construct any model like this:
+     * ```
+     * $request = (new InfoRequest())
+     *              ->setName("...")
+     *              ->setRoles([...]);
+     *```
+     * Model constructor can accept array as initial data. You can use
+     * this to initialize models:
+     * ```
+     * $request = new InfoRequest(["name" => "...", "roles" => [...]]);
+     * ```
      */
-    private $types;
-
-    /**
-     * @Type("int")
-     * @Accessor(getter="getActive",setter="setActive")
-     * @SkipWhenEmpty
-     */
-    private $active;
-
-    /**
-     * @return array
-     */
-    public function getTypes()
-    {
-        return $this->types;
-    }
-
-    /**
-     * @param array $types
-     */
-    public function setTypes($types)
-    {
-        $this->types = $types;
-    }
-
-    /**
-     * @return int
-     */
-    public function getActive()
-    {
-        return $this->active;
-    }
-
-    /**
-     * @param int $active
-     */
-    public function setActive($active)
-    {
-        $this->active = $active;
-    }
+    const JSON_PROPERTY_MAP = [
+        'types' => 'string[]',
+        'active' => 'int'
+    ];
 }

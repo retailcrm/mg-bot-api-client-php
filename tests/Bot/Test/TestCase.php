@@ -14,6 +14,8 @@
 namespace RetailCrm\Mg\Bot\Test;
 
 use PHPUnit\Framework\TestCase as BaseCase;
+use GuzzleHttp\Handler\MockHandler;
+use GuzzleHttp\HandlerStack;
 use RetailCrm\Mg\Bot\Client;
 
 /**
@@ -30,25 +32,29 @@ class TestCase extends BaseCase
     /**
      * Return bot api client object
      *
-     * @param string $url     (default: null)
-     * @param string $key     (default: null)
-     * @param bool   $debug   (default: false)
+     * @param string    $url      (default: null)
+     * @param string    $key      (default: null)
+     * @param bool      $debug    (default: false)
+     * @param array     $response (default: null)
      *
-     * @return \RetailCrm\Mg\Bot\Client
+     * @return Client
      */
     public static function getApiClient(
         $url = null,
         $key = null,
-        $debug = false
+        $debug = false,
+        ...$response
     ) {
         $configUrl = getenv('MG_BOT_URL');
         $configKey = getenv('MG_BOT_KEY');
         $configDbg = getenv('MG_BOT_DBG');
+        $mock = new MockHandler($response ?: []);
 
         return new Client(
             $url ?: $configUrl,
             $key ?: $configKey,
-            $debug ?: $configDbg
+            $debug ?: $configDbg,
+            empty($response) ? null : HandlerStack::create($mock)
         );
     }
 }

@@ -13,44 +13,40 @@
 
 namespace RetailCrm\Mg\Bot\Model\Request;
 
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SkipWhenEmpty;
-use JMS\Serializer\Annotation\Type;
-
 /**
  * PHP version 7.0
  *
- * CustomersRequest class
+ * CustomersRequest class. Parametres:
+ *
+ * | Parameter name | Data type |
+ * |----------------|-----------|
+ * | external_id    | string    |
  *
  * @package  RetailCrm\Mg\Bot\Model\Request
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
+ *
+ * @method string getExternalId()              "Get `external_id` value"
+ * @method $this  setExternalId(string $value) "Set `external_id` value"
  */
-class CustomersRequest
+class CustomersRequest extends CommonFields
 {
-    use CommonFields;
-
     /**
-     * @Type("string")
-     * @Accessor(getter="getExternalId",setter="setExternalId")
-     * @SkipWhenEmpty
+     * JSON fields. Use setters and getters to work with this values.
+     * Setters will return model instance, so you can construct any model like this:
+     * ```
+     * $request = (new InfoRequest())
+     *              ->setName("...")
+     *              ->setRoles([...]);
+     *```
+     * Model constructor can accept array as initial data. You can use
+     * this to initialize models:
+     * ```
+     * $request = new InfoRequest(["name" => "...", "roles" => [...]]);
+     * ```
      */
-    private $externalId;
-
-    /**
-     * @return string
-     */
-    public function getExternalId()
-    {
-        return $this->externalId;
-    }
-
-    /**
-     * @param string $externalId
-     */
-    public function setExternalId($externalId)
-    {
-        $this->externalId = $externalId;
-    }
+    const JSON_PROPERTY_MAP = [
+        'external_id' => 'string'
+    ];
 }
