@@ -47,4 +47,28 @@ class Url
 
         return $url;
     }
+
+    /**
+     * Convert request data to GET parameters
+     *
+     * @param array $params
+     *
+     * @return string
+     */
+    public static function buildGetParameters(array $params)
+    {
+        $result = '';
+
+        foreach ($params as $param => $value) {
+            if (!is_array($value)) {
+                $result .= '&' . $param . '=' . $value;
+            } else {
+                foreach ($value as $subvalue) {
+                    $result .= '&' . $param . '=' . $subvalue;
+                }
+            }
+        }
+
+        return count($result) > 0 ? '?' . substr($result, 1) : '';
+    }
 }

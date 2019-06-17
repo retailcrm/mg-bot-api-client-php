@@ -95,6 +95,16 @@ class ListResponse implements \Iterator, \ArrayAccess {
     }
 
     /**
+     * `count()` alternative for ListResponse
+     *
+     * @return int
+     */
+    public function count(): int
+    {
+        return count($this->items ?: []);
+    }
+
+    /**
      * Set offset
      *
      * @param mixed $offset offset value

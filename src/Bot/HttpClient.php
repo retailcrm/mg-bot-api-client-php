@@ -114,16 +114,22 @@ class HttpClient
      */
     public function makeRequest($path, $method, $request = null, $serializeTo = Serializer::S_JSON)
     {
+        $getParameters = '';
+
         $this->validateMethod($method);
 
         if (!is_null($request)) {
             $this->validateRequest($request);
         }
 
+        if ($method == self::METHOD_GET) {
+            $getParameters = Url::buildGetParameters(Serializer::serialize($request, Serializer::S_ARRAY));
+        }
+
         $parameters = is_null($request) ? null : Serializer::serialize($request, $serializeTo);
         $request = new Request(
             $method,
-            \sprintf("%s%s", $this->basePath, $path),
+            \sprintf("%s%s%s", $this->basePath, $path, $getParameters),
             [
                 'Content-Type' => 'application/json',
                 'X-Bot-Token' => $this->token

@@ -14,7 +14,11 @@
 namespace RetailCrm\Mg\Bot\Tests;
 
 use RetailCrm\Mg\Bot\Model\Constants;
+use RetailCrm\Mg\Bot\Model\Entity\Channel;
+use RetailCrm\Mg\Bot\Model\Entity\Chat\Chat;
+use RetailCrm\Mg\Bot\Model\Entity\Chat\ChatMember;
 use RetailCrm\Mg\Bot\Model\Entity\Dialog;
+use RetailCrm\Mg\Bot\Model\Entity\Message\Message;
 use RetailCrm\Mg\Bot\Model\Request;
 use RetailCrm\Mg\Bot\Model\Response;
 use RetailCrm\Mg\Bot\Test\TestCase;
@@ -38,15 +42,21 @@ class ClientListTest extends TestCase
      */
     public function testChannels()
     {
-        $client = self::getApiClient();
+        $client = self::getApiClient(
+            null,
+            null,
+            false,
+            $this->getJsonResponse('channels')
+        );
 
         $request = new Request\ChannelsRequest();
         $request->setActive(true);
-        $request->setTypes([Constants::CHANNEL_TYPE_FACEBOOK, Constants::CHANNEL_TYPE_INSTAGRAM]);
+        $request->setTypes([Constants::CHANNEL_TYPE_TELEGRAM, Constants::CHANNEL_TYPE_INSTAGRAM]);
 
         $response = $client->channels($request);
 
-        print_r($response->get(0));
+        static::assertEquals(4, $response->count(), "Incorrect channels count");
+        static::assertTrue($response[0] instanceof Channel\Channel, "Incorrect channel instance");
     }
 
     /**
@@ -55,14 +65,20 @@ class ClientListTest extends TestCase
      */
     public function testChats()
     {
-        $client = self::getApiClient();
+        $client = self::getApiClient(
+            null,
+            null,
+            false,
+            $this->getJsonResponse('chats')
+        );
 
         $request = new Request\ChatsRequest();
-        $request->setChannelType(Constants::CHANNEL_TYPE_FACEBOOK);
+        $request->setChannelType(Constants::CHANNEL_TYPE_TELEGRAM);
 
         $response = $client->chats($request);
 
-        print_r($response);
+        static::assertEquals(2, $response->count(), "Incorrect chats count");
+        static::assertTrue($response[0] instanceof Chat, "Incorrect chat instance");
     }
 
     /**
@@ -71,13 +87,18 @@ class ClientListTest extends TestCase
      */
     public function testMembers()
     {
-        $client = self::getApiClient();
+        $client = self::getApiClient(
+            null,
+            null,
+            false,
+            $this->getJsonResponse('members')
+        );
 
         $request = new Request\MembersRequest();
-
         $response = $client->members($request);
 
-        print_r($response);
+        static::assertEquals(4, $response->count(), "Incorrect members count");
+        static::assertTrue($response[0] instanceof ChatMember, "Incorrect member instance");
     }
 
     /**
@@ -86,7 +107,12 @@ class ClientListTest extends TestCase
      */
     public function testMessages()
     {
-        $client = self::getApiClient();
+        $client = self::getApiClient(
+            null,
+            null,
+            false,
+            $this->getJsonResponse('messages')
+        );
 
         $request = new Request\MessagesRequest();
         $request->setChannelType(Constants::CHANNEL_TYPE_INSTAGRAM);
@@ -94,7 +120,8 @@ class ClientListTest extends TestCase
 
         $response = $client->messages($request);
 
-        print_r($response);
+        static::assertEquals(2, $response->count(), "Incorrect message count");
+        static::assertTrue($response[0] instanceof Message, "Incorrect message instance");
     }
 
     /**
@@ -103,13 +130,17 @@ class ClientListTest extends TestCase
      */
     public function testCommands()
     {
-        $client = self::getApiClient();
+        $client = self::getApiClient(
+            null,
+            null,
+            false,
+            $this->getResponse('[]')
+        );
 
         $request = new Request\CommandsRequest();
-
         $response = $client->commands($request);
 
-        print_r($response);
+        self::assertEquals(0, $response->count(), "Invalid commands count");
     }
 
     /**
@@ -118,7 +149,12 @@ class ClientListTest extends TestCase
      */
     public function testBots()
     {
-        $client = self::getApiClient();
+        $client = self::getApiClient(
+            null,
+            null,
+            false,
+            $this->getJsonResponse('bots')
+        );
 
         $request = new Request\BotsRequest();
         $request->setActive(1);
@@ -126,7 +162,7 @@ class ClientListTest extends TestCase
 
         $data = $client->bots($request);
 
-        print_r($data[0]);
+        static::assertEquals(3, $data->count());
     }
 
     /**

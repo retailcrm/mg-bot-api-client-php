@@ -1,0 +1,38 @@
+[
+  {
+    "id": 50,
+    "created_at": "2019-06-11T12:49:34.718596Z",
+    "updated_at": "2019-06-11T14:36:22.086823Z",
+    "is_author": false,
+    "state": "active",
+    "chat_id": 30,
+    "user_id": 12
+  },
+  {
+    "id": 49,
+    "created_at": "2019-06-11T12:49:26.967903Z",
+    "updated_at": "2019-06-11T12:49:34.723983Z",
+    "is_author": false,
+    "state": "kicked",
+    "chat_id": 30,
+    "user_id": 4
+  },
+  {
+    "id": 48,
+    "created_at": "2019-06-11T08:40:14.139024Z",
+    "updated_at": "2019-06-13T08:10:03.576754Z",
+    "is_author": false,
+    "state": "active",
+    "chat_id": 29,
+    "user_id": 12
+  },
+  {
+    "id": 47,
+    "created_at": "2019-06-11T07:34:16.117109Z",
+    "updated_at": "2019-06-11T08:40:14.145243Z",
+    "is_author": false,
+    "state": "kicked",
+    "chat_id": 29,
+    "user_id": 4
+  }
+]
