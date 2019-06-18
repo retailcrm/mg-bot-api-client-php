@@ -14,6 +14,7 @@
 namespace RetailCrm\Mg\Bot\Model\Entity\Message;
 
 use LazyJsonMapper\LazyJsonMapper;
+use Symfony\Component\Validator\Validation;
 
 /**
  * PHP version 7.0

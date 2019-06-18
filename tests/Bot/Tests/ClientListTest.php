@@ -17,8 +17,10 @@ use RetailCrm\Mg\Bot\Model\Constants;
 use RetailCrm\Mg\Bot\Model\Entity\Channel;
 use RetailCrm\Mg\Bot\Model\Entity\Chat\Chat;
 use RetailCrm\Mg\Bot\Model\Entity\Chat\ChatMember;
+use RetailCrm\Mg\Bot\Model\Entity\Customer;
 use RetailCrm\Mg\Bot\Model\Entity\Dialog;
 use RetailCrm\Mg\Bot\Model\Entity\Message\Message;
+use RetailCrm\Mg\Bot\Model\Entity\User;
 use RetailCrm\Mg\Bot\Model\Request;
 use RetailCrm\Mg\Bot\Model\Response;
 use RetailCrm\Mg\Bot\Test\TestCase;
@@ -171,7 +173,12 @@ class ClientListTest extends TestCase
      */
     public function testUsers()
     {
-        $client = self::getApiClient();
+        $client = self::getApiClient(
+            null,
+            null,
+            false,
+            $this->getJsonResponse('users')
+        );
 
         $request = new Request\UsersRequest();
         $request->setActive(1);
@@ -179,7 +186,8 @@ class ClientListTest extends TestCase
 
         $response = $client->users($request);
 
-        print_r($response);
+        self::assertEquals(2, $response->count());
+        self::assertTrue($response[0] instanceof User);
     }
 
     /**
@@ -188,13 +196,21 @@ class ClientListTest extends TestCase
      */
     public function testDialogs()
     {
-        $client = self::getApiClient();
+        $client = self::getApiClient(
+            null,
+            null,
+            false,
+            $this->getJsonResponse('dialogs')
+        );
 
         $request = new Request\DialogsRequest();
         $request->setActive(1);
         $request->setAssign(1);
 
         $response = $client->dialogs($request);
+
+        self::assertEquals(2, $response->count());
+        self::assertTrue($response[0] instanceof Dialog);
     }
 
     /**
@@ -203,12 +219,18 @@ class ClientListTest extends TestCase
      */
     public function testCustomers()
     {
-        $client = self::getApiClient();
+        $client = self::getApiClient(
+            null,
+            null,
+            false,
+            $this->getJsonResponse('customers')
+        );
 
         $request = new Request\CustomersRequest();
 
         $response = $client->customers($request);
 
-        print_r($response);
+        self::assertEquals(2, $response->count());
+        self::assertTrue($response[0] instanceof Customer);
     }
 }

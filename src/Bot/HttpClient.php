@@ -203,11 +203,15 @@ class HttpClient
      */
     private function validateRequest($class)
     {
-        $validator = Validation::createValidatorBuilder()
-            ->enableAnnotationMapping()
-            ->getValidator();
+        if (method_exists($class, 'validate')) {
+            $errors = $class->validate();
+        } else {
+            $validator = Validation::createValidatorBuilder()
+                ->enableAnnotationMapping()
+                ->getValidator();
 
-        $errors = $validator->validate($class);
+            $errors = $validator->validate($class);
+        }
 
         if ($errors->count() > 0) {
             $message = (string) $errors;
