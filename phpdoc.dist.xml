@@ -12,7 +12,7 @@
         <target>mg-bot-api-client-php.pages</target>
     </transformer>
     <transformations>
-        <template name="responsive" />
+        <template name="clean" />
     </transformations>
     <files>
         <directory>src</directory>
