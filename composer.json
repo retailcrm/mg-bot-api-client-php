@@ -16,7 +16,7 @@
         "ext-curl": "*",
         "ext-json": "*",
         "doctrine/cache": "1.6.*",
-        "guzzlehttp/guzzle": "6.0",
+        "guzzlehttp/guzzle": "6.3.*",
         "lazyjsonmapper/lazyjsonmapper": "^1.6",
         "symfony/validator": "3.4.*",
         "doctrine/annotations": "1.6.*",
