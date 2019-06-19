@@ -58,6 +58,6 @@ class CommonFields extends LazyJsonMapper
      */
     public function isError()
     {
-        return !empty($this->getErrors());
+        return (bool) !empty($this->getErrors());
     }
 }

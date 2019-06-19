@@ -59,4 +59,11 @@ class CommandEditRequest extends LazyJsonMapper
         'name' => 'string',
         'description' => 'string'
     ];
+
+    public function validate()
+    {
+        if (empty($this->getName())) {
+            return 'Empty name';
+        }
+    }
 }

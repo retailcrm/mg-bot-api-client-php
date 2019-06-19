@@ -35,15 +35,24 @@ class MessagesTest extends TestCase
      */
     public function testMessageSend()
     {
-        $client = self::getApiClient();
+        $client = self::getApiClient(
+            null,
+            null,
+            false,
+            $this->getResponse(
+                '{"errors":["chat_id is a required field"]}',
+                400
+            )
+        );
 
         $request = new MessageSendRequest();
         $request->setChatId(0);
         $request->setScope(Constants::MESSAGE_SCOPE_PUBLIC);
         $request->setContent("Hello");
 
-        $request = $client->messageSend($request);
+        $response = $client->messageSend($request);
 
-        self::assertEquals($request->getStatusCode(), 400);
+        self::assertTrue($response->isError());
+        self::assertEquals(1, count($response->getErrors()));
     }
 }

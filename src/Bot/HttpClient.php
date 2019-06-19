@@ -166,7 +166,7 @@ class HttpClient
          * therefore they are not handled as exceptions
          */
         if (in_array($statusCode, [403, 404, 500])) {
-            throw new \Exception($errorMessage);
+            throw new \InvalidArgumentException($errorMessage);
         }
 
         if ($statusCode == 503) {
@@ -213,7 +213,7 @@ class HttpClient
             $errors = $validator->validate($class);
         }
 
-        if ($errors->count() > 0) {
+        if ((is_object($errors) && $errors->count() > 0) || is_string($errors)) {
             $message = (string) $errors;
             throw new InvalidArgumentException($message);
         }
