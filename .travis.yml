@@ -13,3 +13,12 @@ before_script:
     - composer install $flags
 
 script: make travis
+
+deploy:
+    provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    local_dir: mg-bot-api-client-php.pages
+    keep_history: true
+    on:
+        branch: master
