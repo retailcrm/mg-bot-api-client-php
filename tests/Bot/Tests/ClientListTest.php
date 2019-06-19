@@ -57,7 +57,7 @@ class ClientListTest extends TestCase
 
         $response = $client->channels($request);
 
-        static::assertEquals(4, $response->count(), "Incorrect channels count");
+        static::assertEquals(4, count($response), "Incorrect channels count");
         static::assertTrue($response[0] instanceof Channel\Channel, "Incorrect channel instance");
     }
 
@@ -79,7 +79,7 @@ class ClientListTest extends TestCase
 
         $response = $client->chats($request);
 
-        static::assertEquals(2, $response->count(), "Incorrect chats count");
+        static::assertEquals(2, count($response), "Incorrect chats count");
         static::assertTrue($response[0] instanceof Chat, "Incorrect chat instance");
     }
 
@@ -99,7 +99,7 @@ class ClientListTest extends TestCase
         $request = new Request\MembersRequest();
         $response = $client->members($request);
 
-        static::assertEquals(4, $response->count(), "Incorrect members count");
+        static::assertEquals(4, count($response), "Incorrect members count");
         static::assertTrue($response[0] instanceof ChatMember, "Incorrect member instance");
     }
 
@@ -122,7 +122,7 @@ class ClientListTest extends TestCase
 
         $response = $client->messages($request);
 
-        static::assertEquals(2, $response->count(), "Incorrect message count");
+        static::assertEquals(2, count($response), "Incorrect message count");
         static::assertTrue($response[0] instanceof Message, "Incorrect message instance");
     }
 
@@ -142,7 +142,7 @@ class ClientListTest extends TestCase
         $request = new Request\CommandsRequest();
         $response = $client->commands($request);
 
-        self::assertEquals(0, $response->count(), "Invalid commands count");
+        self::assertEquals(0, count($response), "Invalid commands count");
     }
 
     /**
@@ -164,7 +164,7 @@ class ClientListTest extends TestCase
 
         $data = $client->bots($request);
 
-        static::assertEquals(3, $data->count());
+        static::assertEquals(3, count($data));
     }
 
     /**
@@ -186,7 +186,7 @@ class ClientListTest extends TestCase
 
         $response = $client->users($request);
 
-        self::assertEquals(2, $response->count());
+        self::assertEquals(2, count($response));
         self::assertTrue($response[0] instanceof User);
     }
 
@@ -209,7 +209,7 @@ class ClientListTest extends TestCase
 
         $response = $client->dialogs($request);
 
-        self::assertEquals(2, $response->count());
+        self::assertEquals(2, count($response));
         self::assertTrue($response[0] instanceof Dialog);
     }
 
@@ -230,7 +230,7 @@ class ClientListTest extends TestCase
 
         $response = $client->customers($request);
 
-        self::assertEquals(2, $response->count());
+        self::assertEquals(2, count($response));
         self::assertTrue($response[0] instanceof Customer);
     }
 }

@@ -45,7 +45,7 @@ namespace RetailCrm\Mg\Bot\Model\Response;
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
-class ListResponse implements \Iterator, \ArrayAccess {
+class ListResponse implements \Iterator, \ArrayAccess, \Countable {
     /**
      * @var array
      */
@@ -95,7 +95,7 @@ class ListResponse implements \Iterator, \ArrayAccess {
     }
 
     /**
-     * `count()` alternative for ListResponse
+     * \Countable implementation
      *
      * @return int
      */
