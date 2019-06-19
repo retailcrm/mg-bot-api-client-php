@@ -1,6 +1,7 @@
 ROOT_DIR=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 SRC_DIR=$(ROOT_DIR)/src
 BIN_DIR=$(ROOT_DIR)/bin
+export PATH := $(PATH):$(ROOT_DIR)/dot
 
 deps:
 	@echo "==> Installing dependencies"
@@ -28,6 +29,13 @@ ifeq ($(wildcard *.phar), )
 	@wget https://github.com/phpDocumentor/phpDocumentor2/releases/download/v3.0.0-alpha.3/phpDocumentor.phar -O phpDocumentor.phar
 	@wget https://github.com/phpDocumentor/phpDocumentor2/releases/download/v3.0.0-alpha.3/phpDocumentor.phar.pubkey -O phpDocumentor.phar.pubkey
 	@chmod +x phpDocumentor.phar
+endif
+ifeq (, $(shell which dot))
+ifeq ($(wildcard dot/dot), )
+	@mkdir -p $(ROOT_DIR)/dot
+	@wget https://github.com/Neur0toxine/mwgraphviz/raw/master/dot_static -O $(ROOT_DIR)/dot/dot
+	@chmod +x $(ROOT_DIR)/dot/dot
+endif
 endif
 	@php phpDocumentor.phar --config $(ROOT_DIR)/phpdoc.dist.xml
 
