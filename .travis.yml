@@ -12,4 +12,4 @@ before_script:
     - flags="-o"
     - composer install $flags
 
-script: make test
+script: make travis

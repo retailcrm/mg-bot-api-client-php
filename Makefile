@@ -30,3 +30,6 @@ ifeq ($(wildcard *.phar), )
 	@chmod +x phpDocumentor.phar
 endif
 	@php phpDocumentor.phar --config $(ROOT_DIR)/phpdoc.dist.xml
+
+travis: test docs
+	@echo "==> Done."
