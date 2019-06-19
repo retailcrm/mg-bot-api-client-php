@@ -69,6 +69,6 @@ class Url
             }
         }
 
-        return count($result) > 0 ? '?' . substr($result, 1) : '';
+        return strlen($result) > 0 ? '?' . substr($result, 1) : '';
     }
 }
