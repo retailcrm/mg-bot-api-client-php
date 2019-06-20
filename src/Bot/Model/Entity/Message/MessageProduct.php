@@ -13,66 +13,194 @@
 
 namespace RetailCrm\Mg\Bot\Model\Entity\Message;
 
-use LazyJsonMapper\LazyJsonMapper;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SkipWhenEmpty;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * PHP version 7.0
  *
- * MessageProduct class. Schema:
- *
- * | Field name | Data type       |
- * |------------|-----------------|
- * | article    | string          |
- * | cost       | MessageCost     |
- * | id         | int             |
- * | img        | string          |
- * | name       | string          |
- * | quantity   | MessageQuantity |
- * | url        | string          |
+ * MessageProduct class
  *
  * @package  RetailCrm\Mg\Bot\Model\Entity\Message
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
- *
- * @method string          getArticle()                        "Get `article` value"
- * @method $this           setArticle(string $value)           "Set `article` value"
- * @method MessageCost     getCost()                           "Get `cost` value"
- * @method $this           setCost(MessageCost $value)         "Set `cost` value"
- * @method int             getId()                             "Get `id` value"
- * @method $this           setId(int $value)                   "Set `id` value"
- * @method string          getImg()                            "Get `img` value"
- * @method $this           setImg(string $value)               "Set `img` value"
- * @method string          getName()                           "Get `name` value"
- * @method $this           setName(string $value)              "Set `name` value"
- * @method MessageQuantity getQuantity()                       "Get `quantity` value"
- * @method $this           setQuantity(MessageQuantity $value) "Set `quantity` value"
- * @method string          getUrl()                            "Get `url` value"
- * @method $this           setUrl(string $value)               "Set `url` value"
  */
-class MessageProduct extends LazyJsonMapper
+class MessageProduct
 {
     /**
-     * JSON fields. Use setters and getters to work with this values.
-     * Setters will return model instance, so you can construct any model like this:
-     * ```
-     * $request = (new InfoRequest())
-     *              ->setName("...")
-     *              ->setRoles([...]);
-     *```
-     * Model constructor can accept array as initial data. You can use
-     * this to initialize models:
-     * ```
-     * $request = new InfoRequest(["name" => "...", "roles" => [...]]);
-     * ```
+     * @var int $id
+     *
+     * @Type("int")
+     * @Accessor(getter="getId",setter="setId")
+     * @SkipWhenEmpty()
      */
-    const JSON_PROPERTY_MAP = [
-        'article' => 'string',
-        'cost' => 'MessageCost',
-        'id' => 'int',
-        'img' => 'string',
-        'name' => 'string',
-        'quantity' => 'MessageQuantity',
-        'url' => 'string'
-    ];
+    private $id;
+
+    /**
+     * @var string $name
+     *
+     * @Type("string")
+     * @Accessor(getter="getName",setter="setName")
+     * @SkipWhenEmpty()
+     */
+    private $name;
+
+    /**
+     * @var string $article
+     *
+     * @Type("string")
+     * @Accessor(getter="getArticle",setter="setArticle")
+     * @SkipWhenEmpty()
+     */
+    private $article;
+
+    /**
+     * @var string $url
+     *
+     * @Type("string")
+     * @Accessor(getter="getUrl",setter="setUrl")
+     * @SkipWhenEmpty()
+     */
+    private $url;
+
+    /**
+     * @var string $img
+     *
+     * @Type("string")
+     * @Accessor(getter="getImg",setter="setImg")
+     * @SkipWhenEmpty()
+     */
+    private $img;
+
+    /**
+     * @var MessageCost $cost
+     *
+     * @Type("Cost")
+     * @Accessor(getter="getCost",setter="setCost")
+     * @SkipWhenEmpty()
+     */
+    private $cost;
+
+    /**
+     * @var MessageQuantity $quantity
+     *
+     * @Type("MessageQuantity")
+     * @Accessor(getter="getQuantity",setter="setQuantity)
+     * @SkipWhenEmpty()
+     */
+    private $quantity;
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId(int $id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName(string $name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getArticle(): string
+    {
+        return $this->article;
+    }
+
+    /**
+     * @param string $article
+     */
+    public function setArticle(string $article)
+    {
+        $this->article = $article;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUrl(): string
+    {
+        return $this->url;
+    }
+
+    /**
+     * @param string $url
+     */
+    public function setUrl(string $url)
+    {
+        $this->url = $url;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImg(): string
+    {
+        return $this->img;
+    }
+
+    /**
+     * @param string $img
+     */
+    public function setImg(string $img)
+    {
+        $this->img = $img;
+    }
+
+    /**
+     * @return MessageCost
+     */
+    public function getCost(): MessageCost
+    {
+        return $this->cost;
+    }
+
+    /**
+     * @param MessageCost $cost
+     */
+    public function setCost(MessageCost $cost)
+    {
+        $this->cost = $cost;
+    }
+
+    /**
+     * @return MessageQuantity
+     */
+    public function getQuantity(): MessageQuantity
+    {
+        return $this->quantity;
+    }
+
+    /**
+     * @param MessageQuantity $quantity
+     */
+    public function setQuantity(MessageQuantity $quantity)
+    {
+        $this->quantity = $quantity;
+    }
 }

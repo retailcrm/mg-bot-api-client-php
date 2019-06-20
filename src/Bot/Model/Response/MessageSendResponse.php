@@ -13,44 +13,71 @@
 
 namespace RetailCrm\Mg\Bot\Model\Response;
 
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SkipWhenEmpty;
+use JMS\Serializer\Annotation\Type;
+
 /**
  * PHP version 7.0
  *
- * MessageSendResponse class. Parameters:
- *
- * | Parameter name | Data type |
- * |----------------|-----------|
- * | message_id     | int       |
- * | time           | string    |
+ * MessageSendResponse class
  *
  * @package  RetailCrm\Mg\Bot\Model\Response
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
- *
- * @method int    getMessageId()           "Get `message_id` value"
- * @method $this  setMessageId(int $value) "Set `message_id` value"
- * @method string getTime()                "Get `time` value"
- * @method $this  setTime(string $value)   "Set `time` value"
  */
-class MessageSendResponse extends CommonFields
+class MessageSendResponse
 {
+    use CommonFields;
+
     /**
-     * JSON fields. Use setters and getters to work with this values.
-     * Setters will return model instance, so you can construct any model like this:
-     * ```
-     * $request = (new InfoRequest())
-     *              ->setName("...")
-     *              ->setRoles([...]);
-     *```
-     * Model constructor can accept array as initial data. You can use
-     * this to initialize models:
-     * ```
-     * $request = new InfoRequest(["name" => "...", "roles" => [...]]);
-     * ```
+     * @var int $messageId
+     *
+     * @Type("int")
+     * @Accessor(getter="getMessageId",setter="setMessageId")
+     * @SkipWhenEmpty()
      */
-    const JSON_PROPERTY_MAP = [
-        'message_id' => 'int',
-        'time' => 'string'
-    ];
+    private $messageId;
+
+    /**
+     * @var string $time
+     *
+     * @Type("string")
+     * @Accessor(getter="getTime",setter="setTime")
+     * @SkipWhenEmpty()
+     */
+    private $time;
+
+    /**
+     * @return int
+     */
+    public function getMessageId(): int
+    {
+        return $this->messageId;
+    }
+
+    /**
+     * @param int $messageId
+     */
+    public function setMessageId(int $messageId)
+    {
+        $this->messageId = $messageId;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTime(): string
+    {
+        return $this->time;
+    }
+
+    /**
+     * @param string $time
+     */
+    public function setTime(string $time)
+    {
+        $this->time = $time;
+    }
 }

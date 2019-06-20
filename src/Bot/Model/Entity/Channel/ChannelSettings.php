@@ -13,62 +13,192 @@
 
 namespace RetailCrm\Mg\Bot\Model\Entity\Channel;
 
-use LazyJsonMapper\LazyJsonMapper;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SkipWhenEmpty;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * PHP version 7.0
  *
- * ChannelSettings class. Schema:
- *
- * | Field name | Data type           |
- * |------------|---------------------|
- * | status     | ChannelSettingsItem |
- * | text       | ChannelSettingsItem |
- * | product    | ChannelSettingsItem |
- * | order      | ChannelSettingsItem |
- * | image      | ChannelSettingsItem |
- * | file       | ChannelSettingsItem |
+ * ChannelSettings class
  *
  * @package  RetailCrm\Mg\Bot\Model\Entity\Channel
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
- *
- * @method ChannelSettingsItem getStatus()                            "Get `status` value"
- * @method $this               setStatus(ChannelSettingsItem $value)  "Set `status` value"
- * @method ChannelSettingsItem getText()                              "Get `text` value"
- * @method $this               setText(ChannelSettingsItem $value)    "Set `text` value"
- * @method ChannelSettingsItem getProduct()                           "Get `product` value"
- * @method $this               setProduct(ChannelSettingsItem $value) "Set `product` value"
- * @method ChannelSettingsItem getOrder()                             "Get `order` value"
- * @method $this               setOrder(ChannelSettingsItem $value)   "Set `order` value"
- * @method ChannelSettingsItem getImage()                             "Get `image` value"
- * @method $this               setImage(ChannelSettingsItem $value)   "Set `image` value"
- * @method ChannelSettingsItem getFile()                              "Get `file` value"
- * @method $this               setFile(ChannelSettingsItem $value)    "Set `file` value"
  */
-class ChannelSettings extends LazyJsonMapper
+class ChannelSettings
 {
     /**
-     * JSON fields. Use setters and getters to work with this values.
-     * Setters will return model instance, so you can construct any model like this:
-     * ```
-     * $request = (new InfoRequest())
-     *              ->setName("...")
-     *              ->setRoles([...]);
-     *```
-     * Model constructor can accept array as initial data. You can use
-     * this to initialize models:
-     * ```
-     * $request = new InfoRequest(["name" => "...", "roles" => [...]]);
-     * ```
+     * @var ChannelSettingsStatus $status
+     *
+     * @Type("RetailCrm\Mg\Bot\Model\Entity\Channel\ChannelSettingsStatus")
+     * @Accessor(getter="getStatus",setter="setStatus")
      */
-    const JSON_PROPERTY_MAP = [
-        'status' => 'ChannelSettingsItem',
-        'text' => 'ChannelSettingsItem',
-        'product' => 'ChannelSettingsItem',
-        'order' => 'ChannelSettingsItem',
-        'image' => 'ChannelSettingsItem',
-        'file' => 'ChannelSettingsItem'
-    ];
+    private $status;
+
+    /**
+     * @var int $spamAllowed
+     *
+     * @Type("int")
+     * @Accessor(getter="getStatus",setter="setStatus")
+     */
+    private $spamAllowed;
+
+    /**
+     * @var ChannelSettingsItem $text
+     *
+     * @Type("RetailCrm\Mg\Bot\Model\Entity\Channel\ChannelSettingsItem")
+     * @Accessor(getter="getText",setter="setText")
+     * @SkipWhenEmpty()
+     */
+    private $text;
+
+    /**
+     * @var ChannelSettingsItem $product
+     *
+     * @Type("RetailCrm\Mg\Bot\Model\Entity\Channel\ChannelSettingsItem")
+     * @Accessor(getter="getProduct",setter="setProduct")
+     * @SkipWhenEmpty()
+     */
+    private $product;
+
+    /**
+     * @var ChannelSettingsItem $order
+     *
+     * @Type("RetailCrm\Mg\Bot\Model\Entity\Channel\ChannelSettingsItem")
+     * @Accessor(getter="getOrder",setter="setOrder")
+     * @SkipWhenEmpty()
+     */
+    private $order;
+
+    /**
+     * @var ChannelSettingsItem $image
+     *
+     * @Type("RetailCrm\Mg\Bot\Model\Entity\Channel\ChannelSettingsItem")
+     * @Accessor(getter="getImage",setter="setImage")
+     * @SkipWhenEmpty()
+     */
+    private $image;
+
+    /**
+     * @var ChannelSettingsItem $file
+     *
+     * @Type("RetailCrm\Mg\Bot\Model\Entity\Channel\ChannelSettingsItem")
+     * @Accessor(getter="getFile",setter="setFile")
+     * @SkipWhenEmpty()
+     */
+    private $file;
+
+    /**
+     * @return ChannelSettingsStatus
+     */
+    public function getStatus(): ChannelSettingsStatus
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param ChannelSettingsStatus $status
+     */
+    public function setStatus(ChannelSettingsStatus $status)
+    {
+        $this->status = $status;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSpamAllowed(): int
+    {
+        return $this->spamAllowed;
+    }
+
+    /**
+     * @param int $spamAllowed
+     */
+    public function setSpamAllowed(int $spamAllowed)
+    {
+        $this->spamAllowed = $spamAllowed;
+    }
+
+    /**
+     * @return ChannelSettingsItem
+     */
+    public function getText(): ChannelSettingsItem
+    {
+        return $this->text;
+    }
+
+    /**
+     * @param ChannelSettingsItem $text
+     */
+    public function setText(ChannelSettingsItem $text)
+    {
+        $this->text = $text;
+    }
+
+    /**
+     * @return ChannelSettingsItem
+     */
+    public function getProduct(): ChannelSettingsItem
+    {
+        return $this->product;
+    }
+
+    /**
+     * @param ChannelSettingsItem $product
+     */
+    public function setProduct(ChannelSettingsItem $product)
+    {
+        $this->product = $product;
+    }
+
+    /**
+     * @return ChannelSettingsItem
+     */
+    public function getOrder(): ChannelSettingsItem
+    {
+        return $this->order;
+    }
+
+    /**
+     * @param ChannelSettingsItem $order
+     */
+    public function setOrder(ChannelSettingsItem $order)
+    {
+        $this->order = $order;
+    }
+
+    /**
+     * @return ChannelSettingsItem
+     */
+    public function getImage(): ChannelSettingsItem
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param ChannelSettingsItem $image
+     */
+    public function setImage(ChannelSettingsItem $image)
+    {
+        $this->image = $image;
+    }
+
+    /**
+     * @return ChannelSettingsItem
+     */
+    public function getFile(): ChannelSettingsItem
+    {
+        return $this->file;
+    }
+
+    /**
+     * @param ChannelSettingsItem $file
+     */
+    public function setFile(ChannelSettingsItem $file)
+    {
+        $this->file = $file;
+    }
 }

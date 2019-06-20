@@ -13,46 +13,70 @@
 
 namespace RetailCrm\Mg\Bot\Model\Entity\Message;
 
-use LazyJsonMapper\LazyJsonMapper;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SkipWhenEmpty;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * PHP version 7.0
  *
- * MessageCost class. Schema:
- *
- * | Field name | Data type |
- * |------------|-----------|
- * | currency   | string    |
- * | value      | float     |
+ * MessageCost class
  *
  * @package  RetailCrm\Mg\Bot\Model\Entity\Message
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
- *
- * @method string getCurrency()              "Get `currency` value"
- * @method $this  setCurrency(string $value) "Set `currency` value"
- * @method float  getValue()                 "Get `value` value"
- * @method $this  setValue(float $value)     "Set `value` value"
  */
-class MessageCost extends LazyJsonMapper
+class MessageCost
 {
     /**
-     * JSON fields. Use setters and getters to work with this values.
-     * Setters will return model instance, so you can construct any model like this:
-     * ```
-     * $request = (new InfoRequest())
-     *              ->setName("...")
-     *              ->setRoles([...]);
-     *```
-     * Model constructor can accept array as initial data. You can use
-     * this to initialize models:
-     * ```
-     * $request = new InfoRequest(["name" => "...", "roles" => [...]]);
-     * ```
+     * @var float $value
+     *
+     * @Type("float")
+     * @Accessor(getter="getValue",setter="setValue")
+     * @SkipWhenEmpty()
      */
-    const JSON_PROPERTY_MAP = [
-        'currency' => 'string',
-        'value' => 'float'
-    ];
+    private $value;
+
+    /**
+     * @var string $currency
+     *
+     * @Type("string")
+     * @Accessor(getter="getCurrency",setter="setCurrency")
+     *
+     * @Assert\Currency
+     */
+    private $currency;
+
+    /**
+     * @return float
+     */
+    public function getValue()
+    {
+        return $this->value;
+    }
+
+    /**
+     * @param float $value
+     */
+    public function setValue(float $value)
+    {
+        $this->value = $value;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCurrency()
+    {
+        return $this->currency;
+    }
+
+    /**
+     * @param string $currency
+     */
+    public function setCurrency(string $currency)
+    {
+        $this->currency = $currency;
+    }
 }

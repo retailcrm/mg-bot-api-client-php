@@ -13,51 +13,94 @@
 
 namespace RetailCrm\Mg\Bot\Model\Entity\Chat;
 
-
-use LazyJsonMapper\LazyJsonMapper;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SkipWhenEmpty;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * PHP version 7.0
  *
- * ChatLastMessage class. Schema:
- *
- * | Field name | Data type |
- * |------------|-----------|
- * | id         | int       |
- * | time       | string    |
- * | type       | string    |
+ * ChatLastMessage class
  *
  * @package  RetailCrm\Mg\Bot\Model\Entity\Chat
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
- *
- * @method int    getId()                "Get `id` value"
- * @method $this  setId(int $value)      "Set `id` value"
- * @method string getTime()              "Get `time` value"
- * @method $this  setTime(string $value) "Set `time` value"
- * @method string getType()              "Get `type` value"
- * @method $this  setType(string $value) "Set `type` value"
  */
-class ChatLastMessage extends LazyJsonMapper
+class ChatLastMessage
 {
     /**
-     * JSON fields. Use setters and getters to work with this values.
-     * Setters will return model instance, so you can construct any model like this:
-     * ```
-     * $request = (new InfoRequest())
-     *              ->setName("...")
-     *              ->setRoles([...]);
-     *```
-     * Model constructor can accept array as initial data. You can use
-     * this to initialize models:
-     * ```
-     * $request = new InfoRequest(["name" => "...", "roles" => [...]]);
-     * ```
+     * @var int $creating
+     *
+     * @Type("int")
+     * @Accessor(getter="getId",setter="setId")
+     * @SkipWhenEmpty()
      */
-    const JSON_PROPERTY_MAP = [
-        'id' => 'int',
-        'time' => 'string',
-        'type' => 'string'
-    ];
+    private $id;
+
+    /**
+     * @var \DateTime $time
+     *
+     * @Type("DateTime<'Y-m-d\TH:i:s\.u\Z'>")
+     * @Accessor(getter="getTime",setter="setTime")
+     * @SkipWhenEmpty()
+     */
+    private $time;
+
+    /**
+     * @var string $type
+     *
+     * @Type("string")
+     * @Accessor(getter="getType",setter="setType")
+     * @SkipWhenEmpty()
+     */
+    private $type;
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId(int $id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTime(): string
+    {
+        return $this->time;
+    }
+
+    /**
+     * @param string $time
+     */
+    public function setTime(string $time)
+    {
+        $this->time = $time;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType(): string
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string $type
+     */
+    public function setType(string $type)
+    {
+        $this->type = $type;
+    }
 }

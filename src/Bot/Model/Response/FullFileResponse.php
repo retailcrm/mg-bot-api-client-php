@@ -13,52 +13,121 @@
 
 namespace RetailCrm\Mg\Bot\Model\Response;
 
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SkipWhenEmpty;
+use JMS\Serializer\Annotation\Type;
+
 /**
  * PHP version 7.0
  *
- * FullFileResponse class. Parameters:
- *
- * | Parameter name | Data type |
- * |----------------|-----------|
- * | id             | string    |
- * | size           | int       |
- * | type           | string    |
- * | url            | string    |
+ * FullFileResponse class
  *
  * @package  RetailCrm\Mg\Bot\Model\Response
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
- *
- * @method string getId()                "Get `id` value"
- * @method $this  setId(string $value)   "Set `id` value"
- * @method int    getSize()              "Get `size` value"
- * @method $this  setSize(int $value)    "Set `size` value"
- * @method string getType()              "Get `type` value"
- * @method $this  setType(string $value) "Set `type` value"
- * @method string getUrl()               "Get `url` value"
- * @method $this  setUrl(string $value)  "Set `url` value"
  */
-class FullFileResponse extends CommonFields
+class FullFileResponse
 {
+    use CommonFields;
+
     /**
-     * JSON fields. Use setters and getters to work with this values.
-     * Setters will return model instance, so you can construct any model like this:
-     * ```
-     * $request = (new InfoRequest())
-     *              ->setName("...")
-     *              ->setRoles([...]);
-     *```
-     * Model constructor can accept array as initial data. You can use
-     * this to initialize models:
-     * ```
-     * $request = new InfoRequest(["name" => "...", "roles" => [...]]);
-     * ```
+     * @var string $id
+     *
+     * @Type("string")
+     * @Accessor(getter="getId",setter="setId")
+     * @SkipWhenEmpty()
      */
-    const JSON_PROPERTY_MAP = [
-        'id' => 'string',
-        'size' => 'int',
-        'type' => 'string',
-        'url' => 'string'
-    ];
+    private $id;
+
+    /**
+     * @var int $size
+     *
+     * @Type("int")
+     * @Accessor(getter="getSize",setter="setSize")
+     * @SkipWhenEmpty()
+     */
+    private $size;
+
+    /**
+     * @var string $type
+     *
+     * @Type("string")
+     * @Accessor(getter="getType",setter="setType")
+     * @SkipWhenEmpty()
+     */
+    private $type;
+
+    /**
+     * @var string $url
+     *
+     * @Type("string")
+     * @Accessor(getter="getUrl",setter="setUrl")
+     * @SkipWhenEmpty()
+     */
+    private $url;
+
+    /**
+     * @return string
+     */
+    public function getId(): string
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param string $id
+     */
+    public function setId(string $id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSize(): int
+    {
+        return $this->size;
+    }
+
+    /**
+     * @param int $size
+     */
+    public function setSize(int $size)
+    {
+        $this->size = $size;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType(): string
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string $type
+     */
+    public function setType(string $type)
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUrl(): string
+    {
+        return $this->url;
+    }
+
+    /**
+     * @param string $url
+     */
+    public function setUrl(string $url)
+    {
+        $this->url = $url;
+    }
 }

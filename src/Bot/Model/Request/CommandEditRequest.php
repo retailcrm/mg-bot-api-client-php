@@ -13,57 +13,97 @@
 
 namespace RetailCrm\Mg\Bot\Model\Request;
 
-use LazyJsonMapper\LazyJsonMapper;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SkipWhenEmpty;
+use JMS\Serializer\Annotation\Type;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * PHP version 7.0
  *
- * CommandEditRequest class. Parametres:
- *
- * | Parameter name | Data type |
- * |----------------|-----------|
- * | bot_id         | int       |
- * | name           | string    |
- * | description    | string    |
+ * CommandEditRequest class
  *
  * @package  RetailCrm\Mg\Bot\Model\Request
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
- *
- * @method int    getBotId()                    "Get `bot_id` value"
- * @method $this  setBotId(int $value)          "Set `bot_id` value"
- * @method string getName()                     "Get `name` value"
- * @method $this  setName(string $value)        "Set `name` value"
- * @method string getDescription()              "Get `description` value"
- * @method $this  setDescription(string $value) "Set `description` value"
  */
-class CommandEditRequest extends LazyJsonMapper
+class CommandEditRequest
 {
     /**
-     * JSON fields. Use setters and getters to work with this values.
-     * Setters will return model instance, so you can construct any model like this:
-     * ```
-     * $request = (new InfoRequest())
-     *              ->setName("...")
-     *              ->setRoles([...]);
-     *```
-     * Model constructor can accept array as initial data. You can use
-     * this to initialize models:
-     * ```
-     * $request = new InfoRequest(["name" => "...", "roles" => [...]]);
-     * ```
+     * @var int $botId
+     *
+     * @Type("int")
+     * @Accessor(getter="getBotId",setter="setBotId")
+     *
+     * @Assert\NotBlank
      */
-    const JSON_PROPERTY_MAP = [
-        'bot_id' => 'int',
-        'name' => 'string',
-        'description' => 'string'
-    ];
+    private $botId;
 
-    public function validate()
+    /**
+     * @var string $name
+     *
+     * @Type("string")
+     * @Accessor(getter="getName",setter="setName")
+     *
+     * @Assert\NotBlank
+     */
+    private $name;
+
+    /**
+     * @var string $description
+     *
+     * @Type("string")
+     * @Accessor(getter="getDescription",setter="setDescription")
+     * @SkipWhenEmpty
+     */
+    private $description;
+
+    /**
+     * @return string
+     */
+    public function getName()
     {
-        if (empty($this->getName())) {
-            return 'Empty name';
-        }
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName(string $name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription(string $description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @return int
+     */
+    public function getBotId()
+    {
+        return $this->botId;
+    }
+
+    /**
+     * @param int $botId
+     */
+    public function setBotId(int $botId)
+    {
+        $this->botId = $botId;
     }
 }

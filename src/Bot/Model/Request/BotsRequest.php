@@ -13,48 +13,90 @@
 
 namespace RetailCrm\Mg\Bot\Model\Request;
 
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SkipWhenEmpty;
+use JMS\Serializer\Annotation\Type;
+
 /**
  * PHP version 7.0
  *
- * BotsRequest class. Parameters:
- *
- * | Parameter name | Data type |
- * |----------------|-----------|
- * | active         | int       |
- * | self           | int       |
- * | roles          | array     |
+ * BotsRequest class
  *
  * @package  RetailCrm\Mg\Bot\Model\Request
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
- *
- * @method int      getActive()               "Get `active` value"
- * @method $this    setActive(int $value)     "Set `active` value"
- * @method int      getSelf()                 "Get `self` value"
- * @method $this    setSelf(int $value)       "Set `self` value"
- * @method array    getRoles()                "Get `roles` value"
- * @method $this    setRoles(array $value)    "Set `roles` value"
  */
-class BotsRequest extends CommonFields
+class BotsRequest
 {
+    use CommonFields;
+
     /**
-     * JSON fields. Use setters and getters to work with this values.
-     * Setters will return model instance, so you can construct any model like this:
-     * ```
-     * $request = (new InfoRequest())
-     *              ->setName("...")
-     *              ->setRoles([...]);
-     *```
-     * Model constructor can accept array as initial data. You can use
-     * this to initialize models:
-     * ```
-     * $request = new InfoRequest(["name" => "...", "roles" => [...]]);
-     * ```
+     * @Type("int")
+     * @Accessor(getter="getActive",setter="setActive")
+     * @SkipWhenEmpty
      */
-    const JSON_PROPERTY_MAP = [
-        'active' => 'int',
-        'self' => 'int',
-        'roles' => 'string[]'
-    ];
+    private $active;
+
+    /**
+     * @Type("int")
+     * @Accessor(getter="getSelf",setter="setSelf")
+     * @SkipWhenEmpty
+     */
+    private $self;
+
+    /**
+     * @Type("array")
+     * @Accessor(getter="getRoles",setter="setRoles")
+     * @SkipWhenEmpty
+     */
+    private $roles;
+
+    /**
+     * @return int
+     */
+    public function getSelf()
+    {
+        return $this->self;
+    }
+
+    /**
+     * @param int $self
+     */
+    public function setSelf($self)
+    {
+        $this->self = $self;
+    }
+
+    /**
+     * @return int
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * @param int $active
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+    }
+
+    /**
+     * @return array
+     */
+    public function getRoles()
+    {
+        return $this->roles;
+    }
+
+    /**
+     * @param array $roles
+     */
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
+    }
 }

@@ -13,54 +13,122 @@
 
 namespace RetailCrm\Mg\Bot\Model\Entity\Chat;
 
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SkipWhenEmpty;
+use JMS\Serializer\Annotation\Type;
 use RetailCrm\Mg\Bot\Model\Entity\CommonFields;
 
 /**
  * PHP version 7.0
  *
- * ChatMember class. Schema:
- *
- * | Field name | Data type |
- * |------------|-----------|
- * | chat_id    | int       |
- * | user_id    | int       |
- * | is_author  | bool      |
- * | state      | string    |
+ * ChatMember class
  *
  * @package  RetailCrm\Mg\Bot\Model\Entity\Chat
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
- *
- * @method int    getChatId()              "Get `chat_id` value"
- * @method $this  setChatId(int $value)    "Set `chat_id` value"
- * @method int    getUserId()              "Get `user_id` value"
- * @method $this  setUserId(int $value)    "Set `user_id` value"
- * @method bool   getIsAuthor()            "Get `is_author` value"
- * @method $this  setIsAuthor(bool $value) "Set `is_author` value"
- * @method string getState()               "Get `state` value"
- * @method $this  setState(string $value)  "Set `state` value"
  */
-class ChatMember extends CommonFields
+class ChatMember
 {
+    use CommonFields;
+
     /**
-     * JSON fields. Use setters and getters to work with this values.
-     * Setters will return model instance, so you can construct any model like this:
-     * ```
-     * $request = (new InfoRequest())
-     *              ->setName("...")
-     *              ->setRoles([...]);
-     *```
-     * Model constructor can accept array as initial data. You can use
-     * this to initialize models:
-     * ```
-     * $request = new InfoRequest(["name" => "...", "roles" => [...]]);
-     * ```
+     * @var int $chatId
+     *
+     * @Type("int")
+     * @Accessor(getter="getChatId",setter="setChatId")
+     * @SkipWhenEmpty()
      */
-    const JSON_PROPERTY_MAP = [
-        'chat_id' => 'int',
-        'user_id' => 'int',
-        'is_author' => 'bool',
-        'state' => 'string'
-    ];
+    private $chatId;
+
+    /**
+     * @var int $userId
+     *
+     * @Type("int")
+     * @Accessor(getter="getUserId",setter="setUserId")
+     * @SkipWhenEmpty()
+     */
+    private $userId;
+
+    /**
+     * @var bool $isAuthor
+     *
+     * @Type("bool")
+     * @Accessor(getter="getIsAuthor",setter="setIsAuthor")
+     * @SkipWhenEmpty()
+     */
+    private $isAuthor;
+
+    /**
+     * @var string $creating
+     *
+     * @Type("string")
+     * @Accessor(getter="getState",setter="setState")
+     * @SkipWhenEmpty()
+     */
+    private $state;
+
+    /**
+     * @return int
+     */
+    public function getChatId(): int
+    {
+        return $this->chatId;
+    }
+
+    /**
+     * @param int $chatId
+     */
+    public function setChatId(int $chatId)
+    {
+        $this->chatId = $chatId;
+    }
+
+    /**
+     * @return int
+     */
+    public function getUserId(): int
+    {
+        return $this->userId;
+    }
+
+    /**
+     * @param int $userId
+     */
+    public function setUserId(int $userId)
+    {
+        $this->userId = $userId;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isAuthor(): bool
+    {
+        return $this->isAuthor;
+    }
+
+    /**
+     * @param bool $isAuthor
+     */
+    public function setIsAuthor(bool $isAuthor)
+    {
+        $this->isAuthor = $isAuthor;
+    }
+
+    /**
+     * @return string
+     */
+    public function getState(): string
+    {
+        return $this->state;
+    }
+
+    /**
+     * @param string $state
+     */
+    public function setState(string $state)
+    {
+        $this->state = $state;
+    }
 }

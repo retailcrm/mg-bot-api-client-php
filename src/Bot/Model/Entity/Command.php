@@ -13,44 +13,71 @@
 
 namespace RetailCrm\Mg\Bot\Model\Entity;
 
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SkipWhenEmpty;
+use JMS\Serializer\Annotation\Type;
+
 /**
  * PHP version 7.0
  *
- * Command class. Schema:
- *
- * | Field name  | Data type |
- * |-------------|-----------|
- * | name        | string    |
- * | description | string    |
+ * Command class
  *
  * @package  RetailCrm\Mg\Bot\Model\Entity
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
- *
- * @method string getName()                     "Get `name` value"
- * @method $this  setName(string $value)        "Set `name` value"
- * @method string getDescription()              "Get `description` value"
- * @method $this  setDescription(string $value) "Set `description` value"
  */
-class Command extends CommonFields
+class Command
 {
+    use CommonFields;
+
     /**
-     * JSON fields. Use setters and getters to work with this values.
-     * Setters will return model instance, so you can construct any model like this:
-     * ```
-     * $request = (new InfoRequest())
-     *              ->setName("...")
-     *              ->setRoles([...]);
-     *```
-     * Model constructor can accept array as initial data. You can use
-     * this to initialize models:
-     * ```
-     * $request = new InfoRequest(["name" => "...", "roles" => [...]]);
-     * ```
+     * @var string $name
+     *
+     * @Type("string")
+     * @Accessor(getter="getName",setter="setName")
+     * @SkipWhenEmpty()
      */
-    const JSON_PROPERTY_MAP = [
-        'name' => 'string',
-        'description' => 'string'
-    ];
+    private $name;
+
+    /**
+     * @var string $description
+     *
+     * @Type("string")
+     * @Accessor(getter="getDescrtiption",setter="setDescription")
+     * @SkipWhenEmpty()
+     */
+    private $description;
+
+    /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName(string $name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription(string $description)
+    {
+        $this->description = $description;
+    }
 }

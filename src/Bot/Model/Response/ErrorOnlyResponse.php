@@ -23,4 +23,6 @@ namespace RetailCrm\Mg\Bot\Model\Response;
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
-class ErrorOnlyResponse extends CommonFields {}
+class ErrorOnlyResponse {
+    use CommonFields;
+}

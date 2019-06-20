@@ -14,69 +14,221 @@
 namespace RetailCrm\Mg\Bot\Model\Entity;
 
 use RetailCrm\Mg\Bot\Model\Entity\CommonFields;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SkipWhenEmpty;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * PHP version 7.0
  *
- * Dialog class. Schema:
- *
- * | Field name        | Data type   |
- * |-------------------|-------------|
- * | bot_id            | int         |
- * | chat_id           | int         |
- * | begin_message_id  | int         |
- * | ending_message_id | int         |
- * | closed_at         | string      |
- * | is_assigned       | bool        |
- * | responsible       | Responsible |
- * | is_active         | bool        |
+ * Dialog class
  *
  * @package  RetailCrm\Mg\Bot\Model\Entity
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
- *
- * @method int         getBotId()                         "Get `bot_id` value"
- * @method $this       setBotId(int $value)               "Set `bot_id` value"
- * @method int         getChatId()                        "Get `chat_id` value"
- * @method $this       setChatId(int $value)              "Set `chat_id` value"
- * @method int         getBeginMessageId()                "Get `begin_message_id` value"
- * @method $this       setBeginMessageId(int $value)      "Set `begin_message_id` value"
- * @method int         getEndingMessageId()               "Get `ending_message_id` value"
- * @method $this       setEndingMessageId(int $value)     "Set `ending_message_id` value"
- * @method string      getClosedAt()                      "Get `closed_at` value"
- * @method $this       setClosedAt(string $value)         "Set `closed_at` value"
- * @method bool        getIsAssigned()                    "Get `is_assigned` value"
- * @method $this       setIsAssigned(bool $value)         "Set `is_assigned` value"
- * @method Responsible getResponsible()                   "Get `responsible` value"
- * @method $this       setResponsible(Responsible $value) "Set `responsible` value"
- * @method bool        getIsActive()                      "Get `is_active` value"
- * @method $this       setIsActive(bool $value)           "Set `is_active` value"
  */
-class Dialog extends CommonFields
+class Dialog
 {
+    use CommonFields;
+
     /**
-     * JSON fields. Use setters and getters to work with this values.
-     * Setters will return model instance, so you can construct any model like this:
-     * ```
-     * $request = (new InfoRequest())
-     *              ->setName("...")
-     *              ->setRoles([...]);
-     *```
-     * Model constructor can accept array as initial data. You can use
-     * this to initialize models:
-     * ```
-     * $request = new InfoRequest(["name" => "...", "roles" => [...]]);
-     * ```
+     * @var int $botId
+     *
+     * @Type("int")
+     * @Accessor(getter="getBotId",setter="setBotId")
+     * @SkipWhenEmpty()
      */
-    const JSON_PROPERTY_MAP = [
-        'bot_id' => 'int',
-        'chat_id' => 'int',
-        'begin_message_id' => 'int',
-        'ending_message_id' => 'int',
-        'closed_at' => 'string',
-        'is_assigned' => 'bool',
-        'responsible' => 'Responsible',
-        'is_active' => 'bool'
-    ];
+    private $botId;
+
+    /**
+     * @var int $chatId
+     *
+     * @Type("int")
+     * @Accessor(getter="getChatId",setter="setChatId")
+     * @SkipWhenEmpty()
+     */
+    private $chatId;
+
+    /**
+     * @var int $beginMessageId
+     *
+     * @Type("int")
+     * @Accessor(getter="getBeginMessageId",setter="setBeginMessageId")
+     * @SkipWhenEmpty()
+     */
+    private $beginMessageId;
+
+    /**
+     * @var int $endingMessageId
+     *
+     * @Type("int")
+     * @Accessor(getter="getEndingMessageId",setter="setEndingMessageId")
+     * @SkipWhenEmpty()
+     */
+    private $endingMessageId;
+
+    /**
+     * @var \DateTime $closedAt
+     *
+     * @Type("DateTime<'Y-m-d\TH:i:s\.u\Z'>")
+     * @Accessor(getter="getClosedAt",setter="setClosedAt")
+     * @SkipWhenEmpty()
+     */
+    private $closedAt;
+
+    /**
+     * @var bool $isAssigned
+     *
+     * @Type("bool")
+     * @Accessor(getter="getIsAssigned",setter="setIsAssigned")
+     * @SkipWhenEmpty()
+     */
+    private $isAssigned;
+
+    /**
+     * @var Responsible $responsible
+     *
+     * @Type("RetailCrm\Mg\Bot\Model\Entity\Responsible")
+     * @Accessor(getter="getResponsible",setter="setResponsible")
+     * @SkipWhenEmpty()
+     */
+    private $responsible;
+
+    /**
+     * @var bool $isActive
+     *
+     * @Type("bool")
+     * @Accessor(getter="getIsActive",setter="setIsActive")
+     * @SkipWhenEmpty()
+     */
+    private $isActive;
+
+    /**
+     * @return int
+     */
+    public function getBotId(): int
+    {
+        return $this->botId;
+    }
+
+    /**
+     * @param int $botId
+     */
+    public function setBotId(int $botId)
+    {
+        $this->botId = $botId;
+    }
+
+    /**
+     * @return int
+     */
+    public function getChatId(): int
+    {
+        return $this->chatId;
+    }
+
+    /**
+     * @param int $chatId
+     */
+    public function setChatId(int $chatId)
+    {
+        $this->chatId = $chatId;
+    }
+
+    /**
+     * @return int
+     */
+    public function getBeginMessageId(): int
+    {
+        return $this->beginMessageId;
+    }
+
+    /**
+     * @param int $beginMessageId
+     */
+    public function setBeginMessageId(int $beginMessageId)
+    {
+        $this->beginMessageId = $beginMessageId;
+    }
+
+    /**
+     * @return int
+     */
+    public function getEndingMessageId(): int
+    {
+        return $this->endingMessageId;
+    }
+
+    /**
+     * @param int $endingMessageId
+     */
+    public function setEndingMessageId(int $endingMessageId)
+    {
+        $this->endingMessageId = $endingMessageId;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getClosedAt(): \DateTime
+    {
+        return $this->closedAt;
+    }
+
+    /**
+     * @param \DateTime $closedAt
+     */
+    public function setClosedAt(\DateTime $closedAt)
+    {
+        $this->closedAt = $closedAt;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isAssigned(): bool
+    {
+        return $this->isAssigned;
+    }
+
+    /**
+     * @param bool $isAssigned
+     */
+    public function setIsAssigned(bool $isAssigned)
+    {
+        $this->isAssigned = $isAssigned;
+    }
+
+    /**
+     * @return Responsible
+     */
+    public function getResponsible(): Responsible
+    {
+        return $this->responsible;
+    }
+
+    /**
+     * @param Responsible $responsible
+     */
+    public function setResponsible(Responsible $responsible)
+    {
+        $this->responsible = $responsible;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isActive(): bool
+    {
+        return $this->isActive;
+    }
+
+    /**
+     * @param bool $isActive
+     */
+    public function setIsActive(bool $isActive)
+    {
+        $this->isActive = $isActive;
+    }
 }

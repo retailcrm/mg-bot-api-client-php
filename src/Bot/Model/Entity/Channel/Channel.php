@@ -14,61 +14,164 @@
 namespace RetailCrm\Mg\Bot\Model\Entity\Channel;
 
 use RetailCrm\Mg\Bot\Model\Entity\CommonFields;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * PHP version 7.0
  *
- * Channel class. Schema:
- *
- * | Field name     | Data type       |
- * |----------------|-----------------|
- * | activated_at   | string          |
- * | deactivated_at | string          |
- * | is_active      | bool            |
- * | settings       | ChannelSettings |
- * | type           | string          |
- * | name           | string          |
+ * Channel class
  *
  * @package  RetailCrm\Mg\Bot\Model\Entity\Channel
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
- *
- * @method string          getActivatedAt()                    "Get `activated_at` value"
- * @method $this           setActivatedAt(string $value)       "Set `activated_at` value"
- * @method string          getDeactivatedAt()                  "Get `deactivated_at` value"
- * @method $this           setDeactivatedAt(string $value)     "Set `deactivated_at` value"
- * @method bool            getIsActive()                       "Get `is_active` value"
- * @method $this           setIsActive(bool $value)            "Set `is_active` value"
- * @method ChannelSettings getSettings()                       "Get `settings` value"
- * @method $this           setSettings(ChannelSettings $value) "Set `settings` value"
- * @method string          getType()                           "Get `type` value"
- * @method $this           setType(string $value)              "Set `type` value"
- * @method string          getName()                           "Get `name` value"
- * @method $this           setName(string $value)              "Set `name` value"
  */
-class Channel extends CommonFields
+class Channel
 {
+    use CommonFields;
+
     /**
-     * JSON fields. Use setters and getters to work with this values.
-     * Setters will return model instance, so you can construct any model like this:
-     * ```
-     * $request = (new InfoRequest())
-     *              ->setName("...")
-     *              ->setRoles([...]);
-     *```
-     * Model constructor can accept array as initial data. You can use
-     * this to initialize models:
-     * ```
-     * $request = new InfoRequest(["name" => "...", "roles" => [...]]);
-     * ```
+     * @var \DateTime $activatedAt
+     *
+     * @Type("DateTime<'Y-m-d\TH:i:s\.u\Z'>")
+     * @Accessor(getter="getActivatedAt",setter="setActivatedAt")
      */
-    const JSON_PROPERTY_MAP = [
-        'activated_at' => 'string',
-        'deactivated_at' => 'string',
-        'is_active' => 'bool',
-        'settings' => 'ChannelSettings',
-        'type' => 'string',
-        'name' => 'string'
-    ];
+    private $activatedAt;
+
+    /**
+     * @var \DateTime $deactivatedAt
+     *
+     * @Type("DateTime<'Y-m-d\TH:i:s\.u\Z'>")
+     * @Accessor(getter="getDeactivatedAt",setter="setDeactivatedAt")
+     */
+    private $deactivatedAt;
+
+    /**
+     * @var bool $isActive
+     *
+     * @Type("bool")
+     * @Accessor(getter="getIsActive",setter="setIsActive")
+     */
+    private $isActive;
+
+    /**
+     * @var ChannelSettings $settings
+     *
+     * @Type("RetailCrm\Mg\Bot\Model\Entity\Channel\ChannelSettings")
+     * @Accessor(getter="getSettings",setter="setSettings")
+     */
+    private $settings;
+
+    /**
+     * @var string $type
+     *
+     * @Type("string")
+     * @Accessor(getter="getType",setter="setType")
+     */
+    private $type;
+
+    /**
+     * @var string $actions
+     *
+     * @Type("string")
+     * @Accessor(getter="getName",setter="setName")
+     */
+    private $name;
+
+    /**
+     * @return \DateTime
+     */
+    public function getActivatedAt(): \DateTime
+    {
+        return $this->activatedAt;
+    }
+
+    /**
+     * @param \DateTime $activatedAt
+     */
+    public function setActivatedAt(\DateTime $activatedAt)
+    {
+        $this->activatedAt = $activatedAt;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDeactivatedAt(): \DateTime
+    {
+        return $this->deactivatedAt;
+    }
+
+    /**
+     * @param \DateTime $deactivatedAt
+     */
+    public function setDeactivatedAt(\DateTime $deactivatedAt)
+    {
+        $this->deactivatedAt = $deactivatedAt;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isActive(): bool
+    {
+        return $this->isActive;
+    }
+
+    /**
+     * @param bool $isActive
+     */
+    public function setIsActive(bool $isActive)
+    {
+        $this->isActive = $isActive;
+    }
+
+    /**
+     * @return ChannelSettings
+     */
+    public function getSettings(): ChannelSettings
+    {
+        return $this->settings;
+    }
+
+    /**
+     * @param ChannelSettings $settings
+     */
+    public function setSettings(ChannelSettings $settings)
+    {
+        $this->settings = $settings;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType(): string
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string $type
+     */
+    public function setType(string $type)
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName(string $name)
+    {
+        $this->name = $name;
+    }
 }

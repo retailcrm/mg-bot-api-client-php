@@ -13,6 +13,10 @@
 
 namespace RetailCrm\Common;
 
+use JMS\Serializer\DeserializationContext;
+use JMS\Serializer\SerializationContext;
+use JMS\Serializer\SerializerBuilder;
+
 /**
  * PHP version 7.0
  *
@@ -25,15 +29,8 @@ namespace RetailCrm\Common;
  */
 class Serializer
 {
-    /**
-     * Serialization flag: serialize object to PHP Array
-     */
-    const S_ARRAY = 0;
-
-    /**
-     * Serialization flag: serialize object to JSON string
-     */
-    const S_JSON = 1;
+    const S_ARRAY = 'array';
+    const S_JSON = 'json';
 
     /**
      * Serialize given object to JSON or Array
@@ -46,17 +43,64 @@ class Serializer
     public static function serialize($request, $serialize = self::S_JSON)
     {
         $serialized = null;
+        $serializer = SerializerBuilder::create()->build();
+        $context = self::getContext();
 
         switch ($serialize) {
             case self::S_ARRAY:
-                $serialized = $request->asArray();
+                $serialized = $serializer->toArray($request, $context);
                 break;
             case self::S_JSON:
             default:
-                $serialized = $request->asJson();
+                $serialized = $serializer->serialize($request, $serialize, $context);
                 break;
         }
 
         return $serialized;
+    }
+
+    /**
+     * Deserialize given array or JSON to object
+     *
+     * @param $data
+     * @param $entityType
+     * @param string $from
+     *
+     * @return array|object|null
+     */
+    public static function deserialize($data, $entityType, $from = self::S_JSON)
+    {
+        $deserialized = null;
+        $serializer = SerializerBuilder::create()->build();
+        $context = self::getContext(true);
+
+        switch ($from) {
+            case self::S_ARRAY:
+                $deserialized = $serializer->fromArray(array_filter($data), $entityType, $context);
+                break;
+            case self::S_JSON:
+                $deserialized = $serializer->deserialize($data, $entityType, $from, $context);
+                break;
+        }
+
+        return $deserialized;
+    }
+
+    /**
+     * @param bool $deserialization (default: false)
+     *
+     * @return DeserializationContext|SerializationContext
+     */
+    private static function getContext(bool $deserialization = false)
+    {
+        if ($deserialization) {
+            $context = new DeserializationContext();
+        } else {
+            $context = new SerializationContext();
+        }
+
+        $context->setSerializeNull(false);
+
+        return $context;
     }
 }

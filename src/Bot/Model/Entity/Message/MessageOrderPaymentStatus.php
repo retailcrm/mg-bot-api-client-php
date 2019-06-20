@@ -13,46 +13,72 @@
 
 namespace RetailCrm\Mg\Bot\Model\Entity\Message;
 
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SkipWhenEmpty;
+use JMS\Serializer\Annotation\Type;
 use RetailCrm\Mg\Bot\Model\Entity\CommonFields;
 
 /**
  * PHP version 7.0
  *
- * MessageOrderPaymentStatus class. Schema:
- *
- * | Field name | Data type |
- * |------------|-----------|
- * | name       | string    |
- * | payed      | bool      |
+ * MessageOrderPaymentStatus class
  *
  * @package  RetailCrm\Mg\Bot\Model\Entity\Message
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
- *
- * @method string getName()              "Get `name` value"
- * @method $this  setName(string $value) "Set `name` value"
- * @method bool   getPayed()             "Get `payed` value"
- * @method $this  setPayed(bool $value)  "Set `payed` value"
  */
-class MessageOrderPaymentStatus extends CommonFields
+class MessageOrderPaymentStatus
 {
+    use CommonFields;
+
     /**
-     * JSON fields. Use setters and getters to work with this values.
-     * Setters will return model instance, so you can construct any model like this:
-     * ```
-     * $request = (new InfoRequest())
-     *              ->setName("...")
-     *              ->setRoles([...]);
-     *```
-     * Model constructor can accept array as initial data. You can use
-     * this to initialize models:
-     * ```
-     * $request = new InfoRequest(["name" => "...", "roles" => [...]]);
-     * ```
+     * @var string $name
+     *
+     * @Type("string")
+     * @Accessor(getter="getName",setter="setName")
+     * @SkipWhenEmpty()
      */
-    const JSON_PROPERTY_MAP = [
-        'name' => 'string',
-        'payed' => 'bool'
-    ];
+    private $name;
+
+    /**
+     * @var bool $name
+     *
+     * @Type("bool")
+     * @Accessor(getter="getPayed",setter="setPayed")
+     * @SkipWhenEmpty()
+     */
+    private $payed;
+
+    /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName(string $name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isPayed(): bool
+    {
+        return $this->payed;
+    }
+
+    /**
+     * @param bool $payed
+     */
+    public function setPayed(bool $payed)
+    {
+        $this->payed = $payed;
+    }
 }

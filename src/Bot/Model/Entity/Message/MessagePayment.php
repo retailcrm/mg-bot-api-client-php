@@ -13,50 +13,94 @@
 
 namespace RetailCrm\Mg\Bot\Model\Entity\Message;
 
-use RetailCrm\Mg\Bot\Model\Entity\CommonFields;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SkipWhenEmpty;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * PHP version 7.0
  *
- * MessagePayment class. Schema:
- *
- * | Field name | Data type                 |
- * |------------|---------------------------|
- * | amount     | MessageCost               |
- * | name       | string                    |
- * | status     | MessageOrderPaymentStatus |
+ * MessagePayment class
  *
  * @package  RetailCrm\Mg\Bot\Model\Entity\Message
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
- *
- * @method MessageCost               getAmount()                                 "Get `amount` value"
- * @method $this                     setAmount(MessageCost $value)               "Set `amount` value"
- * @method string                    getName()                                   "Get `name` value"
- * @method $this                     setName(string $value)                      "Set `name` value"
- * @method MessageOrderPaymentStatus getStatus()                                 "Get `status` value"
- * @method $this                     setStatus(MessageOrderPaymentStatus $value) "Set `status` value"
  */
-class MessagePayment extends CommonFields
+class MessagePayment
 {
     /**
-     * JSON fields. Use setters and getters to work with this values.
-     * Setters will return model instance, so you can construct any model like this:
-     * ```
-     * $request = (new InfoRequest())
-     *              ->setName("...")
-     *              ->setRoles([...]);
-     *```
-     * Model constructor can accept array as initial data. You can use
-     * this to initialize models:
-     * ```
-     * $request = new InfoRequest(["name" => "...", "roles" => [...]]);
-     * ```
+     * @var string $name
+     *
+     * @Type("string")
+     * @Accessor(getter="getName",setter="setName")
+     * @SkipWhenEmpty()
      */
-    const JSON_PROPERTY_MAP = [
-        'amount' => 'MessageCost',
-        'name' => 'string',
-        'status' => 'MessageOrderPaymentStatus'
-    ];
+    private $name;
+
+    /**
+     * @var MessageOrderPaymentStatus $status
+     *
+     * @Type("MessageOrderPaymentStatus")
+     * @Accessor(getter="getStatus",setter="setStatus")
+     * @SkipWhenEmpty()
+     */
+    private $status;
+
+    /**
+     * @var MessageCost $amount
+     *
+     * @Type("MessageCost")
+     * @Accessor(getter="getAmount",setter="setAmount")
+     * @SkipWhenEmpty()
+     */
+    private $amount;
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName(string $name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return MessageOrderPaymentStatus
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param MessageOrderPaymentStatus $status
+     */
+    public function setStatus(MessageOrderPaymentStatus $status)
+    {
+        $this->status = $status;
+    }
+
+    /**
+     * @return MessageCost
+     */
+    public function getAmount()
+    {
+        return $this->amount;
+    }
+
+    /**
+     * @param MessageCost $amount
+     */
+    public function setAmount(MessageCost $amount)
+    {
+        $this->amount = $amount;
+    }
 }

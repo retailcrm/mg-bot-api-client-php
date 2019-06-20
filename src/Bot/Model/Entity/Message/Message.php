@@ -14,105 +14,448 @@
 namespace RetailCrm\Mg\Bot\Model\Entity\Message;
 
 use RetailCrm\Mg\Bot\Model\Entity\CommonFields;
+use RetailCrm\Mg\Bot\Model\Entity\Dialog;
+use RetailCrm\Mg\Bot\Model\Entity\User;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SkipWhenEmpty;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * PHP version 7.0
  *
- * Message class. Schema:
- *
- * | Field name      | Data type      |
- * |-----------------|----------------|
- * | actions         | array          |
- * | items           | array          |
- * | from            | User           |
- * | time            | string         |
- * | type            | string         |
- * | scope           | string         |
- * | chat_id         | int            |
- * | content         | string         |
- * | is_read         | bool           |
- * | is_edit         | bool           |
- * | status          | string         |
- * | action          | string         |
- * | dialog          | Dialog         |
- * | channel_id      | int            |
- * | channel_sent_at | string         |
- * | order           | MessageOrder   |
- * | product         | MessageProduct |
+ * Message class
  *
  * @package  RetailCrm\Mg\Bot\Model\Entity\Message
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
- *
- * @method array          getActions()                      "Get `actions` value"
- * @method $this          setActions(array $value)          "Set `actions` value"
- * @method array          getItems()                        "Get `items` value"
- * @method $this          setItems(array $value)            "Set `items` value"
- * @method User           getFrom()                         "Get `from` value"
- * @method $this          setFrom(User $value)              "Set `from` value"
- * @method string         getTime()                         "Get `time` value"
- * @method $this          setTime(string $value)            "Set `time` value"
- * @method string         getType()                         "Get `type` value"
- * @method $this          setType(string $value)            "Set `type` value"
- * @method string         getScope()                        "Get `scope` value"
- * @method $this          setScope(string $value)           "Set `scope` value"
- * @method int            getChatId()                       "Get `chat_id` value"
- * @method $this          setChatId(int $value)             "Set `chat_id` value"
- * @method string         getContent()                      "Get `content` value"
- * @method $this          setContent(string $value)         "Set `content` value"
- * @method bool           getIsRead()                       "Get `is_read` value"
- * @method $this          setIsRead(bool $value)            "Set `is_read` value"
- * @method bool           getIsEdit()                       "Get `is_edit` value"
- * @method $this          setIsEdit(bool $value)            "Set `is_edit` value"
- * @method string         getStatus()                       "Get `status` value"
- * @method $this          setStatus(string $value)          "Set `status` value"
- * @method string         getAction()                       "Get `action` value"
- * @method $this          setAction(string $value)          "Set `action` value"
- * @method Dialog         getDialog()                       "Get `dialog` value"
- * @method $this          setDialog(Dialog $value)          "Set `dialog` value"
- * @method int            getChannelId()                    "Get `channel_id` value"
- * @method $this          setChannelId(int $value)          "Set `channel_id` value"
- * @method string         getChannelSentAt()                "Get `channel_sent_at` value"
- * @method $this          setChannelSentAt(string $value)   "Set `channel_sent_at` value"
- * @method MessageOrder   getOrder()                        "Get `order` value"
- * @method $this          setOrder(MessageOrder $value)     "Set `order` value"
- * @method MessageProduct getProduct()                      "Get `product` value"
- * @method $this          setProduct(MessageProduct $value) "Set `product` value"
  */
-class Message extends CommonFields
+class Message
 {
+    use CommonFields;
+
     /**
-     * JSON fields. Use setters and getters to work with this values.
-     * Setters will return model instance, so you can construct any model like this:
-     * ```
-     * $request = (new InfoRequest())
-     *              ->setName("...")
-     *              ->setRoles([...]);
-     *```
-     * Model constructor can accept array as initial data. You can use
-     * this to initialize models:
-     * ```
-     * $request = new InfoRequest(["name" => "...", "roles" => [...]]);
-     * ```
+     * @var string $actions
+     *
+     * @Type("string")
+     * @Accessor(getter="getActions",setter="setActions")
+     * @SkipWhenEmpty()
      */
-    const JSON_PROPERTY_MAP = [
-        'actions' => '[]',
-        'items' => 'Item[]',
-        'from' => '\RetailCrm\Mg\Bot\Model\Entity\User',
-        'time' => 'string',
-        'type' => 'string',
-        'scope' => 'string',
-        'chat_id' => 'int',
-        'content' => 'string',
-        'is_read' => 'bool',
-        'is_edit' => 'bool',
-        'status' => 'string',
-        'action' => 'string',
-        'dialog' => '\RetailCrm\Mg\Bot\Model\Entity\Dialog',
-        'channel_id' => 'int',
-        'channel_sent_at' => 'string',
-        'order' => 'MessageOrder',
-        'product' => 'MessageProduct',
-    ];
+    private $actions;
+
+    /**
+     * @var array $items
+     *
+     * @Type("array")
+     * @Accessor(getter="getItems",setter="setItems")
+     * @SkipWhenEmpty()
+     */
+    private $items;
+
+    /**
+     * @var User $from
+     *
+     * @Type("RetailCrm\Mg\Bot\Model\Entity\User")
+     * @Accessor(getter="getFrom",setter="setFrom")
+     * @SkipWhenEmpty()
+     */
+    private $from;
+
+    /**
+     * @var \DateTime $time
+     *
+     * @Type("DateTime<'Y-m-d\TH:i:sP'>")
+     * @Accessor(getter="getTime",setter="setTime")
+     * @SkipWhenEmpty()
+     */
+    private $time;
+
+    /**
+     * @var string $type
+     *
+     * @Type("string")
+     * @Accessor(getter="getType",setter="setType")
+     * @SkipWhenEmpty()
+     */
+    private $type;
+
+    /**
+     * @var string $scope
+     *
+     * @Type("string")
+     * @Accessor(getter="getScope",setter="setScope")
+     * @SkipWhenEmpty()
+     */
+    private $scope;
+
+    /**
+     * @var int $chatId
+     *
+     * @Type("int")
+     * @Accessor(getter="getChatId",setter="setChatId")
+     * @SkipWhenEmpty()
+     */
+    private $chatId;
+
+    /**
+     * @var string $content
+     *
+     * @Type("string")
+     * @Accessor(getter="getContent",setter="setContent")
+     * @SkipWhenEmpty()
+     */
+    private $content;
+
+    /**
+     * @var bool $isRead
+     *
+     * @Type("bool")
+     * @Accessor(getter="getIsRead",setter="setIsRead")
+     * @SkipWhenEmpty()
+     */
+    private $isRead;
+
+    /**
+     * @var bool $isEdit
+     *
+     * @Type("bool")
+     * @Accessor(getter="getIsEdit",setter="setIsEdit")
+     * @SkipWhenEmpty()
+     */
+    private $isEdit;
+
+    /**
+     * @var string $status
+     *
+     * @Type("string")
+     * @Accessor(getter="getStatus",setter="setStatus")
+     * @SkipWhenEmpty()
+     */
+    private $status;
+
+    /**
+     * @var string $action
+     *
+     * @Type("string")
+     * @Accessor(getter="getAction",setter="setAction")
+     * @SkipWhenEmpty()
+     */
+    private $action;
+
+    /**
+     * @var Dialog $dialog
+     *
+     * @Type("Dialog")
+     * @Accessor(getter="getDialog",setter="setDialog")
+     * @SkipWhenEmpty()
+     */
+    private $dialog;
+
+    /**
+     * @var int $channelId
+     *
+     * @Type("int")
+     * @Accessor(getter="getChannelId",setter="setChannelId")
+     * @SkipWhenEmpty()
+     */
+    private $channelId;
+
+    /**
+     * @var \DateTime $channelSentAt
+     *
+     * @Type("DateTime<'Y-m-d\TH:i:s\.u\Z'>")
+     * @Accessor(getter="getChannelSentAt",setter="setChannelSentAt")
+     * @SkipWhenEmpty()
+     */
+    private $channelSentAt;
+
+    /**
+     * @var MessageOrder $order
+     *
+     * @Type("MessageOrder")
+     * @Accessor(getter="getOrder",setter="setOrder")
+     * @SkipWhenEmpty()
+     */
+    private $order;
+
+    /**
+     * @var MessageProduct $product
+     *
+     * @Type("MessageProduct")
+     * @Accessor(getter="getProduct",setter="setProduct")
+     * @SkipWhenEmpty()
+     */
+    private $product;
+
+    /**
+     * @return string
+     */
+    public function getActions(): string
+    {
+        return $this->actions;
+    }
+
+    /**
+     * @param string $actions
+     */
+    public function setActions(string $actions)
+    {
+        $this->actions = $actions;
+    }
+
+    /**
+     * @return array
+     */
+    public function getItems(): array
+    {
+        return $this->items;
+    }
+
+    /**
+     * @param array $items
+     */
+    public function setItems(array $items)
+    {
+        $this->items = $items;
+    }
+
+    /**
+     * @return User
+     */
+    public function getFrom(): User
+    {
+        return $this->from;
+    }
+
+    /**
+     * @param User $from
+     */
+    public function setFrom(User $from)
+    {
+        $this->from = $from;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getTime(): \DateTime
+    {
+        return $this->time;
+    }
+
+    /**
+     * @param \DateTime $time
+     */
+    public function setTime(\DateTime $time)
+    {
+        $this->time = $time;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType(): string
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string $type
+     */
+    public function setType(string $type)
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * @return string
+     */
+    public function getScope(): string
+    {
+        return $this->scope;
+    }
+
+    /**
+     * @param string $scope
+     */
+    public function setScope(string $scope)
+    {
+        $this->scope = $scope;
+    }
+
+    /**
+     * @return int
+     */
+    public function getChatId(): int
+    {
+        return $this->chatId;
+    }
+
+    /**
+     * @param int $chatId
+     */
+    public function setChatId(int $chatId)
+    {
+        $this->chatId = $chatId;
+    }
+
+    /**
+     * @return string
+     */
+    public function getContent(): string
+    {
+        return $this->content;
+    }
+
+    /**
+     * @param string $content
+     */
+    public function setContent(string $content)
+    {
+        $this->content = $content;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isRead(): bool
+    {
+        return $this->isRead;
+    }
+
+    /**
+     * @param bool $isRead
+     */
+    public function setIsRead(bool $isRead)
+    {
+        $this->isRead = $isRead;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isEdit(): bool
+    {
+        return $this->isEdit;
+    }
+
+    /**
+     * @param bool $isEdit
+     */
+    public function setIsEdit(bool $isEdit)
+    {
+        $this->isEdit = $isEdit;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStatus(): string
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param string $status
+     */
+    public function setStatus(string $status)
+    {
+        $this->status = $status;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAction(): string
+    {
+        return $this->action;
+    }
+
+    /**
+     * @param string $action
+     */
+    public function setAction(string $action)
+    {
+        $this->action = $action;
+    }
+
+    /**
+     * @return Dialog
+     */
+    public function getDialog(): Dialog
+    {
+        return $this->dialog;
+    }
+
+    /**
+     * @param Dialog $dialog
+     */
+    public function setDialog(Dialog $dialog)
+    {
+        $this->dialog = $dialog;
+    }
+
+    /**
+     * @return int
+     */
+    public function getChannelId(): int
+    {
+        return $this->channelId;
+    }
+
+    /**
+     * @param int $channelId
+     */
+    public function setChannelId(int $channelId)
+    {
+        $this->channelId = $channelId;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getChannelSentAt(): \DateTime
+    {
+        return $this->channelSentAt;
+    }
+
+    /**
+     * @param \DateTime $channelSentAt
+     */
+    public function setChannelSentAt(\DateTime $channelSentAt)
+    {
+        $this->channelSentAt = $channelSentAt;
+    }
+
+    /**
+     * @return MessageOrder
+     */
+    public function getOrder(): MessageOrder
+    {
+        return $this->order;
+    }
+
+    /**
+     * @param MessageOrder $order
+     */
+    public function setOrder(MessageOrder $order)
+    {
+        $this->order = $order;
+    }
+
+    /**
+     * @return MessageProduct
+     */
+    public function getProduct(): MessageProduct
+    {
+        return $this->product;
+    }
+
+    /**
+     * @param MessageProduct $product
+     */
+    public function setProduct(MessageProduct $product)
+    {
+        $this->product = $product;
+    }
 }

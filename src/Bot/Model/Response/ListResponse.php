@@ -13,32 +13,13 @@
 
 namespace RetailCrm\Mg\Bot\Model\Response;
 
+use RetailCrm\Common\Serializer;
+
 /**
  * PHP version 7.0
  *
- * ListResponse class.
- *
- * This class implements `ArrayAccess` and `Iterator` interfaces.
- * It means you can access items using array syntax, or use this class in `foreach` loop.
- *
- * Example:
- * ```
- * $request = new \RetailCrm\Mg\Bot\Model\Request\BotsRequest();
- * $request->setActive(1);
- * $request->setRoles([Constants::BOT_ROLE_RESPONSIBLE]);
- *
- * $data = $client->bots($request);
- * $firstBot = $data[0];
- *
- * foreach($data as $bot) { ... }
- * ```
- *
- * Fields:
- *
- * | Field name     | Data type     |
- * |----------------|---------------|
- * | result         | array[object] |
- * | errors         | array[string] |
+ * ListResponse class. Used to store multiple objects at once.
+ * Implements `Iterator`, `ArrayAccess` and `Countable`.
  *
  * @package  RetailCrm\Mg\Bot\Model\Response
  * @author   retailCRM <integration@retailcrm.ru>
@@ -73,7 +54,11 @@ class ListResponse implements \Iterator, \ArrayAccess, \Countable {
             $this->errors = $data['errors'];
         } else {
             foreach($data as $item) {
-                $this->items[] = new $responseType($item);
+                if (substr($responseType, 0, 1) == '\\') {
+                    $responseType = substr($responseType, 1);
+                }
+
+                $this->items[] = Serializer::deserialize($item, $responseType, Serializer::S_ARRAY);
             }
         }
     }

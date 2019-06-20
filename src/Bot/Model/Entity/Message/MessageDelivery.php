@@ -13,55 +13,122 @@
 
 namespace RetailCrm\Mg\Bot\Model\Entity\Message;
 
-use LazyJsonMapper\LazyJsonMapper;
-use Symfony\Component\Validator\Validation;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SkipWhenEmpty;
+use JMS\Serializer\Annotation\Type;
+use RetailCrm\Mg\Bot\Model\Entity\Message\MessageCost;
 
 /**
  * PHP version 7.0
  *
- * MessageDelivery class. Schema:
- *
- * | Field name | Data type   |
- * |------------|-------------|
- * | address    | string      |
- * | comment    | string      |
- * | name       | string      |
- * | price      | MessageCost |
+ * MessageDelivery class
  *
  * @package  RetailCrm\Mg\Bot\Model\Entity\Message
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
- *
- * @method string      getAddress()                 "Get `address` value"
- * @method $this       setAddress(string $value)    "Set `address` value"
- * @method string      getComment()                 "Get `comment` value"
- * @method $this       setComment(string $value)    "Set `comment` value"
- * @method string      getName()                    "Get `name` value"
- * @method $this       setName(string $value)       "Set `name` value"
- * @method MessageCost getPrice()                   "Get `price` value"
- * @method $this       setPrice(MessageCost $value) "Set `price` value"
  */
-class MessageDelivery extends LazyJsonMapper
+class MessageDelivery
 {
     /**
-     * JSON fields. Use setters and getters to work with this values.
-     * Setters will return model instance, so you can construct any model like this:
-     * ```
-     * $request = (new InfoRequest())
-     *              ->setName("...")
-     *              ->setRoles([...]);
-     *```
-     * Model constructor can accept array as initial data. You can use
-     * this to initialize models:
-     * ```
-     * $request = new InfoRequest(["name" => "...", "roles" => [...]]);
-     * ```
+     * @var string $name
+     *
+     * @Type("string")
+     * @Accessor(getter="getName",setter="setName")
+     *
+     * @Assert\NotBlank
      */
-    const JSON_PROPERTY_MAP = [
-        'address' => 'string',
-        'comment' => 'string',
-        'name' => 'string',
-        'price' => 'MessageCost'
-    ];
+    private $name;
+
+    /**
+     * @var MessageCost $price
+     *
+     * @Type("Cost")
+     * @Accessor(getter="getPrice",setter="setPrice")
+     *
+     * @Assert\Currency
+     */
+    private $price;
+
+    /**
+     * @var string $address
+     *
+     * @Type("string")
+     * @Accessor(getter="getAddress",setter="setAddress")
+     * @SkipWhenEmpty()
+     */
+    private $address;
+
+    /**
+     * @var string $comment
+     *
+     * @Type("string")
+     * @Accessor(getter="getComment",setter="setComment")
+     * @SkipWhenEmpty()
+     */
+    private $comment;
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName(string $name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return MessageCost
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * @param MessageCost $price
+     */
+    public function setPrice(MessageCost $price)
+    {
+        $this->price = $price;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * @param string $address
+     */
+    public function setAddress(string $address)
+    {
+        $this->address = $address;
+    }
+
+    /**
+     * @return string
+     */
+    public function getComment()
+    {
+        return $this->comment;
+    }
+
+    /**
+     * @param string $comment
+     */
+    public function setComment(string $comment)
+    {
+        $this->comment = $comment;
+    }
 }

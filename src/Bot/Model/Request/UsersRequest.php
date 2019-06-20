@@ -13,48 +13,90 @@
 
 namespace RetailCrm\Mg\Bot\Model\Request;
 
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SkipWhenEmpty;
+use JMS\Serializer\Annotation\Type;
+
 /**
  * PHP version 7.0
  *
- * UsersRequest class. Parameters:
- *
- * | Parameter name | Data type |
- * |----------------|-----------|
- * | external_id    | string    |
- * | active         | int       |
- * | online         | int       |
+ * UsersRequest class
  *
  * @package  RetailCrm\Mg\Bot\Model\Request
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
- *
- * @method string getExternalId()              "Get `external_id` value"
- * @method $this  setExternalId(string $value) "Set `external_id` value"
- * @method int    getActive()                  "Get `active` value"
- * @method $this  setActive(int $value)        "Set `active` value"
- * @method int    getOnline()                  "Get `online` value"
- * @method $this  setOnline(int $value)        "Set `online` value"
  */
-class UsersRequest extends CommonFields
+class UsersRequest
 {
+    use CommonFields;
+
     /**
-     * JSON fields. Use setters and getters to work with this values.
-     * Setters will return model instance, so you can construct any model like this:
-     * ```
-     * $request = (new InfoRequest())
-     *              ->setName("...")
-     *              ->setRoles([...]);
-     *```
-     * Model constructor can accept array as initial data. You can use
-     * this to initialize models:
-     * ```
-     * $request = new InfoRequest(["name" => "...", "roles" => [...]]);
-     * ```
+     * @Type("string")
+     * @Accessor(getter="getExternalId",setter="setExternalId")
+     * @SkipWhenEmpty
      */
-    const JSON_PROPERTY_MAP = [
-        'external_id' => 'string',
-        'active' => 'int',
-        'online' => 'int'
-    ];
+    private $externalId;
+
+    /**
+     * @Type("int")
+     * @Accessor(getter="getActive",setter="setActive")
+     * @SkipWhenEmpty
+     */
+    private $active;
+
+    /**
+     * @Type("int")
+     * @Accessor(getter="getOnline",setter="setOnline")
+     * @SkipWhenEmpty
+     */
+    private $online;
+
+    /**
+     * @return string
+     */
+    public function getExternalId()
+    {
+        return $this->externalId;
+    }
+
+    /**
+     * @param string $externalId
+     */
+    public function setExternalId($externalId)
+    {
+        $this->externalId = $externalId;
+    }
+
+    /**
+     * @return int
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * @param int $active
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+    }
+
+    /**
+     * @return int
+     */
+    public function getOnline()
+    {
+        return $this->online;
+    }
+
+    /**
+     * @param int $online
+     */
+    public function setOnline($online)
+    {
+        $this->online = $online;
+    }
 }

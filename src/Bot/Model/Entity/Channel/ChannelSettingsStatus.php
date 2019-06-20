@@ -3,15 +3,15 @@
 /**
  * PHP version 7.0
  *
- * MessageStatus entity
+ * ChannelSettingsStatus entity
  *
- * @package  RetailCrm\Mg\Bot\Model\Entity\Message
+ * @package  RetailCrm\Mg\Bot\Model\Entity\Channel
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
 
-namespace RetailCrm\Mg\Bot\Model\Entity\Message;
+namespace RetailCrm\Mg\Bot\Model\Entity\Channel;
 
 use JMS\Serializer\Annotation\Accessor;
 use JMS\Serializer\Annotation\SkipWhenEmpty;
@@ -20,62 +20,62 @@ use JMS\Serializer\Annotation\Type;
 /**
  * PHP version 7.0
  *
- * MessageStatus class
+ * ChannelSettingsStatus class
  *
- * @package  RetailCrm\Mg\Bot\Model\Entity\Message
+ * @package  RetailCrm\Mg\Bot\Model\Entity\Channel
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
-class MessageStatus
+class ChannelSettingsStatus
 {
     /**
-     * @var string $code
+     * @var string $delivered
      *
      * @Type("string")
-     * @Accessor(getter="getCode",setter="setCode")
+     * @Accessor(getter="getDelivered",setter="setDelivered")
      * @SkipWhenEmpty()
      */
-    private $code;
+    private $delivered;
 
     /**
-     * @var string $name
+     * @var string $read
      *
      * @Type("string")
-     * @Accessor(getter="getName",setter="setName")
+     * @Accessor(getter="getRead",setter="setRead")
      * @SkipWhenEmpty()
      */
-    private $name;
+    private $read;
 
     /**
      * @return string
      */
-    public function getCode(): string
+    public function getDelivered(): string
     {
-        return $this->code;
+        return $this->delivered;
     }
 
     /**
-     * @param string $code
+     * @param string $delivered
      */
-    public function setCode(string $code)
+    public function setDelivered(string $delivered)
     {
-        $this->code = $code;
+        $this->delivered = $delivered;
     }
 
     /**
      * @return string
      */
-    public function getName(): string
+    public function getRead(): string
     {
-        return $this->name;
+        return $this->read;
     }
 
     /**
-     * @param string $name
+     * @param string $read
      */
-    public function setName(string $name)
+    public function setRead(string $read)
     {
-        $this->name = $name;
+        $this->read = $read;
     }
 }

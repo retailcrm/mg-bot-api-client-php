@@ -13,46 +13,69 @@
 
 namespace RetailCrm\Mg\Bot\Model\Entity;
 
-use LazyJsonMapper\LazyJsonMapper;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SkipWhenEmpty;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * PHP version 7.0
  *
- * FileMeta class. Schema:
- *
- * | Field name | Data type |
- * |------------|-----------|
- * | height     | int       |
- * | width      | int       |
+ * FileMeta class
  *
  * @package  RetailCrm\Mg\Bot\Model\Entity
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
- *
- * @method int   getHeight()           "Get `height` value"
- * @method $this setHeight(int $value) "Set `height` value"
- * @method int   getWidth()            "Get `width` value"
- * @method $this setWidth(int $value)  "Set `width` value"
  */
-class FileMeta extends LazyJsonMapper
+class FileMeta
 {
     /**
-     * JSON fields. Use setters and getters to work with this values.
-     * Setters will return model instance, so you can construct any model like this:
-     * ```
-     * $request = (new InfoRequest())
-     *              ->setName("...")
-     *              ->setRoles([...]);
-     *```
-     * Model constructor can accept array as initial data. You can use
-     * this to initialize models:
-     * ```
-     * $request = new InfoRequest(["name" => "...", "roles" => [...]]);
-     * ```
+     * @var int $height
+     *
+     * @Type("int")
+     * @Accessor(getter="getHeight",setter="setHeight")
+     * @SkipWhenEmpty()
      */
-    const JSON_PROPERTY_MAP = [
-        'height' => 'int',
-        'width' => 'int'
-    ];
+    private $height;
+
+    /**
+     * @var int $width
+     *
+     * @Type("int")
+     * @Accessor(getter="getWidth",setter="setWidth")
+     * @SkipWhenEmpty()
+     */
+    private $width;
+
+    /**
+     * @return int
+     */
+    public function getHeight(): int
+    {
+        return $this->height;
+    }
+
+    /**
+     * @param int $height
+     */
+    public function setHeight(int $height)
+    {
+        $this->height = $height;
+    }
+
+    /**
+     * @return int
+     */
+    public function getWidth(): int
+    {
+        return $this->width;
+    }
+
+    /**
+     * @param int $width
+     */
+    public function setWidth(int $width)
+    {
+        $this->width = $width;
+    }
 }

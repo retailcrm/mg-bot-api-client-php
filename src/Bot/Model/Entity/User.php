@@ -13,76 +13,271 @@
 
 namespace RetailCrm\Mg\Bot\Model\Entity;
 
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SkipWhenEmpty;
+use JMS\Serializer\Annotation\Type;
+
 /**
  * PHP version 7.0
  *
- * User class. Schema:
- *
- * | Field name  | Data type |
- * |-------------|-----------|
- * | external_id | string    |
- * | type        | string    |
- * | avatar      | string    |
- * | name        | string    |
- * | username    | string    |
- * | first_name  | string    |
- * | last_name   | string    |
- * | is_active   | bool      |
- * | is_online   | bool      |
- * | revoked_at  | string    |
+ * User class
  *
  * @package  RetailCrm\Mg\Bot\Model\Entity
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
- *
- * @method string getExternalId()              "Get `external_id` value"
- * @method $this  setExternalId(string $value) "Set `external_id` value"
- * @method string getType()                    "Get `type` value"
- * @method $this  setType(string $value)       "Set `type` value"
- * @method string getAvatar()                  "Get `avatar` value"
- * @method $this  setAvatar(string $value)     "Set `avatar` value"
- * @method string getName()                    "Get `name` value"
- * @method $this  setName(string $value)       "Set `name` value"
- * @method string getUsername()                "Get `username` value"
- * @method $this  setUsername(string $value)   "Set `username` value"
- * @method string getFirstName()               "Get `first_name` value"
- * @method $this  setFirstName(string $value)  "Set `first_name` value"
- * @method string getLastName()                "Get `last_name` value"
- * @method $this  setLastName(string $value)   "Set `last_name` value"
- * @method bool   getIsActive()                "Get `is_active` value"
- * @method $this  setIsActive(bool $value)     "Set `is_active` value"
- * @method bool   getIsOnline()                "Get `is_online` value"
- * @method $this  setIsOnline(bool $value)     "Set `is_online` value"
- * @method string getRevokedAt()               "Get `revoked_at` value"
- * @method $this  setRevokedAt(string $value)  "Set `revoked_at` value"
  */
-class User extends CommonFields
+class User
 {
+    use CommonFields;
+
     /**
-     * JSON fields. Use setters and getters to work with this values.
-     * Setters will return model instance, so you can construct any model like this:
-     * ```
-     * $request = (new InfoRequest())
-     *              ->setName("...")
-     *              ->setRoles([...]);
-     *```
-     * Model constructor can accept array as initial data. You can use
-     * this to initialize models:
-     * ```
-     * $request = new InfoRequest(["name" => "...", "roles" => [...]]);
-     * ```
+     * @var string $externalId
+     *
+     * @Type("string")
+     * @Accessor(getter="getExternalId",setter="setExternalId")
+     * @SkipWhenEmpty()
      */
-    const JSON_PROPERTY_MAP = [
-        'external_id' => 'string',
-        'type' => 'string',
-        'avatar' => 'string',
-        'name' => 'string',
-        'username' => 'string',
-        'first_name' => 'string',
-        'last_name' => 'string',
-        'is_active' => 'bool',
-        'is_online' => 'bool',
-        'revoked_at' => 'string'
-    ];
+    private $externalId;
+
+    /**
+     * @var string $type
+     *
+     * @Type("string")
+     * @Accessor(getter="getType",setter="setType")
+     * @SkipWhenEmpty()
+     */
+    private $type;
+
+    /**
+     * @var string $avatar
+     *
+     * @Type("string")
+     * @Accessor(getter="getAvatar",setter="setAvatar")
+     * @SkipWhenEmpty()
+     */
+    private $avatar;
+
+    /**
+     * @var string $name
+     *
+     * @Type("string")
+     * @Accessor(getter="getName",setter="setName")
+     * @SkipWhenEmpty()
+     */
+    private $name;
+
+    /**
+     * @var string $username
+     *
+     * @Type("string")
+     * @Accessor(getter="getUsername",setter="setUsername")
+     * @SkipWhenEmpty()
+     */
+    private $username;
+
+    /**
+     * @var string $firstName
+     *
+     * @Type("string")
+     * @Accessor(getter="getFirstName",setter="setFirstName")
+     * @SkipWhenEmpty()
+     */
+    private $firstName;
+
+    /**
+     * @var string $lastName
+     *
+     * @Type("string")
+     * @Accessor(getter="getLastName",setter="setLastName")
+     * @SkipWhenEmpty()
+     */
+    private $lastName;
+
+    /**
+     * @var bool $isActive
+     *
+     * @Type("bool")
+     * @Accessor(getter="getIsActive",setter="setIsActive")
+     * @SkipWhenEmpty()
+     */
+    private $isActive;
+
+    /**
+     * @var bool $isOnline
+     *
+     * @Type("bool")
+     * @Accessor(getter="getIsOnline",setter="setIsOnline")
+     * @SkipWhenEmpty()
+     */
+    private $isOnline;
+
+    /**
+     * @var \DateTime $revokedAt
+     *
+     * @Type("DateTime<'Y-m-d\TH:i:s\.u\Z'>")
+     * @Accessor(getter="getRevokedAt",setter="setRevokedAt")
+     * @SkipWhenEmpty()
+     */
+    private $revokedAt;
+
+    /**
+     * @return string
+     */
+    public function getExternalId(): string
+    {
+        return $this->externalId;
+    }
+
+    /**
+     * @param string $externalId
+     */
+    public function setExternalId(string $externalId)
+    {
+        $this->externalId = $externalId;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType(): string
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string $type
+     */
+    public function setType(string $type)
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAvatar(): string
+    {
+        return $this->avatar;
+    }
+
+    /**
+     * @param string $avatar
+     */
+    public function setAvatar(string $avatar)
+    {
+        $this->avatar = $avatar;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName(string $name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUsername(): string
+    {
+        return $this->username;
+    }
+
+    /**
+     * @param string $username
+     */
+    public function setUsername(string $username)
+    {
+        $this->username = $username;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFirstName(): string
+    {
+        return $this->firstName;
+    }
+
+    /**
+     * @param string $firstName
+     */
+    public function setFirstName(string $firstName)
+    {
+        $this->firstName = $firstName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLastName(): string
+    {
+        return $this->lastName;
+    }
+
+    /**
+     * @param string $lastName
+     */
+    public function setLastName(string $lastName)
+    {
+        $this->lastName = $lastName;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isActive(): bool
+    {
+        return $this->isActive;
+    }
+
+    /**
+     * @param bool $isActive
+     */
+    public function setIsActive(bool $isActive)
+    {
+        $this->isActive = $isActive;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isOnline(): bool
+    {
+        return $this->isOnline;
+    }
+
+    /**
+     * @param bool $isOnline
+     */
+    public function setIsOnline(bool $isOnline)
+    {
+        $this->isOnline = $isOnline;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getRevokedAt(): \DateTime
+    {
+        return $this->revokedAt;
+    }
+
+    /**
+     * @param \DateTime $revokedAt
+     */
+    public function setRevokedAt(\DateTime $revokedAt)
+    {
+        $this->revokedAt = $revokedAt;
+    }
 }

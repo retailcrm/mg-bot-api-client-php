@@ -13,58 +13,144 @@
 
 namespace RetailCrm\Mg\Bot\Model\Request;
 
-use LazyJsonMapper\LazyJsonMapper;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SkipWhenEmpty;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * PHP version 7.0
  *
- * MembersRequest class. Parameters:
- *
- * | Parameter name | Data type |
- * |----------------|-----------|
- * | chat_id        | int       |
- * | user_id        | int       |
- * | state          | string    |
- * | since          | string    |
- * | until          | string    |
+ * MembersRequest class
  *
  * @package  RetailCrm\Mg\Bot\Model\Request
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
- *
- * @method int    getChatId()             "Get `chat_id` value"
- * @method $this  setChatId(int $value)   "Set `chat_id` value"
- * @method int    getUserId()             "Get `user_id` value"
- * @method $this  setUserId(int $value)   "Set `user_id` value"
- * @method string getState()              "Get `state` value"
- * @method $this  setState(string $value) "Set `state` value"
- * @method string getSince()              "Get `since` value"
- * @method $this  setSince(string $value) "Set `since` value"
- * @method string getUntil()              "Get `until` value"
- * @method $this  setUntil(string $value) "Set `until` value"
  */
-class MembersRequest extends LazyJsonMapper
+class MembersRequest
 {
     /**
-     * JSON fields. Use setters and getters to work with this values.
-     * Setters will return model instance, so you can construct any model like this:
-     * ```
-     * $request = (new InfoRequest())
-     *              ->setName("...")
-     *              ->setRoles([...]);
-     *```
-     * Model constructor can accept array as initial data. You can use
-     * this to initialize models:
-     * ```
-     * $request = new InfoRequest(["name" => "...", "roles" => [...]]);
-     * ```
+     * @var int $chatId
+     *
+     * @Type("int")
+     * @Accessor(getter="getChatId",setter="setChatId")
+     * @SkipWhenEmpty
      */
-    const JSON_PROPERTY_MAP = [
-        'chat_id' => 'int',
-        'user_id' => 'int',
-        'state' => 'string',
-        'since' => 'string',
-        'until' => 'string'
-    ];
+    private $chatId;
+
+    /**
+     * @var int $userId
+     *
+     * @Type("int")
+     * @Accessor(getter="getUserId",setter="setUserId")
+     * @SkipWhenEmpty
+     */
+    private $userId;
+
+    /**
+     * @var string $state
+     *
+     * @Type("string")
+     * @Accessor(getter="getState",setter="setState")
+     * @SkipWhenEmpty
+     */
+    private $state;
+
+    /**
+     * @var string $since
+     *
+     * @Type("string")
+     * @Accessor(getter="getSince",setter="setSince")
+     * @SkipWhenEmpty
+     */
+    private $since;
+
+    /**
+     * @var string $until
+     *
+     * @Type("string")
+     * @Accessor(getter="getUntil",setter="setUntil")
+     * @SkipWhenEmpty
+     */
+    private $until;
+
+    /**
+     * @return int
+     */
+    public function getChatId()
+    {
+        return $this->chatId;
+    }
+
+    /**
+     * @param int $chatId
+     */
+    public function setChatId(int $chatId)
+    {
+        $this->chatId = $chatId;
+    }
+
+    /**
+     * @return int
+     */
+    public function getUserId()
+    {
+        return $this->userId;
+    }
+
+    /**
+     * @param int $userId
+     */
+    public function setUserId(int $userId)
+    {
+        $this->userId = $userId;
+    }
+
+    /**
+     * @return string
+     */
+    public function getState()
+    {
+        return $this->state;
+    }
+
+    /**
+     * @param string $state
+     */
+    public function setState(string $state)
+    {
+        $this->state = $state;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSince()
+    {
+        return $this->since;
+    }
+
+    /**
+     * @param string $since
+     */
+    public function setSince(string $since)
+    {
+        $this->since = $since;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUntil()
+    {
+        return $this->until;
+    }
+
+    /**
+     * @param string $until
+     */
+    public function setUntil(string $until)
+    {
+        $this->until = $until;
+    }
 }

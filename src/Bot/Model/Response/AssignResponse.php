@@ -13,54 +13,122 @@
 
 namespace RetailCrm\Mg\Bot\Model\Response;
 
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SkipWhenEmpty;
+use JMS\Serializer\Annotation\Type;
 use RetailCrm\Mg\Bot\Model\Entity\Responsible;
 
 /**
  * PHP version 7.0
  *
- * AssignResponse class. Parameters:
- *
- * | Parameter name       | Data type   |
- * |----------------------|-------------|
- * | is_reassign          | bool        |
- * | left_manager_id      | int         |
- * | previous_responsible | Responsible |
- * | responsible          | Responsible |
+ * AssignResponse class
  *
  * @package  RetailCrm\Mg\Bot\Model\Response
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
- *
- * @method bool        getIsReassign()                            "Get `is_reassign` value"
- * @method $this       setIsReassign(bool $value)                 "Set `is_reassign` value"
- * @method int         getLeftManagerId()                         "Get `left_manager_id` value"
- * @method $this       setLeftManagerId(int $value)               "Set `left_manager_id` value"
- * @method Responsible getPreviousResponsible()                   "Get `previous_responsible` value"
- * @method $this       setPreviousResponsible(Responsible $value) "Set `previous_responsible` value"
- * @method Responsible getResponsible()                           "Get `responsible` value"
- * @method $this       setResponsible(Responsible $value)         "Set `responsible` value"
  */
-class AssignResponse extends CommonFields
+class AssignResponse
 {
+    use CommonFields;
+
     /**
-     * JSON fields. Use setters and getters to work with this values.
-     * Setters will return model instance, so you can construct any model like this:
-     * ```
-     * $request = (new InfoRequest())
-     *              ->setName("...")
-     *              ->setRoles([...]);
-     *```
-     * Model constructor can accept array as initial data. You can use
-     * this to initialize models:
-     * ```
-     * $request = new InfoRequest(["name" => "...", "roles" => [...]]);
-     * ```
+     * @var bool $isReassign
+     *
+     * @Type("bool")
+     * @Accessor(getter="getIsReassign",setter="setIsReassign")
+     * @SkipWhenEmpty()
      */
-    const JSON_PROPERTY_MAP = [
-        'is_reassign' => 'bool',
-        'left_manager_id' => 'int',
-        'previous_responsible' => 'Responsible',
-        'responsible' => 'Responsible'
-    ];
+    private $isReassign;
+
+    /**
+     * @var int $leftManagerId
+     *
+     * @Type("int")
+     * @Accessor(getter="getLeftManagerId",setter="setLeftManagerId")
+     * @SkipWhenEmpty()
+     */
+    private $leftManagerId;
+
+    /**
+     * @var Responsible $previousResponsible
+     *
+     * @Type("Responsible")
+     * @Accessor(getter="getPreviousResponsible",setter="setPreviousResponsible")
+     * @SkipWhenEmpty()
+     */
+    private $previousResponsible;
+
+    /**
+     * @var Responsible $responsible
+     *
+     * @Type("Responsible")
+     * @Accessor(getter="getResponsible",setter="setResponsible")
+     * @SkipWhenEmpty()
+     */
+    private $responsible;
+
+    /**
+     * @return bool
+     */
+    public function isReassign(): bool
+    {
+        return $this->isReassign;
+    }
+
+    /**
+     * @param bool $isReassign
+     */
+    public function setIsReassign(bool $isReassign)
+    {
+        $this->isReassign = $isReassign;
+    }
+
+    /**
+     * @return int
+     */
+    public function getLeftManagerId(): int
+    {
+        return $this->leftManagerId;
+    }
+
+    /**
+     * @param int $leftManagerId
+     */
+    public function setLeftManagerId(int $leftManagerId)
+    {
+        $this->leftManagerId = $leftManagerId;
+    }
+
+    /**
+     * @return Responsible
+     */
+    public function getPreviousResponsible(): Responsible
+    {
+        return $this->previousResponsible;
+    }
+
+    /**
+     * @param Responsible $previousResponsible
+     */
+    public function setPreviousResponsible(Responsible $previousResponsible)
+    {
+        $this->previousResponsible = $previousResponsible;
+    }
+
+    /**
+     * @return Responsible
+     */
+    public function getResponsible(): Responsible
+    {
+        return $this->responsible;
+    }
+
+    /**
+     * @param Responsible $responsible
+     */
+    public function setResponsible(Responsible $responsible)
+    {
+        $this->responsible = $responsible;
+    }
 }

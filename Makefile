@@ -22,22 +22,3 @@ stan:
 	@echo "==> Running analysis"
 	@php $(BIN_DIR)/phpstan analyse -l 4 -c $(ROOT_DIR)/phpstan.neon $(SRC_DIR)
 	@echo "==> Analysis complete"
-
-docs:
-	@echo "==> Building docs"
-ifeq ($(wildcard *.phar), )
-	@wget https://github.com/phpDocumentor/phpDocumentor2/releases/download/v3.0.0-alpha.3/phpDocumentor.phar -O phpDocumentor.phar
-	@wget https://github.com/phpDocumentor/phpDocumentor2/releases/download/v3.0.0-alpha.3/phpDocumentor.phar.pubkey -O phpDocumentor.phar.pubkey
-	@chmod +x phpDocumentor.phar
-endif
-ifeq (, $(shell which dot))
-ifeq ($(wildcard dot/dot), )
-	@mkdir -p $(ROOT_DIR)/dot
-	@wget https://github.com/Neur0toxine/mwgraphviz/raw/master/dot_static -O $(ROOT_DIR)/dot/dot
-	@chmod +x $(ROOT_DIR)/dot/dot
-endif
-endif
-	@php phpDocumentor.phar --config $(ROOT_DIR)/phpdoc.dist.xml
-
-travis: test docs
-	@echo "==> Done."

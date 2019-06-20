@@ -13,50 +13,94 @@
 
 namespace RetailCrm\Mg\Bot\Model\Request;
 
-use LazyJsonMapper\LazyJsonMapper;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SkipWhenEmpty;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * PHP version 7.0
  *
- * DialogAssignRequest class. Parameters:
- *
- * | Parameter name | Data type |
- * |----------------|-----------|
- * | dialog_id      | int       |
- * | user_id        | int       |
- * | bot_id         | int       |
+ * DialogAssignRequest class
  *
  * @package  RetailCrm\Mg\Bot\Model\Request
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
- *
- * @method int   getDialogId()           "Get `dialog_id` value"
- * @method $this setDialogId(int $value) "Set `dialog_id` value"
- * @method int   getUserId()             "Get `user_id` value"
- * @method $this setUserId(int $value)   "Set `user_id` value"
- * @method int   getBotId()              "Get `bot_id` value"
- * @method $this setBotId(int $value)    "Set `bot_id` value"
  */
-class DialogAssignRequest extends LazyJsonMapper
+class DialogAssignRequest
 {
     /**
-     * JSON fields. Use setters and getters to work with this values.
-     * Setters will return model instance, so you can construct any model like this:
-     * ```
-     * $request = (new InfoRequest())
-     *              ->setName("...")
-     *              ->setRoles([...]);
-     *```
-     * Model constructor can accept array as initial data. You can use
-     * this to initialize models:
-     * ```
-     * $request = new InfoRequest(["name" => "...", "roles" => [...]]);
-     * ```
+     * @var int $dialogId
+     *
+     * @Type("int")
+     * @Accessor(getter="getDialogId,setter="setDialogId")
+     * @SkipWhenEmpty
      */
-    const JSON_PROPERTY_MAP = [
-        'dialog_id' => 'int',
-        'user_id' => 'int',
-        'bot_id' => 'int'
-    ];
+    private $dialogId;
+
+    /**
+     * @var int $userId
+     *
+     * @Type("int")
+     * @Accessor(getter="getUserId",setter="setUserId")
+     * @SkipWhenEmpty
+     */
+    private $userId;
+
+    /**
+     * @var int $botId
+     *
+     * @Type("int")
+     * @Accessor(getter="getBotId",setter="setBotId")
+     * @SkipWhenEmpty()
+     */
+    private $botId;
+
+    /**
+     * @return int
+     */
+    public function getDialogId()
+    {
+        return $this->dialogId;
+    }
+
+    /**
+     * @param int $dialogId
+     */
+    public function setDialogId(int $dialogId)
+    {
+        $this->dialogId = $dialogId;
+    }
+
+    /**
+     * @return int
+     */
+    public function getUserId()
+    {
+        return $this->userId;
+    }
+
+    /**
+     * @param int $userId
+     */
+    public function setUserId(int $userId)
+    {
+        $this->userId = $userId;
+    }
+
+    /**
+     * @return int
+     */
+    public function getBotId()
+    {
+        return $this->botId;
+    }
+
+    /**
+     * @param int $botId
+     */
+    public function setBotId(int $botId)
+    {
+        $this->botId = $botId;
+    }
 }

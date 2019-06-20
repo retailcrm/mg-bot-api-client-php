@@ -14,85 +14,322 @@
 namespace RetailCrm\Mg\Bot\Model\Entity;
 
 use RetailCrm\Mg\Bot\Model\Entity\CommonFields;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SkipWhenEmpty;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * PHP version 7.0
  *
- * Customer class. Schema:
- *
- * | Field name  | Data type |
- * |-------------|-----------|
- * | external_id | string    |
- * | channel_id  | int       |
- * | username    | string    |
- * | first_name  | string    |
- * | last_name   | string    |
- * | avatar_url  | string    |
- * | profile_url | string    |
- * | revoked_at  | string    |
- * | country     | string    |
- * | language    | string    |
- * | phone       | string    |
+ * Customer class
  * | email       | string    |
  *
  * @package  RetailCrm\Mg\Bot\Model\Entity
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
- *
- * @method string getExternalId()              "Get `external_id` value"
- * @method $this  setExternalId(string $value) "Set `external_id` value"
- * @method int    getChannelId()               "Get `channel_id` value"
- * @method $this  setChannelId(int $value)     "Set `channel_id` value"
- * @method string getUsername()                "Get `username` value"
- * @method $this  setUsername(string $value)   "Set `username` value"
- * @method string getFirstName()               "Get `first_name` value"
- * @method $this  setFirstName(string $value)  "Set `first_name` value"
- * @method string getLastName()                "Get `last_name` value"
- * @method $this  setLastName(string $value)   "Set `last_name` value"
- * @method string getAvatarUrl()               "Get `avatar_url` value"
- * @method $this  setAvatarUrl(string $value)  "Set `avatar_url` value"
- * @method string getProfileUrl()              "Get `profile_url` value"
- * @method $this  setProfileUrl(string $value) "Set `profile_url` value"
- * @method string getRevokedAt()               "Get `revoked_at` value"
- * @method $this  setRevokedAt(string $value)  "Set `revoked_at` value"
- * @method string getCountry()                 "Get `country` value"
- * @method $this  setCountry(string $value)    "Set `country` value"
- * @method string getLanguage()                "Get `language` value"
- * @method $this  setLanguage(string $value)   "Set `language` value"
- * @method string getPhone()                   "Get `phone` value"
- * @method $this  setPhone(string $value)      "Set `phone` value"
- * @method string getEmail()                   "Get `email` value"
- * @method $this  setEmail(string $value)      "Set `email` value"
  */
-class Customer extends CommonFields
+class Customer
 {
+    use CommonFields;
+
     /**
-     * JSON fields. Use setters and getters to work with this values.
-     * Setters will return model instance, so you can construct any model like this:
-     * ```
-     * $request = (new InfoRequest())
-     *              ->setName("...")
-     *              ->setRoles([...]);
-     *```
-     * Model constructor can accept array as initial data. You can use
-     * this to initialize models:
-     * ```
-     * $request = new InfoRequest(["name" => "...", "roles" => [...]]);
-     * ```
+     * @var string $externalId
+     *
+     * @Type("string")
+     * @Accessor(getter="getExternalId",setter="setExternalId")
+     * @SkipWhenEmpty()
      */
-    const JSON_PROPERTY_MAP = [
-        'external_id' => 'string',
-        'channel_id' => 'int',
-        'username' => 'string',
-        'first_name' => 'string',
-        'last_name' => 'string',
-        'avatar_url' => 'string',
-        'profile_url' => 'string',
-        'revoked_at' => 'string',
-        'country' => 'string',
-        'language' => 'string',
-        'phone' => 'string',
-        'email' => 'string'
-    ];
+    private $externalId;
+
+    /**
+     * @var int $channelId
+     *
+     * @Type("int")
+     * @Accessor(getter="getChannelId",setter="setChannelId")
+     * @SkipWhenEmpty()
+     */
+    private $channelId;
+
+    /**
+     * @var string $username
+     *
+     * @Type("string")
+     * @Accessor(getter="getUsername",setter="setUsername")
+     * @SkipWhenEmpty()
+     */
+    private $username;
+
+    /**
+     * @var string $firstName
+     *
+     * @Type("string")
+     * @Accessor(getter="getFirstName",setter="setFirstName")
+     * @SkipWhenEmpty()
+     */
+    private $firstName;
+
+    /**
+     * @var string $lastName
+     *
+     * @Type("string")
+     * @Accessor(getter="getLastName",setter="setLastName")
+     * @SkipWhenEmpty()
+     */
+    private $lastName;
+
+    /**
+     * @var string $avatarUrl
+     *
+     * @Type("string")
+     * @Accessor(getter="getAvatarUrl",setter="setAvatarUrl")
+     * @SkipWhenEmpty()
+     */
+    private $avatarUrl;
+
+    /**
+     * @var string $profileUrl
+     *
+     * @Type("string")
+     * @Accessor(getter="getProfileUrl",setter="setProfileUrl")
+     * @SkipWhenEmpty()
+     */
+    private $profileUrl;
+
+    /**
+     * @var string $revokedAt
+     *
+     * @Type("string")
+     * @Accessor(getter="getRevokedAt",setter="setRevokedAt")
+     * @SkipWhenEmpty()
+     */
+    private $revokedAt;
+
+    /**
+     * @var string $country
+     *
+     * @Type("string")
+     * @Accessor(getter="getCountry",setter="setCountry")
+     * @SkipWhenEmpty()
+     */
+    private $country;
+
+    /**
+     * @var string $language
+     *
+     * @Type("string")
+     * @Accessor(getter="getLanguage",setter="setLanguage")
+     * @SkipWhenEmpty()
+     */
+    private $language;
+
+    /**
+     * @var string $phone
+     *
+     * @Type("string")
+     * @Accessor(getter="getPhone",setter="setPhone")
+     * @SkipWhenEmpty()
+     */
+    private $phone;
+
+    /**
+     * @var string $email
+     *
+     * @Type("string")
+     * @Accessor(getter="getEmail",setter="setEmail")
+     * @SkipWhenEmpty()
+     */
+    private $email;
+
+    /**
+     * @return string
+     */
+    public function getExternalId(): string
+    {
+        return $this->externalId;
+    }
+
+    /**
+     * @param string $externalId
+     */
+    public function setExternalId(string $externalId)
+    {
+        $this->externalId = $externalId;
+    }
+
+    /**
+     * @return int
+     */
+    public function getChannelId(): int
+    {
+        return $this->channelId;
+    }
+
+    /**
+     * @param int $channelId
+     */
+    public function setChannelId(int $channelId)
+    {
+        $this->channelId = $channelId;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUsername(): string
+    {
+        return $this->username;
+    }
+
+    /**
+     * @param string $username
+     */
+    public function setUsername(string $username)
+    {
+        $this->username = $username;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFirstName(): string
+    {
+        return $this->firstName;
+    }
+
+    /**
+     * @param string $firstName
+     */
+    public function setFirstName(string $firstName)
+    {
+        $this->firstName = $firstName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLastName(): string
+    {
+        return $this->lastName;
+    }
+
+    /**
+     * @param string $lastName
+     */
+    public function setLastName(string $lastName)
+    {
+        $this->lastName = $lastName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAvatarUrl(): string
+    {
+        return $this->avatarUrl;
+    }
+
+    /**
+     * @param string $avatarUrl
+     */
+    public function setAvatarUrl(string $avatarUrl)
+    {
+        $this->avatarUrl = $avatarUrl;
+    }
+
+    /**
+     * @return string
+     */
+    public function getProfileUrl(): string
+    {
+        return $this->profileUrl;
+    }
+
+    /**
+     * @param string $profileUrl
+     */
+    public function setProfileUrl(string $profileUrl)
+    {
+        $this->profileUrl = $profileUrl;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRevokedAt(): string
+    {
+        return $this->revokedAt;
+    }
+
+    /**
+     * @param string $revokedAt
+     */
+    public function setRevokedAt(string $revokedAt)
+    {
+        $this->revokedAt = $revokedAt;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCountry(): string
+    {
+        return $this->country;
+    }
+
+    /**
+     * @param string $country
+     */
+    public function setCountry(string $country)
+    {
+        $this->country = $country;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLanguage(): string
+    {
+        return $this->language;
+    }
+
+    /**
+     * @param string $language
+     */
+    public function setLanguage(string $language)
+    {
+        $this->language = $language;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPhone(): string
+    {
+        return $this->phone;
+    }
+
+    /**
+     * @param string $phone
+     */
+    public function setPhone(string $phone)
+    {
+        $this->phone = $phone;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string $email
+     */
+    public function setEmail(string $email)
+    {
+        $this->email = $email;
+    }
 }

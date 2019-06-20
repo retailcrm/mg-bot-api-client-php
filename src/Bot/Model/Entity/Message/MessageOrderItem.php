@@ -13,58 +13,144 @@
 
 namespace RetailCrm\Mg\Bot\Model\Entity\Message;
 
-use LazyJsonMapper\LazyJsonMapper;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SkipWhenEmpty;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * PHP version 7.0
  *
- * MessageOrderItem class. Schema:
- *
- * | Field name | Data type       |
- * |------------|-----------------|
- * | img        | string          |
- * | name       | string          |
- * | price      | MessageCost     |
- * | quantity   | MessageQuantity |
- * | url        | string          |
+ * MessageOrderItem class
  *
  * @package  RetailCrm\Mg\Bot\Model\Entity\Message
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
- *
- * @method string          getImg()                            "Get `img` value"
- * @method $this           setImg(string $value)               "Set `img` value"
- * @method string          getName()                           "Get `name` value"
- * @method $this           setName(string $value)              "Set `name` value"
- * @method MessageCost     getPrice()                          "Get `price` value"
- * @method $this           setPrice(MessageCost $value)        "Set `price` value"
- * @method MessageQuantity getQuantity()                       "Get `quantity` value"
- * @method $this           setQuantity(MessageQuantity $value) "Set `quantity` value"
- * @method string          getUrl()                            "Get `url` value"
- * @method $this           setUrl(string $value)               "Set `url` value"
  */
-class MessageOrderItem extends LazyJsonMapper
+class MessageOrderItem
 {
     /**
-     * JSON fields. Use setters and getters to work with this values.
-     * Setters will return model instance, so you can construct any model like this:
-     * ```
-     * $request = (new InfoRequest())
-     *              ->setName("...")
-     *              ->setRoles([...]);
-     *```
-     * Model constructor can accept array as initial data. You can use
-     * this to initialize models:
-     * ```
-     * $request = new InfoRequest(["name" => "...", "roles" => [...]]);
-     * ```
+     * @var string $name
+     *
+     * @Type("string")
+     * @Accessor(getter="getName",setter="setName")
+     * @SkipWhenEmpty()
      */
-    const JSON_PROPERTY_MAP = [
-        'img' => 'string',
-        'name' => 'string',
-        'price' => 'MessageCost',
-        'quantity' => 'MessageQuantity',
-        'url' => 'string'
-    ];
+    private $name;
+
+    /**
+     * @var string $url
+     *
+     * @Type("string")
+     * @Accessor(getter="getUrl",setter="setUrl")
+     * @SkipWhenEmpty()
+     */
+    private $url;
+
+    /**
+     * @var string $img
+     *
+     * @Type("string")
+     * @Accessor(getter="getImg",setter="setImg")
+     * @SkipWhenEmpty()
+     */
+    private $img;
+
+    /**
+     * @var MessageCost $price
+     *
+     * @Type("MessageCost")
+     * @Accessor(getter="getPrice",setter="setPrice")
+     * @SkipWhenEmpty()
+     */
+    private $price;
+
+    /**
+     * @var MessageQuantity $quantity
+     *
+     * @Type("MessageQuantity")
+     * @Accessor(getter="getQuantity",setter="setQuantity)
+     * @SkipWhenEmpty()
+     */
+    private $quantity;
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName(string $name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    /**
+     * @param string $url
+     */
+    public function setUrl(string $url)
+    {
+        $this->url = $url;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImg()
+    {
+        return $this->img;
+    }
+
+    /**
+     * @param string $img
+     */
+    public function setImg(string $img)
+    {
+        $this->img = $img;
+    }
+
+    /**
+     * @return MessageCost
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * @param MessageCost $price
+     */
+    public function setPrice(MessageCost $price)
+    {
+        $this->price = $price;
+    }
+
+    /**
+     * @return MessageQuantity
+     */
+    public function getQuantity()
+    {
+        return $this->quantity;
+    }
+
+    /**
+     * @param MessageQuantity $quantity
+     */
+    public function setQuantity(MessageQuantity $quantity)
+    {
+        $this->quantity = $quantity;
+    }
 }

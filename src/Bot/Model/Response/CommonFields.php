@@ -13,51 +13,52 @@
 
 namespace RetailCrm\Mg\Bot\Model\Response;
 
-use LazyJsonMapper\LazyJsonMapper;
-use RetailCrm\Mg\Bot\Model\Entity\Error;
+use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SkipWhenEmpty;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * PHP version 7.0
  *
- * Error trait. Parameters:
- *
- * | Parameter name | Data type |
- * |----------------|-----------|
- * | errors         | array     |
+ * CommonFields trait
  *
  * @package  RetailCrm\Mg\Bot\Model\Response
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
- *
- * @method array    getErrors()                "Get `errors` value"
- * @method $this    setErrors(array $value)    "Set `errors` value"
  */
-class CommonFields extends LazyJsonMapper
+trait CommonFields
 {
     /**
-     * JSON fields. Use setters and getters to work with this values.
-     * Setters will return model instance, so you can construct any model like this:
-     * ```
-     * $request = (new InfoRequest())
-     *              ->setName("...")
-     *              ->setRoles([...]);
-     *```
-     * Model constructor can accept array as initial data. You can use
-     * this to initialize models:
-     * ```
-     * $request = new InfoRequest(["name" => "...", "roles" => [...]]);
-     * ```
+     * @var array $errors
+     *
+     * @Type("array")
+     * @Accessor(getter="getErrors",setter="setErrors")
+     * @SkipWhenEmpty()
      */
-    const JSON_PROPERTY_MAP = [
-        'errors' => 'string[]'
-    ];
+    private $errors;
+
+    /**
+     * @return array
+     */
+    public function getErrors(): array
+    {
+        return $this->errors;
+    }
+
+    /**
+     * @param array $errors
+     */
+    public function setErrors(array $errors)
+    {
+        $this->errors = $errors;
+    }
 
     /**
      * @return bool
      */
-    public function isError()
+    public function isSuccessful()
     {
-        return (bool) !empty($this->getErrors());
+        return (bool) empty($this->getErrors());
     }
 }
