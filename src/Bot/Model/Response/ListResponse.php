@@ -45,8 +45,8 @@ class ListResponse implements \Iterator, \ArrayAccess, \Countable {
     /**
      * ListResponse constructor.
      *
-     * @param $responseType
-     * @param $data
+     * @param string $responseType
+     * @param array $data
      */
     public function __construct($responseType, $data)
     {
@@ -149,7 +149,7 @@ class ListResponse implements \Iterator, \ArrayAccess, \Countable {
     }
 
     /**
-     * @param $name
+     * @param mixed $name
      *
      * @return mixed
      * @internal

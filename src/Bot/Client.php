@@ -94,7 +94,17 @@ class Client
             if ($arrayOfObjects) {
                 return new ListResponse($responseType, $data);
             } else {
-                return new $responseType($data);
+                $obj = Serializer::deserialize($data, $responseType, Serializer::S_ARRAY);
+
+                if ($response->getStatusCode() >= 400
+                    && method_exists($obj, 'setErrors')
+                    && method_exists($obj, 'getErrors')
+                    && count(call_user_func([$obj, 'getErrors'])) == 0
+                ) {
+                    call_user_func_array([$obj, 'setErrors'], [['Status Code ' . $response->getStatusCode()]]);
+                }
+
+                return $obj;
             }
         } else {
             throw new InvalidJsonException('Received invalid JSON', 1);
@@ -251,7 +261,7 @@ class Client
             HttpClient::METHOD_PUT,
             $request,
             static::getResponseClass(self::ERROR_ONLY_RESPONSE),
-            true
+            Serializer::S_JSON
         );
     }
 

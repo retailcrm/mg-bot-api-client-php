@@ -62,8 +62,8 @@ class Serializer
     /**
      * Deserialize given array or JSON to object
      *
-     * @param $data
-     * @param $entityType
+     * @param mixed $data
+     * @param string self::normalizeNamespace($entityType)
      * @param string $from
      *
      * @return array|object|null
@@ -76,10 +76,10 @@ class Serializer
 
         switch ($from) {
             case self::S_ARRAY:
-                $deserialized = $serializer->fromArray(array_filter($data), $entityType, $context);
+                $deserialized = $serializer->fromArray(array_filter($data), self::normalizeNamespace($entityType), $context);
                 break;
             case self::S_JSON:
-                $deserialized = $serializer->deserialize($data, $entityType, $from, $context);
+                $deserialized = $serializer->deserialize($data, self::normalizeNamespace($entityType), $from, $context);
                 break;
         }
 
@@ -102,5 +102,19 @@ class Serializer
         $context->setSerializeNull(false);
 
         return $context;
+    }
+
+    /**
+     * @param string $namespace
+     *
+     * @return bool|string
+     */
+    private static function normalizeNamespace(string $namespace)
+    {
+        if (substr($namespace, 0, 1) == '\\') {
+            return substr($namespace, 1);
+        } else {
+            return $namespace;
+        }
     }
 }

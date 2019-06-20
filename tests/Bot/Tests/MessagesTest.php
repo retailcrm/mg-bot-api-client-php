@@ -52,7 +52,7 @@ class MessagesTest extends TestCase
 
         $response = $client->messageSend($request);
 
-        self::assertTrue($response->isError());
+        self::assertTrue(!$response->isSuccessful());
         self::assertEquals(1, count($response->getErrors()));
     }
 }

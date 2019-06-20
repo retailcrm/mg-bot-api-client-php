@@ -73,17 +73,17 @@ class ChatLastMessage
     }
 
     /**
-     * @return string
+     * @return \DateTime
      */
-    public function getTime(): string
+    public function getTime(): \DateTime
     {
         return $this->time;
     }
 
     /**
-     * @param string $time
+     * @param \DateTime $time
      */
-    public function setTime(string $time)
+    public function setTime(\DateTime $time)
     {
         $this->time = $time;
     }

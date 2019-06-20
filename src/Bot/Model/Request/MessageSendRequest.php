@@ -16,6 +16,8 @@ namespace RetailCrm\Mg\Bot\Model\Request;
 use JMS\Serializer\Annotation\Accessor;
 use JMS\Serializer\Annotation\SkipWhenEmpty;
 use JMS\Serializer\Annotation\Type;
+use RetailCrm\Mg\Bot\Model\Entity\Message\MessageOrder;
+use RetailCrm\Mg\Bot\Model\Entity\Message\MessageProduct;
 use Symfony\Component\Validator\Constraints as Assert;
 use RetailCrm\Mg\Bot\Model\Entity\Order;
 use RetailCrm\Mg\Bot\Model\Entity\Product;
@@ -52,7 +54,7 @@ class MessageSendRequest
     private $content;
 
     /**
-     * @var Product $product
+     * @var MessageProduct $product
      *
      * @Type("Product")
      * @Accessor(getter="getProduct",setter="setProduct")
@@ -61,7 +63,7 @@ class MessageSendRequest
     private $product;
 
     /**
-     * @var Order $order
+     * @var MessageOrder $order
      *
      * @Type("Order")
      * @Accessor(getter="getOrder",setter="setOrder")
@@ -174,7 +176,7 @@ class MessageSendRequest
     }
 
     /**
-     * @return Product
+     * @return MessageProduct
      */
     public function getProduct()
     {
@@ -182,15 +184,15 @@ class MessageSendRequest
     }
 
     /**
-     * @param Product $product
+     * @param MessageProduct $product
      */
-    public function setProduct(Product $product)
+    public function setProduct(MessageProduct $product)
     {
         $this->product = $product;
     }
 
     /**
-     * @return Order
+     * @return MessageOrder
      */
     public function getOrder()
     {
@@ -198,9 +200,9 @@ class MessageSendRequest
     }
 
     /**
-     * @param Order $order
+     * @param MessageOrder $order
      */
-    public function setOrder(Order $order)
+    public function setOrder(MessageOrder $order)
     {
         $this->order = $order;
     }

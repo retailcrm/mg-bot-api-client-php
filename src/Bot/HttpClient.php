@@ -203,7 +203,7 @@ class HttpClient
      */
     private function validateRequest($class)
     {
-        if (method_exists($class, 'validate')) {
+        if (!is_string($class) && method_exists($class, 'validate')) {
             $errors = $class->validate();
         } else {
             $validator = Validation::createValidatorBuilder()
@@ -213,7 +213,7 @@ class HttpClient
             $errors = $validator->validate($class);
         }
 
-        if ((is_object($errors) && $errors->count() > 0) || is_string($errors)) {
+        if ((is_object($errors) && call_user_func([$errors, 'count']) > 0) || is_string($errors)) {
             $message = (string) $errors;
             throw new InvalidArgumentException($message);
         }

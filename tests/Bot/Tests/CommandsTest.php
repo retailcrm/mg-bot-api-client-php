@@ -89,7 +89,7 @@ class CommandsTest extends TestCase
         $response = $client->commandEdit($request);
 
         self::assertTrue($response instanceof ErrorOnlyResponse);
-        self::assertTrue(!$response->isError());
+        self::assertTrue($response->isSuccessful());
     }
 
     /**
@@ -108,6 +108,6 @@ class CommandsTest extends TestCase
 
         $response = $client->commandDelete("show_payment_types");
 
-        self::assertTrue($response->isError() == false);
+        self::assertTrue($response->isSuccessful() == true);
     }
 }

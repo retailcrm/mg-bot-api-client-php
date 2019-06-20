@@ -43,7 +43,7 @@ trait CommonFields
      */
     public function getErrors(): array
     {
-        return $this->errors;
+        return is_null($this->errors) ? [] : $this->errors;
     }
 
     /**
@@ -59,6 +59,6 @@ trait CommonFields
      */
     public function isSuccessful()
     {
-        return (bool) empty($this->getErrors());
+        return empty($this->errors);
     }
 }
