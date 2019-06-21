@@ -260,6 +260,11 @@ class HttpClient
         }
     }
 
+    /**
+     * @param array $errors
+     *
+     * @return string
+     */
     private function getErrors(array $errors)
     {
         $errorString = '';

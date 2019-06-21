@@ -13,8 +13,6 @@
 
 namespace RetailCrm\Mg\Bot\Tests;
 
-use RetailCrm\Mg\Bot\Model\Constants;
-use RetailCrm\Mg\Bot\Model\Request\MessageSendRequest;
 use RetailCrm\Mg\Bot\Model\Response\FullFileResponse;
 use RetailCrm\Mg\Bot\Model\Response\UploadFileResponse;
 use RetailCrm\Mg\Bot\Test\TestCase;

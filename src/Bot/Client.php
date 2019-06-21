@@ -63,12 +63,12 @@ class Client
     }
 
     /**
-     * @param string $path
-     * @param string $method
-     * @param object $request Request parameters
-     * @param string $responseType
-     * @param string $serializeTo
-     * @param bool   $arrayOfObjects
+     * @param string      $path
+     * @param string      $method
+     * @param object|null $request Request parameters
+     * @param string      $responseType
+     * @param string      $serializeTo
+     * @param bool        $arrayOfObjects
      *
      * @return object|null
      * @throws \Exception

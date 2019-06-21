@@ -13,6 +13,7 @@
 
 namespace RetailCrm\Mg\Bot\Model\Request;
 
+use JMS\Serializer\Annotation as Serializer;
 use JMS\Serializer\Annotation\Accessor;
 use JMS\Serializer\Annotation\SkipWhenEmpty;
 use JMS\Serializer\Annotation\Type;
@@ -34,6 +35,7 @@ class DialogAssignRequest
      *
      * @Type("int")
      * @Accessor(getter="getDialogId", setter="setDialogId")
+     * @SkipWhenEmpty()
      */
     private $dialogId;
 
