@@ -13,6 +13,7 @@
 
 namespace RetailCrm\Mg\Bot\Model\Entity\Chat;
 
+use JMS\Serializer\Annotation as Serializer;
 use RetailCrm\Mg\Bot\Model\Entity\Channel\Channel;
 use RetailCrm\Mg\Bot\Model\Entity\CommonFields;
 use JMS\Serializer\Annotation\Accessor;
@@ -55,6 +56,7 @@ class Chat
      *
      * @Type("RetailCrm\Mg\Bot\Model\Entity\Channel\Channel")
      * @Accessor(getter="getChannel",setter="setChannel")
+     * @SkipWhenEmpty()
      */
     private $channel;
 

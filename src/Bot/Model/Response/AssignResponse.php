@@ -53,7 +53,7 @@ class AssignResponse
     /**
      * @var Responsible $previousResponsible
      *
-     * @Type("Responsible")
+     * @Type("RetailCrm\Mg\Bot\Model\Entity\Responsible")
      * @Accessor(getter="getPreviousResponsible",setter="setPreviousResponsible")
      * @SkipWhenEmpty()
      */
@@ -62,7 +62,7 @@ class AssignResponse
     /**
      * @var Responsible $responsible
      *
-     * @Type("Responsible")
+     * @Type("RetailCrm\Mg\Bot\Model\Entity\Responsible")
      * @Accessor(getter="getResponsible",setter="setResponsible")
      * @SkipWhenEmpty()
      */
@@ -71,7 +71,7 @@ class AssignResponse
     /**
      * @return bool
      */
-    public function isReassign(): bool
+    public function getIsReassign(): bool
     {
         return $this->isReassign;
     }

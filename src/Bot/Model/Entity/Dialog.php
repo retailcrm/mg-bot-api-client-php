@@ -13,7 +13,6 @@
 
 namespace RetailCrm\Mg\Bot\Model\Entity;
 
-use RetailCrm\Mg\Bot\Model\Entity\CommonFields;
 use JMS\Serializer\Annotation\Accessor;
 use JMS\Serializer\Annotation\SkipWhenEmpty;
 use JMS\Serializer\Annotation\Type;

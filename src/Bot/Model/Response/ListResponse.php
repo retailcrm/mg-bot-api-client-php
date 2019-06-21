@@ -54,11 +54,8 @@ class ListResponse implements \Iterator, \ArrayAccess, \Countable {
             $this->errors = $data['errors'];
         } else {
             foreach($data as $item) {
-                if (substr($responseType, 0, 1) == '\\') {
-                    $responseType = substr($responseType, 1);
-                }
-
-                $this->items[] = Serializer::deserialize($item, $responseType, Serializer::S_ARRAY);
+                $this->items[] =
+                    Serializer::deserialize($item, $responseType, Serializer::S_ARRAY);
             }
         }
     }

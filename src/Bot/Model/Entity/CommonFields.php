@@ -49,10 +49,10 @@ trait CommonFields
     private $createdAt;
 
     /**
-     * @var \DateTime $createdAt
+     * @var \DateTime $updatedAt
      *
      * @Type("DateTime<'Y-m-d\TH:i:s\.u\Z'>")
-     * @Accessor(getter="getCreatedAt",setter="setCreatedAt")
+     * @Accessor(getter="getUpdatedAt",setter="setUpdatedAt")
      * @SkipWhenEmpty()
      */
     private $updatedAt;

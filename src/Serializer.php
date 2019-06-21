@@ -76,10 +76,12 @@ class Serializer
 
         switch ($from) {
             case self::S_ARRAY:
-                $deserialized = $serializer->fromArray(array_filter($data), self::normalizeNamespace($entityType), $context);
+                $deserialized =
+                    $serializer->fromArray(array_filter($data), self::normalizeNamespace($entityType), $context);
                 break;
             case self::S_JSON:
-                $deserialized = $serializer->deserialize($data, self::normalizeNamespace($entityType), $from, $context);
+                $deserialized =
+                    $serializer->deserialize($data, self::normalizeNamespace($entityType), $from, $context);
                 break;
         }
 
@@ -112,9 +114,9 @@ class Serializer
     private static function normalizeNamespace(string $namespace)
     {
         if (substr($namespace, 0, 1) == '\\') {
-            return substr($namespace, 1);
-        } else {
-            return $namespace;
+            $namespace = substr($namespace, 1);
         }
+
+        return $namespace;
     }
 }

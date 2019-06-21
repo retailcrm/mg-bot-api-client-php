@@ -30,9 +30,9 @@ use JMS\Serializer\Annotation\Type;
 class Responsible
 {
     /**
-     * @var \DateTime $assignedAt
+     * @var string $assignedAt
      *
-     * @Type("DateTime<'Y-m-d\TH:i:s\.u\Z'>")
+     * @Type("string")
      * @Accessor(getter="getAssignedAt",setter="setAssignedAt")
      * @SkipWhenEmpty()
      */
@@ -57,17 +57,17 @@ class Responsible
     private $type;
 
     /**
-     * @return \DateTime
+     * @return string
      */
-    public function getAssignedAt(): \DateTime
+    public function getAssignedAt(): string
     {
         return $this->assignedAt;
     }
 
     /**
-     * @param \DateTime $assignedAt
+     * @param string $assignedAt
      */
-    public function setAssignedAt(\DateTime $assignedAt)
+    public function setAssignedAt(string $assignedAt)
     {
         $this->assignedAt = $assignedAt;
     }

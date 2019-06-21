@@ -3,7 +3,7 @@
 /**
  * PHP version 7.0
  *
- * Client Test
+ * Messages Test
  *
  * @package  RetailCrm\Mg\Bot\Tests
  * @author   retailCRM <integration@retailcrm.ru>

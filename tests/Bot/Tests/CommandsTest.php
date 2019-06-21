@@ -3,7 +3,7 @@
 /**
  * PHP version 7.0
  *
- * Client Test
+ * Commands Test
  *
  * @package  RetailCrm\Mg\Bot\Tests
  * @author   retailCRM <integration@retailcrm.ru>
@@ -23,7 +23,7 @@ use RetailCrm\Mg\Bot\Test\TestCase;
 /**
  * PHP version 7.0
  *
- * Class ClientTest
+ * Class CommandsTest
  *
  * @package RetailCrm\Mg\Bot\Tests
  * @author   retailCRM <integration@retailcrm.ru>

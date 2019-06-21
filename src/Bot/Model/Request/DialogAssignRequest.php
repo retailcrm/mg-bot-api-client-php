@@ -33,8 +33,7 @@ class DialogAssignRequest
      * @var int $dialogId
      *
      * @Type("int")
-     * @Accessor(getter="getDialogId,setter="setDialogId")
-     * @SkipWhenEmpty
+     * @Accessor(getter="getDialogId", setter="setDialogId")
      */
     private $dialogId;
 
@@ -42,8 +41,8 @@ class DialogAssignRequest
      * @var int $userId
      *
      * @Type("int")
-     * @Accessor(getter="getUserId",setter="setUserId")
-     * @SkipWhenEmpty
+     * @Accessor(getter="getUserId", setter="setUserId")
+     * @SkipWhenEmpty()
      */
     private $userId;
 
@@ -51,7 +50,7 @@ class DialogAssignRequest
      * @var int $botId
      *
      * @Type("int")
-     * @Accessor(getter="getBotId",setter="setBotId")
+     * @Accessor(getter="getBotId", setter="setBotId")
      * @SkipWhenEmpty()
      */
     private $botId;
@@ -67,7 +66,7 @@ class DialogAssignRequest
     /**
      * @param int $dialogId
      */
-    public function setDialogId(int $dialogId)
+    public function setDialogId($dialogId)
     {
         $this->dialogId = $dialogId;
     }
