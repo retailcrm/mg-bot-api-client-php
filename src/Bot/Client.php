@@ -16,10 +16,10 @@ namespace RetailCrm\Mg\Bot;
 use RetailCrm\Common\Exception\InvalidJsonException;
 use RetailCrm\Common\Url;
 use RetailCrm\Common\Serializer;
-use RetailCrm\Mg\Bot\Model\Response\AssignResponse;
-use RetailCrm\Mg\Bot\Model\Response\ErrorOnlyResponse;
+use RetailCrm\Mg\Bot\Model\Request\GetFileRequest;
+use RetailCrm\Mg\Bot\Model\Request\UploadFileByUrlRequest;
+use RetailCrm\Mg\Bot\Model\Response\FullFileResponse;
 use RetailCrm\Mg\Bot\Model\Response\ListResponse;
-use RetailCrm\Mg\Bot\Model\Response\MessageSendResponse;
 
 /**
  * PHP version 7.0
@@ -67,13 +67,13 @@ class Client
      * @param string $method
      * @param object $request Request parameters
      * @param string $responseType
-     * @param int    $serializeTo
+     * @param string $serializeTo
      * @param bool   $arrayOfObjects
      *
-     * @return object
+     * @return object|null
      * @throws \Exception
      */
-    private function getData(
+    private function submitRequest(
         $path,
         $method,
         $request,
@@ -121,7 +121,7 @@ class Client
     {
         $path = $fromRoot ? '\\' : '';
 
-        foreach($classes as $class) {
+        foreach ($classes as $class) {
             $path .= '\\' . $class;
         }
 
@@ -158,7 +158,7 @@ class Client
      */
     public function bots(Model\Request\BotsRequest $request)
     {
-        return $this->getData(
+        return $this->submitRequest(
             '/bots',
             HttpClient::METHOD_GET,
             $request,
@@ -178,7 +178,7 @@ class Client
      */
     public function info(Model\Request\InfoRequest $request)
     {
-        return $this->getData(
+        return $this->submitRequest(
             '/my/info',
             HttpClient::METHOD_PATCH,
             $request,
@@ -196,7 +196,7 @@ class Client
      */
     public function channels(Model\Request\ChannelsRequest $request)
     {
-        return $this->getData(
+        return $this->submitRequest(
             '/channels',
             HttpClient::METHOD_GET,
             $request,
@@ -216,7 +216,7 @@ class Client
      */
     public function chats(Model\Request\ChatsRequest $request)
     {
-        return $this->getData(
+        return $this->submitRequest(
             '/chats',
             HttpClient::METHOD_GET,
             $request,
@@ -236,7 +236,7 @@ class Client
      */
     public function commands(Model\Request\CommandsRequest $request)
     {
-        return $this->getData(
+        return $this->submitRequest(
             '/my/commands',
             HttpClient::METHOD_GET,
             $request,
@@ -256,7 +256,7 @@ class Client
      */
     public function commandEdit(Model\Request\CommandEditRequest $request)
     {
-        return $this->getData(
+        return $this->submitRequest(
             sprintf("/my/commands/%s", $request->getName()),
             HttpClient::METHOD_PUT,
             $request,
@@ -275,7 +275,7 @@ class Client
      */
     public function commandDelete(string $request)
     {
-        return $this->getData(
+        return $this->submitRequest(
             sprintf("/my/commands/%s", $request),
             HttpClient::METHOD_DELETE,
             null,
@@ -294,7 +294,7 @@ class Client
      */
     public function customers(Model\Request\CustomersRequest $request)
     {
-        return $this->getData(
+        return $this->submitRequest(
             '/customers',
             HttpClient::METHOD_GET,
             $request,
@@ -314,7 +314,7 @@ class Client
      */
     public function dialogs(Model\Request\DialogsRequest $request)
     {
-        return $this->getData(
+        return $this->submitRequest(
             '/dialogs',
             HttpClient::METHOD_GET,
             $request,
@@ -334,7 +334,7 @@ class Client
      */
     public function dialogAssign(Model\Request\DialogAssignRequest $request)
     {
-        return $this->getData(
+        return $this->submitRequest(
             sprintf("/dialogs/%d/assign", $request->getDialogId()),
             HttpClient::METHOD_PATCH,
             $request,
@@ -353,7 +353,7 @@ class Client
      */
     public function dialogClose(string $request)
     {
-        return $this->getData(
+        return $this->submitRequest(
             sprintf("/dialogs/%d/close", $request),
             HttpClient::METHOD_DELETE,
             null,
@@ -371,7 +371,7 @@ class Client
      */
     public function members(Model\Request\MembersRequest $request)
     {
-        return $this->getData(
+        return $this->submitRequest(
             '/members',
             HttpClient::METHOD_GET,
             $request,
@@ -391,7 +391,7 @@ class Client
      */
     public function messages(Model\Request\MessagesRequest $request)
     {
-        return $this->getData(
+        return $this->submitRequest(
             '/messages',
             HttpClient::METHOD_GET,
             $request,
@@ -411,7 +411,7 @@ class Client
      */
     public function messageSend(Model\Request\MessageSendRequest $request)
     {
-        return $this->getData(
+        return $this->submitRequest(
             '/messages',
             HttpClient::METHOD_POST,
             $request,
@@ -429,7 +429,7 @@ class Client
      */
     public function messageEdit(Model\Request\MessageEditRequest $request)
     {
-        return $this->getData(
+        return $this->submitRequest(
             sprintf("/messages/%d", $request->getId()),
             HttpClient::METHOD_PATCH,
             $request,
@@ -447,7 +447,7 @@ class Client
      */
     public function messageDelete(string $request)
     {
-        return $this->getData(
+        return $this->submitRequest(
             sprintf("/messages/%d", $request),
             HttpClient::METHOD_DELETE,
             null,
@@ -465,7 +465,7 @@ class Client
      */
     public function users(Model\Request\UsersRequest $request)
     {
-        return $this->getData(
+        return $this->submitRequest(
             '/users',
             HttpClient::METHOD_GET,
             $request,
@@ -473,5 +473,55 @@ class Client
             Serializer::S_ARRAY,
             true
         );
+    }
+
+    /**
+     * Returns filtered users list
+     *
+     * @param string $url File URL
+     *
+     * @return \RetailCrm\Mg\Bot\Model\Response\UploadFileResponse|object
+     * @throws \Exception
+     */
+    public function uploadFileByUrl(string $url)
+    {
+        $request = new UploadFileByUrlRequest();
+        $request->setUrl($url);
+
+        return $this->submitRequest(
+            '/files/upload_by_url',
+            HttpClient::METHOD_POST,
+            $request,
+            self::getResponseClass('UploadFileResponse')
+        );
+    }
+
+    /**
+     * @param string $filename
+     * @return Model\Response\UploadFileResponse
+     *
+     * @throws \Exception
+     */
+    public function uploadFile(string $filename)
+    {
+        return $this->client->uploadFileViaForm($filename);
+    }
+
+    /**
+     * @param string $fileId
+     * @return Model\Response\FullFileResponse|null
+     *
+     * @throws \Exception
+     */
+    public function getFileById(string $fileId)
+    {
+        $obj = $this->submitRequest(
+            \sprintf('/files/%s', $fileId),
+            HttpClient::METHOD_GET,
+            null,
+            self::getResponseClass('FullFileResponse')
+        );
+
+        return ($obj instanceof FullFileResponse) ? $obj : null;
     }
 }

@@ -36,7 +36,7 @@ class Serializer
      * Serialize given object to JSON or Array
      *
      * @param object $request
-     * @param int    $serialize
+     * @param string $serialize
      *
      * @return array|string
      */
@@ -63,10 +63,10 @@ class Serializer
      * Deserialize given array or JSON to object
      *
      * @param mixed $data
-     * @param string self::normalizeNamespace($entityType)
+     * @param string $entityType
      * @param string $from
      *
-     * @return array|object|null
+     * @return object|null
      */
     public static function deserialize($data, $entityType, $from = self::S_JSON)
     {
@@ -85,7 +85,7 @@ class Serializer
                 break;
         }
 
-        return $deserialized;
+        return is_object($deserialized) ? $deserialized : null;
     }
 
     /**

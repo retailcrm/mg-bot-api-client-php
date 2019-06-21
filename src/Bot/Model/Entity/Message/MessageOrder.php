@@ -16,9 +16,6 @@ namespace RetailCrm\Mg\Bot\Model\Entity\Message;
 use JMS\Serializer\Annotation\Accessor;
 use JMS\Serializer\Annotation\SkipWhenEmpty;
 use JMS\Serializer\Annotation\Type;
-use RetailCrm\Mg\Bot\Model\Entity\Cost;
-use RetailCrm\Mg\Bot\Model\Entity\Delivery;
-use RetailCrm\Mg\Bot\Model\Entity\Status;
 
 /**
  * PHP version 7.0
@@ -32,16 +29,6 @@ use RetailCrm\Mg\Bot\Model\Entity\Status;
  */
 class MessageOrder
 {
-//    const JSON_PROPERTY_MAP = [
-//        'cost' => 'MessageCost',
-//        'date' => 'string',
-//        'delivery' => 'MessageDelivery',
-//        'items' => 'MessageOrderItem[]',
-//        'number' => 'string',
-//        'payments' => 'MessagePayment[]',
-//        'status' => 'MessageStatus'
-//    ];
-
     /**
      * @var string $number
      *

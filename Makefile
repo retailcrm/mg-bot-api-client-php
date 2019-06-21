@@ -22,3 +22,6 @@ stan:
 	@echo "==> Running analysis"
 	@php $(BIN_DIR)/phpstan analyse -l 4 -c $(ROOT_DIR)/phpstan.neon $(SRC_DIR)
 	@echo "==> Analysis complete"
+
+travis: test stan
+	@echo "==> Completed"

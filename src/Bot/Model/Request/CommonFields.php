@@ -30,6 +30,8 @@ use JMS\Serializer\Annotation\Type;
 trait CommonFields
 {
     /**
+     * @var int
+     *
      * @Type("int")
      * @Accessor(getter="getId",setter="setId")
      * @SkipWhenEmpty
@@ -37,14 +39,18 @@ trait CommonFields
     private $id;
 
     /**
-     * @Type("string")
+     * @var \DateTime
+     *
+     * @Type("DateTime<'Y-m-d\TH:i:s\.u\Z'>")
      * @Accessor(getter="getSince",setter="setSince")
      * @SkipWhenEmpty
      */
     private $since;
 
     /**
-     * @Type("string")
+     * @var \DateTime
+     *
+     * @Type("DateTime<'Y-m-d\TH:i:s\.u\Z'>")
      * @Accessor(getter="getUntil",setter="setUntil")
      * @SkipWhenEmpty
      */
@@ -67,7 +73,7 @@ trait CommonFields
     }
 
     /**
-     * @return string
+     * @return \DateTime
      */
     public function getSince()
     {
@@ -75,15 +81,15 @@ trait CommonFields
     }
 
     /**
-     * @param string $since
+     * @param \DateTime $since
      */
-    public function setSince($since)
+    public function setSince(\DateTime $since): void
     {
         $this->since = $since;
     }
 
     /**
-     * @return string
+     * @return \DateTime
      */
     public function getUntil()
     {
@@ -91,9 +97,9 @@ trait CommonFields
     }
 
     /**
-     * @param string $until
+     * @param \DateTime $until
      */
-    public function setUntil($until)
+    public function setUntil(\DateTime $until): void
     {
         $this->until = $until;
     }

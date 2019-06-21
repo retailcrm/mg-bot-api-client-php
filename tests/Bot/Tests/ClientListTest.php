@@ -22,7 +22,6 @@ use RetailCrm\Mg\Bot\Model\Entity\Dialog;
 use RetailCrm\Mg\Bot\Model\Entity\Message\Message;
 use RetailCrm\Mg\Bot\Model\Entity\User;
 use RetailCrm\Mg\Bot\Model\Request;
-use RetailCrm\Mg\Bot\Model\Response;
 use RetailCrm\Mg\Bot\Test\TestCase;
 
 /**
@@ -37,7 +36,6 @@ use RetailCrm\Mg\Bot\Test\TestCase;
  */
 class ClientListTest extends TestCase
 {
-
     /**
      * @group("list")
      * @throws \Exception

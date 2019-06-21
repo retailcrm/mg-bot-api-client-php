@@ -18,9 +18,9 @@ use RetailCrm\Common\Exception\LimitException;
 use InvalidArgumentException;
 use RetailCrm\Common\Serializer;
 use RetailCrm\Common\Url;
+use RetailCrm\Mg\Bot\Model\Response\UploadFileResponse;
 use Symfony\Component\Validator\Validation;
 use GuzzleHttp\Client;
-use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Exception\GuzzleException;
 use Psr\Http\Message\ResponseInterface;
@@ -107,7 +107,7 @@ class HttpClient
      * @param string $path   Request URL
      * @param string $method Request method (default: 'GET')
      * @param mixed  $request Request model (default: null)
-     * @param int    $serializeTo Serializer::S_JSON or Serializer::S_ARRAY
+     * @param string $serializeTo Serializer::S_JSON or Serializer::S_ARRAY
      *
      * @return ResponseInterface
      * @throws \Exception
@@ -122,7 +122,7 @@ class HttpClient
             $this->validateRequest($request);
         }
 
-        if ($method == self::METHOD_GET) {
+        if ($method == self::METHOD_GET && !is_null($request)) {
             $getParameters = Url::buildGetParameters(Serializer::serialize($request, Serializer::S_ARRAY));
         }
 
@@ -174,6 +174,47 @@ class HttpClient
         }
 
         return $responseObject;
+    }
+
+    /**
+     * @param string $filename
+     * @return UploadFileResponse
+     *
+     * @throws \Exception
+     */
+    public function uploadFileViaForm(string $filename): UploadFileResponse
+    {
+        if (!file_exists($filename)) {
+            throw new \InvalidArgumentException("File doesn't exist");
+        }
+
+        try {
+            $responseData = $this->client->request(
+                self::METHOD_POST,
+                \sprintf("%s/files/upload", $this->basePath),
+                [
+                    'headers' => [
+                        'X-Bot-Token' => $this->token
+                    ],
+                    'multipart' => [
+                        [
+                            'name' => basename($filename),
+                            'filename' => basename($filename),
+                            'contents' => fopen($filename, 'r')
+                        ]
+                    ]
+                ]
+            );
+        } catch (GuzzleException $exception) {
+            throw new \Exception($exception->getMessage(), $exception->getCode(), $exception);
+        }
+
+        $obj = Serializer::deserialize(
+            (string) $responseData->getBody(),
+            'RetailCrm\Mg\Bot\Model\Response\UploadFileResponse'
+        );
+
+        return $obj instanceof UploadFileResponse ? $obj : null;
     }
 
     /**

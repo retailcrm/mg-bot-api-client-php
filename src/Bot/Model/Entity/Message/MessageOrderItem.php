@@ -1,14 +1,14 @@
 <?php
 
 /**
- * PHP version 7.0
+ * PHP version 7.0.
  *
  * MessageOrderItem entity
  *
- * @package  RetailCrm\Mg\Bot\Model\Entity\Message
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
- * @link     http://help.retailcrm.pro/docs/Developers
+ *
+ * @see     http://help.retailcrm.pro/docs/Developers
  */
 
 namespace RetailCrm\Mg\Bot\Model\Entity\Message;
@@ -18,19 +18,19 @@ use JMS\Serializer\Annotation\SkipWhenEmpty;
 use JMS\Serializer\Annotation\Type;
 
 /**
- * PHP version 7.0
+ * PHP version 7.0.
  *
  * MessageOrderItem class
  *
- * @package  RetailCrm\Mg\Bot\Model\Entity\Message
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
- * @link     http://help.retailcrm.pro/docs/Developers
+ *
+ * @see     http://help.retailcrm.pro/docs/Developers
  */
 class MessageOrderItem
 {
     /**
-     * @var string $name
+     * @var string
      *
      * @Type("string")
      * @Accessor(getter="getName",setter="setName")
@@ -39,7 +39,7 @@ class MessageOrderItem
     private $name;
 
     /**
-     * @var string $url
+     * @var string
      *
      * @Type("string")
      * @Accessor(getter="getUrl",setter="setUrl")
@@ -48,7 +48,7 @@ class MessageOrderItem
     private $url;
 
     /**
-     * @var string $img
+     * @var string
      *
      * @Type("string")
      * @Accessor(getter="getImg",setter="setImg")
@@ -57,7 +57,7 @@ class MessageOrderItem
     private $img;
 
     /**
-     * @var MessageCost $price
+     * @var MessageCost
      *
      * @Type("MessageCost")
      * @Accessor(getter="getPrice",setter="setPrice")
@@ -66,7 +66,7 @@ class MessageOrderItem
     private $price;
 
     /**
-     * @var MessageQuantity $quantity
+     * @var MessageQuantity
      *
      * @Type("MessageQuantity")
      * @Accessor(getter="getQuantity",setter="setQuantity)
