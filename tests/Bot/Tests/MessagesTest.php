@@ -39,9 +39,9 @@ class MessagesTest extends TestCase
             null,
             null,
             false,
-            $this->getResponse(
-                '{"errors":["chat_id is a required field"]}',
-                400
+            $this->getErrorsResponse(
+                400,
+                'chat_id is a required field'
             )
         );
 

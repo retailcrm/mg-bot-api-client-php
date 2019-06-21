@@ -41,7 +41,7 @@ class DialogsTest extends TestCase
             null,
             null,
             false,
-            $this->getResponse('{"errors":["incorrect dialog_id"]}', 400)
+            $this->getErrorsResponse(400, "incorrect dialog_id")
         );
 
         $request = new DialogAssignRequest();
@@ -90,7 +90,7 @@ class DialogsTest extends TestCase
             null,
             null,
             false,
-            $this->getResponse('{"errors":["dialog #2131231231 not found"]}', 404)
+            $this->getErrorsResponse(404, "dialog #2131231231 not found")
         );
 
         $client->dialogClose('2131231231');

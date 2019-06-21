@@ -115,6 +115,23 @@ class TestCase extends BaseCase
     }
 
     /**
+     * @param int    $statusCode
+     * @param array ...$errors
+     *
+     * @return Response
+     */
+    public function getErrorsResponse(int $statusCode = 400, ...$errors)
+    {
+        $json = ['errors' => []];
+
+        foreach ($errors as $error) {
+            $json['errors'][] = is_string($error) ? $error : null;
+        }
+
+        return $this->getResponse(json_encode(array_filter($json)), $statusCode);
+    }
+
+    /**
      * Generate and return empty response
      *
      * @param int $statusCode

@@ -504,7 +504,7 @@ class Client
      */
     public function uploadFile(string $filename)
     {
-        return $this->client->uploadFileViaForm($filename);
+        return $this->client->postFile($filename);
     }
 
     /**

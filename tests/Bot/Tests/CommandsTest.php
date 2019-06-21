@@ -13,8 +13,6 @@
 
 namespace RetailCrm\Mg\Bot\Tests;
 
-use Exception;
-use InvalidArgumentException;
 use RetailCrm\Common\Exception\InvalidJsonException;
 use RetailCrm\Mg\Bot\Model\Request\CommandEditRequest;
 use RetailCrm\Mg\Bot\Model\Response\ErrorOnlyResponse;
@@ -38,13 +36,13 @@ class CommandsTest extends TestCase
      */
     public function testCommandEditException()
     {
-        self::expectException(InvalidArgumentException::class);
+        self::expectException(InvalidJsonException::class);
 
         $client = self::getApiClient(
             null,
             null,
             false,
-            $this->getResponse('EOF',400)
+            $this->getResponse('EOF', 400)
         );
 
         $request = new CommandEditRequest();
@@ -59,7 +57,7 @@ class CommandsTest extends TestCase
      */
     public function testCommandDeleteException()
     {
-        self::expectException(Exception::class);
+        self::expectException(\Exception::class);
 
         $client = self::getApiClient();
 

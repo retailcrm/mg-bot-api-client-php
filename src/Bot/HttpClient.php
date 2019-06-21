@@ -182,7 +182,7 @@ class HttpClient
      *
      * @throws \Exception
      */
-    public function uploadFileViaForm(string $filename): UploadFileResponse
+    public function postFile(string $filename): UploadFileResponse
     {
         if (!file_exists($filename)) {
             throw new \InvalidArgumentException("File doesn't exist");
@@ -196,13 +196,7 @@ class HttpClient
                     'headers' => [
                         'X-Bot-Token' => $this->token
                     ],
-                    'multipart' => [
-                        [
-                            'name' => basename($filename),
-                            'filename' => basename($filename),
-                            'contents' => fopen($filename, 'r')
-                        ]
-                    ]
+                    'body' => fopen($filename, 'r')
                 ]
             );
         } catch (GuzzleException $exception) {
