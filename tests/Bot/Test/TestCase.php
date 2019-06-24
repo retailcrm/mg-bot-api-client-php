@@ -100,7 +100,12 @@ class TestCase extends BaseCase
      */
     public function getJsonResponse(string $jsonFile, int $statusCode = 200)
     {
-        $fileName = realpath(join(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'Resources', "${jsonFile}.json"]));
+        $fileName = realpath(
+            join(
+                DIRECTORY_SEPARATOR,
+                [__DIR__, '..', '..', 'Resources', \sprintf('%s.json', $jsonFile)]
+            )
+        );
 
         if (file_exists($fileName)) {
             $json = file_get_contents($fileName);

@@ -37,6 +37,7 @@ class User
      * @Type("string")
      * @Accessor(getter="getExternalId",setter="setExternalId")
      * @SkipWhenEmpty()
+     * @Assert\Length(max="64")
      */
     private $externalId;
 
@@ -73,6 +74,7 @@ class User
      * @Type("string")
      * @Accessor(getter="getUsername",setter="setUsername")
      * @SkipWhenEmpty()
+     * @Assert\Length(max="255")
      */
     private $username;
 
@@ -82,6 +84,7 @@ class User
      * @Type("string")
      * @Accessor(getter="getFirstName",setter="setFirstName")
      * @SkipWhenEmpty()
+     * @Assert\Length(max="255")
      */
     private $firstName;
 
@@ -91,6 +94,7 @@ class User
      * @Type("string")
      * @Accessor(getter="getLastName",setter="setLastName")
      * @SkipWhenEmpty()
+     * @Assert\Length(max="255")
      */
     private $lastName;
 

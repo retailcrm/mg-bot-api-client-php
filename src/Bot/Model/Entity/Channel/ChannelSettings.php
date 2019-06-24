@@ -38,9 +38,9 @@ class ChannelSettings
     private $status;
 
     /**
-     * @var int $spamAllowed
+     * @var bool $spamAllowed
      *
-     * @Type("int")
+     * @Type("bool")
      * @Accessor(getter="getStatus",setter="setStatus")
      */
     private $spamAllowed;
@@ -107,17 +107,17 @@ class ChannelSettings
     }
 
     /**
-     * @return int
+     * @return bool
      */
-    public function getSpamAllowed(): int
+    public function isSpamAllowed(): bool
     {
         return $this->spamAllowed;
     }
 
     /**
-     * @param int $spamAllowed
+     * @param bool $spamAllowed
      */
-    public function setSpamAllowed(int $spamAllowed)
+    public function setSpamAllowed(bool $spamAllowed): void
     {
         $this->spamAllowed = $spamAllowed;
     }

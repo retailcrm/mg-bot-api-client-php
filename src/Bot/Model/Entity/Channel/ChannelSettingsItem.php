@@ -75,6 +75,15 @@ class ChannelSettingsItem
     private $delivered;
 
     /**
+     * @var int $maxCharsCount
+     *
+     * @Type("int")
+     * @Accessor(getter="getMaxCharsCount",setter="setMaxCharsCount")
+     * @SkipWhenEmpty()
+     */
+    private $maxCharsCount;
+
+    /**
      * @var int $maxItemsCount
      *
      * @Type("int")
@@ -82,6 +91,15 @@ class ChannelSettingsItem
      * @SkipWhenEmpty()
      */
     private $maxItemsCount;
+
+    /**
+     * @var int $noteMaxCharsCount
+     *
+     * @Type("int")
+     * @Accessor(getter="getNoteMaxCharsCount", setter="setNoteMaxCharsCount")
+     * @SkipWhenEmpty()
+     */
+    private $noteMaxCharsCount;
 
     /**
      * @return string
@@ -166,6 +184,22 @@ class ChannelSettingsItem
     /**
      * @return int
      */
+    public function getMaxCharsCount(): int
+    {
+        return $this->maxCharsCount;
+    }
+
+    /**
+     * @param int $maxCharsCount
+     */
+    public function setMaxCharsCount(int $maxCharsCount): void
+    {
+        $this->maxCharsCount = $maxCharsCount;
+    }
+
+    /**
+     * @return int
+     */
     public function getMaxItemsCount(): int
     {
         return $this->maxItemsCount;
@@ -177,5 +211,21 @@ class ChannelSettingsItem
     public function setMaxItemsCount(int $maxItemsCount)
     {
         $this->maxItemsCount = $maxItemsCount;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNoteMaxCharsCount(): int
+    {
+        return $this->noteMaxCharsCount;
+    }
+
+    /**
+     * @param int $noteMaxCharsCount
+     */
+    public function setNoteMaxCharsCount(int $noteMaxCharsCount): void
+    {
+        $this->noteMaxCharsCount = $noteMaxCharsCount;
     }
 }

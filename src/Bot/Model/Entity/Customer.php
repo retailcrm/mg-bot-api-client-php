@@ -13,7 +13,7 @@
 
 namespace RetailCrm\Mg\Bot\Model\Entity;
 
-use RetailCrm\Mg\Bot\Model\Entity\CommonFields;
+use Symfony\Component\Validator\Constraints as Assert;
 use JMS\Serializer\Annotation\Accessor;
 use JMS\Serializer\Annotation\SkipWhenEmpty;
 use JMS\Serializer\Annotation\Type;
@@ -39,6 +39,8 @@ class Customer
      * @Type("string")
      * @Accessor(getter="getExternalId",setter="setExternalId")
      * @SkipWhenEmpty()
+     * @Assert\Length(max="64")
+     * @Assert\NotNull()
      */
     private $externalId;
 
@@ -57,6 +59,7 @@ class Customer
      * @Type("string")
      * @Accessor(getter="getUsername",setter="setUsername")
      * @SkipWhenEmpty()
+     * @Assert\Length(max="255")
      */
     private $username;
 
@@ -66,6 +69,7 @@ class Customer
      * @Type("string")
      * @Accessor(getter="getFirstName",setter="setFirstName")
      * @SkipWhenEmpty()
+     * @Assert\Length(max="255")
      */
     private $firstName;
 
@@ -75,6 +79,7 @@ class Customer
      * @Type("string")
      * @Accessor(getter="getLastName",setter="setLastName")
      * @SkipWhenEmpty()
+     * @Assert\Length(max="255")
      */
     private $lastName;
 
@@ -84,6 +89,7 @@ class Customer
      * @Type("string")
      * @Accessor(getter="getAvatarUrl",setter="setAvatarUrl")
      * @SkipWhenEmpty()
+     * @Assert\Length(max="255")
      */
     private $avatarUrl;
 
@@ -93,6 +99,7 @@ class Customer
      * @Type("string")
      * @Accessor(getter="getProfileUrl",setter="setProfileUrl")
      * @SkipWhenEmpty()
+     * @Assert\Length(max="255")
      */
     private $profileUrl;
 
@@ -111,6 +118,7 @@ class Customer
      * @Type("string")
      * @Accessor(getter="getCountry",setter="setCountry")
      * @SkipWhenEmpty()
+     * @Assert\Length(max="2")
      */
     private $country;
 
@@ -120,6 +128,7 @@ class Customer
      * @Type("string")
      * @Accessor(getter="getLanguage",setter="setLanguage")
      * @SkipWhenEmpty()
+     * @Assert\Length(max="20")
      */
     private $language;
 
@@ -129,6 +138,7 @@ class Customer
      * @Type("string")
      * @Accessor(getter="getPhone",setter="setPhone")
      * @SkipWhenEmpty()
+     * @Assert\Length(max="16")
      */
     private $phone;
 
@@ -138,6 +148,7 @@ class Customer
      * @Type("string")
      * @Accessor(getter="getEmail",setter="setEmail")
      * @SkipWhenEmpty()
+     * @Assert\Length(max="16")
      */
     private $email;
 
