@@ -187,6 +187,10 @@ class HttpClient
             throw new \InvalidArgumentException("File doesn't exist");
         }
 
+        if (filesize($filename) == 0) {
+            throw new \InvalidArgumentException("Empty file provided");
+        }
+
         try {
             $responseData = $this->client->request(
                 self::METHOD_POST,
