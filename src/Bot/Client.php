@@ -119,13 +119,17 @@ class Client
      */
     private static function concatClasspath($fromRoot, ...$classes)
     {
-        $path = $fromRoot ? '\\' : '';
+        $path = '';
 
         foreach ($classes as $class) {
-            $path .= '\\' . $class;
+            if (empty($path) && !$fromRoot) {
+                $path .= $class;
+            } else {
+                $path .= '\\' . $class;
+            }
         }
 
-        return str_replace('\\\\', '\\', $path);
+        return $path;
     }
 
     /**
