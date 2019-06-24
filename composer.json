@@ -44,7 +44,8 @@
         "symfony/event-dispatcher": "3.*",
         "symfony/options-resolver": "3.4.*",
         "symfony/process": "3.4.*",
-        "symfony/stopwatch": "3.4.*"
+        "symfony/stopwatch": "3.4.*",
+        "myclabs/deep-copy": "1.6.*"
     },
     "support": {
         "email": "support@retailcrm.ru"
