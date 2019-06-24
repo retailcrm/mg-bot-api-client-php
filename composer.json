@@ -21,7 +21,10 @@
         "doctrine/cache": "1.6.*",
         "guzzlehttp/guzzle": "6.*",
         "doctrine/instantiator": "1.0.*",
-        "symfony/translation": "3.*"
+        "symfony/translation": "3.*",
+        "symfony/dependency-injection": "3.*",
+        "symfony/config": "3.*",
+        "symfony/finder": "3.4.*"
     },
     "require-dev": {
         "phpmd/phpmd": "2.*",
@@ -36,7 +39,12 @@
         "ocramius/package-versions": "1.2.*",
         "nette/finder": "2.4.*",
         "symfony/console": "3.*",
-        "symfony/debug": "3.*"
+        "symfony/debug": "3.*",
+        "symfony/filesystem": "3.*",
+        "symfony/event-dispatcher": "3.*",
+        "symfony/options-resolver": "3.4.*",
+        "symfony/process": "3.4.*",
+        "symfony/stopwatch": "3.4.*"
     },
     "support": {
         "email": "support@retailcrm.ru"
