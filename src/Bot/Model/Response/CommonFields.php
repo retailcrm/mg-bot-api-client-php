@@ -13,6 +13,7 @@
 
 namespace RetailCrm\Mg\Bot\Model\Response;
 
+use JMS\Serializer\Annotation\Exclude;
 use JMS\Serializer\Annotation\Accessor;
 use JMS\Serializer\Annotation\SkipWhenEmpty;
 use JMS\Serializer\Annotation\Type;
@@ -39,6 +40,12 @@ trait CommonFields
     private $errors;
 
     /**
+     * @var int $statusCode
+     * @Exclude()
+     */
+    private $statusCode;
+
+    /**
      * @return array
      */
     public function getErrors(): array
@@ -52,6 +59,22 @@ trait CommonFields
     public function setErrors(array $errors)
     {
         $this->errors = $errors;
+    }
+
+    /**
+     * @return int
+     */
+    public function getStatusCode(): int
+    {
+        return $this->statusCode;
+    }
+
+    /**
+     * @param int $statusCode
+     */
+    public function setStatusCode(int $statusCode): void
+    {
+        $this->statusCode = $statusCode;
     }
 
     /**

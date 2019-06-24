@@ -18,7 +18,6 @@ use RetailCrm\Common\Exception\LimitException;
 use InvalidArgumentException;
 use RetailCrm\Common\Serializer;
 use RetailCrm\Common\Url;
-use RetailCrm\Mg\Bot\Model\Response\UploadFileResponse;
 use Symfony\Component\Validator\Validation;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
@@ -177,11 +176,11 @@ class HttpClient
 
     /**
      * @param string $filename
-     * @return UploadFileResponse
+     * @return ResponseInterface|null
      *
      * @throws \Exception
      */
-    public function postFile(string $filename): UploadFileResponse
+    public function postFile(string $filename)
     {
         if (!file_exists($filename)) {
             throw new \InvalidArgumentException("File doesn't exist");
@@ -206,12 +205,7 @@ class HttpClient
             throw new \Exception($exception->getMessage(), $exception->getCode(), $exception);
         }
 
-        $obj = Serializer::deserialize(
-            (string) $responseData->getBody(),
-            'RetailCrm\Mg\Bot\Model\Response\UploadFileResponse'
-        );
-
-        return $obj instanceof UploadFileResponse ? $obj : null;
+        return isset($responseData) ? $responseData : null;
     }
 
     /**

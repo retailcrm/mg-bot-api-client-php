@@ -26,7 +26,8 @@ use RetailCrm\Common\Serializer;
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
-class ListResponse implements \Iterator, \ArrayAccess, \Countable {
+class ListResponse implements \Iterator, \ArrayAccess, \Countable
+{
     /**
      * @var array
      */
@@ -43,17 +44,25 @@ class ListResponse implements \Iterator, \ArrayAccess, \Countable {
     private $position = 0;
 
     /**
+     * @var int $statusCode
+     */
+    private $statusCode;
+
+    /**
      * ListResponse constructor.
      *
      * @param string $responseType
-     * @param array $data
+     * @param array  $data
+     * @param int    $statusCode
      */
-    public function __construct($responseType, $data)
+    public function __construct($responseType, $data, $statusCode)
     {
+        $this->statusCode = $statusCode;
+
         if (isset($data['errors'])) {
             $this->errors = $data['errors'];
         } else {
-            foreach($data as $item) {
+            foreach ($data as $item) {
                 $this->items[] =
                     Serializer::deserialize($item, $responseType, Serializer::S_ARRAY);
             }
@@ -160,7 +169,8 @@ class ListResponse implements \Iterator, \ArrayAccess, \Countable {
      * Implements rewind() for Iterable
      * @internal
      */
-    public function rewind() {
+    public function rewind()
+    {
         $this->position = 0;
     }
 
@@ -170,7 +180,8 @@ class ListResponse implements \Iterator, \ArrayAccess, \Countable {
      * @internal
      * @return mixed
      */
-    public function current() {
+    public function current()
+    {
         return $this->items[$this->position];
     }
 
@@ -180,7 +191,8 @@ class ListResponse implements \Iterator, \ArrayAccess, \Countable {
      * @internal
      * @return int|mixed
      */
-    public function key() {
+    public function key()
+    {
         return $this->position;
     }
 
@@ -188,7 +200,8 @@ class ListResponse implements \Iterator, \ArrayAccess, \Countable {
      * Implements next() for Iterable
      * @internal
      */
-    public function next() {
+    public function next()
+    {
         ++$this->position;
     }
 
@@ -198,7 +211,24 @@ class ListResponse implements \Iterator, \ArrayAccess, \Countable {
      * @internal
      * @return bool
      */
-    public function valid() {
+    public function valid()
+    {
         return isset($this->items[$this->position]);
+    }
+
+    /**
+     * @return int
+     */
+    public function getStatusCode(): int
+    {
+        return $this->statusCode;
+    }
+
+    /**
+     * @param int $statusCode
+     */
+    public function setStatusCode(int $statusCode): void
+    {
+        $this->statusCode = $statusCode;
     }
 }

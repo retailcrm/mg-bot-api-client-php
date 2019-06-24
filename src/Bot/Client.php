@@ -13,13 +13,14 @@
 
 namespace RetailCrm\Mg\Bot;
 
+use Psr\Http\Message\ResponseInterface;
 use RetailCrm\Common\Exception\InvalidJsonException;
 use RetailCrm\Common\Url;
 use RetailCrm\Common\Serializer;
-use RetailCrm\Mg\Bot\Model\Request\GetFileRequest;
 use RetailCrm\Mg\Bot\Model\Request\UploadFileByUrlRequest;
 use RetailCrm\Mg\Bot\Model\Response\FullFileResponse;
 use RetailCrm\Mg\Bot\Model\Response\ListResponse;
+use RetailCrm\Mg\Bot\Model\Response\UploadFileResponse;
 
 /**
  * PHP version 7.0
@@ -85,20 +86,25 @@ class Client
             $request
         );
 
+        $statusCode = $response->getStatusCode();
         $data = json_decode((string) $response->getBody(), true);
 
         if (json_last_error() == JSON_ERROR_NONE) {
             if ($arrayOfObjects) {
-                return new ListResponse($responseType, $data);
+                return new ListResponse($responseType, $data, $statusCode);
             } else {
                 $obj = Serializer::deserialize($data, $responseType, Serializer::S_ARRAY);
 
-                if ($response->getStatusCode() >= 400
+                if ($statusCode >= 400
                     && method_exists($obj, 'setErrors')
                     && method_exists($obj, 'getErrors')
                     && count(call_user_func([$obj, 'getErrors'])) == 0
                 ) {
                     call_user_func_array([$obj, 'setErrors'], [['Status Code ' . $response->getStatusCode()]]);
+                }
+
+                if (method_exists($obj, 'setStatusCode')) {
+                    call_user_func_array([$obj, 'setStatusCode'], [$statusCode]);
                 }
 
                 return $obj;
@@ -487,13 +493,24 @@ class Client
 
     /**
      * @param string $filename
-     * @return Model\Response\UploadFileResponse
+     * @return Model\Response\UploadFileResponse|null
      *
      * @throws \Exception
      */
     public function uploadFile(string $filename)
     {
-        return $this->client->postFile($filename);
+        $response = $this->client->postFile($filename);
+
+        if ($response instanceof ResponseInterface) {
+            $obj = Serializer::deserialize(
+                (string) $response->getBody(),
+                self::getResponseClass('UploadFileResponse')
+            );
+
+            return $obj instanceof UploadFileResponse ? $obj : null;
+        }
+
+        return null;
     }
 
     /**
