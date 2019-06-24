@@ -83,7 +83,7 @@ trait CommonFields
     /**
      * @param \DateTime $since
      */
-    public function setSince(\DateTime $since): void
+    public function setSince(\DateTime $since)
     {
         $this->since = $since;
     }
@@ -99,7 +99,7 @@ trait CommonFields
     /**
      * @param \DateTime $until
      */
-    public function setUntil(\DateTime $until): void
+    public function setUntil(\DateTime $until)
     {
         $this->until = $until;
     }

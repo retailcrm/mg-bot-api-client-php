@@ -117,7 +117,7 @@ class ChannelSettings
     /**
      * @param bool $spamAllowed
      */
-    public function setSpamAllowed(bool $spamAllowed): void
+    public function setSpamAllowed(bool $spamAllowed)
     {
         $this->spamAllowed = $spamAllowed;
     }

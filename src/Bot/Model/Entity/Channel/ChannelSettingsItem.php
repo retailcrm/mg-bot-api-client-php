@@ -192,7 +192,7 @@ class ChannelSettingsItem
     /**
      * @param int $maxCharsCount
      */
-    public function setMaxCharsCount(int $maxCharsCount): void
+    public function setMaxCharsCount(int $maxCharsCount)
     {
         $this->maxCharsCount = $maxCharsCount;
     }
@@ -224,7 +224,7 @@ class ChannelSettingsItem
     /**
      * @param int $noteMaxCharsCount
      */
-    public function setNoteMaxCharsCount(int $noteMaxCharsCount): void
+    public function setNoteMaxCharsCount(int $noteMaxCharsCount)
     {
         $this->noteMaxCharsCount = $noteMaxCharsCount;
     }

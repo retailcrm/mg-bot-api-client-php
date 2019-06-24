@@ -50,7 +50,7 @@ class UploadFileByUrlRequest
     /**
      * @param string $url
      */
-    public function setUrl(string $url): void
+    public function setUrl(string $url)
     {
         $this->url = $url;
     }

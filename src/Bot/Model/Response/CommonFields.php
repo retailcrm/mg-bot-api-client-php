@@ -72,7 +72,7 @@ trait CommonFields
     /**
      * @param int $statusCode
      */
-    public function setStatusCode(int $statusCode): void
+    public function setStatusCode(int $statusCode)
     {
         $this->statusCode = $statusCode;
     }
