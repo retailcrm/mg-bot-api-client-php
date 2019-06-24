@@ -28,25 +28,17 @@ use RetailCrm\Common\Serializer;
  */
 class ListResponse implements \Iterator, \ArrayAccess, \Countable
 {
+    use CommonFields;
+
     /**
      * @var array
      */
     private $items = [];
 
     /**
-     * @var array
-     */
-    private $errors = [];
-
-    /**
      * @var int
      */
     private $position = 0;
-
-    /**
-     * @var int $statusCode
-     */
-    private $statusCode;
 
     /**
      * ListResponse constructor.
@@ -57,10 +49,10 @@ class ListResponse implements \Iterator, \ArrayAccess, \Countable
      */
     public function __construct($responseType, $data, $statusCode)
     {
-        $this->statusCode = $statusCode;
+        $this->setStatusCode($statusCode);
 
         if (isset($data['errors'])) {
-            $this->errors = $data['errors'];
+            $this->setErrors($data['errors']);
         } else {
             foreach ($data as $item) {
                 $this->items[] =
@@ -75,14 +67,6 @@ class ListResponse implements \Iterator, \ArrayAccess, \Countable
     public function isSuccessful()
     {
         return empty($this->errors);
-    }
-
-    /**
-     * @return array
-     */
-    public function getErrors()
-    {
-        return $this->errors;
     }
 
     /**
@@ -214,21 +198,5 @@ class ListResponse implements \Iterator, \ArrayAccess, \Countable
     public function valid()
     {
         return isset($this->items[$this->position]);
-    }
-
-    /**
-     * @return int
-     */
-    public function getStatusCode(): int
-    {
-        return $this->statusCode;
-    }
-
-    /**
-     * @param int $statusCode
-     */
-    public function setStatusCode(int $statusCode): void
-    {
-        $this->statusCode = $statusCode;
     }
 }
