@@ -107,12 +107,11 @@ class HttpClient
      * @param string $path   Request URL
      * @param string $method Request method (default: 'GET')
      * @param mixed  $request Request model (default: null)
-     * @param string $serializeTo Serializer::S_JSON or Serializer::S_ARRAY
      *
      * @return ResponseInterface
      * @throws \Exception
      */
-    public function makeRequest($path, $method, $request = null, $serializeTo = Serializer::S_JSON)
+    public function makeRequest($path, $method, $request = null)
     {
         $getParameters = '';
 
@@ -126,7 +125,7 @@ class HttpClient
             $getParameters = Url::buildGetParameters(Serializer::serialize($request, Serializer::S_ARRAY));
         }
 
-        $parameters = is_null($request) ? null : Serializer::serialize($request, $serializeTo);
+        $requestBody = is_null($request) ? null : Serializer::serialize($request, Serializer::S_JSON);
         $request = new Request(
             $method,
             \sprintf("%s%s%s", $this->basePath, $path, $getParameters),
@@ -137,7 +136,7 @@ class HttpClient
         );
 
         if (in_array($method, [self::METHOD_POST, self::METHOD_PUT, self::METHOD_PATCH, self::METHOD_DELETE])) {
-            $request = $request->withBody(stream_for($parameters));
+            $request = $request->withBody(stream_for($requestBody));
         }
 
         $responseObject = null;

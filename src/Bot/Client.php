@@ -67,7 +67,6 @@ class Client
      * @param string      $method
      * @param object|null $request Request parameters
      * @param string      $responseType
-     * @param string      $serializeTo
      * @param bool        $arrayOfObjects
      *
      * @return object|null
@@ -78,14 +77,12 @@ class Client
         $method,
         $request,
         $responseType,
-        $serializeTo = Serializer::S_JSON,
         $arrayOfObjects = false
     ) {
         $response = $this->client->makeRequest(
             $path,
             $method,
-            $request,
-            $serializeTo
+            $request
         );
 
         $data = json_decode((string) $response->getBody(), true);
@@ -167,7 +164,6 @@ class Client
             HttpClient::METHOD_GET,
             $request,
             static::getEntityClass('Bot'),
-            Serializer::S_ARRAY,
             true
         );
     }
@@ -205,7 +201,6 @@ class Client
             HttpClient::METHOD_GET,
             $request,
             static::getEntityClass('Channel', 'Channel'),
-            Serializer::S_ARRAY,
             true
         );
     }
@@ -225,7 +220,6 @@ class Client
             HttpClient::METHOD_GET,
             $request,
             static::getEntityClass('Chat', 'Chat'),
-            Serializer::S_ARRAY,
             true
         );
     }
@@ -245,7 +239,6 @@ class Client
             HttpClient::METHOD_GET,
             $request,
             static::getEntityClass('Command'),
-            Serializer::S_ARRAY,
             true
         );
     }
@@ -264,8 +257,7 @@ class Client
             sprintf("/my/commands/%s", $request->getName()),
             HttpClient::METHOD_PUT,
             $request,
-            static::getResponseClass(self::ERROR_ONLY_RESPONSE),
-            Serializer::S_JSON
+            static::getResponseClass(self::ERROR_ONLY_RESPONSE)
         );
     }
 
@@ -283,8 +275,7 @@ class Client
             sprintf("/my/commands/%s", $request),
             HttpClient::METHOD_DELETE,
             null,
-            static::getResponseClass(self::ERROR_ONLY_RESPONSE),
-            Serializer::S_JSON
+            static::getResponseClass(self::ERROR_ONLY_RESPONSE)
         );
     }
 
@@ -303,7 +294,6 @@ class Client
             HttpClient::METHOD_GET,
             $request,
             static::getEntityClass('Customer'),
-            Serializer::S_ARRAY,
             true
         );
     }
@@ -323,7 +313,6 @@ class Client
             HttpClient::METHOD_GET,
             $request,
             static::getEntityClass('Dialog'),
-            Serializer::S_ARRAY,
             true
         );
     }
@@ -342,8 +331,7 @@ class Client
             sprintf("/dialogs/%d/assign", $request->getDialogId()),
             HttpClient::METHOD_PATCH,
             $request,
-            static::getResponseClass('AssignResponse'),
-            Serializer::S_JSON
+            static::getResponseClass('AssignResponse')
         );
     }
 
@@ -380,7 +368,6 @@ class Client
             HttpClient::METHOD_GET,
             $request,
             static::getEntityClass('Chat', 'ChatMember'),
-            Serializer::S_ARRAY,
             true
         );
     }
@@ -400,7 +387,6 @@ class Client
             HttpClient::METHOD_GET,
             $request,
             self::getEntityClass('Message', 'Message'),
-            Serializer::S_ARRAY,
             true
         );
     }
@@ -474,7 +460,6 @@ class Client
             HttpClient::METHOD_GET,
             $request,
             self::getEntityClass('User'),
-            Serializer::S_ARRAY,
             true
         );
     }
