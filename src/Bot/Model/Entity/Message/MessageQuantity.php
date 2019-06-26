@@ -13,7 +13,6 @@
 
 namespace RetailCrm\Mg\Bot\Model\Entity\Message;
 
-use RetailCrm\Mg\Bot\Model\Entity\CommonFields;
 use JMS\Serializer\Annotation\Accessor;
 use JMS\Serializer\Annotation\SkipWhenEmpty;
 use JMS\Serializer\Annotation\Type;
@@ -30,8 +29,6 @@ use JMS\Serializer\Annotation\Type;
  */
 class MessageQuantity
 {
-    use CommonFields;
-
     /**
      * @var float $value
      *

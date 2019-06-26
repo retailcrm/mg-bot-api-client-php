@@ -13,7 +13,7 @@
 
 namespace RetailCrm\Mg\Bot\Model\Entity\Channel;
 
-use RetailCrm\Mg\Bot\Model\Entity\CommonFields;
+use JMS\Serializer\Annotation\SkipWhenEmpty;
 use JMS\Serializer\Annotation\Accessor;
 use JMS\Serializer\Annotation\Type;
 
@@ -29,7 +29,29 @@ use JMS\Serializer\Annotation\Type;
  */
 class Channel
 {
-    use CommonFields;
+    /**
+     * @var string $id
+     *
+     * @Type("string")
+     * @Accessor(getter="getId",setter="setId")
+     */
+    private $id;
+
+    /**
+     * @var \DateTime $createdAt
+     *
+     * @Type("DateTime<'Y-m-d\TH:i:s\.u\Z'>")
+     * @Accessor(getter="getCreatedAt",setter="setCreatedAt")
+     */
+    private $createdAt;
+
+    /**
+     * @var \DateTime $updatedAt
+     *
+     * @Type("DateTime<'Y-m-d\TH:i:s\.u\Z'>")
+     * @Accessor(getter="getUpdatedAt",setter="setUpdatedAt")
+     */
+    private $updatedAt;
 
     /**
      * @var \DateTime $activatedAt
@@ -78,6 +100,54 @@ class Channel
      * @Accessor(getter="getName",setter="setName")
      */
     private $name;
+
+    /**
+     * @return string
+     */
+    public function getId(): string
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param string $id
+     */
+    public function setId(string $id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getCreatedAt(): \DateTime
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param \DateTime $createdAt
+     */
+    public function setCreatedAt(\DateTime $createdAt): void
+    {
+        $this->createdAt = $createdAt;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getUpdatedAt(): \DateTime
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param \DateTime $updatedAt
+     */
+    public function setUpdatedAt(\DateTime $updatedAt): void
+    {
+        $this->updatedAt = $updatedAt;
+    }
 
     /**
      * @return \DateTime

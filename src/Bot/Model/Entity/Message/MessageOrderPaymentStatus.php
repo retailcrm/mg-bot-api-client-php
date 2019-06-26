@@ -16,7 +16,6 @@ namespace RetailCrm\Mg\Bot\Model\Entity\Message;
 use JMS\Serializer\Annotation\Accessor;
 use JMS\Serializer\Annotation\SkipWhenEmpty;
 use JMS\Serializer\Annotation\Type;
-use RetailCrm\Mg\Bot\Model\Entity\CommonFields;
 
 /**
  * PHP version 7.0
@@ -30,8 +29,6 @@ use RetailCrm\Mg\Bot\Model\Entity\CommonFields;
  */
 class MessageOrderPaymentStatus
 {
-    use CommonFields;
-
     /**
      * @var string $name
      *
@@ -69,7 +66,7 @@ class MessageOrderPaymentStatus
     /**
      * @return bool
      */
-    public function isPayed(): bool
+    public function getPayed(): bool
     {
         return $this->payed;
     }
