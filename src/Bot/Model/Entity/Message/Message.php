@@ -220,7 +220,7 @@ class Message
     /**
      * @param string $id
      */
-    public function setId(string $id): void
+    public function setId(string $id)
     {
         $this->id = $id;
     }
@@ -236,7 +236,7 @@ class Message
     /**
      * @param \DateTime $createdAt
      */
-    public function setCreatedAt(\DateTime $createdAt): void
+    public function setCreatedAt(\DateTime $createdAt)
     {
         $this->createdAt = $createdAt;
     }
@@ -252,7 +252,7 @@ class Message
     /**
      * @param \DateTime $updatedAt
      */
-    public function setUpdatedAt(\DateTime $updatedAt): void
+    public function setUpdatedAt(\DateTime $updatedAt)
     {
         $this->updatedAt = $updatedAt;
     }
