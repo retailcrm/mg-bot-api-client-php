@@ -3,15 +3,15 @@
 /**
  * PHP version 7.0
  *
- * Status entity
+ * MessageStatus entity
  *
- * @package  RetailCrm\Mg\Bot\Model\Entity
+ * @package  RetailCrm\Mg\Bot\Model\Entity\Message
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
 
-namespace RetailCrm\Mg\Bot\Model\Entity;
+namespace RetailCrm\Mg\Bot\Model\Entity\Message;
 
 use JMS\Serializer\Annotation\Accessor;
 use JMS\Serializer\Annotation\SkipWhenEmpty;
@@ -20,14 +20,14 @@ use JMS\Serializer\Annotation\Type;
 /**
  * PHP version 7.0
  *
- * Status class
+ * MessageStatus class
  *
- * @package  RetailCrm\Mg\Bot\Model\Entity
+ * @package  RetailCrm\Mg\Bot\Model\Entity\Message
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
-class Status
+class MessageStatus
 {
     /**
      * @var string $code
@@ -50,7 +50,7 @@ class Status
     /**
      * @return string
      */
-    public function getCode()
+    public function getCode(): string
     {
         return $this->code;
     }
@@ -66,7 +66,7 @@ class Status
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }

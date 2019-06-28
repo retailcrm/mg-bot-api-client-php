@@ -3,7 +3,7 @@
 /**
  * PHP version 7.0
  *
- * Customers list request
+ * Upload file by url request
  *
  * @package  RetailCrm\Mg\Bot\Model\Request
  * @author   retailCRM <integration@retailcrm.ru>
@@ -14,44 +14,44 @@
 namespace RetailCrm\Mg\Bot\Model\Request;
 
 use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SkipWhenEmpty;
 use JMS\Serializer\Annotation\Type;
-use RetailCrm\Mg\Bot\Model\Request\CommonFields;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * PHP version 7.0
  *
- * CustomersRequest class
+ * UploadFileByUrlRequest class
  *
  * @package  RetailCrm\Mg\Bot\Model\Request
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
-class CustomersRequest
+class UploadFileByUrlRequest
 {
-    use CommonFields;
-
     /**
+     * @var string $url
+     *
      * @Type("string")
-     * @Accessor(getter="getExternalId",setter="setExternalId")
-     * @SkipWhenEmpty
+     * @Accessor(getter="getUrl",setter="setUrl")
+     * @Assert\NotBlank()
+     * @Assert\Url()
      */
-    private $externalId;
+    private $url;
 
     /**
      * @return string
      */
-    public function getExternalId()
+    public function getUrl(): string
     {
-        return $this->externalId;
+        return $this->url;
     }
 
     /**
-     * @param string $externalId
+     * @param string $url
      */
-    public function setExternalId($externalId)
+    public function setUrl(string $url)
     {
-        $this->externalId = $externalId;
+        $this->url = $url;
     }
 }

@@ -13,13 +13,14 @@
 
 namespace RetailCrm\Mg\Bot;
 
-use RetailCrm\Common\Exception\CurlException;
+use Psr\Http\Message\ResponseInterface;
 use RetailCrm\Common\Exception\InvalidJsonException;
 use RetailCrm\Common\Url;
 use RetailCrm\Common\Serializer;
-use RetailCrm\Mg\Bot\Model;
-use Exception;
-use InvalidArgumentException;
+use RetailCrm\Mg\Bot\Model\Request\UploadFileByUrlRequest;
+use RetailCrm\Mg\Bot\Model\Response\FullFileResponse;
+use RetailCrm\Mg\Bot\Model\Response\ListResponse;
+use RetailCrm\Mg\Bot\Model\Response\UploadFileResponse;
 
 /**
  * PHP version 7.0
@@ -33,313 +34,500 @@ use InvalidArgumentException;
  */
 class Client
 {
+    /**
+     * @internal
+     */
     const VERSION = 'v1';
 
+    /**
+     * @internal
+     */
+    const ERROR_ONLY_RESPONSE = 'ErrorOnlyResponse';
+
+    /**
+     * @var HttpClient
+     */
     protected $client;
 
     /**
      * Init
      *
-     * @param string $url   api url
-     * @param string $token api key
-     * @param bool   $debug debug flag
+     * @param string $url   MG API URL
+     * @param string $token MG API Key
+     * @param bool   $debug Enable or disable debug mode - will log all requests to STDOUT (default: false)
+     * @param \GuzzleHttp\HandlerStack $handler GuzzleHttp::HandlerStack instance (default: null)
      */
-    public function __construct($url, $token, $debug = false)
+    public function __construct($url, $token, $debug = false, $handler = null)
     {
         $url = sprintf("%sapi/bot/%s", Url::normalizeUrl($url), self::VERSION);
-        $this->client = new Request($url, $token, $debug);
+        $this->client = new HttpClient($url, $token, $debug ? STDOUT : null, $handler);
+    }
+
+    /**
+     * @param string      $path
+     * @param string      $method
+     * @param object|null $request Request parameters
+     * @param string      $responseType
+     * @param bool        $arrayOfObjects
+     *
+     * @return object|null
+     * @throws \Exception
+     */
+    private function submitRequest(
+        $path,
+        $method,
+        $request,
+        $responseType,
+        $arrayOfObjects = false
+    ) {
+        $response = $this->client->makeRequest(
+            $path,
+            $method,
+            $request
+        );
+
+        $statusCode = $response->getStatusCode();
+        $data = json_decode((string) $response->getBody(), true);
+
+        if (json_last_error() == JSON_ERROR_NONE) {
+            if ($arrayOfObjects) {
+                return new ListResponse($responseType, $data, $statusCode);
+            } else {
+                $obj = Serializer::deserialize($data, $responseType, Serializer::S_ARRAY);
+
+                if ($statusCode >= 400
+                    && method_exists($obj, 'setErrors')
+                    && method_exists($obj, 'getErrors')
+                    && count(call_user_func([$obj, 'getErrors'])) == 0
+                ) {
+                    call_user_func_array([$obj, 'setErrors'], [['Status Code ' . $response->getStatusCode()]]);
+                }
+
+                if (method_exists($obj, 'setStatusCode')) {
+                    call_user_func_array([$obj, 'setStatusCode'], [$statusCode]);
+                }
+
+                return $obj;
+            }
+        } else {
+            throw new InvalidJsonException('Received invalid JSON', 1);
+        }
+    }
+
+    /**
+     * @param bool $fromRoot
+     * @param string ...$classes
+     *
+     * @return string
+     */
+    private static function concatClasspath($fromRoot, ...$classes)
+    {
+        $path = '';
+
+        foreach ($classes as $class) {
+            if (empty($path) && !$fromRoot) {
+                $path .= $class;
+            } else {
+                $path .= '\\' . $class;
+            }
+        }
+
+        return $path;
+    }
+
+    /**
+     * @param string ...$classes
+     *
+     * @return string
+     */
+    private static function getEntityClass(...$classes)
+    {
+        return static::concatClasspath(true, 'RetailCrm', 'Mg', 'Bot', 'Model', 'Entity', ...$classes);
+    }
+
+    /**
+     * @param string ...$classes
+     *
+     * @return string
+     */
+    private static function getResponseClass(...$classes)
+    {
+        return static::concatClasspath(true, 'RetailCrm', 'Mg', 'Bot', 'Model', 'Response', ...$classes);
     }
 
     /**
      * Returns filtered bots list
      *
-     * @param Model\Request\BotsRequest $request
+     * @param Model\Request\BotsRequest $request Request parameters
      *
-     * @throws InvalidArgumentException
-     * @throws CurlException
-     * @throws InvalidJsonException
-     * @throws Exception
-     *
-     * @return Response
+     * @return \RetailCrm\Mg\Bot\Model\Response\ListResponse|object
+     * @throws \Exception
      */
     public function bots(Model\Request\BotsRequest $request)
     {
-        return $this->client->makeRequest('/bots', Request::METHOD_GET, $request, Serializer::S_ARRAY);
+        return $this->submitRequest(
+            '/bots',
+            HttpClient::METHOD_GET,
+            $request,
+            static::getEntityClass('Bot'),
+            true
+        );
     }
 
     /**
      * Edit bot info
      *
-     * @param Model\Request\InfoRequest $request
+     * @param Model\Request\InfoRequest $request Request parameters
      *
-     * @throws InvalidArgumentException
-     * @throws CurlException
-     * @throws CurlException
-     * @throws Exception
-     *
-     * @return Response
+     * @return \RetailCrm\Mg\Bot\Model\Response\ErrorOnlyResponse|object
+     * @throws \Exception
      */
     public function info(Model\Request\InfoRequest $request)
     {
-        return $this->client->makeRequest('/my/info', Request::METHOD_PATCH, $request);
+        return $this->submitRequest(
+            '/my/info',
+            HttpClient::METHOD_PATCH,
+            $request,
+            static::getResponseClass(self::ERROR_ONLY_RESPONSE)
+        );
     }
 
     /**
      * Returns filtered channels list
      *
-     * @param Model\Request\ChannelsRequest $request
+     * @param Model\Request\ChannelsRequest $request Request parameters
      *
-     * @return Response
+     * @return \RetailCrm\Mg\Bot\Model\Response\ListResponse|object
      * @throws \Exception
      */
     public function channels(Model\Request\ChannelsRequest $request)
     {
-        return $this->client->makeRequest('/channels', Request::METHOD_GET, $request, Serializer::S_ARRAY);
+        return $this->submitRequest(
+            '/channels',
+            HttpClient::METHOD_GET,
+            $request,
+            static::getEntityClass('Channel', 'Channel'),
+            true
+        );
     }
 
     /**
      * Returns filtered chats list
      *
-     * @param Model\Request\ChatsRequest $request
+     * @param Model\Request\ChatsRequest $request Request parameters
      *
-     * @throws InvalidArgumentException
-     * @throws CurlException
-     * @throws InvalidJsonException
-     * @throws Exception
-     *
-     * @return Response
+     * @return \RetailCrm\Mg\Bot\Model\Response\ListResponse|object
+     * @throws \Exception
      */
     public function chats(Model\Request\ChatsRequest $request)
     {
-        return $this->client->makeRequest('/chats', Request::METHOD_GET, $request, Serializer::S_ARRAY);
+        return $this->submitRequest(
+            '/chats',
+            HttpClient::METHOD_GET,
+            $request,
+            static::getEntityClass('Chat', 'Chat'),
+            true
+        );
     }
 
     /**
      * Returns filtered commands list
      *
-     * @param Model\Request\CommandsRequest $request
+     * @param Model\Request\CommandsRequest $request Request parameters
      *
-     * @throws InvalidArgumentException
-     * @throws CurlException
-     * @throws InvalidJsonException
-     * @throws Exception
-     *
-     * @return Response
+     * @return \RetailCrm\Mg\Bot\Model\Response\ListResponse|object
+     * @throws \Exception
      */
     public function commands(Model\Request\CommandsRequest $request)
     {
-        return $this->client->makeRequest('/my/commands', Request::METHOD_GET, $request, Serializer::S_ARRAY);
+        return $this->submitRequest(
+            '/my/commands',
+            HttpClient::METHOD_GET,
+            $request,
+            static::getEntityClass('Command'),
+            true
+        );
     }
 
     /**
      * Edit commands for exact bot
      *
-     * @param Model\Request\CommandEditRequest $request
+     * @param Model\Request\CommandEditRequest $request Request parameters
      *
-     * @throws InvalidArgumentException
-     * @throws CurlException
-     * @throws InvalidJsonException
-     * @throws Exception
-     *
-     * @return Response
+     * @return \RetailCrm\Mg\Bot\Model\Response\ErrorOnlyResponse|object
+     * @throws \Exception
      */
     public function commandEdit(Model\Request\CommandEditRequest $request)
     {
-        return $this->client->makeRequest(
+        return $this->submitRequest(
             sprintf("/my/commands/%s", $request->getName()),
-            Request::METHOD_PUT,
-            $request
+            HttpClient::METHOD_PUT,
+            $request,
+            static::getResponseClass(self::ERROR_ONLY_RESPONSE)
         );
     }
 
     /**
      * Delete command for exact bot
      *
-     * @param string $request
+     * @param string $request Request parameters
      *
-     * @throws InvalidArgumentException
-     * @throws CurlException
-     * @throws InvalidJsonException
-     * @throws Exception
-     *
-     * @return Response
+     * @return \RetailCrm\Mg\Bot\Model\Response\ErrorOnlyResponse|object
+     * @throws \Exception
      */
     public function commandDelete(string $request)
     {
-        return $this->client->makeRequest(sprintf("/my/commands/%s", $request), Request::METHOD_DELETE);
+        return $this->submitRequest(
+            sprintf("/my/commands/%s", $request),
+            HttpClient::METHOD_DELETE,
+            null,
+            static::getResponseClass(self::ERROR_ONLY_RESPONSE)
+        );
     }
 
     /**
      * Returns filtered customers list
      *
-     * @param Model\Request\CustomersRequest $request
+     * @param Model\Request\CustomersRequest $request Request parameters
      *
-     * @throws InvalidArgumentException
-     * @throws CurlException
-     * @throws InvalidJsonException
-     * @throws Exception
-     *
-     * @return Response
+     * @return \RetailCrm\Mg\Bot\Model\Response\ListResponse|object
+     * @throws \Exception
      */
     public function customers(Model\Request\CustomersRequest $request)
     {
-        return $this->client->makeRequest('/customers', Request::METHOD_GET, $request, Serializer::S_ARRAY);
+        return $this->submitRequest(
+            '/customers',
+            HttpClient::METHOD_GET,
+            $request,
+            static::getEntityClass('Customer'),
+            true
+        );
     }
 
     /**
      * Returns filtered dialogs list
      *
-     * @param Model\Request\DialogsRequest $request
+     * @param Model\Request\DialogsRequest $request Request parameters
      *
-     * @throws InvalidArgumentException
-     * @throws CurlException
-     * @throws InvalidJsonException
-     * @throws Exception
-     *
-     * @return Response
+     * @return \RetailCrm\Mg\Bot\Model\Response\ListResponse|object
+     * @throws \Exception
      */
     public function dialogs(Model\Request\DialogsRequest $request)
     {
-        return $this->client->makeRequest('/dialogs', Request::METHOD_GET, $request, Serializer::S_ARRAY);
+        return $this->submitRequest(
+            '/dialogs',
+            HttpClient::METHOD_GET,
+            $request,
+            static::getEntityClass('Dialog'),
+            true
+        );
     }
 
     /**
      * Assign dialog to exact user
      *
-     * @param Model\Request\DialogAssignRequest $request
+     * @param Model\Request\DialogAssignRequest $request Request parameters
      *
-     * @throws InvalidArgumentException
-     * @throws CurlException
-     * @throws InvalidJsonException
-     * @throws Exception
-     *
-     * @return Response
+     * @return \RetailCrm\Mg\Bot\Model\Response\AssignResponse|object
+     * @throws \Exception
      */
     public function dialogAssign(Model\Request\DialogAssignRequest $request)
     {
-        return $this->client->makeRequest(
+        return $this->submitRequest(
             sprintf("/dialogs/%d/assign", $request->getDialogId()),
-            Request::METHOD_PATCH,
-            $request
+            HttpClient::METHOD_PATCH,
+            $request,
+            static::getResponseClass('AssignResponse')
         );
     }
 
     /**
      * Close exact dialog
      *
-     * @param string $request
+     * @param string $request Request parameters
      *
-     * @throws InvalidArgumentException
-     * @throws CurlException
-     * @throws InvalidJsonException
-     * @throws Exception
-     *
-     * @return Response
+     * @return \RetailCrm\Mg\Bot\Model\Response\ErrorOnlyResponse|object
+     * @throws \Exception
      */
     public function dialogClose(string $request)
     {
-        return $this->client->makeRequest(sprintf("/dialogs/%d/close", $request), Request::METHOD_DELETE);
+        return $this->submitRequest(
+            sprintf("/dialogs/%d/close", $request),
+            HttpClient::METHOD_DELETE,
+            null,
+            static::getResponseClass(self::ERROR_ONLY_RESPONSE)
+        );
     }
 
     /**
      * Returns filtered members list
      *
-     * @param Model\Request\MembersRequest $request
+     * @param Model\Request\MembersRequest $request Request parameters
      *
-     * @throws InvalidArgumentException
-     * @throws CurlException
-     * @throws InvalidJsonException
-     * @throws Exception
-     *
-     * @return Response
+     * @return \RetailCrm\Mg\Bot\Model\Response\ListResponse|object
+     * @throws \Exception
      */
     public function members(Model\Request\MembersRequest $request)
     {
-        return $this->client->makeRequest('/members', Request::METHOD_GET, $request, Serializer::S_ARRAY);
+        return $this->submitRequest(
+            '/members',
+            HttpClient::METHOD_GET,
+            $request,
+            static::getEntityClass('Chat', 'ChatMember'),
+            true
+        );
     }
 
     /**
      * Returns filtered messages list
      *
-     * @param Model\Request\MessagesRequest $request
+     * @param Model\Request\MessagesRequest $request Request parameters
      *
-     * @throws InvalidArgumentException
-     * @throws CurlException
-     * @throws InvalidJsonException
-     * @throws Exception
-     *
-     * @return Response
+     * @return \RetailCrm\Mg\Bot\Model\Response\ListResponse|object
+     * @throws \Exception
      */
     public function messages(Model\Request\MessagesRequest $request)
     {
-        return $this->client->makeRequest('/messages', Request::METHOD_GET, $request, Serializer::S_ARRAY);
+        return $this->submitRequest(
+            '/messages',
+            HttpClient::METHOD_GET,
+            $request,
+            self::getEntityClass('Message', 'Message'),
+            true
+        );
     }
 
     /**
      * Send a message
      *
-     * @param Model\Request\MessageSendRequest $request
+     * @param Model\Request\MessageSendRequest $request Request parameters
      *
-     * @throws InvalidArgumentException
-     * @throws CurlException
-     * @throws InvalidJsonException
-     * @throws Exception
-     *
-     * @return Response
+     * @return \RetailCrm\Mg\Bot\Model\Response\MessageSendResponse|object
+     * @throws \Exception
      */
     public function messageSend(Model\Request\MessageSendRequest $request)
     {
-        return $this->client->makeRequest('/messages', Request::METHOD_POST, $request);
+        return $this->submitRequest(
+            '/messages',
+            HttpClient::METHOD_POST,
+            $request,
+            static::getResponseClass('MessageSendResponse')
+        );
     }
 
     /**
      * Edit a message
      *
-     * @param Model\Request\MessageEditRequest $request
+     * @param Model\Request\MessageEditRequest $request Request parameters
      *
-     * @throws InvalidArgumentException
-     * @throws CurlException
-     * @throws InvalidJsonException
-     * @throws Exception
-     *
-     * @return Response
+     * @return \RetailCrm\Mg\Bot\Model\Response\MessageSendResponse|object
+     * @throws \Exception
      */
     public function messageEdit(Model\Request\MessageEditRequest $request)
     {
-        return $this->client->makeRequest('/messages/%d', Request::METHOD_PATCH, $request->getId());
+        return $this->submitRequest(
+            sprintf("/messages/%d", $request->getId()),
+            HttpClient::METHOD_PATCH,
+            $request,
+            static::getResponseClass('MessageSendResponse')
+        );
     }
 
     /**
      * Delete a message
      *
-     * @param string $request
+     * @param string $request Request parameters
      *
-     * @throws InvalidArgumentException
-     * @throws CurlException
-     * @throws InvalidJsonException
-     * @throws Exception
-     *
-     * @return Response
+     * @return \RetailCrm\Mg\Bot\Model\Response\ErrorOnlyResponse|object
+     * @throws \Exception
      */
     public function messageDelete(string $request)
     {
-        return $this->client->makeRequest(sprintf("/messages/%d", $request), Request::METHOD_DELETE);
+        return $this->submitRequest(
+            sprintf("/messages/%d", $request),
+            HttpClient::METHOD_DELETE,
+            null,
+            static::getResponseClass(self::ERROR_ONLY_RESPONSE)
+        );
     }
 
     /**
      * Returns filtered users list
      *
-     * @param Model\Request\UsersRequest $request
+     * @param Model\Request\UsersRequest $request Request parameters
      *
-     * @throws InvalidArgumentException
-     * @throws CurlException
-     * @throws InvalidJsonException
-     * @throws Exception
-     *
-     * @return Response
+     * @return \RetailCrm\Mg\Bot\Model\Response\ListResponse|object
+     * @throws \Exception
      */
     public function users(Model\Request\UsersRequest $request)
     {
-        return $this->client->makeRequest('/users', Request::METHOD_GET, $request, Serializer::S_ARRAY);
+        return $this->submitRequest(
+            '/users',
+            HttpClient::METHOD_GET,
+            $request,
+            self::getEntityClass('User'),
+            true
+        );
+    }
+
+    /**
+     * Returns filtered users list
+     *
+     * @param string $url File URL
+     *
+     * @return \RetailCrm\Mg\Bot\Model\Response\UploadFileResponse|object
+     * @throws \Exception
+     */
+    public function uploadFileByUrl(string $url)
+    {
+        $request = new UploadFileByUrlRequest();
+        $request->setUrl($url);
+
+        return $this->submitRequest(
+            '/files/upload_by_url',
+            HttpClient::METHOD_POST,
+            $request,
+            self::getResponseClass('UploadFileResponse')
+        );
+    }
+
+    /**
+     * @param string $filename
+     * @return Model\Response\UploadFileResponse|null
+     *
+     * @throws \Exception
+     */
+    public function uploadFile(string $filename)
+    {
+        $response = $this->client->postFile($filename);
+
+        if ($response instanceof ResponseInterface) {
+            $obj = Serializer::deserialize(
+                (string) $response->getBody(),
+                self::getResponseClass('UploadFileResponse')
+            );
+
+            return $obj instanceof UploadFileResponse ? $obj : null;
+        }
+
+        return null;
+    }
+
+    /**
+     * @param string $fileId
+     * @return Model\Response\FullFileResponse|null
+     *
+     * @throws \Exception
+     */
+    public function getFileById(string $fileId)
+    {
+        $obj = $this->submitRequest(
+            \sprintf('/files/%s', $fileId),
+            HttpClient::METHOD_GET,
+            null,
+            self::getResponseClass('FullFileResponse')
+        );
+
+        return ($obj instanceof FullFileResponse) ? $obj : null;
     }
 }

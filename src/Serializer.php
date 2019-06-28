@@ -13,6 +13,8 @@
 
 namespace RetailCrm\Common;
 
+use JMS\Serializer\DeserializationContext;
+use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
 
 /**
@@ -27,14 +29,14 @@ use JMS\Serializer\SerializerBuilder;
  */
 class Serializer
 {
-    const S_ARRAY = 0;
-    const S_JSON = 1;
+    const S_ARRAY = 'array';
+    const S_JSON = 'json';
 
     /**
      * Serialize given object to JSON or Array
      *
      * @param object $request
-     * @param int    $serialize
+     * @param string $serialize
      *
      * @return array|string
      */
@@ -42,17 +44,79 @@ class Serializer
     {
         $serialized = null;
         $serializer = SerializerBuilder::create()->build();
+        $context = self::getContext();
 
         switch ($serialize) {
             case self::S_ARRAY:
-                $serialized = $serializer->toArray($request);
+                $serialized = $serializer->toArray($request, $context);
                 break;
             case self::S_JSON:
             default:
-                $serialized = $serializer->serialize($request, 'json');
+                $serialized = $serializer->serialize($request, $serialize, $context);
                 break;
         }
 
         return $serialized;
+    }
+
+    /**
+     * Deserialize given array or JSON to object
+     *
+     * @param mixed $data
+     * @param string $entityType
+     * @param string $from
+     *
+     * @return object|null
+     */
+    public static function deserialize($data, $entityType, $from = self::S_JSON)
+    {
+        $deserialized = null;
+        $serializer = SerializerBuilder::create()->build();
+        $context = self::getContext(true);
+
+        switch ($from) {
+            case self::S_ARRAY:
+                $deserialized =
+                    $serializer->fromArray(array_filter($data), self::normalizeNamespace($entityType), $context);
+                break;
+            case self::S_JSON:
+                $deserialized =
+                    $serializer->deserialize($data, self::normalizeNamespace($entityType), $from, $context);
+                break;
+        }
+
+        return is_object($deserialized) ? $deserialized : null;
+    }
+
+    /**
+     * @param bool $deserialization (default: false)
+     *
+     * @return DeserializationContext|SerializationContext
+     */
+    private static function getContext(bool $deserialization = false)
+    {
+        if ($deserialization) {
+            $context = new DeserializationContext();
+        } else {
+            $context = new SerializationContext();
+        }
+
+        $context->setSerializeNull(false);
+
+        return $context;
+    }
+
+    /**
+     * @param string $namespace
+     *
+     * @return bool|string
+     */
+    private static function normalizeNamespace(string $namespace)
+    {
+        if (substr($namespace, 0, 1) == '\\') {
+            $namespace = substr($namespace, 1);
+        }
+
+        return $namespace;
     }
 }

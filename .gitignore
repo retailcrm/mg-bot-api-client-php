@@ -61,6 +61,7 @@ cmake-build-release/
 
 # IntelliJ
 out/
+.idea/
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/
@@ -184,3 +185,15 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 /.php_cs.cache
+
+# phpDocumentor
+phpDocumentor.phar
+phpDocumentor.phar.pubkey
+mg-bot-api-client-php.pages/*
+build/*
+
+# Test report
+test-report.xml
+
+# GraphViz Dot
+dot/*

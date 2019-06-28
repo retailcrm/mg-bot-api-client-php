@@ -3,7 +3,7 @@
 /**
  * PHP version 7.0
  *
- * Client Test
+ * Commands Test
  *
  * @package  RetailCrm\Mg\Bot\Tests
  * @author   retailCRM <integration@retailcrm.ru>
@@ -13,15 +13,15 @@
 
 namespace RetailCrm\Mg\Bot\Tests;
 
-use Exception;
-use InvalidArgumentException;
+use RetailCrm\Common\Exception\InvalidJsonException;
 use RetailCrm\Mg\Bot\Model\Request\CommandEditRequest;
+use RetailCrm\Mg\Bot\Model\Response\ErrorOnlyResponse;
 use RetailCrm\Mg\Bot\Test\TestCase;
 
 /**
  * PHP version 7.0
  *
- * Class ClientTest
+ * Class CommandsTest
  *
  * @package RetailCrm\Mg\Bot\Tests
  * @author   retailCRM <integration@retailcrm.ru>
@@ -36,9 +36,14 @@ class CommandsTest extends TestCase
      */
     public function testCommandEditException()
     {
-        self::expectException(InvalidArgumentException::class);
+        self::expectException(InvalidJsonException::class);
 
-        $client = self::getApiClient();
+        $client = self::getApiClient(
+            null,
+            null,
+            false,
+            $this->getResponse('EOF', 400)
+        );
 
         $request = new CommandEditRequest();
         $request->setDescription("qwerty");
@@ -52,7 +57,7 @@ class CommandsTest extends TestCase
      */
     public function testCommandDeleteException()
     {
-        self::expectException(Exception::class);
+        self::expectException(\Exception::class);
 
         $client = self::getApiClient();
 
@@ -67,7 +72,12 @@ class CommandsTest extends TestCase
      */
     public function testCommandEdit()
     {
-        $client = self::getApiClient();
+        $client = self::getApiClient(
+            null,
+            null,
+            false,
+            $this->getJsonResponse('commandEdit')
+        );
 
         $request = new CommandEditRequest();
         $request->setBotId(1);
@@ -76,7 +86,8 @@ class CommandsTest extends TestCase
 
         $response = $client->commandEdit($request);
 
-        self::assertTrue($response->isSuccessful() == true);
+        self::assertTrue($response instanceof ErrorOnlyResponse);
+        self::assertTrue($response->isSuccessful());
     }
 
     /**
@@ -86,7 +97,12 @@ class CommandsTest extends TestCase
      */
     public function testCommandDelete()
     {
-        $client = self::getApiClient();
+        $client = self::getApiClient(
+            null,
+            null,
+            false,
+            $this->getJsonResponse('commandEdit')
+        );
 
         $response = $client->commandDelete("show_payment_types");
 

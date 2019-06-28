@@ -3,31 +3,32 @@
 /**
  * PHP version 7.0
  *
- * Delivery entity
+ * MessageDelivery entity
  *
- * @package  RetailCrm\Mg\Bot\Model\Entity
+ * @package  RetailCrm\Mg\Bot\Model\Entity\Message
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
 
-namespace RetailCrm\Mg\Bot\Model\Entity;
+namespace RetailCrm\Mg\Bot\Model\Entity\Message;
 
 use JMS\Serializer\Annotation\Accessor;
 use JMS\Serializer\Annotation\SkipWhenEmpty;
 use JMS\Serializer\Annotation\Type;
+use RetailCrm\Mg\Bot\Model\Entity\Message\MessageCost;
 
 /**
  * PHP version 7.0
  *
- * Delivery class
+ * MessageDelivery class
  *
- * @package  RetailCrm\Mg\Bot\Model\Entity
+ * @package  RetailCrm\Mg\Bot\Model\Entity\Message
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
-class Delivery
+class MessageDelivery
 {
     /**
      * @var string $name
@@ -40,7 +41,7 @@ class Delivery
     private $name;
 
     /**
-     * @var Cost $price
+     * @var MessageCost $price
      *
      * @Type("Cost")
      * @Accessor(getter="getPrice",setter="setPrice")
@@ -84,7 +85,7 @@ class Delivery
     }
 
     /**
-     * @return Cost
+     * @return MessageCost
      */
     public function getPrice()
     {
@@ -92,9 +93,9 @@ class Delivery
     }
 
     /**
-     * @param Cost $price
+     * @param MessageCost $price
      */
-    public function setPrice(Cost $price)
+    public function setPrice(MessageCost $price)
     {
         $this->price = $price;
     }

@@ -1,36 +1,36 @@
 <?php
 
 /**
- * PHP version 7.0
+ * PHP version 7.0.
  *
- * Order item entity
+ * MessageOrderItem entity
  *
- * @package  RetailCrm\Mg\Bot\Model\Entity
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
- * @link     http://help.retailcrm.pro/docs/Developers
+ *
+ * @see     http://help.retailcrm.pro/docs/Developers
  */
 
-namespace RetailCrm\Mg\Bot\Model\Entity;
+namespace RetailCrm\Mg\Bot\Model\Entity\Message;
 
 use JMS\Serializer\Annotation\Accessor;
 use JMS\Serializer\Annotation\SkipWhenEmpty;
 use JMS\Serializer\Annotation\Type;
 
 /**
- * PHP version 7.0
+ * PHP version 7.0.
  *
- * OrderItem class
+ * MessageOrderItem class
  *
- * @package  RetailCrm\Mg\Bot\Model\Entity
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
- * @link     http://help.retailcrm.pro/docs/Developers
+ *
+ * @see     http://help.retailcrm.pro/docs/Developers
  */
-class OrderItem
+class MessageOrderItem
 {
     /**
-     * @var string $name
+     * @var string
      *
      * @Type("string")
      * @Accessor(getter="getName",setter="setName")
@@ -39,7 +39,7 @@ class OrderItem
     private $name;
 
     /**
-     * @var string $url
+     * @var string
      *
      * @Type("string")
      * @Accessor(getter="getUrl",setter="setUrl")
@@ -48,7 +48,7 @@ class OrderItem
     private $url;
 
     /**
-     * @var string $img
+     * @var string
      *
      * @Type("string")
      * @Accessor(getter="getImg",setter="setImg")
@@ -57,18 +57,18 @@ class OrderItem
     private $img;
 
     /**
-     * @var Cost $price
+     * @var MessageCost
      *
-     * @Type("Cost")
+     * @Type("MessageCost")
      * @Accessor(getter="getPrice",setter="setPrice")
      * @SkipWhenEmpty()
      */
     private $price;
 
     /**
-     * @var Quantity $quantity
+     * @var MessageQuantity
      *
-     * @Type("Quantity")
+     * @Type("MessageQuantity")
      * @Accessor(getter="getQuantity",setter="setQuantity)
      * @SkipWhenEmpty()
      */
@@ -123,7 +123,7 @@ class OrderItem
     }
 
     /**
-     * @return Cost
+     * @return MessageCost
      */
     public function getPrice()
     {
@@ -131,15 +131,15 @@ class OrderItem
     }
 
     /**
-     * @param Cost $price
+     * @param MessageCost $price
      */
-    public function setPrice(Cost $price)
+    public function setPrice(MessageCost $price)
     {
         $this->price = $price;
     }
 
     /**
-     * @return Quantity
+     * @return MessageQuantity
      */
     public function getQuantity()
     {
@@ -147,9 +147,9 @@ class OrderItem
     }
 
     /**
-     * @param Quantity $quantity
+     * @param MessageQuantity $quantity
      */
-    public function setQuantity(Quantity $quantity)
+    public function setQuantity(MessageQuantity $quantity)
     {
         $this->quantity = $quantity;
     }

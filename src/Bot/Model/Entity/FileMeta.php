@@ -3,7 +3,7 @@
 /**
  * PHP version 7.0
  *
- * Payment status entity
+ * FileMeta entity
  *
  * @package  RetailCrm\Mg\Bot\Model\Entity
  * @author   retailCRM <integration@retailcrm.ru>
@@ -20,62 +20,62 @@ use JMS\Serializer\Annotation\Type;
 /**
  * PHP version 7.0
  *
- * PaymentStatus class
+ * FileMeta class
  *
  * @package  RetailCrm\Mg\Bot\Model\Entity
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
-class PaymentStatus
+class FileMeta
 {
     /**
-     * @var string $name
+     * @var int $height
      *
-     * @Type("string")
-     * @Accessor(getter="getName",setter="setName")
+     * @Type("int")
+     * @Accessor(getter="getHeight",setter="setHeight")
      * @SkipWhenEmpty()
      */
-    private $name;
+    private $height;
 
     /**
-     * @var bool $payed
+     * @var int $width
      *
-     * @Type("bool")
-     * @Accessor(getter="getPayed",setter="setPayed")
+     * @Type("int")
+     * @Accessor(getter="getWidth",setter="setWidth")
      * @SkipWhenEmpty()
      */
-    private $payed;
+    private $width;
 
     /**
-     * @return string
+     * @return int
      */
-    public function getName()
+    public function getHeight(): int
     {
-        return $this->name;
+        return $this->height;
     }
 
     /**
-     * @param string $name
+     * @param int $height
      */
-    public function setName(string $name)
+    public function setHeight(int $height)
     {
-        $this->name = $name;
+        $this->height = $height;
     }
 
     /**
-     * @return bool
+     * @return int
      */
-    public function isPayed()
+    public function getWidth(): int
     {
-        return $this->payed;
+        return $this->width;
     }
 
     /**
-     * @param bool $payed
+     * @param int $width
      */
-    public function setPayed(bool $payed)
+    public function setWidth(int $width)
     {
-        $this->payed = $payed;
+        $this->width = $width;
     }
 }

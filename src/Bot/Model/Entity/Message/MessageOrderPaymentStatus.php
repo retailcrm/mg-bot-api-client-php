@@ -3,15 +3,15 @@
 /**
  * PHP version 7.0
  *
- * Payment entity
+ * MessageOrderPaymentStatus entity
  *
- * @package  RetailCrm\Mg\Bot\Model\Entity
+ * @package  RetailCrm\Mg\Bot\Model\Entity\Message
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
 
-namespace RetailCrm\Mg\Bot\Model\Entity;
+namespace RetailCrm\Mg\Bot\Model\Entity\Message;
 
 use JMS\Serializer\Annotation\Accessor;
 use JMS\Serializer\Annotation\SkipWhenEmpty;
@@ -20,14 +20,14 @@ use JMS\Serializer\Annotation\Type;
 /**
  * PHP version 7.0
  *
- * Payment class
+ * MessageOrderPaymentStatus class
  *
- * @package  RetailCrm\Mg\Bot\Model\Entity
+ * @package  RetailCrm\Mg\Bot\Model\Entity\Message
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
-class Payment
+class MessageOrderPaymentStatus
 {
     /**
      * @var string $name
@@ -39,27 +39,18 @@ class Payment
     private $name;
 
     /**
-     * @var PaymentStatus $status
+     * @var bool $name
      *
-     * @Type("PaymentStatus")
-     * @Accessor(getter="getStatus",setter="setStatus")
+     * @Type("bool")
+     * @Accessor(getter="getPayed",setter="setPayed")
      * @SkipWhenEmpty()
      */
-    private $status;
-
-    /**
-     * @var Cost $amount
-     *
-     * @Type("Cost")
-     * @Accessor(getter="getAmount",setter="setAmount")
-     * @SkipWhenEmpty()
-     */
-    private $amount;
+    private $payed;
 
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -73,34 +64,18 @@ class Payment
     }
 
     /**
-     * @return PaymentStatus
+     * @return bool
      */
-    public function getStatus()
+    public function getPayed(): bool
     {
-        return $this->status;
+        return $this->payed;
     }
 
     /**
-     * @param PaymentStatus $status
+     * @param bool $payed
      */
-    public function setStatus(PaymentStatus $status)
+    public function setPayed(bool $payed)
     {
-        $this->status = $status;
-    }
-
-    /**
-     * @return Cost
-     */
-    public function getAmount()
-    {
-        return $this->amount;
-    }
-
-    /**
-     * @param Cost $amount
-     */
-    public function setAmount(Cost $amount)
-    {
-        $this->amount = $amount;
+        $this->payed = $payed;
     }
 }

@@ -13,6 +13,7 @@
 
 namespace RetailCrm\Mg\Bot\Model\Request;
 
+use JMS\Serializer\Annotation as Serializer;
 use JMS\Serializer\Annotation\Accessor;
 use JMS\Serializer\Annotation\SkipWhenEmpty;
 use JMS\Serializer\Annotation\Type;
@@ -35,8 +36,7 @@ class CommandEditRequest
      *
      * @Type("int")
      * @Accessor(getter="getBotId",setter="setBotId")
-     *
-     * @Assert\NotBlank
+     * @SkipWhenEmpty()
      */
     private $botId;
 
@@ -45,8 +45,7 @@ class CommandEditRequest
      *
      * @Type("string")
      * @Accessor(getter="getName",setter="setName")
-     *
-     * @Assert\NotBlank
+     * @SkipWhenEmpty()
      */
     private $name;
 

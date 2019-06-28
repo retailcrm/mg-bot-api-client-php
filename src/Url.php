@@ -25,15 +25,12 @@ namespace RetailCrm\Common;
  */
 class Url
 {
-    const RFC_DEFAULT = 1;
-    const RFC_CUSTOM  = 2;
-
-    private $parts = [];
-
-    public function __toString()
-    {
-        return $this->build();
-    }
+    /**
+     * This class is used to store normalizeUrl method
+     * which is used in Client and HttpClient to check
+     * trailing slash.
+     */
+    private function __construct() {}
 
     /**
      * Check trailing slash into url
@@ -52,75 +49,26 @@ class Url
     }
 
     /**
-     * Build request url
+     * Convert request data to GET parameters
      *
-     * @param string $path
-     * @param array  $parameters
-     * @param int    $rfc
+     * @param array $params
      *
      * @return string
      */
-    public function buildUrl($path, $parameters, $rfc = self::RFC_DEFAULT)
+    public static function buildGetParameters(array $params)
     {
-        $url = $path;
+        $result = '';
 
-        switch ($rfc) {
-            case self::RFC_CUSTOM:
-                foreach ($parameters as $key => $value) {
-                    if (is_array($value)) {
-                        foreach ($value as $element) {
-                            $this->add($key, $element);
-                        }
-                    } else {
-                        $this->add($key, $value);
-                    }
+        foreach ($params as $param => $value) {
+            if (!is_array($value)) {
+                $result .= '&' . $param . '=' . $value;
+            } else {
+                foreach ($value as $subvalue) {
+                    $result .= '&' . $param . '=' . $subvalue;
                 }
-
-                $url = sprintf("%s?%s", $url, $this->build());
-                break;
-            case self::RFC_DEFAULT:
-            default:
-                $queryString = http_build_query($parameters, '', '&');
-                $url = sprintf("%s?%s", $path, $queryString);
-                break;
+            }
         }
 
-        return $url;
-    }
-
-    /**
-     * Add each key valued element of parameters array
-     * to internal structure before build
-     *
-     * @param string $key
-     * @param mixed  $value
-     *
-     * @return void
-     */
-    private function add($key, $value)
-    {
-        $this->parts[] = array(
-            'key'   => $key,
-            'value' => $value
-        );
-    }
-
-    /**
-     * Build query string with same keys if needed
-     *
-     * @param string $separator
-     * @param string $equals
-     *
-     * @return string
-     */
-    private function build($separator = '&', $equals = '=')
-    {
-        $queryString = array();
-
-        foreach ($this->parts as $part) {
-            $queryString[] = urlencode($part['key']) . $equals . urlencode($part['value']);
-        }
-
-        return implode($separator, $queryString);
+        return strlen($result) > 0 ? '?' . substr($result, 1) : '';
     }
 }

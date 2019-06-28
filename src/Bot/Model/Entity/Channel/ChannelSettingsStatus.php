@@ -3,15 +3,15 @@
 /**
  * PHP version 7.0
  *
- * Item entity
+ * ChannelSettingsStatus entity
  *
- * @package  RetailCrm\Mg\Bot\Model\Entity
+ * @package  RetailCrm\Mg\Bot\Model\Entity\Channel
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
 
-namespace RetailCrm\Mg\Bot\Model\Entity;
+namespace RetailCrm\Mg\Bot\Model\Entity\Channel;
 
 use JMS\Serializer\Annotation\Accessor;
 use JMS\Serializer\Annotation\SkipWhenEmpty;
@@ -20,62 +20,62 @@ use JMS\Serializer\Annotation\Type;
 /**
  * PHP version 7.0
  *
- * Item class
+ * ChannelSettingsStatus class
  *
- * @package  RetailCrm\Mg\Bot\Model\Entity
+ * @package  RetailCrm\Mg\Bot\Model\Entity\Channel
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
-class Item
+class ChannelSettingsStatus
 {
     /**
-     * @var string $id
+     * @var string $delivered
      *
      * @Type("string")
-     * @Accessor(getter="getId",setter="setId")
+     * @Accessor(getter="getDelivered",setter="setDelivered")
      * @SkipWhenEmpty()
      */
-    private $id;
+    private $delivered;
 
     /**
-     * @var string $caption
+     * @var string $read
      *
      * @Type("string")
-     * @Accessor(getter="getCaption",setter="setCaption")
+     * @Accessor(getter="getRead",setter="setRead")
      * @SkipWhenEmpty()
      */
-    private $caption;
+    private $read;
 
     /**
      * @return string
      */
-    public function getId()
+    public function getDelivered(): string
     {
-        return $this->id;
+        return $this->delivered;
     }
 
     /**
-     * @param string $id
+     * @param string $delivered
      */
-    public function setId(string $id)
+    public function setDelivered(string $delivered)
     {
-        $this->id = $id;
+        $this->delivered = $delivered;
     }
 
     /**
      * @return string
      */
-    public function getCaption()
+    public function getRead(): string
     {
-        return $this->caption;
+        return $this->read;
     }
 
     /**
-     * @param string $caption
+     * @param string $read
      */
-    public function setCaption(string $caption)
+    public function setRead(string $read)
     {
-        $this->caption = $caption;
+        $this->read = $read;
     }
 }

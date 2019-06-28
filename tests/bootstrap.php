@@ -12,4 +12,9 @@ $loader->add('RetailCrm\\Mg\\Bot\\Test', __DIR__);
 use Symfony\Component\Dotenv\Dotenv;
 
 $dotenv = new Dotenv();
-$dotenv->load(__DIR__ . '/../.env');
+
+try {
+    $dotenv->load(__DIR__ . '/../.env');
+} catch (Exception $exception) {
+    echo "WARNING: Can't load .env file. Using default environment.";
+}

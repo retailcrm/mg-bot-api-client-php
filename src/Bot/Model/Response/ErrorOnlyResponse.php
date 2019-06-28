@@ -3,28 +3,27 @@
 /**
  * PHP version 7.0
  *
- * CurlException
+ * ErrorOnlyResponse
  *
- * @package  RetailCrm\Common\Exception
+ * @package  RetailCrm\Mg\Bot\Model\Response
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
 
-namespace RetailCrm\Common\Exception;
-
-use RuntimeException;
+namespace RetailCrm\Mg\Bot\Model\Response;
 
 /**
  * PHP version 7.0
  *
- * Class CurlException
+ * ErrorOnlyResponse class
  *
- * @package  RetailCrm\Common\Exception
+ * @package  RetailCrm\Mg\Bot\Model\Response
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
-class CurlException extends RuntimeException
+class ErrorOnlyResponse
 {
+    use CommonFields;
 }

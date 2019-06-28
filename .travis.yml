@@ -8,9 +8,10 @@ php:
     - '7.0'
     - '7.1'
     - '7.2'
+    - '7.3'
 
 before_script:
     - flags="-o"
     - composer install $flags
 
-script: make test
+script: make travis

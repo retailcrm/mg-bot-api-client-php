@@ -3,15 +3,15 @@
 /**
  * PHP version 7.0
  *
- * Product entity
+ * MessageProduct entity
  *
- * @package  RetailCrm\Mg\Bot\Model\Entity
+ * @package  RetailCrm\Mg\Bot\Model\Entity\Message
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
 
-namespace RetailCrm\Mg\Bot\Model\Entity;
+namespace RetailCrm\Mg\Bot\Model\Entity\Message;
 
 use JMS\Serializer\Annotation\Accessor;
 use JMS\Serializer\Annotation\SkipWhenEmpty;
@@ -20,14 +20,14 @@ use JMS\Serializer\Annotation\Type;
 /**
  * PHP version 7.0
  *
- * Product class
+ * MessageProduct class
  *
- * @package  RetailCrm\Mg\Bot\Model\Entity
+ * @package  RetailCrm\Mg\Bot\Model\Entity\Message
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
-class Product
+class MessageProduct
 {
     /**
      * @var int $id
@@ -75,7 +75,7 @@ class Product
     private $img;
 
     /**
-     * @var Cost $cost
+     * @var MessageCost $cost
      *
      * @Type("Cost")
      * @Accessor(getter="getCost",setter="setCost")
@@ -84,9 +84,9 @@ class Product
     private $cost;
 
     /**
-     * @var Quantity $quantity
+     * @var MessageQuantity $quantity
      *
-     * @Type("Quantity")
+     * @Type("MessageQuantity")
      * @Accessor(getter="getQuantity",setter="setQuantity)
      * @SkipWhenEmpty()
      */
@@ -111,7 +111,7 @@ class Product
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -127,7 +127,7 @@ class Product
     /**
      * @return string
      */
-    public function getArticle()
+    public function getArticle(): string
     {
         return $this->article;
     }
@@ -143,7 +143,7 @@ class Product
     /**
      * @return string
      */
-    public function getUrl()
+    public function getUrl(): string
     {
         return $this->url;
     }
@@ -159,7 +159,7 @@ class Product
     /**
      * @return string
      */
-    public function getImg()
+    public function getImg(): string
     {
         return $this->img;
     }
@@ -173,33 +173,33 @@ class Product
     }
 
     /**
-     * @return Cost
+     * @return MessageCost
      */
-    public function getCost()
+    public function getCost(): MessageCost
     {
         return $this->cost;
     }
 
     /**
-     * @param Cost $cost
+     * @param MessageCost $cost
      */
-    public function setCost(Cost $cost)
+    public function setCost(MessageCost $cost)
     {
         $this->cost = $cost;
     }
 
     /**
-     * @return Quantity
+     * @return MessageQuantity
      */
-    public function getQuantity()
+    public function getQuantity(): MessageQuantity
     {
         return $this->quantity;
     }
 
     /**
-     * @param Quantity $quantity
+     * @param MessageQuantity $quantity
      */
-    public function setQuantity(Quantity $quantity)
+    public function setQuantity(MessageQuantity $quantity)
     {
         $this->quantity = $quantity;
     }

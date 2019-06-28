@@ -3,15 +3,15 @@
 /**
  * PHP version 7.0
  *
- * Common fields
+ * ChatLastMessage entity
  *
- * @package  RetailCrm\Mg\Bot\Model\Request
+ * @package  RetailCrm\Mg\Bot\Model\Entity\Chat
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
 
-namespace RetailCrm\Mg\Bot\Model\Request;
+namespace RetailCrm\Mg\Bot\Model\Entity\Chat;
 
 use JMS\Serializer\Annotation\Accessor;
 use JMS\Serializer\Annotation\SkipWhenEmpty;
@@ -20,46 +20,46 @@ use JMS\Serializer\Annotation\Type;
 /**
  * PHP version 7.0
  *
- * CommonFields trait
+ * ChatLastMessage class
  *
- * @package  RetailCrm\Mg\Bot\Model\Request
+ * @package  RetailCrm\Mg\Bot\Model\Entity\Chat
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
-trait CommonFields
+class ChatLastMessage
 {
     /**
-     * @var int
+     * @var int $creating
      *
      * @Type("int")
      * @Accessor(getter="getId",setter="setId")
-     * @SkipWhenEmpty
+     * @SkipWhenEmpty()
      */
     private $id;
 
     /**
-     * @var \DateTime
+     * @var \DateTime $time
      *
      * @Type("DateTime<'Y-m-d\TH:i:s\.u\Z'>")
-     * @Accessor(getter="getSince",setter="setSince")
-     * @SkipWhenEmpty
+     * @Accessor(getter="getTime",setter="setTime")
+     * @SkipWhenEmpty()
      */
-    private $since;
+    private $time;
 
     /**
-     * @var \DateTime
+     * @var string $type
      *
-     * @Type("DateTime<'Y-m-d\TH:i:s\.u\Z'>")
-     * @Accessor(getter="getUntil",setter="setUntil")
-     * @SkipWhenEmpty
+     * @Type("string")
+     * @Accessor(getter="getType",setter="setType")
+     * @SkipWhenEmpty()
      */
-    private $until;
+    private $type;
 
     /**
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
@@ -67,7 +67,7 @@ trait CommonFields
     /**
      * @param int $id
      */
-    public function setId($id)
+    public function setId(int $id)
     {
         $this->id = $id;
     }
@@ -75,32 +75,32 @@ trait CommonFields
     /**
      * @return \DateTime
      */
-    public function getSince()
+    public function getTime(): \DateTime
     {
-        return $this->since;
+        return $this->time;
     }
 
     /**
-     * @param \DateTime $since
+     * @param \DateTime $time
      */
-    public function setSince(\DateTime $since)
+    public function setTime(\DateTime $time)
     {
-        $this->since = $since;
+        $this->time = $time;
     }
 
     /**
-     * @return \DateTime
+     * @return string
      */
-    public function getUntil()
+    public function getType(): string
     {
-        return $this->until;
+        return $this->type;
     }
 
     /**
-     * @param \DateTime $until
+     * @param string $type
      */
-    public function setUntil(\DateTime $until)
+    public function setType(string $type)
     {
-        $this->until = $until;
+        $this->type = $type;
     }
 }

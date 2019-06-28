@@ -3,15 +3,15 @@
 /**
  * PHP version 7.0
  *
- * Order entity
+ * MessageOrder entity
  *
- * @package  RetailCrm\Mg\Bot\Model\Entity
+ * @package  RetailCrm\Mg\Bot\Model\Entity\Message
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
 
-namespace RetailCrm\Mg\Bot\Model\Entity;
+namespace RetailCrm\Mg\Bot\Model\Entity\Message;
 
 use JMS\Serializer\Annotation\Accessor;
 use JMS\Serializer\Annotation\SkipWhenEmpty;
@@ -20,14 +20,14 @@ use JMS\Serializer\Annotation\Type;
 /**
  * PHP version 7.0
  *
- * Order class
+ * MessageOrder class
  *
- * @package  RetailCrm\Mg\Bot\Model\Entity
+ * @package  RetailCrm\Mg\Bot\Model\Entity\Message
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
-class Order
+class MessageOrder
 {
     /**
      * @var string $number
@@ -57,27 +57,27 @@ class Order
     private $date;
 
     /**
-     * @var Cost $cost
+     * @var MessageCost $cost
      *
-     * @Type("Cost")
+     * @Type("MessageCost")
      * @Accessor(getter="getCost",setter="setCost")
      * @SkipWhenEmpty()
      */
     private $cost;
 
     /**
-     * @var Status $status
+     * @var MessageStatus $status
      *
-     * @Type("Status")
+     * @Type("MessageStatus")
      * @Accessor(getter="getStatus",setter="setStatus")
      * @SkipWhenEmpty()
      */
     private $status;
 
     /**
-     * @var Delivery $delivery
+     * @var MessageDelivery $delivery
      *
-     * @Type("Delivery")
+     * @Type("MessageDelivery")
      * @Accessor(getter="getDelivery",setter="setDelivery")
      * @SkipWhenEmpty()
      */
@@ -150,7 +150,7 @@ class Order
     }
 
     /**
-     * @return Cost
+     * @return MessageCost
      */
     public function getCost()
     {
@@ -158,15 +158,15 @@ class Order
     }
 
     /**
-     * @param Cost $cost
+     * @param MessageCost $cost
      */
-    public function setCost(Cost $cost)
+    public function setCost(MessageCost $cost)
     {
         $this->cost = $cost;
     }
 
     /**
-     * @return Status
+     * @return MessageStatus
      */
     public function getStatus()
     {
@@ -174,15 +174,15 @@ class Order
     }
 
     /**
-     * @param Status $status
+     * @param MessageStatus $status
      */
-    public function setStatus(Status $status)
+    public function setStatus(MessageStatus $status)
     {
         $this->status = $status;
     }
 
     /**
-     * @return Delivery
+     * @return MessageDelivery
      */
     public function getDelivery()
     {
@@ -190,9 +190,9 @@ class Order
     }
 
     /**
-     * @param Delivery $delivery
+     * @param MessageDelivery $delivery
      */
-    public function setDelivery(Delivery $delivery)
+    public function setDelivery(MessageDelivery $delivery)
     {
         $this->delivery = $delivery;
     }

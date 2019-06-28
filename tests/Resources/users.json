@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "external_id": "11",
+    "username": "User 1",
+    "first_name": "User",
+    "created_at": "2018-10-02T10:10:10.066295Z",
+    "updated_at": "2019-06-17T07:40:26.613546Z",
+    "is_online": false,
+    "is_active": true,
+    "avatar_url": "<url>"
+  },
+  {
+    "id": 2,
+    "external_id": "22",
+    "username": "User 2",
+    "first_name": "User",
+    "created_at": "2018-09-06T13:19:25.01842Z",
+    "updated_at": "2019-06-07T11:36:52.342065Z",
+    "is_online": false,
+    "is_active": true
+  }
+]

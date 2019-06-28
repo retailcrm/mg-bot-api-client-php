@@ -3,15 +3,15 @@
 /**
  * PHP version 7.0
  *
- * Cost entity
+ * MessageQuantity entity
  *
- * @package  RetailCrm\Mg\Bot\Model\Entity
+ * @package  RetailCrm\Mg\Bot\Model\Entity\Message
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
 
-namespace RetailCrm\Mg\Bot\Model\Entity;
+namespace RetailCrm\Mg\Bot\Model\Entity\Message;
 
 use JMS\Serializer\Annotation\Accessor;
 use JMS\Serializer\Annotation\SkipWhenEmpty;
@@ -20,14 +20,14 @@ use JMS\Serializer\Annotation\Type;
 /**
  * PHP version 7.0
  *
- * Cost class
+ * MessageQuantity class
  *
- * @package  RetailCrm\Mg\Bot\Model\Entity
+ * @package  RetailCrm\Mg\Bot\Model\Entity\Message
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
-class Cost
+class MessageQuantity
 {
     /**
      * @var float $value
@@ -39,14 +39,14 @@ class Cost
     private $value;
 
     /**
-     * @var string $currency
+     * @var string $unit
      *
      * @Type("string")
-     * @Accessor(getter="getCurrency",setter="setCurrency")
+     * @Accessor(getter="getUnit",setter="setUnit")
      *
      * @Assert\Currency
      */
-    private $currency;
+    private $unit;
 
     /**
      * @return float
@@ -67,16 +67,16 @@ class Cost
     /**
      * @return string
      */
-    public function getCurrency()
+    public function getUnit()
     {
-        return $this->currency;
+        return $this->unit;
     }
 
     /**
-     * @param string $currency
+     * @param string $unit
      */
-    public function setCurrency(string $currency)
+    public function setUnit(string $unit)
     {
-        $this->currency = $currency;
+        $this->unit = $unit;
     }
 }
