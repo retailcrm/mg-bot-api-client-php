@@ -31,8 +31,8 @@ require 'path/to/vendor/autoload.php';
 
 ### Assign dialog
 ```php
-use \RetailCrm\Mg\Bot\Client;
-use \RetailCrm\Mg\Bot\Model\Request\DialogAssignRequest;
+use RetailCrm\Mg\Bot\Client;
+use RetailCrm\Mg\Bot\Model\Request\DialogAssignRequest;
 
 $client = new Client('https://mg.url.demo', 'T9DMPvuNt7FQJMszHUd', true);
 
