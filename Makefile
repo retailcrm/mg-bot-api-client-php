@@ -11,7 +11,7 @@ test:
 
 stan:
 	@echo "==> Running analysis"
-	@php $(BIN_DIR)/phpstan analyse -l 4 -c $(ROOT_DIR)/phpstan.neon $(SRC_DIR)
+	@php $(BIN_DIR)/phpstan analyse -c $(ROOT_DIR)/phpstan.neon
 	@echo "==> Analysis complete"
 
 travis: test stan
