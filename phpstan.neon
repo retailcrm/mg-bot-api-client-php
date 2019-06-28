@@ -1,3 +1,6 @@
 parameters:
     autoload_files:
         - %currentWorkingDirectory%/vendor/autoload.php
+    level: 4
+    paths:
+        - %currentWorkingDirectory%/src
