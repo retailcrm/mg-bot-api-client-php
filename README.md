@@ -42,9 +42,9 @@ try {
     $request->setUserId(4);
 
     $response = $client->dialogAssign($request);
-} catch (\RetailCrm\Exception\CurlException $exception) {
+} catch (\RetailCrm\Common\Exception\CurlException $exception) {
     echo $exception->getMessage();
-} catch (\RetailCrm\Exception\LimitException $exception) {
+} catch (\RetailCrm\Common\Exception\LimitException $exception) {
     echo $exception->getMessage();
 } catch (\InvalidArgumentException $exception) {
     echo $exception->getMessage();
@@ -59,5 +59,5 @@ if ($response->isSuccessful()) {
 
 ### Documentation
 
-* [English](http://www.retailcrm.pro/docs/Developers/Index)
-* [Russian](https://139810.selcdn.ru/download/doc/mg-bot-api/bot.v1.en.html)
+* [English](https://139810.selcdn.ru/download/doc/mg-bot-api/bot.v1.en.html)
+* [Russian](https://help.retailcrm.ru/Developers/MgBot)
