@@ -4,9 +4,9 @@
 [![PHP from Packagist](https://img.shields.io/packagist/php-v/retailcrm/mg-bot-api-client-php.svg?style=flat-square)](https://packagist.org/packages/retailcrm/mg-bot-api-client-php)
 
 
-# retailCRM API PHP client
+# Message Gateway Bot API PHP client
 
-This is php retailCRM MG Bot API client.
+This is php library for retailCRM MG Bot API.
 
 ## Requirements
 
@@ -32,6 +32,9 @@ require 'path/to/vendor/autoload.php';
 
 ### Assign dialog
 ```php
+<?php
+
+use RetailCrm\Common\Exception;
 use RetailCrm\Mg\Bot\Client;
 use RetailCrm\Mg\Bot\Model\Request\DialogAssignRequest;
 
@@ -42,20 +45,13 @@ try {
     $request->setDialogId(60);
     $request->setUserId(4);
 
+    /* @var \RetailCrm\Mg\Bot\Model\Response\AssignResponse $response */
     $response = $client->dialogAssign($request);
-} catch (\RetailCrm\Common\Exception\CurlException $exception) {
-    echo $exception->getMessage();
-} catch (\RetailCrm\Common\Exception\LimitException $exception) {
-    echo $exception->getMessage();
-} catch (\InvalidArgumentException $exception) {
-    echo $exception->getMessage();
-} catch (\Exception $exception) {
+} catch (Exception\LimitException | Exception\InvalidJsonException | Exception\UnauthorizedException $exception) {
     echo $exception->getMessage();
 }
 
-if ($response->isSuccessful()) {
-    $response->getPreviousResponsible();
-}
+echo $response->getPreviousResponsible();
 ```
 
 ### Documentation

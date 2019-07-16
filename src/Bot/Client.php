@@ -16,7 +16,7 @@ namespace RetailCrm\Mg\Bot;
 use Psr\Http\Message\ResponseInterface;
 use RetailCrm\Common\Url;
 use RetailCrm\Common\Serializer;
-use RetailCrm\Mg\Bot\Adapter\ModelAdapter;
+use RetailCrm\Mg\Bot\Model\ModelAdapter;
 use RetailCrm\Mg\Bot\Model\Entity\Bot;
 use RetailCrm\Mg\Bot\Model\Entity\Channel\Channel;
 use RetailCrm\Mg\Bot\Model\Entity\Chat\Chat;
@@ -58,7 +58,7 @@ class Client
      *
      * @param string                   $url     MG API URL
      * @param string                   $token   MG API Key
-     * @param bool                     $debug   Enable or disable debug mode - will log all requests to STDOUT (default: false)
+     * @param bool                     $debug   Enable or disable debug mode (default: false)
      * @param \GuzzleHttp\HandlerStack $handler GuzzleHttp::HandlerStack instance (default: null)
      */
     public function __construct($url, $token, $debug = false, $handler = null)
