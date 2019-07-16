@@ -20,7 +20,7 @@ This is php retailCRM MG Bot API client.
 
 2) Run into your project directory:
 ```bash
-composer require retailcrm/mg-bot-api-client-php ~1.0
+composer require retailcrm/mg-bot-api-client-php ~1.*
 ```
 
 If you have not used `composer` before, include autoloader into your project.
