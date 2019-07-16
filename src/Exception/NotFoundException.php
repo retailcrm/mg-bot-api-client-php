@@ -1,9 +1,8 @@
 <?php
-
 /**
  * PHP version 7.1
  *
- * CurlException
+ * NotFoundException
  *
  * @package RetailCrm\Common\Exception
  * @author  retailCRM <integration@retailcrm.ru>
@@ -13,17 +12,17 @@
 
 namespace RetailCrm\Common\Exception;
 
-use RuntimeException;
+use DomainException;
 use Throwable;
 
 /**
- * Class CurlException
+ * Class NotFoundException
  *
  * @package RetailCrm\Common\Exception
  * @author  retailCRM <integration@retailcrm.ru>
  * @license https://opensource.org/licenses/MIT MIT License
  * @link    http://help.retailcrm.pro/docs/Developers
  */
-class CurlException extends RuntimeException implements Throwable
+class NotFoundException extends DomainException implements Throwable
 {
 }

@@ -1,42 +1,47 @@
 <?php
 
 /**
- * PHP version 7.0
+ * PHP version 7.1
  *
  * Client
  *
- * @package  RetailCrm\Mg\Bot
- * @author   retailCRM <integration@retailcrm.ru>
- * @license  https://opensource.org/licenses/MIT MIT License
- * @link     http://help.retailcrm.pro/docs/Developers
+ * @package RetailCrm\Mg\Bot
+ * @author  retailCRM <integration@retailcrm.ru>
+ * @license https://opensource.org/licenses/MIT MIT License
+ * @link    http://help.retailcrm.pro/docs/Developers
  */
 
 namespace RetailCrm\Mg\Bot;
 
 use Psr\Http\Message\ResponseInterface;
-use RetailCrm\Common\Exception\InvalidJsonException;
 use RetailCrm\Common\Url;
 use RetailCrm\Common\Serializer;
-<<<<<<< HEAD
+use RetailCrm\Mg\Bot\Adapter\ModelAdapter;
+use RetailCrm\Mg\Bot\Model\Entity\Bot;
+use RetailCrm\Mg\Bot\Model\Entity\Channel\Channel;
+use RetailCrm\Mg\Bot\Model\Entity\Chat\Chat;
+use RetailCrm\Mg\Bot\Model\Entity\Chat\ChatMember;
+use RetailCrm\Mg\Bot\Model\Entity\Command;
+use RetailCrm\Mg\Bot\Model\Entity\Customer;
+use RetailCrm\Mg\Bot\Model\Entity\Dialog;
+use RetailCrm\Mg\Bot\Model\Entity\Message\Message;
+use RetailCrm\Mg\Bot\Model\Entity\User;
 use RetailCrm\Mg\Bot\Model\Request\UploadFileByUrlRequest;
+use RetailCrm\Mg\Bot\Model\Response\ErrorOnlyResponse;
 use RetailCrm\Mg\Bot\Model\Response\FullFileResponse;
-use RetailCrm\Mg\Bot\Model\Response\ListResponse;
+use RetailCrm\Mg\Bot\Model\Response\MessageSendResponse;
 use RetailCrm\Mg\Bot\Model\Response\UploadFileResponse;
-=======
 use RetailCrm\Mg\Bot\Model;
 use Exception;
 use InvalidArgumentException;
->>>>>>> 0e28925... add request model (except ws and files), move serializer & url handling into separate namespace
 
 /**
- * PHP version 7.0
+ * Class Client
  *
- * Client class
- *
- * @package  RetailCrm\Mg\Bot
- * @author   retailCRM <integration@retailcrm.ru>
- * @license  https://opensource.org/licenses/MIT MIT License
- * @link     http://help.retailcrm.pro/docs/Developers
+ * @package RetailCrm\Mg\Bot
+ * @author  retailCRM <integration@retailcrm.ru>
+ * @license https://opensource.org/licenses/MIT MIT License
+ * @link    http://help.retailcrm.pro/docs/Developers
  */
 class Client
 {
@@ -46,11 +51,6 @@ class Client
     const VERSION = 'v1';
 
     /**
-     * @internal
-     */
-    const ERROR_ONLY_RESPONSE = 'ErrorOnlyResponse';
-
-    /**
      * @var HttpClient
      */
     protected $client;
@@ -58,111 +58,15 @@ class Client
     /**
      * Init
      *
-     * @param string $url   MG API URL
-     * @param string $token MG API Key
-     * @param bool   $debug Enable or disable debug mode - will log all requests to STDOUT (default: false)
+     * @param string                   $url     MG API URL
+     * @param string                   $token   MG API Key
+     * @param bool                     $debug   Enable or disable debug mode - will log all requests to STDOUT (default: false)
      * @param \GuzzleHttp\HandlerStack $handler GuzzleHttp::HandlerStack instance (default: null)
      */
     public function __construct($url, $token, $debug = false, $handler = null)
     {
         $url = sprintf("%sapi/bot/%s", Url::normalizeUrl($url), self::VERSION);
-<<<<<<< HEAD
         $this->client = new HttpClient($url, $token, $debug ? STDOUT : null, $handler);
-=======
-        $this->client = new Request($url, $token, $debug);
->>>>>>> 0e28925... add request model (except ws and files), move serializer & url handling into separate namespace
-    }
-
-    /**
-     * @param string      $path
-     * @param string      $method
-     * @param object|null $request Request parameters
-     * @param string      $responseType
-     * @param bool        $arrayOfObjects
-     *
-     * @return object|null
-     * @throws \Exception
-     */
-    private function submitRequest(
-        $path,
-        $method,
-        $request,
-        $responseType,
-        $arrayOfObjects = false
-    ) {
-        $response = $this->client->makeRequest(
-            $path,
-            $method,
-            $request
-        );
-
-        $statusCode = $response->getStatusCode();
-        $data = json_decode((string) $response->getBody(), true);
-
-        if (json_last_error() == JSON_ERROR_NONE) {
-            if ($arrayOfObjects) {
-                return new ListResponse($responseType, $data, $statusCode);
-            } else {
-                $obj = Serializer::deserialize($data, $responseType, Serializer::S_ARRAY);
-
-                if ($statusCode >= 400
-                    && method_exists($obj, 'setErrors')
-                    && method_exists($obj, 'getErrors')
-                    && count(call_user_func([$obj, 'getErrors'])) == 0
-                ) {
-                    call_user_func_array([$obj, 'setErrors'], [['Status Code ' . $response->getStatusCode()]]);
-                }
-
-                if (method_exists($obj, 'setStatusCode')) {
-                    call_user_func_array([$obj, 'setStatusCode'], [$statusCode]);
-                }
-
-                return $obj;
-            }
-        } else {
-            throw new InvalidJsonException('Received invalid JSON', 1);
-        }
-    }
-
-    /**
-     * @param bool $fromRoot
-     * @param string ...$classes
-     *
-     * @return string
-     */
-    private static function concatClasspath($fromRoot, ...$classes)
-    {
-        $path = '';
-
-        foreach ($classes as $class) {
-            if (empty($path) && !$fromRoot) {
-                $path .= $class;
-            } else {
-                $path .= '\\' . $class;
-            }
-        }
-
-        return $path;
-    }
-
-    /**
-     * @param string ...$classes
-     *
-     * @return string
-     */
-    private static function getEntityClass(...$classes)
-    {
-        return static::concatClasspath(true, 'RetailCrm', 'Mg', 'Bot', 'Model', 'Entity', ...$classes);
-    }
-
-    /**
-     * @param string ...$classes
-     *
-     * @return string
-     */
-    private static function getResponseClass(...$classes)
-    {
-        return static::concatClasspath(true, 'RetailCrm', 'Mg', 'Bot', 'Model', 'Response', ...$classes);
     }
 
     /**
@@ -170,55 +74,41 @@ class Client
      *
      * @param Model\Request\BotsRequest $request Request parameters
      *
-     * @return \RetailCrm\Mg\Bot\Model\Response\ListResponse|object
+     * @return array
      * @throws \Exception
      */
-    public function bots(Model\Request\BotsRequest $request)
+    public function bots(Model\Request\BotsRequest $request): array
     {
-<<<<<<< HEAD
-        return $this->submitRequest(
+        $response = $this->client->makeRequest(
             '/bots',
             HttpClient::METHOD_GET,
-            $request,
-            static::getEntityClass('Bot'),
-            true
+            $request
         );
-=======
-        return $this->client->makeRequest('/bots', Request::METHOD_GET, $request, Serializer::S_ARRAY);
->>>>>>> 0e28925... add request model (except ws and files), move serializer & url handling into separate namespace
+
+        $adapter = new ModelAdapter(Bot::class);
+
+        return $adapter->getResponseList($response);
     }
 
     /**
      * Edit bot info
      *
-<<<<<<< HEAD
      * @param Model\Request\InfoRequest $request Request parameters
      *
-     * @return \RetailCrm\Mg\Bot\Model\Response\ErrorOnlyResponse|object
+     * @return \RetailCrm\Mg\Bot\Model\ModelInterface
      * @throws \Exception
      */
     public function info(Model\Request\InfoRequest $request)
     {
-        return $this->submitRequest(
+        $response = $this->client->makeRequest(
             '/my/info',
             HttpClient::METHOD_PATCH,
-            $request,
-            static::getResponseClass(self::ERROR_ONLY_RESPONSE)
+            $request
         );
-=======
-     * @param Model\Request\InfoRequest $request
-     *
-     * @throws InvalidArgumentException
-     * @throws CurlException
-     * @throws CurlException
-     * @throws Exception
-     *
-     * @return Response
-     */
-    public function info(Model\Request\InfoRequest $request)
-    {
-        return $this->client->makeRequest('/my/info', Request::METHOD_PATCH, $request);
->>>>>>> 0e28925... add request model (except ws and files), move serializer & url handling into separate namespace
+
+        $adapter = new ModelAdapter(ErrorOnlyResponse::class);
+
+        return $adapter->getResponseModel($response);
     }
 
     /**
@@ -226,22 +116,20 @@ class Client
      *
      * @param Model\Request\ChannelsRequest $request Request parameters
      *
-     * @return \RetailCrm\Mg\Bot\Model\Response\ListResponse|object
+     * @return array
      * @throws \Exception
      */
-    public function channels(Model\Request\ChannelsRequest $request)
+    public function channels(Model\Request\ChannelsRequest $request): array
     {
-<<<<<<< HEAD
-        return $this->submitRequest(
+        $response = $this->client->makeRequest(
             '/channels',
             HttpClient::METHOD_GET,
-            $request,
-            static::getEntityClass('Channel', 'Channel'),
-            true
+            $request
         );
-=======
-        return $this->client->makeRequest('/channels', Request::METHOD_GET, $request, Serializer::S_ARRAY);
->>>>>>> 0e28925... add request model (except ws and files), move serializer & url handling into separate namespace
+
+        $adapter = new ModelAdapter(Channel::class);
+
+        return $adapter->getResponseList($response);
     }
 
     /**
@@ -249,22 +137,20 @@ class Client
      *
      * @param Model\Request\ChatsRequest $request Request parameters
      *
-     * @return \RetailCrm\Mg\Bot\Model\Response\ListResponse|object
+     * @return array
      * @throws \Exception
      */
-    public function chats(Model\Request\ChatsRequest $request)
+    public function chats(Model\Request\ChatsRequest $request): array
     {
-<<<<<<< HEAD
-        return $this->submitRequest(
+        $response = $this->client->makeRequest(
             '/chats',
             HttpClient::METHOD_GET,
-            $request,
-            static::getEntityClass('Chat', 'Chat'),
-            true
+            $request
         );
-=======
-        return $this->client->makeRequest('/chats', Request::METHOD_GET, $request, Serializer::S_ARRAY);
->>>>>>> 0e28925... add request model (except ws and files), move serializer & url handling into separate namespace
+
+        $adapter = new ModelAdapter(Chat::class);
+
+        return $adapter->getResponseList($response);
     }
 
     /**
@@ -272,22 +158,20 @@ class Client
      *
      * @param Model\Request\CommandsRequest $request Request parameters
      *
-     * @return \RetailCrm\Mg\Bot\Model\Response\ListResponse|object
+     * @return array
      * @throws \Exception
      */
-    public function commands(Model\Request\CommandsRequest $request)
+    public function commands(Model\Request\CommandsRequest $request): array
     {
-<<<<<<< HEAD
-        return $this->submitRequest(
+        $response = $this->client->makeRequest(
             '/my/commands',
             HttpClient::METHOD_GET,
-            $request,
-            static::getEntityClass('Command'),
-            true
+            $request
         );
-=======
-        return $this->client->makeRequest('/my/commands', Request::METHOD_GET, $request, Serializer::S_ARRAY);
->>>>>>> 0e28925... add request model (except ws and files), move serializer & url handling into separate namespace
+
+        $adapter = new ModelAdapter(Command::class);
+
+        return $adapter->getResponseList($response);
     }
 
     /**
@@ -295,17 +179,20 @@ class Client
      *
      * @param Model\Request\CommandEditRequest $request Request parameters
      *
-     * @return \RetailCrm\Mg\Bot\Model\Response\ErrorOnlyResponse|object
+     * @return \RetailCrm\Mg\Bot\Model\ModelInterface
      * @throws \Exception
      */
     public function commandEdit(Model\Request\CommandEditRequest $request)
     {
-        return $this->submitRequest(
+        $response = $this->client->makeRequest(
             sprintf("/my/commands/%s", $request->getName()),
             HttpClient::METHOD_PUT,
-            $request,
-            static::getResponseClass(self::ERROR_ONLY_RESPONSE)
+            $request
         );
+
+        $adapter = new ModelAdapter(ErrorOnlyResponse::class);
+
+        return $adapter->getResponseModel($response);
     }
 
     /**
@@ -313,21 +200,19 @@ class Client
      *
      * @param string $request Request parameters
      *
-     * @return \RetailCrm\Mg\Bot\Model\Response\ErrorOnlyResponse|object
+     * @return \RetailCrm\Mg\Bot\Model\ModelInterface
      * @throws \Exception
      */
     public function commandDelete(string $request)
     {
-<<<<<<< HEAD
-        return $this->submitRequest(
+        $response = $this->client->makeRequest(
             sprintf("/my/commands/%s", $request),
-            HttpClient::METHOD_DELETE,
-            null,
-            static::getResponseClass(self::ERROR_ONLY_RESPONSE)
+            HttpClient::METHOD_DELETE
         );
-=======
-        return $this->client->makeRequest(sprintf("/my/commands/%s", $request), Request::METHOD_DELETE);
->>>>>>> 0e28925... add request model (except ws and files), move serializer & url handling into separate namespace
+
+        $adapter = new ModelAdapter(ErrorOnlyResponse::class);
+
+        return $adapter->getResponseModel($response);
     }
 
     /**
@@ -335,22 +220,20 @@ class Client
      *
      * @param Model\Request\CustomersRequest $request Request parameters
      *
-     * @return \RetailCrm\Mg\Bot\Model\Response\ListResponse|object
+     * @return array
      * @throws \Exception
      */
-    public function customers(Model\Request\CustomersRequest $request)
+    public function customers(Model\Request\CustomersRequest $request): array
     {
-<<<<<<< HEAD
-        return $this->submitRequest(
+        $response = $this->client->makeRequest(
             '/customers',
             HttpClient::METHOD_GET,
-            $request,
-            static::getEntityClass('Customer'),
-            true
+            $request
         );
-=======
-        return $this->client->makeRequest('/customers', Request::METHOD_GET, $request, Serializer::S_ARRAY);
->>>>>>> 0e28925... add request model (except ws and files), move serializer & url handling into separate namespace
+
+        $adapter = new ModelAdapter(Customer::class);
+
+        return $adapter->getResponseList($response);
     }
 
     /**
@@ -358,20 +241,11 @@ class Client
      *
      * @param Model\Request\DialogsRequest $request Request parameters
      *
-     * @return \RetailCrm\Mg\Bot\Model\Response\ListResponse|object
+     * @return array
      * @throws \Exception
      */
-    public function dialogs(Model\Request\DialogsRequest $request)
+    public function dialogs(Model\Request\DialogsRequest $request): array
     {
-<<<<<<< HEAD
-        return $this->submitRequest(
-            '/dialogs',
-            HttpClient::METHOD_GET,
-            $request,
-            static::getEntityClass('Dialog'),
-            true
-        );
-=======
         return $this->client->makeRequest('/dialogs', Request::METHOD_GET, $request, Serializer::S_ARRAY);
     }
 
@@ -411,7 +285,6 @@ class Client
     public function dialogClose(string $request)
     {
         return $this->client->makeRequest(sprintf("/dialogs/%d/close", $request), Request::METHOD_DELETE);
->>>>>>> 0e28925... add request model (except ws and files), move serializer & url handling into separate namespace
     }
 
     /**
@@ -419,17 +292,20 @@ class Client
      *
      * @param Model\Request\DialogAssignRequest $request Request parameters
      *
-     * @return \RetailCrm\Mg\Bot\Model\Response\AssignResponse|object
+     * @return \RetailCrm\Mg\Bot\Model\ModelInterface
      * @throws \Exception
      */
     public function dialogAssign(Model\Request\DialogAssignRequest $request)
     {
-        return $this->submitRequest(
+        $response = $this->client->makeRequest(
             sprintf("/dialogs/%d/assign", $request->getDialogId()),
             HttpClient::METHOD_PATCH,
-            $request,
-            static::getResponseClass('AssignResponse')
+            $request
         );
+
+        $adapter = new ModelAdapter(ErrorOnlyResponse::class);
+
+        return $adapter->getResponseModel($response);
     }
 
     /**
@@ -437,17 +313,20 @@ class Client
      *
      * @param string $request Request parameters
      *
-     * @return \RetailCrm\Mg\Bot\Model\Response\ErrorOnlyResponse|object
+     * @return \RetailCrm\Mg\Bot\Model\ModelInterface
      * @throws \Exception
      */
     public function dialogClose(string $request)
     {
-        return $this->submitRequest(
+        $response = $this->client->makeRequest(
             sprintf("/dialogs/%d/close", $request),
             HttpClient::METHOD_DELETE,
-            null,
-            static::getResponseClass(self::ERROR_ONLY_RESPONSE)
+            null
         );
+
+        $adapter = new ModelAdapter(ErrorOnlyResponse::class);
+
+        return $adapter->getResponseModel($response);
     }
 
     /**
@@ -455,22 +334,20 @@ class Client
      *
      * @param Model\Request\MembersRequest $request Request parameters
      *
-     * @return \RetailCrm\Mg\Bot\Model\Response\ListResponse|object
+     * @return array
      * @throws \Exception
      */
-    public function members(Model\Request\MembersRequest $request)
+    public function members(Model\Request\MembersRequest $request): array
     {
-<<<<<<< HEAD
-        return $this->submitRequest(
+        $response = $this->client->makeRequest(
             '/members',
             HttpClient::METHOD_GET,
-            $request,
-            static::getEntityClass('Chat', 'ChatMember'),
-            true
+            $request
         );
-=======
-        return $this->client->makeRequest('/members', Request::METHOD_GET, $request, Serializer::S_ARRAY);
->>>>>>> 0e28925... add request model (except ws and files), move serializer & url handling into separate namespace
+
+        $adapter = new ModelAdapter(ChatMember::class);
+
+        return $adapter->getResponseList($response);
     }
 
     /**
@@ -478,20 +355,11 @@ class Client
      *
      * @param Model\Request\MessagesRequest $request Request parameters
      *
-     * @return \RetailCrm\Mg\Bot\Model\Response\ListResponse|object
+     * @return array
      * @throws \Exception
      */
-    public function messages(Model\Request\MessagesRequest $request)
+    public function messages(Model\Request\MessagesRequest $request): array
     {
-<<<<<<< HEAD
-        return $this->submitRequest(
-            '/messages',
-            HttpClient::METHOD_GET,
-            $request,
-            self::getEntityClass('Message', 'Message'),
-            true
-        );
-=======
         return $this->client->makeRequest('/messages', Request::METHOD_GET, $request, Serializer::S_ARRAY);
     }
 
@@ -544,7 +412,6 @@ class Client
     public function messageDelete(string $request)
     {
         return $this->client->makeRequest(sprintf("/messages/%d", $request), Request::METHOD_DELETE);
->>>>>>> 0e28925... add request model (except ws and files), move serializer & url handling into separate namespace
     }
 
     /**
@@ -552,17 +419,20 @@ class Client
      *
      * @param Model\Request\MessageSendRequest $request Request parameters
      *
-     * @return \RetailCrm\Mg\Bot\Model\Response\MessageSendResponse|object
+     * @return \RetailCrm\Mg\Bot\Model\ModelInterface
      * @throws \Exception
      */
     public function messageSend(Model\Request\MessageSendRequest $request)
     {
-        return $this->submitRequest(
+        $response = $this->client->makeRequest(
             '/messages',
             HttpClient::METHOD_POST,
-            $request,
-            static::getResponseClass('MessageSendResponse')
+            $request
         );
+
+        $adapter = new ModelAdapter(MessageSendResponse::class);
+
+        return $adapter->getResponseModel($response);
     }
 
     /**
@@ -570,17 +440,20 @@ class Client
      *
      * @param Model\Request\MessageEditRequest $request Request parameters
      *
-     * @return \RetailCrm\Mg\Bot\Model\Response\MessageSendResponse|object
+     * @return \RetailCrm\Mg\Bot\Model\ModelInterface
      * @throws \Exception
      */
     public function messageEdit(Model\Request\MessageEditRequest $request)
     {
-        return $this->submitRequest(
+        $response = $this->client->makeRequest(
             sprintf("/messages/%d", $request->getId()),
             HttpClient::METHOD_PATCH,
-            $request,
-            static::getResponseClass('MessageSendResponse')
+            $request
         );
+
+        $adapter = new ModelAdapter(MessageSendResponse::class);
+
+        return $adapter->getResponseModel($response);
     }
 
     /**
@@ -588,17 +461,20 @@ class Client
      *
      * @param string $request Request parameters
      *
-     * @return \RetailCrm\Mg\Bot\Model\Response\ErrorOnlyResponse|object
+     * @return \RetailCrm\Mg\Bot\Model\ModelInterface
      * @throws \Exception
      */
     public function messageDelete(string $request)
     {
-        return $this->submitRequest(
+        $response = $this->client->makeRequest(
             sprintf("/messages/%d", $request),
             HttpClient::METHOD_DELETE,
-            null,
-            static::getResponseClass(self::ERROR_ONLY_RESPONSE)
+            null
         );
+
+        $adapter = new ModelAdapter(ErrorOnlyResponse::class);
+
+        return $adapter->getResponseModel($response);
     }
 
     /**
@@ -606,19 +482,20 @@ class Client
      *
      * @param Model\Request\UsersRequest $request Request parameters
      *
-     * @return \RetailCrm\Mg\Bot\Model\Response\ListResponse|object
+     * @return array
      * @throws \Exception
      */
-    public function users(Model\Request\UsersRequest $request)
+    public function users(Model\Request\UsersRequest $request): array
     {
-<<<<<<< HEAD
-        return $this->submitRequest(
+        $response = $this->client->makeRequest(
             '/users',
             HttpClient::METHOD_GET,
-            $request,
-            self::getEntityClass('User'),
-            true
+            $request
         );
+
+        $adapter = new ModelAdapter(User::class);
+
+        return $adapter->getResponseList($response);
     }
 
     /**
@@ -626,7 +503,7 @@ class Client
      *
      * @param string $url File URL
      *
-     * @return \RetailCrm\Mg\Bot\Model\Response\UploadFileResponse|object
+     * @return \RetailCrm\Mg\Bot\Model\ModelInterface
      * @throws \Exception
      */
     public function uploadFileByUrl(string $url)
@@ -634,54 +511,54 @@ class Client
         $request = new UploadFileByUrlRequest();
         $request->setUrl($url);
 
-        return $this->submitRequest(
+        $response = $this->client->makeRequest(
             '/files/upload_by_url',
             HttpClient::METHOD_POST,
-            $request,
-            self::getResponseClass('UploadFileResponse')
+            $request
         );
+
+        $adapter = new ModelAdapter(UploadFileResponse::class);
+
+        return $adapter->getResponseModel($response);
     }
 
     /**
      * @param string $filename
-     * @return Model\Response\UploadFileResponse|null
+     * @return \RetailCrm\Mg\Bot\Model\ModelInterface
      *
      * @throws \Exception
      */
     public function uploadFile(string $filename)
     {
+        $obj = new ErrorOnlyResponse();
         $response = $this->client->postFile($filename);
 
         if ($response instanceof ResponseInterface) {
             $obj = Serializer::deserialize(
                 (string) $response->getBody(),
-                self::getResponseClass('UploadFileResponse')
+                UploadFileResponse::class
             );
-
-            return $obj instanceof UploadFileResponse ? $obj : null;
         }
 
-        return null;
+        return $obj;
     }
 
     /**
      * @param string $fileId
-     * @return Model\Response\FullFileResponse|null
+     * @return \RetailCrm\Mg\Bot\Model\ModelInterface
      *
      * @throws \Exception
      */
     public function getFileById(string $fileId)
     {
-        $obj = $this->submitRequest(
-            \sprintf('/files/%s', $fileId),
+        $response = $this->client->makeRequest(
+            sprintf('/files/%s', $fileId),
             HttpClient::METHOD_GET,
-            null,
-            self::getResponseClass('FullFileResponse')
+            null
         );
 
-        return ($obj instanceof FullFileResponse) ? $obj : null;
-=======
-        return $this->client->makeRequest('/users', Request::METHOD_GET, $request, Serializer::S_ARRAY);
->>>>>>> 0e28925... add request model (except ws and files), move serializer & url handling into separate namespace
+        $adapter = new ModelAdapter(FullFileResponse::class);
+
+        return $adapter->getResponseModel($response);
     }
 }

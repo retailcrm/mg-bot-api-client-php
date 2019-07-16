@@ -1,9 +1,9 @@
 <?php
 
 /**
- * PHP version 7.0
+ * PHP version 7.1
  *
- * CurlException
+ * LimitException
  *
  * @package  RetailCrm\Common\Exception
  * @author   retailCRM <integration@retailcrm.ru>
@@ -14,6 +14,7 @@
 namespace RetailCrm\Common\Exception;
 
 use DomainException;
+use Throwable;
 
 /**
  * PHP version 7.0
@@ -25,6 +26,6 @@ use DomainException;
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
-class LimitException extends DomainException
+class LimitException extends DomainException implements Throwable
 {
 }

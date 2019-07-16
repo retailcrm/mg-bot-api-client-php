@@ -171,7 +171,11 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
+<<<<<<< HEAD
                     "dev-master": "1.0.x-dev"
+=======
+                    "dev-master": "1.2.x-dev"
+>>>>>>> af44f8a... update models, update tests, update travis
                 }
             },
             "autoload": {
@@ -191,12 +195,20 @@
                 }
             ],
             "description": "A small, lightweight utility to instantiate objects in PHP without invoking their constructors",
+<<<<<<< HEAD
             "homepage": "https://github.com/doctrine/instantiator",
+=======
+            "homepage": "https://www.doctrine-project.org/projects/instantiator.html",
+>>>>>>> af44f8a... update models, update tests, update travis
             "keywords": [
                 "constructor",
                 "instantiate"
             ],
+<<<<<<< HEAD
             "time": "2015-06-14T21:17:01+00:00"
+=======
+            "time": "2019-03-17T17:37:11+00:00"
+>>>>>>> af44f8a... update models, update tests, update travis
         },
         {
             "name": "doctrine/lexer",

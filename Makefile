@@ -1,6 +1,6 @@
 ROOT_DIR=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 SRC_DIR=$(ROOT_DIR)/src
-BIN_DIR=$(ROOT_DIR)/bin
+BIN_DIR=$(ROOT_DIR)/vendor/bin
 
 test:
 	@echo "==> Running tests"

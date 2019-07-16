@@ -1,14 +1,14 @@
 <?php
 
 /**
- * PHP version 7.0
+ * PHP version 7.1
  *
  * Serializer
  *
- * @package  RetailCrm\Common
- * @author   retailCRM <integration@retailcrm.ru>
- * @license  https://opensource.org/licenses/MIT MIT License
- * @link     http://help.retailcrm.pro/docs/Developers
+ * @package RetailCrm\Common
+ * @author  retailCRM <integration@retailcrm.ru>
+ * @license https://opensource.org/licenses/MIT MIT License
+ * @link    http://help.retailcrm.pro/docs/Developers
  */
 
 namespace RetailCrm\Common;
@@ -16,16 +16,16 @@ namespace RetailCrm\Common;
 use JMS\Serializer\DeserializationContext;
 use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
+use RetailCrm\Mg\Bot\Model\ModelInterface;
+use RetailCrm\Mg\Bot\Model\Response\ErrorOnlyResponse;
 
 /**
- * PHP version 7.0
+ * Class Serializer
  *
- * Serializer class
- *
- * @package  RetailCrm\Common
- * @author   retailCRM <integration@retailcrm.ru>
- * @license  https://opensource.org/licenses/MIT MIT License
- * @link     http://help.retailcrm.pro/docs/Developers
+ * @package RetailCrm\Common
+ * @author  retailCRM <integration@retailcrm.ru>
+ * @license https://opensource.org/licenses/MIT MIT License
+ * @link    http://help.retailcrm.pro/docs/Developers
  */
 class Serializer
 {
@@ -62,11 +62,11 @@ class Serializer
     /**
      * Deserialize given array or JSON to object
      *
-     * @param mixed $data
+     * @param mixed  $data
      * @param string $entityType
      * @param string $from
      *
-     * @return object|null
+     * @return \RetailCrm\Mg\Bot\Model\ModelInterface
      */
     public static function deserialize($data, $entityType, $from = self::S_JSON)
     {
@@ -76,16 +76,16 @@ class Serializer
 
         switch ($from) {
             case self::S_ARRAY:
-                $deserialized =
-                    $serializer->fromArray(array_filter($data), self::normalizeNamespace($entityType), $context);
+                $deserialized = $serializer
+                    ->fromArray(array_filter($data), self::normalizeNamespace($entityType), $context);
                 break;
             case self::S_JSON:
-                $deserialized =
-                    $serializer->deserialize($data, self::normalizeNamespace($entityType), $from, $context);
+                $deserialized = $serializer
+                    ->deserialize($data, self::normalizeNamespace($entityType), $from, $context);
                 break;
         }
 
-        return is_object($deserialized) ? $deserialized : null;
+        return $deserialized instanceof ModelInterface ? $deserialized : new ErrorOnlyResponse();
     }
 
     /**

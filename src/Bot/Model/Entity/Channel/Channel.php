@@ -1,33 +1,32 @@
 <?php
 
 /**
- * PHP version 7.0
+ * PHP version 7.1
  *
  * Channel entity
  *
- * @package  RetailCrm\Mg\Bot\Model\Entity\Channel
- * @author   retailCRM <integration@retailcrm.ru>
- * @license  https://opensource.org/licenses/MIT MIT License
- * @link     http://help.retailcrm.pro/docs/Developers
+ * @package RetailCrm\Mg\Bot\Model\Entity\Channel
+ * @author  retailCRM <integration@retailcrm.ru>
+ * @license https://opensource.org/licenses/MIT MIT License
+ * @link    http://help.retailcrm.pro/docs/Developers
  */
 
 namespace RetailCrm\Mg\Bot\Model\Entity\Channel;
 
-use JMS\Serializer\Annotation\SkipWhenEmpty;
+use DateTime;
 use JMS\Serializer\Annotation\Accessor;
 use JMS\Serializer\Annotation\Type;
+use RetailCrm\Mg\Bot\Model\ModelInterface;
 
 /**
- * PHP version 7.0
+ * Class Channel
  *
- * Channel class
- *
- * @package  RetailCrm\Mg\Bot\Model\Entity\Channel
- * @author   retailCRM <integration@retailcrm.ru>
- * @license  https://opensource.org/licenses/MIT MIT License
- * @link     http://help.retailcrm.pro/docs/Developers
+ * @package RetailCrm\Mg\Bot\Model\Entity\Channel
+ * @author  retailCRM <integration@retailcrm.ru>
+ * @license https://opensource.org/licenses/MIT MIT License
+ * @link    http://help.retailcrm.pro/docs/Developers
  */
-class Channel
+class Channel implements ModelInterface
 {
     /**
      * @var string $id
@@ -120,7 +119,7 @@ class Channel
     /**
      * @return \DateTime
      */
-    public function getCreatedAt(): \DateTime
+    public function getCreatedAt(): DateTime
     {
         return $this->createdAt;
     }
@@ -128,7 +127,7 @@ class Channel
     /**
      * @param \DateTime $createdAt
      */
-    public function setCreatedAt(\DateTime $createdAt)
+    public function setCreatedAt(DateTime $createdAt)
     {
         $this->createdAt = $createdAt;
     }
@@ -136,7 +135,7 @@ class Channel
     /**
      * @return \DateTime
      */
-    public function getUpdatedAt(): \DateTime
+    public function getUpdatedAt(): DateTime
     {
         return $this->updatedAt;
     }
@@ -144,7 +143,7 @@ class Channel
     /**
      * @param \DateTime $updatedAt
      */
-    public function setUpdatedAt(\DateTime $updatedAt)
+    public function setUpdatedAt(DateTime $updatedAt)
     {
         $this->updatedAt = $updatedAt;
     }
@@ -152,7 +151,7 @@ class Channel
     /**
      * @return \DateTime
      */
-    public function getActivatedAt(): \DateTime
+    public function getActivatedAt(): DateTime
     {
         return $this->activatedAt;
     }
@@ -160,7 +159,7 @@ class Channel
     /**
      * @param \DateTime $activatedAt
      */
-    public function setActivatedAt(\DateTime $activatedAt)
+    public function setActivatedAt(DateTime $activatedAt)
     {
         $this->activatedAt = $activatedAt;
     }
@@ -168,7 +167,7 @@ class Channel
     /**
      * @return \DateTime
      */
-    public function getDeactivatedAt(): \DateTime
+    public function getDeactivatedAt(): DateTime
     {
         return $this->deactivatedAt;
     }
@@ -176,7 +175,7 @@ class Channel
     /**
      * @param \DateTime $deactivatedAt
      */
-    public function setDeactivatedAt(\DateTime $deactivatedAt)
+    public function setDeactivatedAt(DateTime $deactivatedAt)
     {
         $this->deactivatedAt = $deactivatedAt;
     }

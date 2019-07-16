@@ -1,7 +1,7 @@
 <?php
 
 /**
- * PHP version 5.4
+ * PHP version 7.1
  *
  * Test case class
  *
@@ -19,7 +19,6 @@ use RetailCrm\Mg\Bot\Client;
 /**
  * Class TestCase
  *
- * @category RetailCrm
  * @package  Test
  * @author   RetailCrm <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License

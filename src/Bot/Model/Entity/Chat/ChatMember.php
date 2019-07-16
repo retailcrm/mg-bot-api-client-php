@@ -1,7 +1,7 @@
 <?php
 
 /**
- * PHP version 7.0
+ * PHP version 7.1
  *
  * ChatMember entity
  *
@@ -16,10 +16,9 @@ namespace RetailCrm\Mg\Bot\Model\Entity\Chat;
 use JMS\Serializer\Annotation\Accessor;
 use JMS\Serializer\Annotation\SkipWhenEmpty;
 use JMS\Serializer\Annotation\Type;
+use RetailCrm\Mg\Bot\Model\ModelInterface;
 
 /**
- * PHP version 7.0
- *
  * ChatMember class
  *
  * @package  RetailCrm\Mg\Bot\Model\Entity\Chat
@@ -27,7 +26,7 @@ use JMS\Serializer\Annotation\Type;
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
-class ChatMember
+class ChatMember implements ModelInterface
 {
     /**
      * @var string $id
