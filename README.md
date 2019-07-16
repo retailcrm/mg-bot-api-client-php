@@ -1,13 +1,8 @@
-<<<<<<< HEAD
 [![Build Status](https://img.shields.io/travis/retailcrm/mg-bot-api-client-php/master.svg?style=flat-square)](https://travis-ci.org/retailcrm/mg-bot-api-client-php)
+[![Covarage](https://img.shields.io/codecov/c/gh/retailcrm/mg-bot-api-client-php/master.svg?style=flat-square)](https://codecov.io/gh/retailcrm/mg-bot-api-client-php)
 [![Latest stable](https://img.shields.io/packagist/v/retailcrm/mg-bot-api-client-php.svg?style=flat-square)](https://packagist.org/packages/retailcrm/mg-bot-api-client-php)
-[![PHP from Packagist](https://img.shields.io/packagist/php-v/mg-bot-retailcrm/api-client-php.svg?style=flat-square)](https://packagist.org/packages/retailcrm/mg-bot-api-client-php)
-=======
-[![Build Status](https://img.shields.io/travis/retailcrm/mg-bot-api-client-php /master.svg?style=flat-square)](https://travis-ci.org/retailcrm/mg-bot-api-client-php )
-[![Covarage](https://img.shields.io/codecov/c/gh/retailcrm/mg-bot-api-client-php /master.svg?style=flat-square)](https://codecov.io/gh/retailcrm/mg-bot-api-client-php )
-[![Latest stable](https://img.shields.io/packagist/v/retailcrm/mg-bot-api-client-php .svg?style=flat-square)](https://packagist.org/packages/retailcrm/mg-bot-api-client-php )
-[![PHP from Packagist](https://img.shields.io/packagist/php-v/retailcrm/mg-bot-api-client-php .svg?style=flat-square)](https://packagist.org/packages/retailcrm/mg-bot-api-client-php )
->>>>>>> af44f8a... update models, update tests, update travis
+[![PHP from Packagist](https://img.shields.io/packagist/php-v/retailcrm/mg-bot-api-client-php.svg?style=flat-square)](https://packagist.org/packages/retailcrm/mg-bot-api-client-php)
+
 
 
 # retailCRM API PHP client
