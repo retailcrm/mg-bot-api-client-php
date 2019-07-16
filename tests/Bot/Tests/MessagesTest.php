@@ -36,6 +36,7 @@ class MessagesTest extends TestCase
      */
     public function testMessageSendError()
     {
+        $this->expectException(\RuntimeException::class);
         $client = self::getApiClient(
             null,
             null,
@@ -51,10 +52,7 @@ class MessagesTest extends TestCase
         $request->setScope(Constants::MESSAGE_SCOPE_PUBLIC);
         $request->setContent("Hello");
 
-        $response = $client->messageSend($request);
-
-        self::assertTrue(!$response->isSuccessful());
-        self::assertEquals(1, count($response->getErrors()));
+        $client->messageSend($request);
     }
 
     /**
@@ -91,6 +89,7 @@ class MessagesTest extends TestCase
      */
     public function testMessageEditError()
     {
+        $this->expectException(\RuntimeException::class);
         $client = self::getApiClient(
             null,
             null,
@@ -105,10 +104,7 @@ class MessagesTest extends TestCase
         $request->setId(0);
         $request->setContent("Hello");
 
-        $response = $client->messageEdit($request);
-
-        self::assertTrue(!$response->isSuccessful());
-        self::assertEquals(1, count($response->getErrors()));
+        $client->messageEdit($request);
     }
 
     /**
@@ -140,6 +136,7 @@ class MessagesTest extends TestCase
      */
     public function testMessageDeleteError()
     {
+        $this->expectException(\RuntimeException::class);
         $client = self::getApiClient(
             null,
             null,
@@ -150,10 +147,7 @@ class MessagesTest extends TestCase
             )
         );
 
-        $response = $client->messageDelete('0');
-
-        self::assertTrue(!$response->isSuccessful());
-        self::assertEquals(1, count($response->getErrors()));
+        $client->messageDelete('0');
     }
 
     /**
