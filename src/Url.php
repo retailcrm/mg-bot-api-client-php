@@ -24,16 +24,6 @@ namespace RetailCrm\Common;
 class Url
 {
     /**
-<<<<<<< HEAD
-     * This class is used to store normalizeUrl method
-     * which is used in Client and HttpClient to check
-     * trailing slash.
-     */
-    private function __construct() {}
-
-    /**
-=======
->>>>>>> af44f8a... update models, update tests, update travis
      * Check trailing slash into url
      *
      * @param string $url

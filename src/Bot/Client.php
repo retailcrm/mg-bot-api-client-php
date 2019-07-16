@@ -31,9 +31,6 @@ use RetailCrm\Mg\Bot\Model\Response\ErrorOnlyResponse;
 use RetailCrm\Mg\Bot\Model\Response\FullFileResponse;
 use RetailCrm\Mg\Bot\Model\Response\MessageSendResponse;
 use RetailCrm\Mg\Bot\Model\Response\UploadFileResponse;
-use RetailCrm\Mg\Bot\Model;
-use Exception;
-use InvalidArgumentException;
 
 /**
  * Class Client
@@ -246,45 +243,15 @@ class Client
      */
     public function dialogs(Model\Request\DialogsRequest $request): array
     {
-        return $this->client->makeRequest('/dialogs', Request::METHOD_GET, $request, Serializer::S_ARRAY);
-    }
-
-    /**
-     * Assign dialog to exact user
-     *
-     * @param Model\Request\DialogAssignRequest $request
-     *
-     * @throws InvalidArgumentException
-     * @throws CurlException
-     * @throws InvalidJsonException
-     * @throws Exception
-     *
-     * @return Response
-     */
-    public function dialogAssign(Model\Request\DialogAssignRequest $request)
-    {
-        return $this->client->makeRequest(
-            sprintf("/dialogs/%d/assign", $request->getDialogId()),
-            Request::METHOD_PATCH,
+        $response = $this->client->makeRequest(
+            '/dialogs',
+            HttpClient::METHOD_GET,
             $request
         );
-    }
 
-    /**
-     * Close exact dialog
-     *
-     * @param string $request
-     *
-     * @throws InvalidArgumentException
-     * @throws CurlException
-     * @throws InvalidJsonException
-     * @throws Exception
-     *
-     * @return Response
-     */
-    public function dialogClose(string $request)
-    {
-        return $this->client->makeRequest(sprintf("/dialogs/%d/close", $request), Request::METHOD_DELETE);
+        $adapter = new ModelAdapter(Dialog::class);
+
+        return $adapter->getResponseList($response);
     }
 
     /**
@@ -360,58 +327,15 @@ class Client
      */
     public function messages(Model\Request\MessagesRequest $request): array
     {
-        return $this->client->makeRequest('/messages', Request::METHOD_GET, $request, Serializer::S_ARRAY);
-    }
+        $response = $this->client->makeRequest(
+            '/messages',
+            HttpClient::METHOD_GET,
+            $request
+        );
 
-    /**
-     * Send a message
-     *
-     * @param Model\Request\MessageSendRequest $request
-     *
-     * @throws InvalidArgumentException
-     * @throws CurlException
-     * @throws InvalidJsonException
-     * @throws Exception
-     *
-     * @return Response
-     */
-    public function messageSend(Model\Request\MessageSendRequest $request)
-    {
-        return $this->client->makeRequest('/messages', Request::METHOD_POST, $request);
-    }
+        $adapter = new ModelAdapter(Message::class);
 
-    /**
-     * Edit a message
-     *
-     * @param Model\Request\MessageEditRequest $request
-     *
-     * @throws InvalidArgumentException
-     * @throws CurlException
-     * @throws InvalidJsonException
-     * @throws Exception
-     *
-     * @return Response
-     */
-    public function messageEdit(Model\Request\MessageEditRequest $request)
-    {
-        return $this->client->makeRequest('/messages/%d', Request::METHOD_PATCH, $request->getId());
-    }
-
-    /**
-     * Delete a message
-     *
-     * @param string $request
-     *
-     * @throws InvalidArgumentException
-     * @throws CurlException
-     * @throws InvalidJsonException
-     * @throws Exception
-     *
-     * @return Response
-     */
-    public function messageDelete(string $request)
-    {
-        return $this->client->makeRequest(sprintf("/messages/%d", $request), Request::METHOD_DELETE);
+        return $adapter->getResponseList($response);
     }
 
     /**

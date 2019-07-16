@@ -4,7 +4,6 @@
 [![PHP from Packagist](https://img.shields.io/packagist/php-v/retailcrm/mg-bot-api-client-php.svg?style=flat-square)](https://packagist.org/packages/retailcrm/mg-bot-api-client-php)
 
 
-
 # retailCRM API PHP client
 
 This is php retailCRM MG Bot API client.

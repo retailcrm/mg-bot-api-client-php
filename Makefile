@@ -11,7 +11,7 @@ test:
 
 stan:
 	@echo "==> Running analysis"
-	@php $(BIN_DIR)/phpstan analyse -a $(ROOT_DIR)/extra/autoloader.php -l 4 src
+	@php $(BIN_DIR)/phpstan analyse
 	@echo "==> Analysis complete"
 
 travis: test stan
