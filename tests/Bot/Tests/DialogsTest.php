@@ -15,6 +15,7 @@
 namespace RetailCrm\Mg\Bot\Tests;
 
 use InvalidArgumentException;
+use RetailCrm\Common\Exception\NotFoundException;
 use RetailCrm\Mg\Bot\Model\Entity\Responsible;
 use RetailCrm\Mg\Bot\Model\Request\DialogAssignRequest;
 use RetailCrm\Mg\Bot\Model\Response\ErrorOnlyResponse;
@@ -38,6 +39,7 @@ class DialogsTest extends TestCase
      */
     public function testDialogAssignError()
     {
+        $this->expectException(\RuntimeException::class);
         $client = self::getApiClient(
             null,
             null,
@@ -48,10 +50,7 @@ class DialogsTest extends TestCase
         $request = new DialogAssignRequest();
         $request->setDialogId(-1);
 
-        $response = $client->dialogAssign($request);
-
-        self::assertTrue(!$response->isSuccessful());
-        self::assertNotEmpty($response->getErrors());
+        $client->dialogAssign($request);
     }
 
     /**
@@ -85,7 +84,7 @@ class DialogsTest extends TestCase
      */
     public function testDialogCloseError()
     {
-        self::expectException(InvalidArgumentException::class);
+        self::expectException(NotFoundException::class);
 
         $client = self::getApiClient(
             null,

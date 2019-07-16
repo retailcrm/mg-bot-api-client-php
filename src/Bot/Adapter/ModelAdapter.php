@@ -28,11 +28,6 @@ use RetailCrm\Mg\Bot\Model\Response;
 class ModelAdapter
 {
     /**
-     * @var mixed $model
-     */
-    private $model;
-
-    /**
      * @var string $classname
      */
     private $classname;
@@ -45,7 +40,6 @@ class ModelAdapter
      */
     public function __construct(string $classname)
     {
-        $this->model = new $classname;
         $this->classname = $classname;
     }
 
@@ -58,7 +52,7 @@ class ModelAdapter
      */
     public function getResponseModel(Response $response)
     {
-        return Serializer::deserialize($response->getBody(), $this->model);
+        return Serializer::deserialize($response->getBody(), $this->classname);
     }
 
     /**

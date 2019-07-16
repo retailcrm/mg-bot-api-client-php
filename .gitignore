@@ -192,8 +192,6 @@ phpDocumentor.phar.pubkey
 mg-bot-api-client-php.pages/*
 build/*
 
-# Test report
+# Test report & coverage
 test-report.xml
-
-# GraphViz Dot
-dot/*
+clover.xml

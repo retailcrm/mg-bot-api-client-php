@@ -27,6 +27,7 @@ use RetailCrm\Mg\Bot\Model\Entity\Dialog;
 use RetailCrm\Mg\Bot\Model\Entity\Message\Message;
 use RetailCrm\Mg\Bot\Model\Entity\User;
 use RetailCrm\Mg\Bot\Model\Request\UploadFileByUrlRequest;
+use RetailCrm\Mg\Bot\Model\Response\AssignResponse;
 use RetailCrm\Mg\Bot\Model\Response\ErrorOnlyResponse;
 use RetailCrm\Mg\Bot\Model\Response\FullFileResponse;
 use RetailCrm\Mg\Bot\Model\Response\MessageSendResponse;
@@ -270,7 +271,7 @@ class Client
             $request
         );
 
-        $adapter = new ModelAdapter(ErrorOnlyResponse::class);
+        $adapter = new ModelAdapter(AssignResponse::class);
 
         return $adapter->getResponseModel($response);
     }
