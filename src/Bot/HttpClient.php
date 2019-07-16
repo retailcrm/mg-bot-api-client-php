@@ -23,7 +23,6 @@ use RetailCrm\Common\Exception\NotFoundException;
 use RetailCrm\Common\Exception\UnauthorizedException;
 use RetailCrm\Common\Serializer;
 use RetailCrm\Common\Url;
-use RetailCrm\Mg\Bot\Adapter\ResponseAdapter;
 use RuntimeException;
 use Symfony\Component\Validator\Validation;
 use GuzzleHttp\Client;
@@ -112,7 +111,7 @@ class HttpClient
      * @param string $method Request method (default: 'GET')
      * @param mixed  $request Request model (default: null)
      *
-     * @return \RetailCrm\Mg\Bot\Model\Response
+     * @return \Psr\Http\Message\ResponseInterface
      * @throws \Exception
      */
     public function makeRequest($path, $method, $request = null)
@@ -139,7 +138,11 @@ class HttpClient
             ]
         );
 
-        if (in_array($method, [self::METHOD_POST, self::METHOD_PUT, self::METHOD_PATCH, self::METHOD_DELETE]) && is_string($requestBody)) {
+        if (in_array(
+            $method,
+            [self::METHOD_POST, self::METHOD_PUT, self::METHOD_PATCH, self::METHOD_DELETE]
+        ) && is_string($requestBody)
+        ) {
             $request = $request->withBody(stream_for($requestBody));
         }
 
@@ -161,9 +164,7 @@ class HttpClient
 
         $this->validateResponse($responseObject);
 
-        $adapter = new ResponseAdapter($responseObject);
-
-        return $adapter->build();
+        return $responseObject;
     }
 
     /**
@@ -248,6 +249,7 @@ class HttpClient
      * @param \Psr\Http\Message\ResponseInterface $responseObject
      *
      * @throws \ErrorException
+     * @throws \Exception
      */
     private function validateResponse(ResponseInterface $responseObject)
     {
@@ -257,10 +259,6 @@ class HttpClient
         $errorMessage = !empty($response['errorMsg']) ? $response['errorMsg'] : '';
         $errorMessage = !empty($response['errors']) ? $this->getErrors($response['errors']) : $errorMessage;
 
-        /**
-         * responses with 400 & 460 http codes contains extended error data
-         * therefore they are not handled as exceptions
-         */
         if ($statusCode == 400) {
             throw new RuntimeException($errorMessage);
         }
@@ -283,6 +281,10 @@ class HttpClient
 
         if ($statusCode == 503) {
             throw new LimitException($errorMessage);
+        }
+
+        if ($statusCode >= 400) {
+            throw new Exception($errorMessage);
         }
     }
 

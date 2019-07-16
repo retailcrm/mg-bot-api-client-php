@@ -11,11 +11,11 @@
  * @link    http://help.retailcrm.pro/docs/Developers
  */
 
-namespace RetailCrm\Mg\Bot\Adapter;
+namespace RetailCrm\Mg\Bot\Model;
 
+use Psr\Http\Message\ResponseInterface;
 use RetailCrm\Common\Exception\InvalidJsonException;
 use RetailCrm\Common\Serializer;
-use RetailCrm\Mg\Bot\Model\Response;
 
 /**
  * Class ModelAdapter
@@ -46,25 +46,25 @@ class ModelAdapter
     /**
      * Get Response Model
      *
-     * @param \RetailCrm\Mg\Bot\Model\Response $response
+     * @param \Psr\Http\Message\ResponseInterface $response
      *
      * @return \RetailCrm\Mg\Bot\Model\ModelInterface
      */
-    public function getResponseModel(Response $response)
+    public function getResponseModel(ResponseInterface $response)
     {
-        return Serializer::deserialize($response->getBody(), $this->classname);
+        return Serializer::deserialize((string)$response->getBody(), $this->classname);
     }
 
     /**
      * Get Response List
      *
-     * @param \RetailCrm\Mg\Bot\Model\Response $response
+     * @param \Psr\Http\Message\ResponseInterface $response
      *
      * @return array
      */
-    public function getResponseList(Response $response)
+    public function getResponseList(ResponseInterface $response)
     {
-        $array = json_decode($response->getBody(), true);
+        $array = json_decode((string)$response->getBody(), true);
 
         if (json_last_error() != JSON_ERROR_NONE) {
             throw new InvalidJsonException('Received invalid JSON', 1);
