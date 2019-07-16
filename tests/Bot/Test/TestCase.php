@@ -1,7 +1,7 @@
 <?php
 
 /**
- * PHP version 5.4
+ * PHP version 7.1
  *
  * Test case class
  *
@@ -22,7 +22,6 @@ use RetailCrm\Mg\Bot\Client;
 /**
  * Class TestCase
  *
- * @category RetailCrm
  * @package  Test
  * @author   RetailCrm <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
@@ -33,10 +32,10 @@ class TestCase extends BaseCase
     /**
      * Return bot api client object
      *
-     * @param string    $url      (default: null)
-     * @param string    $key      (default: null)
-     * @param bool      $debug    (default: false)
-     * @param array     $response (default: null)
+     * @param string $url         (default: null)
+     * @param string $key         (default: null)
+     * @param bool   $debug       (default: false)
+     * @param array  ...$response (default: null)
      *
      * @return Client
      */
@@ -62,8 +61,8 @@ class TestCase extends BaseCase
     /**
      * Returns mocked GuzzleHttp response
      *
-     * @param string|null $body
-     * @param int $statusCode
+     * @param string|null $body       HTTP Body
+     * @param int         $statusCode HTTP status code
      *
      * @return Response
      */
@@ -93,8 +92,8 @@ class TestCase extends BaseCase
      * Only file name (without extension or any other data) should be provided,
      * e.g. `getJsonResponse('bots', 200)`
      *
-     * @param string $jsonFile
-     * @param int $statusCode
+     * @param string $jsonFile   mocked body
+     * @param int    $statusCode mocked status code
      *
      * @return Response|null
      */
@@ -120,8 +119,8 @@ class TestCase extends BaseCase
     }
 
     /**
-     * @param int    $statusCode
-     * @param array ...$errors
+     * @param int   $statusCode response code
+     * @param array ...$errors  response errors
      *
      * @return Response
      */
@@ -139,7 +138,7 @@ class TestCase extends BaseCase
     /**
      * Generate and return empty response
      *
-     * @param int $statusCode
+     * @param int $statusCode HTTP status code
      *
      * @return Response|null
      */

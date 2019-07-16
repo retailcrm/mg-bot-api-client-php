@@ -1,7 +1,7 @@
 <?php
 
 /**
- * PHP version 7.0
+ * PHP version 7.1
  *
  * Messages send request
  *
@@ -18,13 +18,10 @@ use JMS\Serializer\Annotation\SkipWhenEmpty;
 use JMS\Serializer\Annotation\Type;
 use RetailCrm\Mg\Bot\Model\Entity\Message\MessageOrder;
 use RetailCrm\Mg\Bot\Model\Entity\Message\MessageProduct;
+use RetailCrm\Mg\Bot\Model\ModelInterface;
 use Symfony\Component\Validator\Constraints as Assert;
-use RetailCrm\Mg\Bot\Model\Entity\Order;
-use RetailCrm\Mg\Bot\Model\Entity\Product;
 
 /**
- * PHP version 7.0
- *
  * MessageSendRequest class
  *
  * @package  RetailCrm\Mg\Bot\Model\Request
@@ -32,7 +29,7 @@ use RetailCrm\Mg\Bot\Model\Entity\Product;
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
-class MessageSendRequest
+class MessageSendRequest implements ModelInterface
 {
     /**
      * @var string $type

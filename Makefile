@@ -1,6 +1,6 @@
 ROOT_DIR=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 SRC_DIR=$(ROOT_DIR)/src
-BIN_DIR=$(ROOT_DIR)/bin
+BIN_DIR=$(ROOT_DIR)/vendor/bin
 
 test:
 	@echo "==> Running tests"
@@ -11,7 +11,7 @@ test:
 
 stan:
 	@echo "==> Running analysis"
-	@php $(BIN_DIR)/phpstan analyse -a $(ROOT_DIR)/extra/autoloader.php -l 4 src
+	@php $(BIN_DIR)/phpstan analyse
 	@echo "==> Analysis complete"
 
 travis: test stan

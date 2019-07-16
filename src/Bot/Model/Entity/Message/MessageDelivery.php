@@ -1,7 +1,7 @@
 <?php
 
 /**
- * PHP version 7.0
+ * PHP version 7.1
  *
  * MessageDelivery entity
  *
@@ -16,11 +16,9 @@ namespace RetailCrm\Mg\Bot\Model\Entity\Message;
 use JMS\Serializer\Annotation\Accessor;
 use JMS\Serializer\Annotation\SkipWhenEmpty;
 use JMS\Serializer\Annotation\Type;
-use RetailCrm\Mg\Bot\Model\Entity\Message\MessageCost;
+use RetailCrm\Mg\Bot\Model\ModelInterface;
 
 /**
- * PHP version 7.0
- *
  * MessageDelivery class
  *
  * @package  RetailCrm\Mg\Bot\Model\Entity\Message
@@ -28,7 +26,7 @@ use RetailCrm\Mg\Bot\Model\Entity\Message\MessageCost;
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
-class MessageDelivery
+class MessageDelivery implements ModelInterface
 {
     /**
      * @var string $name

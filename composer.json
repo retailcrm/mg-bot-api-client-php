@@ -12,40 +12,21 @@
         }
     ],
     "require": {
-        "php": ">=7.0",
+        "php": ">=7.1",
         "ext-curl": "*",
         "ext-json": "*",
         "jms/serializer": "1.14.*",
-        "symfony/validator": "3.*",
-        "doctrine/annotations": "1.4.*",
+        "symfony/validator": "4.3.*",
+        "doctrine/annotations": "1.6.*",
         "doctrine/cache": "1.6.*",
-        "guzzlehttp/guzzle": "6.*",
-        "doctrine/instantiator": "1.0.*",
-        "symfony/translation": "3.*",
-        "symfony/dependency-injection": "3.*",
-        "symfony/config": "3.*",
-        "symfony/finder": "3.4.*",
-        "symfony/filesystem": "3.*"
+        "guzzlehttp/guzzle": "6.*"
     },
     "require-dev": {
         "phpmd/phpmd": "2.*",
         "squizlabs/php_codesniffer": "3.4.*",
-        "symfony/dotenv": "3.*",
-        "friendsofphp/php-cs-fixer": "2.*",
-        "phpunit/phpunit": "6.*",
-        "nette/bootstrap": "2.*",
-        "nette/neon": "2.*",
-        "nette/php-generator": "3.0.*",
-        "phpstan/phpstan": "0.9.*",
-        "ocramius/package-versions": "1.2.*",
-        "nette/finder": "2.4.*",
-        "symfony/console": "3.*",
-        "symfony/debug": "3.*",
-        "symfony/event-dispatcher": "3.*",
-        "symfony/options-resolver": "3.4.*",
-        "symfony/process": "3.4.*",
-        "symfony/stopwatch": "3.4.*",
-        "myclabs/deep-copy": "1.6.*"
+        "symfony/dotenv": "4.3.*",
+        "phpunit/phpunit": "7.*",
+        "phpstan/phpstan": "0.11.*"
     },
     "support": {
         "email": "support@retailcrm.ru"
@@ -63,7 +44,7 @@
         }
     },
     "config": {
-        "bin-dir": "bin",
+        "bin-dir": "vendor/bin",
         "process-timeout": 600
     }
 }

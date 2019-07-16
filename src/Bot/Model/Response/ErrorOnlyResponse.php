@@ -1,7 +1,7 @@
 <?php
 
 /**
- * PHP version 7.0
+ * PHP version 7.1
  *
  * ErrorOnlyResponse
  *
@@ -13,9 +13,9 @@
 
 namespace RetailCrm\Mg\Bot\Model\Response;
 
+use RetailCrm\Mg\Bot\Model\ModelInterface;
+
 /**
- * PHP version 7.0
- *
  * ErrorOnlyResponse class
  *
  * @package  RetailCrm\Mg\Bot\Model\Response
@@ -23,7 +23,7 @@ namespace RetailCrm\Mg\Bot\Model\Response;
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
-class ErrorOnlyResponse
+class ErrorOnlyResponse implements ModelInterface
 {
     use CommonFields;
 }

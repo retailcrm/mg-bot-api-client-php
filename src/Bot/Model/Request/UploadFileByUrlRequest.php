@@ -1,7 +1,7 @@
 <?php
 
 /**
- * PHP version 7.0
+ * PHP version 7.1
  *
  * Upload file by url request
  *
@@ -15,11 +15,10 @@ namespace RetailCrm\Mg\Bot\Model\Request;
 
 use JMS\Serializer\Annotation\Accessor;
 use JMS\Serializer\Annotation\Type;
+use RetailCrm\Mg\Bot\Model\ModelInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * PHP version 7.0
- *
  * UploadFileByUrlRequest class
  *
  * @package  RetailCrm\Mg\Bot\Model\Request
@@ -27,7 +26,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
-class UploadFileByUrlRequest
+class UploadFileByUrlRequest implements ModelInterface
 {
     /**
      * @var string $url

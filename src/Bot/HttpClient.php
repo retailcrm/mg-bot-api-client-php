@@ -1,7 +1,7 @@
 <?php
 
 /**
- * PHP version 7.0
+ * PHP version 7.1
  *
  * HttpClient
  *
@@ -13,11 +13,18 @@
 
 namespace RetailCrm\Mg\Bot;
 
+use BadMethodCallException;
+use ErrorException;
+use Exception;
+use InvalidArgumentException;
 use RetailCrm\Common\Exception\InvalidJsonException;
 use RetailCrm\Common\Exception\LimitException;
-use InvalidArgumentException;
+use RetailCrm\Common\Exception\NotFoundException;
+use RetailCrm\Common\Exception\UnauthorizedException;
 use RetailCrm\Common\Serializer;
 use RetailCrm\Common\Url;
+use RetailCrm\Mg\Bot\Adapter\ResponseAdapter;
+use RuntimeException;
 use Symfony\Component\Validator\Validation;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
@@ -26,9 +33,7 @@ use Psr\Http\Message\ResponseInterface;
 use function GuzzleHttp\Psr7\stream_for;
 
 /**
- * PHP version 7.0
- *
- * HttpClient class
+ * Class HttpClient
  *
  * @package  RetailCrm\Mg\Bot
  * @author   retailCRM <integration@retailcrm.ru>
@@ -107,7 +112,7 @@ class HttpClient
      * @param string $method Request method (default: 'GET')
      * @param mixed  $request Request model (default: null)
      *
-     * @return ResponseInterface
+     * @return \RetailCrm\Mg\Bot\Model\Response
      * @throws \Exception
      */
     public function makeRequest($path, $method, $request = null)
@@ -121,20 +126,20 @@ class HttpClient
         }
 
         if ($method == self::METHOD_GET && !is_null($request)) {
-            $getParameters = Url::buildGetParameters(Serializer::serialize($request, Serializer::S_ARRAY));
+            $getParameters = Url::buildGetParameters((array)Serializer::serialize($request, Serializer::S_ARRAY));
         }
 
-        $requestBody = is_null($request) ? null : Serializer::serialize($request, Serializer::S_JSON);
+        $requestBody = is_null($request) ? '' : Serializer::serialize($request, Serializer::S_JSON);
         $request = new Request(
             $method,
-            \sprintf("%s%s%s", $this->basePath, $path, $getParameters),
+            sprintf("%s%s%s", $this->basePath, $path, $getParameters),
             [
                 'Content-Type' => 'application/json',
                 'X-Bot-Token' => $this->token
             ]
         );
 
-        if (in_array($method, [self::METHOD_POST, self::METHOD_PUT, self::METHOD_PATCH, self::METHOD_DELETE])) {
+        if (in_array($method, [self::METHOD_POST, self::METHOD_PUT, self::METHOD_PATCH, self::METHOD_DELETE]) && is_string($requestBody)) {
             $request = $request->withBody(stream_for($requestBody));
         }
 
@@ -151,27 +156,14 @@ class HttpClient
                 ]
             );
         } catch (GuzzleException $exception) {
-            throw new \Exception($exception->getMessage(), $exception->getCode(), $exception);
+            throw new Exception($exception->getMessage(), $exception->getCode(), $exception);
         }
 
-        $statusCode = $responseObject->getStatusCode();
-        $response = self::parseJSON((string) $responseObject->getBody());
-        $errorMessage = !empty($response['errorMsg']) ? $response['errorMsg'] : '';
-        $errorMessage = !empty($response['errors']) ? $this->getErrors($response['errors']) : $errorMessage;
+        $this->validateResponse($responseObject);
 
-        /**
-         * responses with 400 & 460 http codes contains extended error data
-         * therefore they are not handled as exceptions
-         */
-        if (in_array($statusCode, [403, 404, 500])) {
-            throw new \InvalidArgumentException($errorMessage);
-        }
+        $adapter = new ResponseAdapter($responseObject);
 
-        if ($statusCode == 503) {
-            throw new LimitException($errorMessage);
-        }
-
-        return $responseObject;
+        return $adapter->build();
     }
 
     /**
@@ -183,17 +175,17 @@ class HttpClient
     public function postFile(string $filename)
     {
         if (!file_exists($filename)) {
-            throw new \InvalidArgumentException("File doesn't exist");
+            throw new InvalidArgumentException("File doesn't exist");
         }
 
         if (filesize($filename) == 0) {
-            throw new \InvalidArgumentException("Empty file provided");
+            throw new InvalidArgumentException("Empty file provided");
         }
 
         try {
             $responseData = $this->client->request(
                 self::METHOD_POST,
-                \sprintf("%s/files/upload", $this->basePath),
+                sprintf("%s/files/upload", $this->basePath),
                 [
                     'headers' => [
                         'X-Bot-Token' => $this->token
@@ -202,7 +194,7 @@ class HttpClient
                 ]
             );
         } catch (GuzzleException $exception) {
-            throw new \Exception($exception->getMessage(), $exception->getCode(), $exception);
+            throw new Exception($exception->getMessage(), $exception->getCode(), $exception);
         }
 
         return isset($responseData) ? $responseData : null;
@@ -235,19 +227,62 @@ class HttpClient
      */
     private function validateRequest($class)
     {
-        if (!is_string($class) && method_exists($class, 'validate')) {
-            $errors = $class->validate();
-        } else {
-            $validator = Validation::createValidatorBuilder()
-                ->enableAnnotationMapping()
-                ->getValidator();
+        $validator = Validation::createValidatorBuilder()
+            ->enableAnnotationMapping()
+            ->getValidator();
 
-            $errors = $validator->validate($class);
+        $errors = $validator->validate($class);
+
+        if ($errors->count() > 0) {
+            $message = '';
+
+            foreach ($errors as $error) {
+                $message .= (string)$error;
+            }
+
+            throw new InvalidArgumentException($message);
+        }
+    }
+
+    /**
+     * @param \Psr\Http\Message\ResponseInterface $responseObject
+     *
+     * @throws \ErrorException
+     */
+    private function validateResponse(ResponseInterface $responseObject)
+    {
+        $statusCode = $responseObject->getStatusCode();
+        $response = self::parseJSON((string)$responseObject->getBody());
+
+        $errorMessage = !empty($response['errorMsg']) ? $response['errorMsg'] : '';
+        $errorMessage = !empty($response['errors']) ? $this->getErrors($response['errors']) : $errorMessage;
+
+        /**
+         * responses with 400 & 460 http codes contains extended error data
+         * therefore they are not handled as exceptions
+         */
+        if ($statusCode == 400) {
+            throw new RuntimeException($errorMessage);
         }
 
-        if ((is_object($errors) && call_user_func([$errors, 'count']) > 0) || is_string($errors)) {
-            $message = (string) $errors;
-            throw new InvalidArgumentException($message);
+        if (in_array($statusCode, [401, 403])) {
+            throw new UnauthorizedException($errorMessage);
+        }
+
+        if ($statusCode == 404) {
+            throw new NotFoundException($errorMessage);
+        }
+
+        if (in_array($statusCode, [405, 501])) {
+            throw new BadMethodCallException($errorMessage);
+        }
+
+        if (in_array($statusCode, [500, 502])) {
+            throw new ErrorException($errorMessage);
+        }
+
+        if ($statusCode == 503) {
+            throw new LimitException($errorMessage);
         }
     }
 

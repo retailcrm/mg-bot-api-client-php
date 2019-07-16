@@ -1,9 +1,9 @@
 <?php
 
 /**
- * PHP version 7.0
+ * PHP version 7.1
  *
- * CurlException
+ * InvalidJsonException
  *
  * @package  RetailCrm\Common\Exception
  * @author   retailCRM <integration@retailcrm.ru>
@@ -14,10 +14,9 @@
 namespace RetailCrm\Common\Exception;
 
 use DomainException;
+use Throwable;
 
 /**
- * PHP version 7.0
- *
  * Class InvalidJsonException
  *
  * @package  RetailCrm\Common\Exception
@@ -25,6 +24,6 @@ use DomainException;
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
-class InvalidJsonException extends DomainException
+class InvalidJsonException extends DomainException implements Throwable
 {
 }

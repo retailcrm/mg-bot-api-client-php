@@ -1,9 +1,9 @@
 <?php
 
 /**
- * PHP version 7.0
+ * PHP version 7.1
  *
- * Url handler
+ * Url
  *
  * @package  RetailCrm\Common
  * @author   retailCRM <integration@retailcrm.ru>
@@ -14,9 +14,7 @@
 namespace RetailCrm\Common;
 
 /**
- * PHP version 7.0
- *
- * Url class
+ * Class Url
  *
  * @package  RetailCrm\Common
  * @author   retailCRM <integration@retailcrm.ru>
@@ -25,13 +23,6 @@ namespace RetailCrm\Common;
  */
 class Url
 {
-    /**
-     * This class is used to store normalizeUrl method
-     * which is used in Client and HttpClient to check
-     * trailing slash.
-     */
-    private function __construct() {}
-
     /**
      * Check trailing slash into url
      *

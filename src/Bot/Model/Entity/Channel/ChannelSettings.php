@@ -1,7 +1,7 @@
 <?php
 
 /**
- * PHP version 7.0
+ * PHP version 7.1
  *
  * ChannelSettings entity
  *
@@ -16,18 +16,17 @@ namespace RetailCrm\Mg\Bot\Model\Entity\Channel;
 use JMS\Serializer\Annotation\Accessor;
 use JMS\Serializer\Annotation\SkipWhenEmpty;
 use JMS\Serializer\Annotation\Type;
+use RetailCrm\Mg\Bot\Model\ModelInterface;
 
 /**
- * PHP version 7.0
- *
- * ChannelSettings class
+ * Class ChannelSettings
  *
  * @package  RetailCrm\Mg\Bot\Model\Entity\Channel
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
  */
-class ChannelSettings
+class ChannelSettings implements ModelInterface
 {
     /**
      * @var ChannelSettingsStatus $status

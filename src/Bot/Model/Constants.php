@@ -1,7 +1,7 @@
 <?php
 
 /**
- * PHP version 7.0
+ * PHP version 7.1
  *
  * Constants
  *
@@ -14,8 +14,6 @@
 namespace RetailCrm\Mg\Bot\Model;
 
 /**
- * PHP version 7.0
- *
  * Constants class
  *
  * @package  RetailCrm\Mg\Bot\Model

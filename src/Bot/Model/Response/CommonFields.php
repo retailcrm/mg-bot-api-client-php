@@ -1,7 +1,7 @@
 <?php
 
 /**
- * PHP version 7.0
+ * PHP version 7.1
  *
  * ErrorTrait
  *
@@ -19,8 +19,6 @@ use JMS\Serializer\Annotation\SkipWhenEmpty;
 use JMS\Serializer\Annotation\Type;
 
 /**
- * PHP version 7.0
- *
  * CommonFields trait
  *
  * @package  RetailCrm\Mg\Bot\Model\Response
@@ -50,7 +48,7 @@ trait CommonFields
      */
     public function getErrors(): array
     {
-        return is_null($this->errors) ? [] : $this->errors;
+        return empty($this->errors) ? [] : $this->errors;
     }
 
     /**

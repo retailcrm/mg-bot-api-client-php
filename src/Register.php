@@ -1,9 +1,9 @@
 <?php
 
 /**
- * PHP version 7.0
+ * PHP version 7.1
  *
- * Register Helper
+ * Register
  *
  * @package  RetailCrm\Common
  * @author   retailCRM <integration@retailcrm.ru>
@@ -19,9 +19,7 @@ use JMS\Serializer\Annotation\Type;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * PHP version 7.0
- *
- * RequestHelper class
+ * Class Register
  *
  * @package  RetailCrm\Common
  * @author   retailCRM <integration@retailcrm.ru>
@@ -328,6 +326,7 @@ class Register
      * Get configuration as JSON
      *
      * @return array|string
+     * @todo make exact type
      */
     public function getJsonConfiguration()
     {
@@ -338,6 +337,7 @@ class Register
      * Get configuration as array
      *
      * @return array|string
+     * @todo make exact type
      */
     public function getArrayConfiguration()
     {

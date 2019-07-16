@@ -6,6 +6,7 @@
  * Dialogs Test
  *
  * @package  RetailCrm\Mg\Bot\Tests
+ * @category Test
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers
@@ -25,9 +26,9 @@ use RetailCrm\Mg\Bot\Test\TestCase;
  * Class DialogsTest
  *
  * @package RetailCrm\Mg\Bot\Tests
- * @author   retailCRM <integration@retailcrm.ru>
- * @license  https://opensource.org/licenses/MIT MIT License
- * @link     http://help.retailcrm.pro/docs/Developers
+ * @author  retailCRM <integration@retailcrm.ru>
+ * @license https://opensource.org/licenses/MIT MIT License
+ * @link    http://help.retailcrm.pro/docs/Developers
  */
 class DialogsTest extends TestCase
 {

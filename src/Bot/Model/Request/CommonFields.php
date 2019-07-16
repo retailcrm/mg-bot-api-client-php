@@ -1,7 +1,7 @@
 <?php
 
 /**
- * PHP version 7.0
+ * PHP version 7.1
  *
  * Common fields
  *
@@ -18,8 +18,6 @@ use JMS\Serializer\Annotation\SkipWhenEmpty;
 use JMS\Serializer\Annotation\Type;
 
 /**
- * PHP version 7.0
- *
  * CommonFields trait
  *
  * @package  RetailCrm\Mg\Bot\Model\Request
