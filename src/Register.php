@@ -14,6 +14,7 @@
 namespace RetailCrm\Common;
 
 use JMS\Serializer\Annotation\Accessor;
+use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\SkipWhenEmpty;
 use JMS\Serializer\Annotation\Type;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -43,6 +44,7 @@ class Register
      *
      * @Type("string")
      * @Accessor(getter="getIntegrationCode",setter="setIntegrationCode")
+     * @SerializedName("integrationCode")
      *
      * @Assert\NotBlank
      */
@@ -84,6 +86,7 @@ class Register
      *
      * @Type("string")
      * @Accessor(getter="getClientId",setter="setClientId")
+     * @SerializedName("clientId")
      *
      * @Assert\NotBlank
      */
@@ -94,6 +97,7 @@ class Register
      *
      * @Type("string")
      * @Accessor(getter="getBaseUrl",setter="setBaseUrl")
+     * @SerializedName("baseUrl")
      *
      * @Assert\NotBlank
      * @Assert\Url(
@@ -132,6 +136,7 @@ class Register
      *
      * @Type("array")
      * @Accessor(getter="getAvailableCountries",setter="setAvailableCountries")
+     * @SerializedName("availableCountries")
      * @SkipWhenEmpty
      */
     private $availableCountries;

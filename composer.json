@@ -34,7 +34,7 @@
     "autoload": {
         "psr-4": {
             "RetailCrm\\Mg\\": ["src/", "tests/"],
-            "RetailCrm\\Common\\": "src/"
+            "RetailCrm\\Common\\": ["src/", "tests/"]
         },
         "files": ["extra/autoloader.php"]
     },
