@@ -44,7 +44,7 @@ class Serializer
     {
         $serialized = null;
         $serializer = SerializerBuilder::create()->build();
-        $context = self::getContext();
+        $context = self::getContext(false);
 
         switch ($serialize) {
             case self::S_ARRAY:
@@ -93,7 +93,7 @@ class Serializer
      *
      * @return DeserializationContext|SerializationContext
      */
-    private static function getContext(bool $deserialization = false)
+    private static function getContext(bool $deserialization)
     {
         if ($deserialization) {
             $context = new DeserializationContext();
