@@ -51,8 +51,8 @@ class Register
     private $integrationCode;
 
     /**
-     * @var string $active
-     * @Type("string")
+     * @var bool $active
+     * @Type("bool")
      * @Accessor(getter="getActive",setter="setActive")
      * @SkipWhenEmpty
      */
@@ -184,7 +184,7 @@ class Register
     }
 
     /**
-     * @return string
+     * @return bool
      */
     public function getActive()
     {
@@ -192,9 +192,9 @@ class Register
     }
 
     /**
-     * @param string $active
+     * @param bool $active
      */
-    public function setActive(string $active)
+    public function setActive(bool $active)
     {
         $this->active = $active;
     }
