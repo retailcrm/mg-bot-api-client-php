@@ -58,7 +58,7 @@ class MessageOrderItem implements ModelInterface
     /**
      * @var MessageCost
      *
-     * @Type("MessageCost")
+     * @Type("RetailCrm\Mg\Bot\Model\Entity\Message\MessageCost")
      * @Accessor(getter="getPrice",setter="setPrice")
      * @SkipWhenEmpty()
      */
@@ -67,8 +67,8 @@ class MessageOrderItem implements ModelInterface
     /**
      * @var MessageQuantity
      *
-     * @Type("MessageQuantity")
-     * @Accessor(getter="getQuantity",setter="setQuantity)
+     * @Type("RetailCrm\Mg\Bot\Model\Entity\Message\MessageQuantity")
+     * @Accessor(getter="getQuantity",setter="setQuantity")
      * @SkipWhenEmpty()
      */
     private $quantity;

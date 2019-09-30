@@ -166,7 +166,7 @@ class Message implements ModelInterface
     /**
      * @var Dialog $dialog
      *
-     * @Type("Dialog")
+     * @Type("RetailCrm\Mg\Bot\Model\Entity\Dialog")
      * @Accessor(getter="getDialog",setter="setDialog")
      * @SkipWhenEmpty()
      */
@@ -193,7 +193,7 @@ class Message implements ModelInterface
     /**
      * @var MessageOrder $order
      *
-     * @Type("MessageOrder")
+     * @Type("RetailCrm\Mg\Bot\Model\Entity\Message\MessageOrder")
      * @Accessor(getter="getOrder",setter="setOrder")
      * @SkipWhenEmpty()
      */
@@ -202,7 +202,7 @@ class Message implements ModelInterface
     /**
      * @var MessageProduct $product
      *
-     * @Type("MessageProduct")
+     * @Type("RetailCrm\Mg\Bot\Model\Entity\Message\MessageProduct")
      * @Accessor(getter="getProduct",setter="setProduct")
      * @SkipWhenEmpty()
      */

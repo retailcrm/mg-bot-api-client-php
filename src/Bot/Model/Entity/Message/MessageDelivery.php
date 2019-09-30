@@ -13,6 +13,7 @@
 
 namespace RetailCrm\Mg\Bot\Model\Entity\Message;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use JMS\Serializer\Annotation\Accessor;
 use JMS\Serializer\Annotation\SkipWhenEmpty;
 use JMS\Serializer\Annotation\Type;
@@ -41,7 +42,7 @@ class MessageDelivery implements ModelInterface
     /**
      * @var MessageCost $price
      *
-     * @Type("Cost")
+     * @Type("RetailCrm\Mg\Bot\Model\Entity\Message\MessageCost")
      * @Accessor(getter="getPrice",setter="setPrice")
      *
      * @Assert\Currency
