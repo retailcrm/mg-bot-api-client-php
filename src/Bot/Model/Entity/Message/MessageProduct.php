@@ -76,7 +76,7 @@ class MessageProduct implements ModelInterface
     /**
      * @var MessageCost $cost
      *
-     * @Type("Cost")
+     * @Type("RetailCrm\Mg\Bot\Model\Entity\Message\MessageCost")
      * @Accessor(getter="getCost",setter="setCost")
      * @SkipWhenEmpty()
      */
@@ -85,8 +85,8 @@ class MessageProduct implements ModelInterface
     /**
      * @var MessageQuantity $quantity
      *
-     * @Type("MessageQuantity")
-     * @Accessor(getter="getQuantity",setter="setQuantity)
+     * @Type("RetailCrm\Mg\Bot\Model\Entity\Message\MessageQuantity")
+     * @Accessor(getter="getQuantity",setter="setQuantity")
      * @SkipWhenEmpty()
      */
     private $quantity;

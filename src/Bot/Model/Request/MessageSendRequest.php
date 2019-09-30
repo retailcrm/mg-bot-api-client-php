@@ -13,6 +13,7 @@
 
 namespace RetailCrm\Mg\Bot\Model\Request;
 
+use JMS\Serializer\Annotation as Serializer;
 use JMS\Serializer\Annotation\Accessor;
 use JMS\Serializer\Annotation\SkipWhenEmpty;
 use JMS\Serializer\Annotation\Type;
@@ -45,15 +46,14 @@ class MessageSendRequest implements ModelInterface
      *
      * @Type("string")
      * @Accessor(getter="getContent",setter="setContent")
-     *
-     * @Assert\NotBlank
+     * @SkipWhenEmpty()
      */
     private $content;
 
     /**
      * @var MessageProduct $product
      *
-     * @Type("Product")
+     * @Type("RetailCrm\Mg\Bot\Model\Entity\Message\MessageProduct")
      * @Accessor(getter="getProduct",setter="setProduct")
      * @SkipWhenEmpty()
      */
@@ -62,7 +62,7 @@ class MessageSendRequest implements ModelInterface
     /**
      * @var MessageOrder $order
      *
-     * @Type("Order")
+     * @Type("RetailCrm\Mg\Bot\Model\Entity\Message\MessageOrder")
      * @Accessor(getter="getOrder",setter="setOrder")
      * @SkipWhenEmpty()
      */

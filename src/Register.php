@@ -63,7 +63,7 @@ class Register
      *
      * @Type("string")
      * @Accessor(getter="getName",setter="setName")
-     * @SkipWhenEmpty
+     * @Assert\NotBlank()
      */
     private $name;
 
@@ -112,6 +112,7 @@ class Register
      *
      * @Type("string")
      * @Accessor(getter="getAccountUrl",setter="setAccountUrl")
+     * @SerializedName("accountUrl")
      *
      * @Assert\NotBlank
      * @Assert\Url(
@@ -330,22 +331,32 @@ class Register
     /**
      * Get configuration as JSON
      *
-     * @return array|string
-     * @todo make exact type
+     * @return string
      */
     public function getJsonConfiguration()
     {
-        return Serializer::serialize($this);
+        $serialized = Serializer::serialize($this);
+
+        if (is_string($serialized)) {
+            return $serialized;
+        }
+
+        return '';
     }
 
     /**
      * Get configuration as array
      *
-     * @return array|string
-     * @todo make exact type
+     * @return array
      */
     public function getArrayConfiguration()
     {
-        return Serializer::serialize($this, Serializer::S_ARRAY);
+        $serialized = Serializer::serialize($this, Serializer::S_ARRAY);
+
+        if (is_array($serialized)) {
+            return $serialized;
+        }
+
+        return [];
     }
 }

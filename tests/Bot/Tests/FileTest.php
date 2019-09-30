@@ -22,7 +22,7 @@ use RetailCrm\Mg\Bot\Test\TestCase;
  *
  * Class UploadFileTest
  *
- * @package RetailCrm\Mg\Bot\Tests
+ * @package  RetailCrm\Mg\Bot\Tests
  * @author   retailCRM <integration@retailcrm.ru>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://help.retailcrm.pro/docs/Developers

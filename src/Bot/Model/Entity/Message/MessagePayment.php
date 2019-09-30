@@ -40,7 +40,7 @@ class MessagePayment implements ModelInterface
     /**
      * @var MessageOrderPaymentStatus $status
      *
-     * @Type("MessageOrderPaymentStatus")
+     * @Type("RetailCrm\Mg\Bot\Model\Entity\Message\MessageOrderPaymentStatus")
      * @Accessor(getter="getStatus",setter="setStatus")
      * @SkipWhenEmpty()
      */
@@ -49,7 +49,7 @@ class MessagePayment implements ModelInterface
     /**
      * @var MessageCost $amount
      *
-     * @Type("MessageCost")
+     * @Type("RetailCrm\Mg\Bot\Model\Entity\Message\MessageCost")
      * @Accessor(getter="getAmount",setter="setAmount")
      * @SkipWhenEmpty()
      */

@@ -58,7 +58,7 @@ class MessageOrder implements ModelInterface
     /**
      * @var MessageCost $cost
      *
-     * @Type("MessageCost")
+     * @Type("RetailCrm\Mg\Bot\Model\Entity\Message\MessageCost")
      * @Accessor(getter="getCost",setter="setCost")
      * @SkipWhenEmpty()
      */
@@ -67,7 +67,7 @@ class MessageOrder implements ModelInterface
     /**
      * @var MessageStatus $status
      *
-     * @Type("MessageStatus")
+     * @Type("RetailCrm\Mg\Bot\Model\Entity\Message\MessageStatus")
      * @Accessor(getter="getStatus",setter="setStatus")
      * @SkipWhenEmpty()
      */
@@ -76,7 +76,7 @@ class MessageOrder implements ModelInterface
     /**
      * @var MessageDelivery $delivery
      *
-     * @Type("MessageDelivery")
+     * @Type("RetailCrm\Mg\Bot\Model\Entity\Message\MessageDelivery")
      * @Accessor(getter="getDelivery",setter="setDelivery")
      * @SkipWhenEmpty()
      */

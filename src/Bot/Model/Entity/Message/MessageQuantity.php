@@ -13,6 +13,7 @@
 
 namespace RetailCrm\Mg\Bot\Model\Entity\Message;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use JMS\Serializer\Annotation\Accessor;
 use JMS\Serializer\Annotation\SkipWhenEmpty;
 use JMS\Serializer\Annotation\Type;
