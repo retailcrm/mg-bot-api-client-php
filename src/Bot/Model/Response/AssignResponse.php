@@ -68,9 +68,9 @@ class AssignResponse implements ModelInterface
     private $responsible;
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getIsReassign(): bool
+    public function getIsReassign(): ?bool
     {
         return $this->isReassign;
     }
@@ -84,9 +84,9 @@ class AssignResponse implements ModelInterface
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getLeftManagerId(): int
+    public function getLeftManagerId(): ?int
     {
         return $this->leftManagerId;
     }
@@ -100,9 +100,9 @@ class AssignResponse implements ModelInterface
     }
 
     /**
-     * @return Responsible
+     * @return Responsible|null
      */
-    public function getPreviousResponsible(): Responsible
+    public function getPreviousResponsible(): ?Responsible
     {
         return $this->previousResponsible;
     }
@@ -116,9 +116,9 @@ class AssignResponse implements ModelInterface
     }
 
     /**
-     * @return Responsible
+     * @return Responsible|null
      */
-    public function getResponsible(): Responsible
+    public function getResponsible(): ?Responsible
     {
         return $this->responsible;
     }

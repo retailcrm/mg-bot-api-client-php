@@ -67,9 +67,9 @@ class FullFileResponse implements ModelInterface
     private $url;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -83,9 +83,9 @@ class FullFileResponse implements ModelInterface
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getSize(): int
+    public function getSize(): ?int
     {
         return $this->size;
     }
@@ -99,9 +99,9 @@ class FullFileResponse implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getType(): string
+    public function getType(): ?string
     {
         return $this->type;
     }
@@ -115,9 +115,9 @@ class FullFileResponse implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getUrl(): string
+    public function getUrl(): ?string
     {
         return $this->url;
     }

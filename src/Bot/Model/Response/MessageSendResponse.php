@@ -49,9 +49,9 @@ class MessageSendResponse implements ModelInterface
     private $time;
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getMessageId(): int
+    public function getMessageId(): ?int
     {
         return $this->messageId;
     }
@@ -65,9 +65,9 @@ class MessageSendResponse implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getTime(): string
+    public function getTime(): ?string
     {
         return $this->time;
     }
