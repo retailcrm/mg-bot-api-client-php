@@ -44,9 +44,9 @@ trait CommonFields
     private $statusCode;
 
     /**
-     * @return array
+     * @return array|null
      */
-    public function getErrors(): array
+    public function getErrors(): ?array
     {
         return empty($this->errors) ? [] : $this->errors;
     }
@@ -60,9 +60,9 @@ trait CommonFields
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getStatusCode(): int
+    public function getStatusCode(): ?int
     {
         return $this->statusCode;
     }

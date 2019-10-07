@@ -209,9 +209,9 @@ class Message implements ModelInterface
     private $product;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -257,9 +257,9 @@ class Message implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getActions(): string
+    public function getActions(): ?string
     {
         return $this->actions;
     }

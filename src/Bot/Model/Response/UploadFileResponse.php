@@ -104,9 +104,9 @@ class UploadFileResponse implements ModelInterface
     private $type;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCreatedAt(): string
+    public function getCreatedAt(): ?string
     {
         return $this->createdAt;
     }
@@ -120,9 +120,9 @@ class UploadFileResponse implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getHash(): string
+    public function getHash(): ?string
     {
         return $this->hash;
     }
@@ -136,9 +136,9 @@ class UploadFileResponse implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -152,9 +152,9 @@ class UploadFileResponse implements ModelInterface
     }
 
     /**
-     * @return FileMeta
+     * @return FileMeta|null
      */
-    public function getMeta(): FileMeta
+    public function getMeta(): ?FileMeta
     {
         return $this->meta;
     }
@@ -168,9 +168,9 @@ class UploadFileResponse implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getMimeType(): string
+    public function getMimeType(): ?string
     {
         return $this->mimeType;
     }
@@ -184,9 +184,9 @@ class UploadFileResponse implements ModelInterface
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getSize(): int
+    public function getSize(): ?int
     {
         return $this->size;
     }
@@ -200,9 +200,9 @@ class UploadFileResponse implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getSourceUrl(): string
+    public function getSourceUrl(): ?string
     {
         return $this->sourceUrl;
     }
@@ -216,9 +216,9 @@ class UploadFileResponse implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getType(): string
+    public function getType(): ?string
     {
         return $this->type;
     }
