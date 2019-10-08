@@ -103,7 +103,7 @@ class Channel implements ModelInterface
     /**
      * @return string
      */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -119,7 +119,7 @@ class Channel implements ModelInterface
     /**
      * @return \DateTime
      */
-    public function getCreatedAt(): DateTime
+    public function getCreatedAt(): ?DateTime
     {
         return $this->createdAt;
     }
@@ -135,7 +135,7 @@ class Channel implements ModelInterface
     /**
      * @return \DateTime
      */
-    public function getUpdatedAt(): DateTime
+    public function getUpdatedAt(): ?DateTime
     {
         return $this->updatedAt;
     }
@@ -151,7 +151,7 @@ class Channel implements ModelInterface
     /**
      * @return \DateTime
      */
-    public function getActivatedAt(): DateTime
+    public function getActivatedAt(): ?DateTime
     {
         return $this->activatedAt;
     }
@@ -167,7 +167,7 @@ class Channel implements ModelInterface
     /**
      * @return \DateTime
      */
-    public function getDeactivatedAt(): DateTime
+    public function getDeactivatedAt(): ?DateTime
     {
         return $this->deactivatedAt;
     }
@@ -183,7 +183,7 @@ class Channel implements ModelInterface
     /**
      * @return bool
      */
-    public function isActive(): bool
+    public function isActive(): ?bool
     {
         return $this->isActive;
     }
@@ -199,7 +199,7 @@ class Channel implements ModelInterface
     /**
      * @return ChannelSettings
      */
-    public function getSettings(): ChannelSettings
+    public function getSettings(): ?ChannelSettings
     {
         return $this->settings;
     }
@@ -215,7 +215,7 @@ class Channel implements ModelInterface
     /**
      * @return string
      */
-    public function getType(): string
+    public function getType(): ?string
     {
         return $this->type;
     }
@@ -231,7 +231,7 @@ class Channel implements ModelInterface
     /**
      * @return string
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }

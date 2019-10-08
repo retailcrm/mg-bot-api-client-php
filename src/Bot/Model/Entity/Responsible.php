@@ -58,7 +58,7 @@ class Responsible implements ModelInterface
     /**
      * @return string
      */
-    public function getAssignedAt(): string
+    public function getAssignedAt(): ?string
     {
         return $this->assignedAt;
     }
@@ -74,7 +74,7 @@ class Responsible implements ModelInterface
     /**
      * @return int
      */
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -90,7 +90,7 @@ class Responsible implements ModelInterface
     /**
      * @return string
      */
-    public function getType(): string
+    public function getType(): ?string
     {
         return $this->type;
     }

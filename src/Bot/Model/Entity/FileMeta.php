@@ -49,7 +49,7 @@ class FileMeta implements ModelInterface
     /**
      * @return int
      */
-    public function getHeight(): int
+    public function getHeight(): ?int
     {
         return $this->height;
     }
@@ -65,7 +65,7 @@ class FileMeta implements ModelInterface
     /**
      * @return int
      */
-    public function getWidth(): int
+    public function getWidth(): ?int
     {
         return $this->width;
     }

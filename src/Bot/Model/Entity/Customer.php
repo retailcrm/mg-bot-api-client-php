@@ -176,7 +176,7 @@ class Customer implements ModelInterface
     /**
      * @return string
      */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -192,7 +192,7 @@ class Customer implements ModelInterface
     /**
      * @return \DateTime
      */
-    public function getCreatedAt(): \DateTime
+    public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
@@ -208,7 +208,7 @@ class Customer implements ModelInterface
     /**
      * @return \DateTime
      */
-    public function getUpdatedAt(): \DateTime
+    public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
@@ -224,7 +224,7 @@ class Customer implements ModelInterface
     /**
      * @return string
      */
-    public function getExternalId(): string
+    public function getExternalId(): ?string
     {
         return $this->externalId;
     }
@@ -240,7 +240,7 @@ class Customer implements ModelInterface
     /**
      * @return int
      */
-    public function getChannelId(): int
+    public function getChannelId(): ?int
     {
         return $this->channelId;
     }
@@ -256,7 +256,7 @@ class Customer implements ModelInterface
     /**
      * @return string
      */
-    public function getUsername(): string
+    public function getUsername(): ?string
     {
         return $this->username;
     }
@@ -272,7 +272,7 @@ class Customer implements ModelInterface
     /**
      * @return string
      */
-    public function getFirstName(): string
+    public function getFirstName(): ?string
     {
         return $this->firstName;
     }
@@ -288,7 +288,7 @@ class Customer implements ModelInterface
     /**
      * @return string
      */
-    public function getLastName(): string
+    public function getLastName(): ?string
     {
         return $this->lastName;
     }
@@ -304,7 +304,7 @@ class Customer implements ModelInterface
     /**
      * @return string
      */
-    public function getAvatarUrl(): string
+    public function getAvatarUrl(): ?string
     {
         return $this->avatarUrl;
     }
@@ -320,7 +320,7 @@ class Customer implements ModelInterface
     /**
      * @return string
      */
-    public function getProfileUrl(): string
+    public function getProfileUrl(): ?string
     {
         return $this->profileUrl;
     }
@@ -336,7 +336,7 @@ class Customer implements ModelInterface
     /**
      * @return string
      */
-    public function getRevokedAt(): string
+    public function getRevokedAt(): ?string
     {
         return $this->revokedAt;
     }
@@ -352,7 +352,7 @@ class Customer implements ModelInterface
     /**
      * @return string
      */
-    public function getCountry(): string
+    public function getCountry(): ?string
     {
         return $this->country;
     }
@@ -368,7 +368,7 @@ class Customer implements ModelInterface
     /**
      * @return string
      */
-    public function getLanguage(): string
+    public function getLanguage(): ?string
     {
         return $this->language;
     }
@@ -384,7 +384,7 @@ class Customer implements ModelInterface
     /**
      * @return string
      */
-    public function getPhone(): string
+    public function getPhone(): ?string
     {
         return $this->phone;
     }
@@ -400,7 +400,7 @@ class Customer implements ModelInterface
     /**
      * @return string
      */
-    public function getEmail(): string
+    public function getEmail(): ?string
     {
         return $this->email;
     }

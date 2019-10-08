@@ -74,7 +74,7 @@ class Item implements ModelInterface
     /**
      * @return int
      */
-    public function getSize(): int
+    public function getSize(): ?int
     {
         return $this->size;
     }

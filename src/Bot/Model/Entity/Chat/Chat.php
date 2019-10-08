@@ -138,7 +138,7 @@ class Chat implements ModelInterface
     /**
      * @return \DateTime
      */
-    public function getCreatedAt(): \DateTime
+    public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
@@ -154,7 +154,7 @@ class Chat implements ModelInterface
     /**
      * @return \DateTime
      */
-    public function getUpdatedAt(): \DateTime
+    public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
@@ -170,7 +170,7 @@ class Chat implements ModelInterface
     /**
      * @return string
      */
-    public function getAvatar(): string
+    public function getAvatar(): ?string
     {
         return $this->avatar;
     }
@@ -186,7 +186,7 @@ class Chat implements ModelInterface
     /**
      * @return string
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -202,7 +202,7 @@ class Chat implements ModelInterface
     /**
      * @return Channel
      */
-    public function getChannel(): Channel
+    public function getChannel(): ?Channel
     {
         return $this->channel;
     }
@@ -218,7 +218,7 @@ class Chat implements ModelInterface
     /**
      * @return array
      */
-    public function getMembers(): array
+    public function getMembers(): ?array
     {
         return $this->members;
     }
@@ -234,7 +234,7 @@ class Chat implements ModelInterface
     /**
      * @return Customer
      */
-    public function getCustomer(): Customer
+    public function getCustomer(): ?Customer
     {
         return $this->customer;
     }
@@ -250,7 +250,7 @@ class Chat implements ModelInterface
     /**
      * @return int
      */
-    public function getAuthorId(): int
+    public function getAuthorId(): ?int
     {
         return $this->authorId;
     }
@@ -266,7 +266,7 @@ class Chat implements ModelInterface
     /**
      * @return ChatLastMessage
      */
-    public function getLastMessage(): ChatLastMessage
+    public function getLastMessage(): ?ChatLastMessage
     {
         return $this->lastMessage;
     }
@@ -282,7 +282,7 @@ class Chat implements ModelInterface
     /**
      * @return \DateTime
      */
-    public function getLastActivity(): \DateTime
+    public function getLastActivity(): ?\DateTime
     {
         return $this->lastActivity;
     }

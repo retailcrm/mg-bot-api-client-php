@@ -103,7 +103,7 @@ class ChannelSettingsItem implements ModelInterface
     /**
      * @return string
      */
-    public function getCreating(): string
+    public function getCreating(): ?string
     {
         return $this->creating;
     }
@@ -119,7 +119,7 @@ class ChannelSettingsItem implements ModelInterface
     /**
      * @return string
      */
-    public function getEditing(): string
+    public function getEditing(): ?string
     {
         return $this->editing;
     }
@@ -135,7 +135,7 @@ class ChannelSettingsItem implements ModelInterface
     /**
      * @return string
      */
-    public function getQuoting(): string
+    public function getQuoting(): ?string
     {
         return $this->quoting;
     }
@@ -151,7 +151,7 @@ class ChannelSettingsItem implements ModelInterface
     /**
      * @return string
      */
-    public function getDeleting(): string
+    public function getDeleting(): ?string
     {
         return $this->deleting;
     }
@@ -167,7 +167,7 @@ class ChannelSettingsItem implements ModelInterface
     /**
      * @return string
      */
-    public function getDelivered(): string
+    public function getDelivered(): ?string
     {
         return $this->delivered;
     }
@@ -183,7 +183,7 @@ class ChannelSettingsItem implements ModelInterface
     /**
      * @return int
      */
-    public function getMaxCharsCount(): int
+    public function getMaxCharsCount(): ?int
     {
         return $this->maxCharsCount;
     }
@@ -199,7 +199,7 @@ class ChannelSettingsItem implements ModelInterface
     /**
      * @return int
      */
-    public function getMaxItemsCount(): int
+    public function getMaxItemsCount(): ?int
     {
         return $this->maxItemsCount;
     }
@@ -215,7 +215,7 @@ class ChannelSettingsItem implements ModelInterface
     /**
      * @return int
      */
-    public function getNoteMaxCharsCount(): int
+    public function getNoteMaxCharsCount(): ?int
     {
         return $this->noteMaxCharsCount;
     }

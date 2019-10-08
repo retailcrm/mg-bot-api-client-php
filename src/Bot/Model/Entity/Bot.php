@@ -138,7 +138,7 @@ class Bot implements ModelInterface
     /**
      * @return string
      */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -154,7 +154,7 @@ class Bot implements ModelInterface
     /**
      * @return \DateTime
      */
-    public function getCreatedAt(): \DateTime
+    public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
@@ -170,7 +170,7 @@ class Bot implements ModelInterface
     /**
      * @return \DateTime
      */
-    public function getUpdatedAt(): \DateTime
+    public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
@@ -186,7 +186,7 @@ class Bot implements ModelInterface
     /**
      * @return string
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -202,7 +202,7 @@ class Bot implements ModelInterface
     /**
      * @return array
      */
-    public function getEvents(): array
+    public function getEvents(): ?array
     {
         return $this->events;
     }
@@ -218,7 +218,7 @@ class Bot implements ModelInterface
     /**
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId(): ?string
     {
         return $this->clientId;
     }
@@ -234,7 +234,7 @@ class Bot implements ModelInterface
     /**
      * @return string
      */
-    public function getAvatarUrl(): string
+    public function getAvatarUrl(): ?string
     {
         return $this->avatarUrl;
     }
@@ -250,7 +250,7 @@ class Bot implements ModelInterface
     /**
      * @return array
      */
-    public function getRoles(): array
+    public function getRoles(): ?array
     {
         return $this->roles;
     }
@@ -266,7 +266,7 @@ class Bot implements ModelInterface
     /**
      * @return string
      */
-    public function getDeactivatedAt(): string
+    public function getDeactivatedAt(): ?string
     {
         return $this->deactivatedAt;
     }
@@ -282,7 +282,7 @@ class Bot implements ModelInterface
     /**
      * @return bool
      */
-    public function isActive(): bool
+    public function isActive(): ?bool
     {
         return $this->isActive;
     }
@@ -298,7 +298,7 @@ class Bot implements ModelInterface
     /**
      * @return bool
      */
-    public function isSelf(): bool
+    public function isSelf(): ?bool
     {
         return $this->isSelf;
     }
@@ -314,7 +314,7 @@ class Bot implements ModelInterface
     /**
      * @return bool
      */
-    public function isSystem(): bool
+    public function isSystem(): ?bool
     {
         return $this->isSystem;
     }

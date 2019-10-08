@@ -227,7 +227,7 @@ class Message implements ModelInterface
     /**
      * @return \DateTime
      */
-    public function getCreatedAt(): \DateTime
+    public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
@@ -243,7 +243,7 @@ class Message implements ModelInterface
     /**
      * @return \DateTime
      */
-    public function getUpdatedAt(): \DateTime
+    public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
@@ -275,7 +275,7 @@ class Message implements ModelInterface
     /**
      * @return array
      */
-    public function getItems(): array
+    public function getItems(): ?array
     {
         return $this->items;
     }
@@ -291,7 +291,7 @@ class Message implements ModelInterface
     /**
      * @return User
      */
-    public function getFrom(): User
+    public function getFrom(): ?User
     {
         return $this->from;
     }
@@ -307,7 +307,7 @@ class Message implements ModelInterface
     /**
      * @return \DateTime
      */
-    public function getTime(): \DateTime
+    public function getTime(): ?\DateTime
     {
         return $this->time;
     }
@@ -323,7 +323,7 @@ class Message implements ModelInterface
     /**
      * @return string
      */
-    public function getType(): string
+    public function getType(): ?string
     {
         return $this->type;
     }
@@ -339,7 +339,7 @@ class Message implements ModelInterface
     /**
      * @return string
      */
-    public function getScope(): string
+    public function getScope(): ?string
     {
         return $this->scope;
     }
@@ -355,7 +355,7 @@ class Message implements ModelInterface
     /**
      * @return int
      */
-    public function getChatId(): int
+    public function getChatId(): ?int
     {
         return $this->chatId;
     }
@@ -371,7 +371,7 @@ class Message implements ModelInterface
     /**
      * @return string
      */
-    public function getContent(): string
+    public function getContent(): ?string
     {
         return $this->content;
     }
@@ -387,7 +387,7 @@ class Message implements ModelInterface
     /**
      * @return bool
      */
-    public function isRead(): bool
+    public function isRead(): ?bool
     {
         return $this->isRead;
     }
@@ -403,7 +403,7 @@ class Message implements ModelInterface
     /**
      * @return bool
      */
-    public function isEdit(): bool
+    public function isEdit(): ?bool
     {
         return $this->isEdit;
     }
@@ -419,7 +419,7 @@ class Message implements ModelInterface
     /**
      * @return string
      */
-    public function getStatus(): string
+    public function getStatus(): ?string
     {
         return $this->status;
     }
@@ -435,7 +435,7 @@ class Message implements ModelInterface
     /**
      * @return string
      */
-    public function getAction(): string
+    public function getAction(): ?string
     {
         return $this->action;
     }
@@ -451,7 +451,7 @@ class Message implements ModelInterface
     /**
      * @return Dialog
      */
-    public function getDialog(): Dialog
+    public function getDialog(): ?Dialog
     {
         return $this->dialog;
     }
@@ -467,7 +467,7 @@ class Message implements ModelInterface
     /**
      * @return int
      */
-    public function getChannelId(): int
+    public function getChannelId(): ?int
     {
         return $this->channelId;
     }
@@ -483,7 +483,7 @@ class Message implements ModelInterface
     /**
      * @return \DateTime
      */
-    public function getChannelSentAt(): \DateTime
+    public function getChannelSentAt(): ?\DateTime
     {
         return $this->channelSentAt;
     }
@@ -499,7 +499,7 @@ class Message implements ModelInterface
     /**
      * @return MessageOrder
      */
-    public function getOrder(): MessageOrder
+    public function getOrder(): ?MessageOrder
     {
         return $this->order;
     }
@@ -515,7 +515,7 @@ class Message implements ModelInterface
     /**
      * @return MessageProduct
      */
-    public function getProduct(): MessageProduct
+    public function getProduct(): ?MessageProduct
     {
         return $this->product;
     }

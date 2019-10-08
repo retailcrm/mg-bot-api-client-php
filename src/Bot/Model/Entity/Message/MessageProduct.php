@@ -110,7 +110,7 @@ class MessageProduct implements ModelInterface
     /**
      * @return string
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -126,7 +126,7 @@ class MessageProduct implements ModelInterface
     /**
      * @return string
      */
-    public function getArticle(): string
+    public function getArticle(): ?string
     {
         return $this->article;
     }
@@ -142,7 +142,7 @@ class MessageProduct implements ModelInterface
     /**
      * @return string
      */
-    public function getUrl(): string
+    public function getUrl(): ?string
     {
         return $this->url;
     }
@@ -158,7 +158,7 @@ class MessageProduct implements ModelInterface
     /**
      * @return string
      */
-    public function getImg(): string
+    public function getImg(): ?string
     {
         return $this->img;
     }
@@ -174,7 +174,7 @@ class MessageProduct implements ModelInterface
     /**
      * @return MessageCost
      */
-    public function getCost(): MessageCost
+    public function getCost(): ?MessageCost
     {
         return $this->cost;
     }
@@ -190,7 +190,7 @@ class MessageProduct implements ModelInterface
     /**
      * @return MessageQuantity
      */
-    public function getQuantity(): MessageQuantity
+    public function getQuantity(): ?MessageQuantity
     {
         return $this->quantity;
     }
