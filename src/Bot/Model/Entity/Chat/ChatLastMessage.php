@@ -74,7 +74,7 @@ class ChatLastMessage implements ModelInterface
     /**
      * @return \DateTime
      */
-    public function getTime(): \DateTime
+    public function getTime(): ?\DateTime
     {
         return $this->time;
     }
@@ -90,7 +90,7 @@ class ChatLastMessage implements ModelInterface
     /**
      * @return string
      */
-    public function getType(): string
+    public function getType(): ?string
     {
         return $this->type;
     }

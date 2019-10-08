@@ -128,7 +128,7 @@ class Dialog implements ModelInterface
     /**
      * @return string
      */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -144,7 +144,7 @@ class Dialog implements ModelInterface
     /**
      * @return \DateTime
      */
-    public function getCreatedAt(): \DateTime
+    public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
@@ -160,7 +160,7 @@ class Dialog implements ModelInterface
     /**
      * @return \DateTime
      */
-    public function getUpdatedAt(): \DateTime
+    public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
@@ -176,7 +176,7 @@ class Dialog implements ModelInterface
     /**
      * @return int
      */
-    public function getBotId(): int
+    public function getBotId(): ?int
     {
         return $this->botId;
     }
@@ -192,7 +192,7 @@ class Dialog implements ModelInterface
     /**
      * @return int
      */
-    public function getChatId(): int
+    public function getChatId(): ?int
     {
         return $this->chatId;
     }
@@ -208,7 +208,7 @@ class Dialog implements ModelInterface
     /**
      * @return int
      */
-    public function getBeginMessageId(): int
+    public function getBeginMessageId(): ?int
     {
         return $this->beginMessageId;
     }
@@ -224,7 +224,7 @@ class Dialog implements ModelInterface
     /**
      * @return int
      */
-    public function getEndingMessageId(): int
+    public function getEndingMessageId(): ?int
     {
         return $this->endingMessageId;
     }
@@ -240,7 +240,7 @@ class Dialog implements ModelInterface
     /**
      * @return \DateTime
      */
-    public function getClosedAt(): \DateTime
+    public function getClosedAt(): ?\DateTime
     {
         return $this->closedAt;
     }
@@ -256,7 +256,7 @@ class Dialog implements ModelInterface
     /**
      * @return bool
      */
-    public function isAssigned(): bool
+    public function isAssigned(): ?bool
     {
         return $this->isAssigned;
     }
@@ -272,7 +272,7 @@ class Dialog implements ModelInterface
     /**
      * @return Responsible
      */
-    public function getResponsible(): Responsible
+    public function getResponsible(): ?Responsible
     {
         return $this->responsible;
     }
@@ -288,7 +288,7 @@ class Dialog implements ModelInterface
     /**
      * @return bool
      */
-    public function isActive(): bool
+    public function isActive(): ?bool
     {
         return $this->isActive;
     }

@@ -49,7 +49,7 @@ class MessageStatus implements ModelInterface
     /**
      * @return string
      */
-    public function getCode(): string
+    public function getCode(): ?string
     {
         return $this->code;
     }
@@ -65,7 +65,7 @@ class MessageStatus implements ModelInterface
     /**
      * @return string
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }

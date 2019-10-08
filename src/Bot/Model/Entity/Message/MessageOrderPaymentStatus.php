@@ -49,7 +49,7 @@ class MessageOrderPaymentStatus implements ModelInterface
     /**
      * @return string
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -65,7 +65,7 @@ class MessageOrderPaymentStatus implements ModelInterface
     /**
      * @return bool
      */
-    public function getPayed(): bool
+    public function getPayed(): ?bool
     {
         return $this->payed;
     }

@@ -92,7 +92,7 @@ class ChannelSettings implements ModelInterface
     /**
      * @return ChannelSettingsStatus
      */
-    public function getStatus(): ChannelSettingsStatus
+    public function getStatus(): ?ChannelSettingsStatus
     {
         return $this->status;
     }
@@ -108,7 +108,7 @@ class ChannelSettings implements ModelInterface
     /**
      * @return bool
      */
-    public function isSpamAllowed(): bool
+    public function isSpamAllowed(): ?bool
     {
         return $this->spamAllowed;
     }
@@ -124,7 +124,7 @@ class ChannelSettings implements ModelInterface
     /**
      * @return ChannelSettingsItem
      */
-    public function getText(): ChannelSettingsItem
+    public function getText(): ?ChannelSettingsItem
     {
         return $this->text;
     }
@@ -140,7 +140,7 @@ class ChannelSettings implements ModelInterface
     /**
      * @return ChannelSettingsItem
      */
-    public function getProduct(): ChannelSettingsItem
+    public function getProduct(): ?ChannelSettingsItem
     {
         return $this->product;
     }
@@ -156,7 +156,7 @@ class ChannelSettings implements ModelInterface
     /**
      * @return ChannelSettingsItem
      */
-    public function getOrder(): ChannelSettingsItem
+    public function getOrder(): ?ChannelSettingsItem
     {
         return $this->order;
     }
@@ -172,7 +172,7 @@ class ChannelSettings implements ModelInterface
     /**
      * @return ChannelSettingsItem
      */
-    public function getImage(): ChannelSettingsItem
+    public function getImage(): ?ChannelSettingsItem
     {
         return $this->image;
     }
@@ -188,7 +188,7 @@ class ChannelSettings implements ModelInterface
     /**
      * @return ChannelSettingsItem
      */
-    public function getFile(): ChannelSettingsItem
+    public function getFile(): ?ChannelSettingsItem
     {
         return $this->file;
     }

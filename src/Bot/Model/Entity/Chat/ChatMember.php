@@ -108,7 +108,7 @@ class ChatMember implements ModelInterface
     /**
      * @return \DateTime
      */
-    public function getCreatedAt(): \DateTime
+    public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
@@ -124,7 +124,7 @@ class ChatMember implements ModelInterface
     /**
      * @return \DateTime
      */
-    public function getUpdatedAt(): \DateTime
+    public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
@@ -140,7 +140,7 @@ class ChatMember implements ModelInterface
     /**
      * @return int
      */
-    public function getChatId(): int
+    public function getChatId(): ?int
     {
         return $this->chatId;
     }
@@ -156,7 +156,7 @@ class ChatMember implements ModelInterface
     /**
      * @return int
      */
-    public function getUserId(): int
+    public function getUserId(): ?int
     {
         return $this->userId;
     }
@@ -172,7 +172,7 @@ class ChatMember implements ModelInterface
     /**
      * @return bool
      */
-    public function isAuthor(): bool
+    public function isAuthor(): ?bool
     {
         return $this->isAuthor;
     }
@@ -188,7 +188,7 @@ class ChatMember implements ModelInterface
     /**
      * @return string
      */
-    public function getState(): string
+    public function getState(): ?string
     {
         return $this->state;
     }

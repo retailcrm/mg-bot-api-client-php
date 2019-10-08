@@ -151,7 +151,7 @@ class User implements ModelInterface
     /**
      * @return string
      */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -167,7 +167,7 @@ class User implements ModelInterface
     /**
      * @return \DateTime
      */
-    public function getCreatedAt(): \DateTime
+    public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
@@ -183,7 +183,7 @@ class User implements ModelInterface
     /**
      * @return \DateTime
      */
-    public function getUpdatedAt(): \DateTime
+    public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
@@ -199,7 +199,7 @@ class User implements ModelInterface
     /**
      * @return string
      */
-    public function getExternalId(): string
+    public function getExternalId(): ?string
     {
         return $this->externalId;
     }
@@ -215,7 +215,7 @@ class User implements ModelInterface
     /**
      * @return string
      */
-    public function getType(): string
+    public function getType(): ?string
     {
         return $this->type;
     }
@@ -231,7 +231,7 @@ class User implements ModelInterface
     /**
      * @return string
      */
-    public function getAvatar(): string
+    public function getAvatar(): ?string
     {
         return $this->avatar;
     }
@@ -247,7 +247,7 @@ class User implements ModelInterface
     /**
      * @return string
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -263,7 +263,7 @@ class User implements ModelInterface
     /**
      * @return string
      */
-    public function getUsername(): string
+    public function getUsername(): ?string
     {
         return $this->username;
     }
@@ -279,7 +279,7 @@ class User implements ModelInterface
     /**
      * @return string
      */
-    public function getFirstName(): string
+    public function getFirstName(): ?string
     {
         return $this->firstName;
     }
@@ -295,7 +295,7 @@ class User implements ModelInterface
     /**
      * @return string
      */
-    public function getLastName(): string
+    public function getLastName(): ?string
     {
         return $this->lastName;
     }
@@ -311,7 +311,7 @@ class User implements ModelInterface
     /**
      * @return bool
      */
-    public function isActive(): bool
+    public function isActive(): ?bool
     {
         return $this->isActive;
     }
@@ -327,7 +327,7 @@ class User implements ModelInterface
     /**
      * @return bool
      */
-    public function isOnline(): bool
+    public function isOnline(): ?bool
     {
         return $this->isOnline;
     }
@@ -343,7 +343,7 @@ class User implements ModelInterface
     /**
      * @return \DateTime
      */
-    public function getRevokedAt(): \DateTime
+    public function getRevokedAt(): ?\DateTime
     {
         return $this->revokedAt;
     }
