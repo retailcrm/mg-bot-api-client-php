@@ -68,7 +68,7 @@ class MessageDelivery implements ModelInterface
     private $comment;
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getName()
     {
@@ -84,7 +84,7 @@ class MessageDelivery implements ModelInterface
     }
 
     /**
-     * @return MessageCost
+     * @return MessageCost|null
      */
     public function getPrice()
     {
@@ -100,7 +100,7 @@ class MessageDelivery implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getAddress()
     {
@@ -116,7 +116,7 @@ class MessageDelivery implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getComment()
     {

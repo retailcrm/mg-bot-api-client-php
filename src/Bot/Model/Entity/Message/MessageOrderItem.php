@@ -74,7 +74,7 @@ class MessageOrderItem implements ModelInterface
     private $quantity;
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getName()
     {
@@ -90,7 +90,7 @@ class MessageOrderItem implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getUrl()
     {
@@ -106,7 +106,7 @@ class MessageOrderItem implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getImg()
     {
@@ -122,7 +122,7 @@ class MessageOrderItem implements ModelInterface
     }
 
     /**
-     * @return MessageCost
+     * @return MessageCost|null
      */
     public function getPrice()
     {
@@ -138,7 +138,7 @@ class MessageOrderItem implements ModelInterface
     }
 
     /**
-     * @return MessageQuantity
+     * @return MessageQuantity|null
      */
     public function getQuantity()
     {

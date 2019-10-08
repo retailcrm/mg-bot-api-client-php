@@ -49,7 +49,7 @@ class MessageCost implements ModelInterface
     private $currency;
 
     /**
-     * @return float
+     * @return float|null
      */
     public function getValue()
     {
@@ -65,7 +65,7 @@ class MessageCost implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getCurrency()
     {

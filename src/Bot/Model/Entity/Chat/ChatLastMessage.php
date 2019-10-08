@@ -88,7 +88,7 @@ class ChatLastMessage implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getType(): ?string
     {

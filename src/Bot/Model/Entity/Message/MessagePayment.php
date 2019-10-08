@@ -56,7 +56,7 @@ class MessagePayment implements ModelInterface
     private $amount;
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getName()
     {
@@ -72,7 +72,7 @@ class MessagePayment implements ModelInterface
     }
 
     /**
-     * @return MessageOrderPaymentStatus
+     * @return MessageOrderPaymentStatus|null
      */
     public function getStatus()
     {
@@ -88,7 +88,7 @@ class MessagePayment implements ModelInterface
     }
 
     /**
-     * @return MessageCost
+     * @return MessageCost|null
      */
     public function getAmount()
     {

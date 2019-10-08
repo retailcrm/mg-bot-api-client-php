@@ -101,7 +101,7 @@ class Channel implements ModelInterface
     private $name;
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getId(): ?string
     {
@@ -181,7 +181,7 @@ class Channel implements ModelInterface
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
     public function isActive(): ?bool
     {
@@ -197,7 +197,7 @@ class Channel implements ModelInterface
     }
 
     /**
-     * @return ChannelSettings
+     * @return ChannelSettings|null
      */
     public function getSettings(): ?ChannelSettings
     {
@@ -213,7 +213,7 @@ class Channel implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getType(): ?string
     {
@@ -229,7 +229,7 @@ class Channel implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getName(): ?string
     {

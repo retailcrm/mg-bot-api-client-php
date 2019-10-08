@@ -47,7 +47,7 @@ class FileMeta implements ModelInterface
     private $width;
 
     /**
-     * @return int
+     * @return int|null
      */
     public function getHeight(): ?int
     {
@@ -63,7 +63,7 @@ class FileMeta implements ModelInterface
     }
 
     /**
-     * @return int
+     * @return int|null
      */
     public function getWidth(): ?int
     {

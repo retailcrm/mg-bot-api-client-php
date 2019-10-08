@@ -47,7 +47,7 @@ class MessageStatus implements ModelInterface
     private $name;
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getCode(): ?string
     {
@@ -63,7 +63,7 @@ class MessageStatus implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getName(): ?string
     {

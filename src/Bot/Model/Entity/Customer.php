@@ -174,7 +174,7 @@ class Customer implements ModelInterface
     private $email;
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getId(): ?string
     {
@@ -222,7 +222,7 @@ class Customer implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getExternalId(): ?string
     {
@@ -238,7 +238,7 @@ class Customer implements ModelInterface
     }
 
     /**
-     * @return int
+     * @return int|null
      */
     public function getChannelId(): ?int
     {
@@ -254,7 +254,7 @@ class Customer implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getUsername(): ?string
     {
@@ -270,7 +270,7 @@ class Customer implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getFirstName(): ?string
     {
@@ -286,7 +286,7 @@ class Customer implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getLastName(): ?string
     {
@@ -302,7 +302,7 @@ class Customer implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getAvatarUrl(): ?string
     {
@@ -318,7 +318,7 @@ class Customer implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getProfileUrl(): ?string
     {
@@ -334,7 +334,7 @@ class Customer implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getRevokedAt(): ?string
     {
@@ -350,7 +350,7 @@ class Customer implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getCountry(): ?string
     {
@@ -366,7 +366,7 @@ class Customer implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getLanguage(): ?string
     {
@@ -382,7 +382,7 @@ class Customer implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getPhone(): ?string
     {
@@ -398,7 +398,7 @@ class Customer implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getEmail(): ?string
     {

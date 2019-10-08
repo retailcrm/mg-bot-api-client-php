@@ -56,7 +56,7 @@ class Responsible implements ModelInterface
     private $type;
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getAssignedAt(): ?string
     {
@@ -72,7 +72,7 @@ class Responsible implements ModelInterface
     }
 
     /**
-     * @return int
+     * @return int|null
      */
     public function getId(): ?int
     {
@@ -88,7 +88,7 @@ class Responsible implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getType(): ?string
     {

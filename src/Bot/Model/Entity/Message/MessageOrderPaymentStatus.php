@@ -47,7 +47,7 @@ class MessageOrderPaymentStatus implements ModelInterface
     private $payed;
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getName(): ?string
     {
@@ -63,7 +63,7 @@ class MessageOrderPaymentStatus implements ModelInterface
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
     public function getPayed(): ?bool
     {

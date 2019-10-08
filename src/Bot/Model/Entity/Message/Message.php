@@ -273,7 +273,7 @@ class Message implements ModelInterface
     }
 
     /**
-     * @return array
+     * @return array|null
      */
     public function getItems(): ?array
     {
@@ -289,7 +289,7 @@ class Message implements ModelInterface
     }
 
     /**
-     * @return User
+     * @return User|null
      */
     public function getFrom(): ?User
     {
@@ -321,7 +321,7 @@ class Message implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getType(): ?string
     {
@@ -337,7 +337,7 @@ class Message implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getScope(): ?string
     {
@@ -353,7 +353,7 @@ class Message implements ModelInterface
     }
 
     /**
-     * @return int
+     * @return int|null
      */
     public function getChatId(): ?int
     {
@@ -369,7 +369,7 @@ class Message implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getContent(): ?string
     {
@@ -385,7 +385,7 @@ class Message implements ModelInterface
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
     public function isRead(): ?bool
     {
@@ -401,7 +401,7 @@ class Message implements ModelInterface
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
     public function isEdit(): ?bool
     {
@@ -417,7 +417,7 @@ class Message implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getStatus(): ?string
     {
@@ -433,7 +433,7 @@ class Message implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getAction(): ?string
     {
@@ -449,7 +449,7 @@ class Message implements ModelInterface
     }
 
     /**
-     * @return Dialog
+     * @return Dialog|null
      */
     public function getDialog(): ?Dialog
     {
@@ -465,7 +465,7 @@ class Message implements ModelInterface
     }
 
     /**
-     * @return int
+     * @return int|null
      */
     public function getChannelId(): ?int
     {
@@ -497,7 +497,7 @@ class Message implements ModelInterface
     }
 
     /**
-     * @return MessageOrder
+     * @return MessageOrder|null
      */
     public function getOrder(): ?MessageOrder
     {
@@ -513,7 +513,7 @@ class Message implements ModelInterface
     }
 
     /**
-     * @return MessageProduct
+     * @return MessageProduct|null
      */
     public function getProduct(): ?MessageProduct
     {
