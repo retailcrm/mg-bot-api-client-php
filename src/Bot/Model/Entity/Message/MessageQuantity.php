@@ -49,7 +49,7 @@ class MessageQuantity implements ModelInterface
     private $unit;
 
     /**
-     * @return float
+     * @return float|null
      */
     public function getValue()
     {
@@ -65,7 +65,7 @@ class MessageQuantity implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getUnit()
     {

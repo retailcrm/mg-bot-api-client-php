@@ -126,7 +126,7 @@ class Dialog implements ModelInterface
     private $isActive;
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getId(): ?string
     {
@@ -174,7 +174,7 @@ class Dialog implements ModelInterface
     }
 
     /**
-     * @return int
+     * @return int|null
      */
     public function getBotId(): ?int
     {
@@ -190,7 +190,7 @@ class Dialog implements ModelInterface
     }
 
     /**
-     * @return int
+     * @return int|null
      */
     public function getChatId(): ?int
     {
@@ -206,7 +206,7 @@ class Dialog implements ModelInterface
     }
 
     /**
-     * @return int
+     * @return int|null
      */
     public function getBeginMessageId(): ?int
     {
@@ -222,7 +222,7 @@ class Dialog implements ModelInterface
     }
 
     /**
-     * @return int
+     * @return int|null
      */
     public function getEndingMessageId(): ?int
     {
@@ -254,7 +254,7 @@ class Dialog implements ModelInterface
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
     public function isAssigned(): ?bool
     {
@@ -270,7 +270,7 @@ class Dialog implements ModelInterface
     }
 
     /**
-     * @return Responsible
+     * @return Responsible|null
      */
     public function getResponsible(): ?Responsible
     {
@@ -286,7 +286,7 @@ class Dialog implements ModelInterface
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
     public function isActive(): ?bool
     {

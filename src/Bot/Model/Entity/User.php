@@ -149,7 +149,7 @@ class User implements ModelInterface
     private $revokedAt;
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getId(): ?string
     {
@@ -197,7 +197,7 @@ class User implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getExternalId(): ?string
     {
@@ -213,7 +213,7 @@ class User implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getType(): ?string
     {
@@ -229,7 +229,7 @@ class User implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getAvatar(): ?string
     {
@@ -245,7 +245,7 @@ class User implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getName(): ?string
     {
@@ -261,7 +261,7 @@ class User implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getUsername(): ?string
     {
@@ -277,7 +277,7 @@ class User implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getFirstName(): ?string
     {
@@ -293,7 +293,7 @@ class User implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getLastName(): ?string
     {
@@ -309,7 +309,7 @@ class User implements ModelInterface
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
     public function isActive(): ?bool
     {
@@ -325,7 +325,7 @@ class User implements ModelInterface
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
     public function isOnline(): ?bool
     {

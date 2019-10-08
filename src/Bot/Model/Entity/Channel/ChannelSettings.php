@@ -90,7 +90,7 @@ class ChannelSettings implements ModelInterface
     private $file;
 
     /**
-     * @return ChannelSettingsStatus
+     * @return ChannelSettingsStatus|null
      */
     public function getStatus(): ?ChannelSettingsStatus
     {
@@ -106,7 +106,7 @@ class ChannelSettings implements ModelInterface
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
     public function isSpamAllowed(): ?bool
     {
@@ -122,7 +122,7 @@ class ChannelSettings implements ModelInterface
     }
 
     /**
-     * @return ChannelSettingsItem
+     * @return ChannelSettingsItem|null
      */
     public function getText(): ?ChannelSettingsItem
     {
@@ -138,7 +138,7 @@ class ChannelSettings implements ModelInterface
     }
 
     /**
-     * @return ChannelSettingsItem
+     * @return ChannelSettingsItem|null
      */
     public function getProduct(): ?ChannelSettingsItem
     {
@@ -154,7 +154,7 @@ class ChannelSettings implements ModelInterface
     }
 
     /**
-     * @return ChannelSettingsItem
+     * @return ChannelSettingsItem|null
      */
     public function getOrder(): ?ChannelSettingsItem
     {
@@ -170,7 +170,7 @@ class ChannelSettings implements ModelInterface
     }
 
     /**
-     * @return ChannelSettingsItem
+     * @return ChannelSettingsItem|null
      */
     public function getImage(): ?ChannelSettingsItem
     {
@@ -186,7 +186,7 @@ class ChannelSettings implements ModelInterface
     }
 
     /**
-     * @return ChannelSettingsItem
+     * @return ChannelSettingsItem|null
      */
     public function getFile(): ?ChannelSettingsItem
     {

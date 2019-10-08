@@ -108,7 +108,7 @@ class MessageProduct implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getName(): ?string
     {
@@ -124,7 +124,7 @@ class MessageProduct implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getArticle(): ?string
     {
@@ -140,7 +140,7 @@ class MessageProduct implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getUrl(): ?string
     {
@@ -156,7 +156,7 @@ class MessageProduct implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getImg(): ?string
     {
@@ -172,7 +172,7 @@ class MessageProduct implements ModelInterface
     }
 
     /**
-     * @return MessageCost
+     * @return MessageCost|null
      */
     public function getCost(): ?MessageCost
     {
@@ -188,7 +188,7 @@ class MessageProduct implements ModelInterface
     }
 
     /**
-     * @return MessageQuantity
+     * @return MessageQuantity|null
      */
     public function getQuantity(): ?MessageQuantity
     {

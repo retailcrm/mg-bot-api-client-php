@@ -12,7 +12,6 @@
 
 namespace RetailCrm\Mg\Bot\Model;
 
-
 interface ModelInterface
 {
 }

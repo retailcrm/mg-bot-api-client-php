@@ -138,7 +138,7 @@ class ChatMember implements ModelInterface
     }
 
     /**
-     * @return int
+     * @return int|null
      */
     public function getChatId(): ?int
     {
@@ -154,7 +154,7 @@ class ChatMember implements ModelInterface
     }
 
     /**
-     * @return int
+     * @return int|null
      */
     public function getUserId(): ?int
     {
@@ -170,7 +170,7 @@ class ChatMember implements ModelInterface
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
     public function isAuthor(): ?bool
     {
@@ -186,7 +186,7 @@ class ChatMember implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getState(): ?string
     {

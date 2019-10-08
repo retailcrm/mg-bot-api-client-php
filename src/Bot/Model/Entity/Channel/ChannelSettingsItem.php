@@ -101,7 +101,7 @@ class ChannelSettingsItem implements ModelInterface
     private $noteMaxCharsCount;
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getCreating(): ?string
     {
@@ -117,7 +117,7 @@ class ChannelSettingsItem implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getEditing(): ?string
     {
@@ -133,7 +133,7 @@ class ChannelSettingsItem implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getQuoting(): ?string
     {
@@ -149,7 +149,7 @@ class ChannelSettingsItem implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getDeleting(): ?string
     {
@@ -165,7 +165,7 @@ class ChannelSettingsItem implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getDelivered(): ?string
     {
@@ -181,7 +181,7 @@ class ChannelSettingsItem implements ModelInterface
     }
 
     /**
-     * @return int
+     * @return int|null
      */
     public function getMaxCharsCount(): ?int
     {
@@ -197,7 +197,7 @@ class ChannelSettingsItem implements ModelInterface
     }
 
     /**
-     * @return int
+     * @return int|null
      */
     public function getMaxItemsCount(): ?int
     {
@@ -213,7 +213,7 @@ class ChannelSettingsItem implements ModelInterface
     }
 
     /**
-     * @return int
+     * @return int|null
      */
     public function getNoteMaxCharsCount(): ?int
     {

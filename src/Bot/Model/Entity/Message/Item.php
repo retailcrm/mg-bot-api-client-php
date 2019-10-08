@@ -56,7 +56,7 @@ class Item implements ModelInterface
     private $caption;
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getId(): ?string
     {
@@ -72,7 +72,7 @@ class Item implements ModelInterface
     }
 
     /**
-     * @return int
+     * @return int|null
      */
     public function getSize(): ?int
     {
@@ -88,7 +88,7 @@ class Item implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getCaption()
     {

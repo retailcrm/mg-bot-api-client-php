@@ -101,7 +101,7 @@ class MessageOrder implements ModelInterface
     private $payments;
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getNumber()
     {
@@ -117,7 +117,7 @@ class MessageOrder implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getUrl()
     {
@@ -133,7 +133,7 @@ class MessageOrder implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getDate()
     {
@@ -149,7 +149,7 @@ class MessageOrder implements ModelInterface
     }
 
     /**
-     * @return MessageCost
+     * @return MessageCost|null
      */
     public function getCost()
     {
@@ -165,7 +165,7 @@ class MessageOrder implements ModelInterface
     }
 
     /**
-     * @return MessageStatus
+     * @return MessageStatus|null
      */
     public function getStatus()
     {
@@ -181,7 +181,7 @@ class MessageOrder implements ModelInterface
     }
 
     /**
-     * @return MessageDelivery
+     * @return MessageDelivery|null
      */
     public function getDelivery()
     {
@@ -197,7 +197,7 @@ class MessageOrder implements ModelInterface
     }
 
     /**
-     * @return array
+     * @return array|null
      */
     public function getItems()
     {
@@ -213,7 +213,7 @@ class MessageOrder implements ModelInterface
     }
 
     /**
-     * @return array
+     * @return array|null
      */
     public function getPayments()
     {

@@ -168,7 +168,7 @@ class Chat implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getAvatar(): ?string
     {
@@ -184,7 +184,7 @@ class Chat implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getName(): ?string
     {
@@ -200,7 +200,7 @@ class Chat implements ModelInterface
     }
 
     /**
-     * @return Channel
+     * @return Channel|null
      */
     public function getChannel(): ?Channel
     {
@@ -216,7 +216,7 @@ class Chat implements ModelInterface
     }
 
     /**
-     * @return array
+     * @return array|null
      */
     public function getMembers(): ?array
     {
@@ -232,7 +232,7 @@ class Chat implements ModelInterface
     }
 
     /**
-     * @return Customer
+     * @return Customer|null
      */
     public function getCustomer(): ?Customer
     {
@@ -248,7 +248,7 @@ class Chat implements ModelInterface
     }
 
     /**
-     * @return int
+     * @return int|null
      */
     public function getAuthorId(): ?int
     {
@@ -264,7 +264,7 @@ class Chat implements ModelInterface
     }
 
     /**
-     * @return ChatLastMessage
+     * @return ChatLastMessage|null
      */
     public function getLastMessage(): ?ChatLastMessage
     {

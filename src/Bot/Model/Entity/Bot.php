@@ -136,7 +136,7 @@ class Bot implements ModelInterface
     private $isSystem;
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getId(): ?string
     {
@@ -184,7 +184,7 @@ class Bot implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getName(): ?string
     {
@@ -200,7 +200,7 @@ class Bot implements ModelInterface
     }
 
     /**
-     * @return array
+     * @return array|null
      */
     public function getEvents(): ?array
     {
@@ -216,7 +216,7 @@ class Bot implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getClientId(): ?string
     {
@@ -232,7 +232,7 @@ class Bot implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getAvatarUrl(): ?string
     {
@@ -248,7 +248,7 @@ class Bot implements ModelInterface
     }
 
     /**
-     * @return array
+     * @return array|null
      */
     public function getRoles(): ?array
     {
@@ -264,7 +264,7 @@ class Bot implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getDeactivatedAt(): ?string
     {
@@ -280,7 +280,7 @@ class Bot implements ModelInterface
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
     public function isActive(): ?bool
     {
@@ -296,7 +296,7 @@ class Bot implements ModelInterface
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
     public function isSelf(): ?bool
     {
@@ -312,7 +312,7 @@ class Bot implements ModelInterface
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
     public function isSystem(): ?bool
     {

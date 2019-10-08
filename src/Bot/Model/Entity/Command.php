@@ -72,7 +72,7 @@ class Command implements ModelInterface
     private $description;
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getId(): ?string
     {
@@ -120,7 +120,7 @@ class Command implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getName(): ?string
     {
@@ -136,7 +136,7 @@ class Command implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getDescription(): ?string
     {

@@ -47,7 +47,7 @@ class ChannelSettingsStatus implements ModelInterface
     private $read;
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getDelivered(): ?string
     {
@@ -63,7 +63,7 @@ class ChannelSettingsStatus implements ModelInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getRead(): ?string
     {
