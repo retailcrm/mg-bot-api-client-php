@@ -91,7 +91,7 @@ class MessagesTest extends TestCase
 
         if ($response instanceof MessageSendResponse) {
             self::assertTrue($response->isSuccessful());
-            self::assertEquals(0, count($response->getErrors()));
+            self::assertCount(0, $response->getErrors());
             self::assertEquals(3636, $response->getMessageId());
         }
     }
@@ -163,7 +163,7 @@ class MessagesTest extends TestCase
 
         if ($response instanceof MessageSendResponse) {
             self::assertTrue($response->isSuccessful());
-            self::assertEquals(0, count($response->getErrors()));
+            self::assertCount(0, $response->getErrors());
             self::assertEquals(3636, $response->getMessageId());
         }
     }
@@ -213,7 +213,7 @@ class MessagesTest extends TestCase
 
         if ($response instanceof MessageSendResponse) {
             self::assertTrue($response->isSuccessful());
-            self::assertEquals(0, count($response->getErrors()));
+            self::assertCount(0, $response->getErrors());
             self::assertEquals(3636, $response->getMessageId());
         }
     }
@@ -262,7 +262,7 @@ class MessagesTest extends TestCase
         $response = $client->messageEdit($request);
 
         self::assertTrue($response->isSuccessful());
-        self::assertEquals(0, count($response->getErrors()));
+        self::assertCount(0, $response->getErrors());
     }
 
     /**
@@ -301,6 +301,6 @@ class MessagesTest extends TestCase
         $response = $client->messageDelete('3636');
 
         self::assertTrue($response->isSuccessful());
-        self::assertEquals(0, count($response->getErrors()));
+        self::assertCount(0, $response->getErrors());
     }
 }

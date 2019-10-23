@@ -33,10 +33,16 @@
     },
     "autoload": {
         "psr-4": {
-            "RetailCrm\\Mg\\": ["src/", "tests/"],
-            "RetailCrm\\Common\\": ["src/", "tests/"]
+            "RetailCrm\\Mg\\": "src/",
+            "RetailCrm\\Common\\": "src/"
         },
         "files": ["extra/autoloader.php"]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "RetailCrm\\Mg\\": "tests/",
+            "RetailCrm\\Common\\": "tests/"
+        }
     },
     "extra": {
         "branch-alias": {
