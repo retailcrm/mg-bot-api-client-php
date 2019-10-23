@@ -111,7 +111,7 @@ class DialogsTest extends TestCase
 
         $response = $client->dialogClose('62');
 
-        self::assertTrue($response instanceof ErrorOnlyResponse);
+        self::assertInstanceOF(ErrorOnlyResponse::class, $response);
         self::assertTrue($response->isSuccessful());
         self::assertEmpty($response->getErrors());
     }

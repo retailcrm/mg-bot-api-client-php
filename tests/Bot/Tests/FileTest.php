@@ -83,7 +83,7 @@ class FileTest extends TestCase
 
         $response = $client->uploadFile(__FILE__);
 
-        self::assertTrue($response instanceof UploadFileResponse);
+        self::assertInstanceOf(UploadFileResponse::class, $response);
         self::assertEquals('b2bdba90-166c-4e0a-829d-69f26a09fd2a', $response->getId());
         self::assertEquals('file', $response->getType());
         self::assertEquals(214, $response->getSize());
@@ -105,7 +105,7 @@ class FileTest extends TestCase
 
         $response = $client->getFileById($fileId);
 
-        self::assertTrue($response instanceof FullFileResponse);
+        self::assertInstanceOf(FullFileResponse::class, $response);
         self::assertEquals($fileId, $response->getId());
     }
 }
