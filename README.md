@@ -56,5 +56,5 @@ echo $response->getPreviousResponsible();
 
 ### Documentation
 
-* [English](https://139810.selcdn.ru/download/doc/mg-bot-api/bot.v1.en.html)
+* [English](https://help.retailcrm.pro/Developers/MgBot)
 * [Russian](https://help.retailcrm.ru/Developers/MgBot)
