@@ -13,6 +13,3 @@ stan:
 	@echo "==> Running analysis"
 	@php $(BIN_DIR)/phpstan analyse
 	@echo "==> Analysis complete"
-
-travis: test stan
-	@echo "==> Completed"

@@ -1,7 +1,7 @@
-[![Build Status](https://img.shields.io/travis/retailcrm/mg-bot-api-client-php/master.svg?style=flat-square)](https://travis-ci.org/retailcrm/mg-bot-api-client-php)
-[![Covarage](https://img.shields.io/codecov/c/gh/retailcrm/mg-bot-api-client-php/master.svg?style=flat-square)](https://codecov.io/gh/retailcrm/mg-bot-api-client-php)
-[![Latest stable](https://img.shields.io/packagist/v/retailcrm/mg-bot-api-client-php.svg?style=flat-square)](https://packagist.org/packages/retailcrm/mg-bot-api-client-php)
-[![PHP from Packagist](https://img.shields.io/packagist/php-v/retailcrm/mg-bot-api-client-php.svg?style=flat-square)](https://packagist.org/packages/retailcrm/mg-bot-api-client-php)
+[![Build Status](https://github.com/retailcrm/mg-bot-api-client-php/workflows/ci/badge.svg)](https://github.com/retailcrm/mg-bot-api-client-php/actions)
+[![Covarage](https://img.shields.io/codecov/c/gh/retailcrm/mg-bot-api-client-php/master.svg?logo=codecov)](https://codecov.io/gh/retailcrm/mg-bot-api-client-php)
+[![Latest stable](https://img.shields.io/packagist/v/retailcrm/mg-bot-api-client-php.svg)](https://packagist.org/packages/retailcrm/mg-bot-api-client-php)
+[![PHP from Packagist](https://img.shields.io/packagist/php-v/retailcrm/mg-bot-api-client-php.svg)](https://packagist.org/packages/retailcrm/mg-bot-api-client-php)
 
 
 # Message Gateway Bot API PHP client
