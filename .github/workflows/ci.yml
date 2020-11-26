@@ -21,6 +21,7 @@ jobs:
         with:
           php-version: ${{ matrix.php-version }}
           coverage: pcov
+          tools: composer:v1
       - name: Composer cache
         uses: actions/cache@v2
         with:
@@ -28,7 +29,9 @@ jobs:
           key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
       - name: Install dependencies
         run: composer install -o
+      - name: Phpstan analysis
+        run: make stan
       - name: Run tests
-        run: make ci
+        run: make test
       - name: Coverage
         run: bash <(curl -s https://codecov.io/bash)
