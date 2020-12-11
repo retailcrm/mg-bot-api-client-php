@@ -6,9 +6,6 @@
  * Test case class
  *
  * @package  Test
- * @author   RetailCrm <integration@retailcrm.ru>
- * @license  https://opensource.org/licenses/MIT MIT License
- * @link     http://www.retailcrm.ru/docs/Developers/ApiVersion5
  */
 
 namespace RetailCrm\Mg\Bot\Test;
@@ -23,9 +20,6 @@ use RetailCrm\Mg\Bot\Client;
  * Class TestCase
  *
  * @package  Test
- * @author   RetailCrm <integration@retailcrm.ru>
- * @license  https://opensource.org/licenses/MIT MIT License
- * @link     http://www.retailcrm.ru/docs/Developers/ApiVersion5
  */
 class TestCase extends BaseCase
 {

@@ -6,9 +6,6 @@
  * Customer entity
  *
  * @package  RetailCrm\Mg\Bot\Model\Entity
- * @author   retailCRM <integration@retailcrm.ru>
- * @license  https://opensource.org/licenses/MIT MIT License
- * @link     http://help.retailcrm.pro/docs/Developers
  */
 
 namespace RetailCrm\Mg\Bot\Model\Entity;
@@ -23,9 +20,6 @@ use JMS\Serializer\Annotation\Type;
  * Customer class
  *
  * @package  RetailCrm\Mg\Bot\Model\Entity
- * @author   retailCRM <integration@retailcrm.ru>
- * @license  https://opensource.org/licenses/MIT MIT License
- * @link     http://help.retailcrm.pro/docs/Developers
  */
 class Customer implements ModelInterface
 {

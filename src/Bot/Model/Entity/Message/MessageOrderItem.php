@@ -4,11 +4,6 @@
  * PHP version 7.1
  *
  * MessageOrderItem entity
- *
- * @author   retailCRM <integration@retailcrm.ru>
- * @license  https://opensource.org/licenses/MIT MIT License
- *
- * @see     http://help.retailcrm.pro/docs/Developers
  */
 
 namespace RetailCrm\Mg\Bot\Model\Entity\Message;
@@ -20,11 +15,6 @@ use RetailCrm\Mg\Bot\Model\ModelInterface;
 
 /**
  * MessageOrderItem class
- *
- * @author   retailCRM <integration@retailcrm.ru>
- * @license  https://opensource.org/licenses/MIT MIT License
- *
- * @see     http://help.retailcrm.pro/docs/Developers
  */
 class MessageOrderItem implements ModelInterface
 {

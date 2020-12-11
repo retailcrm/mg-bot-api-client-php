@@ -6,9 +6,6 @@
  * HttpClient
  *
  * @package  RetailCrm\Mg\Bot
- * @author   retailCRM <integration@retailcrm.ru>
- * @license  https://opensource.org/licenses/MIT MIT License
- * @link     http://help.retailcrm.pro/docs/Developers
  */
 
 namespace RetailCrm\Mg\Bot;
@@ -35,9 +32,6 @@ use function GuzzleHttp\Psr7\stream_for;
  * Class HttpClient
  *
  * @package  RetailCrm\Mg\Bot
- * @author   retailCRM <integration@retailcrm.ru>
- * @license  https://opensource.org/licenses/MIT MIT License
- * @link     http://help.retailcrm.pro/docs/Developers
  */
 class HttpClient
 {

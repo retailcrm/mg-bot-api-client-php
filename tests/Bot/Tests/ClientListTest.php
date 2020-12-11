@@ -6,9 +6,6 @@
  * Client Test
  *
  * @package  RetailCrm\Mg\Bot\Tests
- * @author   retailCRM <integration@retailcrm.ru>
- * @license  https://opensource.org/licenses/MIT MIT License
- * @link     http://help.retailcrm.pro/docs/Developers
  */
 
 namespace RetailCrm\Mg\Bot\Tests;
@@ -30,9 +27,6 @@ use RetailCrm\Mg\Bot\Test\TestCase;
  * Class ClientListTest
  *
  * @package RetailCrm\Mg\Bot\Tests
- * @author   retailCRM <integration@retailcrm.ru>
- * @license  https://opensource.org/licenses/MIT MIT License
- * @link     http://help.retailcrm.pro/docs/Developers
  */
 class ClientListTest extends TestCase
 {

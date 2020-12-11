@@ -6,9 +6,6 @@
  * Register
  *
  * @package  RetailCrm\Common
- * @author   retailCRM <integration@retailcrm.ru>
- * @license  https://opensource.org/licenses/MIT MIT License
- * @link     http://help.retailcrm.pro/docs/Developers
  */
 
 namespace RetailCrm\Common;
@@ -23,9 +20,6 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Class Register
  *
  * @package  RetailCrm\Common
- * @author   retailCRM <integration@retailcrm.ru>
- * @license  https://opensource.org/licenses/MIT MIT License
- * @link     http://help.retailcrm.pro/docs/Developers
  */
 class Register
 {

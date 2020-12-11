@@ -1,12 +1,10 @@
 [![Build Status](https://github.com/retailcrm/mg-bot-api-client-php/workflows/ci/badge.svg)](https://github.com/retailcrm/mg-bot-api-client-php/actions)
-[![Covarage](https://img.shields.io/codecov/c/gh/retailcrm/mg-bot-api-client-php/master.svg?logo=codecov)](https://codecov.io/gh/retailcrm/mg-bot-api-client-php)
+[![Coverage](https://img.shields.io/codecov/c/gh/retailcrm/mg-bot-api-client-php/master.svg?logo=codecov&logoColor=white)](https://codecov.io/gh/retailcrm/mg-bot-api-client-php)
 [![Latest stable](https://img.shields.io/packagist/v/retailcrm/mg-bot-api-client-php.svg)](https://packagist.org/packages/retailcrm/mg-bot-api-client-php)
-[![PHP from Packagist](https://img.shields.io/packagist/php-v/retailcrm/mg-bot-api-client-php.svg)](https://packagist.org/packages/retailcrm/mg-bot-api-client-php)
+[![PHP from Packagist](https://img.shields.io/packagist/php-v/retailcrm/mg-bot-api-client-php.svg?logo=php&logoColor=white)](https://packagist.org/packages/retailcrm/mg-bot-api-client-php)
 
 
 # Message Gateway Bot API PHP client
-
-This is php library for retailCRM MG Bot API.
 
 ## Requirements
 
@@ -53,8 +51,3 @@ try {
 
 echo $response->getPreviousResponsible();
 ```
-
-### Documentation
-
-* [English](https://help.retailcrm.pro/Developers/MgBot)
-* [Russian](https://help.retailcrm.ru/Developers/MgBot)

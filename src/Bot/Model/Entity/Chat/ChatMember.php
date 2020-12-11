@@ -6,9 +6,6 @@
  * ChatMember entity
  *
  * @package  RetailCrm\Mg\Bot\Model\Entity\Chat
- * @author   retailCRM <integration@retailcrm.ru>
- * @license  https://opensource.org/licenses/MIT MIT License
- * @link     http://help.retailcrm.pro/docs/Developers
  */
 
 namespace RetailCrm\Mg\Bot\Model\Entity\Chat;
@@ -22,9 +19,6 @@ use RetailCrm\Mg\Bot\Model\ModelInterface;
  * ChatMember class
  *
  * @package  RetailCrm\Mg\Bot\Model\Entity\Chat
- * @author   retailCRM <integration@retailcrm.ru>
- * @license  https://opensource.org/licenses/MIT MIT License
- * @link     http://help.retailcrm.pro/docs/Developers
  */
 class ChatMember implements ModelInterface
 {
