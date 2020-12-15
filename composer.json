@@ -1,14 +1,14 @@
 {
     "name": "retailcrm/mg-bot-api-client-php",
-    "description": "PHP client for retailCRM MG Bot API",
+    "description": "PHP client for MG Bot API",
     "type": "library",
-    "keywords": ["API", "retailCRM", "REST", "bot"],
+    "keywords": ["API", "RetailCRM", "REST", "bot"],
     "homepage": "http://www.retailcrm.ru/",
     "license": "MIT",
     "authors": [
         {
-            "name": "retailCRM",
-            "email": "support@retailcrm.ru"
+            "name": "RetailCRM",
+            "email": "support@retailcrm.pro"
         }
     ],
     "require": {
@@ -29,7 +29,7 @@
         "phpstan/phpstan": "0.11.*"
     },
     "support": {
-        "email": "support@retailcrm.ru"
+        "email": "support@retailcrm.pro"
     },
     "autoload": {
         "psr-4": {

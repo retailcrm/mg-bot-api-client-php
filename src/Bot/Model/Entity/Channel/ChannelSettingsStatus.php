@@ -6,9 +6,6 @@
  * ChannelSettingsStatus entity
  *
  * @package  RetailCrm\Mg\Bot\Model\Entity\Channel
- * @author   retailCRM <integration@retailcrm.ru>
- * @license  https://opensource.org/licenses/MIT MIT License
- * @link     http://help.retailcrm.pro/docs/Developers
  */
 
 namespace RetailCrm\Mg\Bot\Model\Entity\Channel;
@@ -22,9 +19,6 @@ use RetailCrm\Mg\Bot\Model\ModelInterface;
  * ChannelSettingsStatus class
  *
  * @package  RetailCrm\Mg\Bot\Model\Entity\Channel
- * @author   retailCRM <integration@retailcrm.ru>
- * @license  https://opensource.org/licenses/MIT MIT License
- * @link     http://help.retailcrm.pro/docs/Developers
  */
 class ChannelSettingsStatus implements ModelInterface
 {

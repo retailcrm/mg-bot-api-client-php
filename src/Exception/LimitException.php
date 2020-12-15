@@ -6,9 +6,6 @@
  * LimitException
  *
  * @package  RetailCrm\Common\Exception
- * @author   retailCRM <integration@retailcrm.ru>
- * @license  https://opensource.org/licenses/MIT MIT License
- * @link     http://help.retailcrm.pro/docs/Developers
  */
 
 namespace RetailCrm\Common\Exception;
@@ -20,9 +17,6 @@ use Throwable;
  * Class LimitException
  *
  * @package  RetailCrm\Common\Exception
- * @author   retailCRM <integration@retailcrm.ru>
- * @license  https://opensource.org/licenses/MIT MIT License
- * @link     http://help.retailcrm.pro/docs/Developers
  */
 class LimitException extends DomainException implements Throwable
 {

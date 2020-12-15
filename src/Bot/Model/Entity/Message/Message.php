@@ -6,9 +6,6 @@
  * Message entity
  *
  * @package  RetailCrm\Mg\Bot\Model\Entity\Message
- * @author   retailCRM <integration@retailcrm.ru>
- * @license  https://opensource.org/licenses/MIT MIT License
- * @link     http://help.retailcrm.pro/docs/Developers
  */
 
 namespace RetailCrm\Mg\Bot\Model\Entity\Message;
@@ -24,9 +21,6 @@ use RetailCrm\Mg\Bot\Model\ModelInterface;
  * Message class
  *
  * @package  RetailCrm\Mg\Bot\Model\Entity\Message
- * @author   retailCRM <integration@retailcrm.ru>
- * @license  https://opensource.org/licenses/MIT MIT License
- * @link     http://help.retailcrm.pro/docs/Developers
  */
 class Message implements ModelInterface
 {

@@ -5,9 +5,6 @@
  * Class RegisterTest
  *
  * @package  RetailCrm\Common\Tests
- * @author   retailCRM <integration@retailcrm.ru>
- * @license  https://opensource.org/licenses/MIT MIT License
- * @link     http://help.retailcrm.pro/docs/Developers
  */
 
 namespace RetailCrm\Common\Tests;
@@ -19,9 +16,6 @@ use PHPUnit\Framework\TestCase;
  * Class RegisterTest
  *
  * @package  RetailCrm\Mg\Bot\Tests
- * @author   retailCRM <integration@retailcrm.ru>
- * @license  https://opensource.org/licenses/MIT MIT License
- * @link     http://help.retailcrm.pro/docs/Developers
  */
 class RegisterTest extends TestCase
 {

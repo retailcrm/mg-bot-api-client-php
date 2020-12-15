@@ -6,9 +6,6 @@
  * Constants
  *
  * @package  RetailCrm\Mg\Bot\Model
- * @author   retailCRM <integration@retailcrm.ru>
- * @license  https://opensource.org/licenses/MIT MIT License
- * @link     http://help.retailcrm.pro/docs/Developers
  */
 
 namespace RetailCrm\Mg\Bot\Model;
@@ -17,9 +14,6 @@ namespace RetailCrm\Mg\Bot\Model;
  * Constants class
  *
  * @package  RetailCrm\Mg\Bot\Model
- * @author   retailCRM <integration@retailcrm.ru>
- * @license  https://opensource.org/licenses/MIT MIT License
- * @link     http://help.retailcrm.pro/docs/Developers
  */
 class Constants
 {

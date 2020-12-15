@@ -6,9 +6,6 @@
  * Serializer
  *
  * @package RetailCrm\Common
- * @author  retailCRM <integration@retailcrm.ru>
- * @license https://opensource.org/licenses/MIT MIT License
- * @link    http://help.retailcrm.pro/docs/Developers
  */
 
 namespace RetailCrm\Common;
@@ -23,9 +20,6 @@ use RetailCrm\Mg\Bot\Model\Response\ErrorOnlyResponse;
  * Class Serializer
  *
  * @package RetailCrm\Common
- * @author  retailCRM <integration@retailcrm.ru>
- * @license https://opensource.org/licenses/MIT MIT License
- * @link    http://help.retailcrm.pro/docs/Developers
  */
 class Serializer
 {
