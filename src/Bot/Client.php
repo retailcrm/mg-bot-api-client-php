@@ -25,6 +25,7 @@ use RetailCrm\Mg\Bot\Model\Entity\Message\Message;
 use RetailCrm\Mg\Bot\Model\Entity\User;
 use RetailCrm\Mg\Bot\Model\Request\UploadFileByUrlRequest;
 use RetailCrm\Mg\Bot\Model\Response\AssignResponse;
+use RetailCrm\Mg\Bot\Model\Response\UnassignResponse;
 use RetailCrm\Mg\Bot\Model\Response\ErrorOnlyResponse;
 use RetailCrm\Mg\Bot\Model\Response\FullFileResponse;
 use RetailCrm\Mg\Bot\Model\Response\MessageSendResponse;
@@ -266,6 +267,27 @@ class Client
         );
 
         $adapter = new ModelAdapter(AssignResponse::class);
+
+        return $adapter->getResponseModel($response);
+    }
+
+    /**
+     * Unassigning a dialog from a manager or a bot
+     *
+     * @param string $request Request parameters
+     *
+     * @return \RetailCrm\Mg\Bot\Model\ModelInterface
+     * @throws \Exception
+     */
+    public function dialogUnassign(string $request)
+    {
+        $response = $this->client->makeRequest(
+            sprintf("/dialogs/%d/unassign", $request),
+            HttpClient::METHOD_PATCH,
+            null
+        );
+
+        $adapter = new ModelAdapter(UnassignResponse::class);
 
         return $adapter->getResponseModel($response);
     }
