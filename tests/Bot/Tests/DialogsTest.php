@@ -76,6 +76,42 @@ class DialogsTest extends TestCase
      * @group("dialogs")
      * @throws \Exception
      */
+    public function testDialogUnassignError()
+    {
+        $this->expectException(\RuntimeException::class);
+        $client = self::getApiClient(
+            null,
+            null,
+            false,
+            $this->getErrorsResponse(400, "incorrect dialog_id")
+        );
+
+        $client->dialogUnassign(-1);
+    }
+
+    /**
+     * @group("dialogs")
+     * @throws \Exception
+     */
+    public function testDialogUnassign()
+    {
+        $client = self::getApiClient(
+            null,
+            null,
+            false,
+            $this->getJsonResponse('dialogUnassigned')
+        );
+
+        $response = $client->dialogUnassign(60);
+
+        self::assertTrue($response->isSuccessful());
+        self::assertTrue($response->getPreviousResponsible() instanceof Responsible);
+    }
+
+    /**
+     * @group("dialogs")
+     * @throws \Exception
+     */
     public function testDialogCloseError()
     {
         self::expectException(NotFoundException::class);
