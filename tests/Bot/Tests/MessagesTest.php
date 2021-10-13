@@ -19,6 +19,8 @@ use RetailCrm\Mg\Bot\Model\Entity\Message\MessageOrderPaymentStatus;
 use RetailCrm\Mg\Bot\Model\Entity\Message\MessageProduct;
 use RetailCrm\Mg\Bot\Model\Entity\Message\MessageQuantity;
 use RetailCrm\Mg\Bot\Model\Entity\Message\MessageStatus;
+use RetailCrm\Mg\Bot\Model\Entity\Message\Suggestion;
+use RetailCrm\Mg\Bot\Model\Entity\Message\TransportAttachments;
 use RetailCrm\Mg\Bot\Model\Request\MessageEditRequest;
 use RetailCrm\Mg\Bot\Model\Request\MessageSendRequest;
 use RetailCrm\Mg\Bot\Model\Response\MessageSendResponse;
@@ -296,5 +298,67 @@ class MessagesTest extends TestCase
 
         self::assertTrue($response->isSuccessful());
         self::assertCount(0, $response->getErrors());
+    }
+
+    /**
+     * @group("messages")
+     * @throws \Exception
+     */
+    public function testMessageSendSuggestions()
+    {
+        $client = self::getApiClient(
+            null,
+            null,
+            false,
+            $this->getResponse(
+                '{"message_id":3636,"time":"2019-06-24T06:02:04.434291791Z"}',
+                201
+            )
+        );
+
+        $suggestionsData = [
+            [
+                'title' => 'Hello',
+                'type' => 'text'
+            ],
+            [
+                'type' => 'email'
+            ],
+            [
+                'type' => 'phone'
+            ],
+        ];
+
+
+        $suggestions = [];
+        foreach ($suggestionsData as $suggestionsDatum) {
+            $suggestion = new Suggestion();
+            $suggestion->setType($suggestionsDatum['type']);
+
+            if (isset($suggestionsDatum['title'])) {
+                $suggestion->setTitle($suggestionsDatum['title']);
+            }
+
+            $suggestions[] = $suggestion;
+        }
+
+        $transportAttachments = new TransportAttachments();
+        $transportAttachments->setSuggestions($suggestions);
+
+        $request = new MessageSendRequest();
+        $request->setChatId(28);
+        $request->setScope(Constants::MESSAGE_SCOPE_PUBLIC);
+        $request->setContent("Hello");
+        $request->setTransportAttachments($transportAttachments);
+
+        $response = $client->messageSend($request);
+
+        self::assertInstanceOf(MessageSendResponse::class, $response);
+
+        if ($response instanceof MessageSendResponse) {
+            self::assertTrue($response->isSuccessful());
+            self::assertCount(0, $response->getErrors());
+            self::assertEquals(3636, $response->getMessageId());
+        }
     }
 }
