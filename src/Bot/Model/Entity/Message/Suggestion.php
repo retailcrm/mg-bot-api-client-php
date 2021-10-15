@@ -5,7 +5,7 @@
  *
  * Suggestion entity
  *
- * @package  RetailCrm\Mg\Bot\Model\Entity\Message
+ * @package RetailCrm\Mg\Bot\Model\Entity\Message
  */
 
 namespace RetailCrm\Mg\Bot\Model\Entity\Message;
@@ -18,7 +18,7 @@ use RetailCrm\Mg\Bot\Model\ModelInterface;
 /**
  * Suggestion class
  *
- * @package  RetailCrm\Mg\Bot\Model\Entity\Message
+ * @package RetailCrm\Mg\Bot\Model\Entity\Message
  */
 class Suggestion implements ModelInterface
 {

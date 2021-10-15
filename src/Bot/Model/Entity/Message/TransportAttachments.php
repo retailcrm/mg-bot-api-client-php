@@ -5,7 +5,7 @@
  *
  * TransportAttachments entity
  *
- * @package  RetailCrm\Mg\Bot\Model\Entity\Message
+ * @package RetailCrm\Mg\Bot\Model\Entity\Message
  */
 
 namespace RetailCrm\Mg\Bot\Model\Entity\Message;
@@ -18,7 +18,7 @@ use RetailCrm\Mg\Bot\Model\ModelInterface;
 /**
  * TransportAttachments class
  *
- * @package  RetailCrm\Mg\Bot\Model\Entity\Message
+ * @package RetailCrm\Mg\Bot\Model\Entity\Message
  */
 class TransportAttachments implements ModelInterface
 {
@@ -47,5 +47,4 @@ class TransportAttachments implements ModelInterface
     {
         return $this->suggestions;
     }
-
 }
