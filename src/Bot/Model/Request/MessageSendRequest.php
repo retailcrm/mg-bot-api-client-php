@@ -16,6 +16,7 @@ use JMS\Serializer\Annotation\SkipWhenEmpty;
 use JMS\Serializer\Annotation\Type;
 use RetailCrm\Mg\Bot\Model\Entity\Message\MessageOrder;
 use RetailCrm\Mg\Bot\Model\Entity\Message\MessageProduct;
+use RetailCrm\Mg\Bot\Model\Entity\Message\TransportAttachments;
 use RetailCrm\Mg\Bot\Model\ModelInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -81,6 +82,16 @@ class MessageSendRequest implements ModelInterface
      */
     private $scope;
 
+
+    /**
+     * @var TransportAttachments $transportAttachments
+     *
+     * @Type("RetailCrm\Mg\Bot\Model\Entity\Message\TransportAttachments")
+     * @Accessor(getter="getTransportAttachments",setter="setTransportAttachments")
+     * @SkipWhenEmpty
+     */
+    private $transportAttachments;
+
     /**
      * @var int $chatId
      *
@@ -132,6 +143,22 @@ class MessageSendRequest implements ModelInterface
     public function setScope(string $scope)
     {
         $this->scope = $scope;
+    }
+
+    /**
+     * @return TransportAttachments
+     */
+    public function getTransportAttachments()
+    {
+        return $this->transportAttachments;
+    }
+
+    /**
+     * @param TransportAttachments $transportAttachments
+     */
+    public function setTransportAttachments(TransportAttachments $transportAttachments)
+    {
+        $this->transportAttachments = $transportAttachments;
     }
 
     /**
