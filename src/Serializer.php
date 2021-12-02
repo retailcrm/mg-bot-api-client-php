@@ -93,9 +93,9 @@ class Serializer
             $context = new DeserializationContext();
         } else {
             $context = new SerializationContext();
-        }
 
-        $context->setSerializeNull(false);
+            $context->setSerializeNull(false);
+        }
 
         return $context;
     }
