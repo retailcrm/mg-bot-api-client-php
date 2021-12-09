@@ -232,7 +232,7 @@ class HttpClient
             $message = '';
 
             foreach ($errors as $error) {
-                $message .= (string)$error;
+                $message .= $error->getMessage();
             }
 
             throw new InvalidArgumentException($message);

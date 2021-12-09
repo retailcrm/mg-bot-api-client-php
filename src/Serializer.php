@@ -40,14 +40,16 @@ class Serializer
         $serializer = SerializerBuilder::create()->build();
         $context = self::getContext(false);
 
-        switch ($serialize) {
-            case self::S_ARRAY:
-                $serialized = $serializer->toArray($request, $context);
-                break;
-            case self::S_JSON:
-            default:
-                $serialized = $serializer->serialize($request, $serialize, $context);
-                break;
+        if ($context instanceof SerializationContext) {
+            switch ($serialize) {
+                case self::S_ARRAY:
+                    $serialized = $serializer->toArray($request, $context);
+                    break;
+                case self::S_JSON:
+                default:
+                    $serialized = $serializer->serialize($request, $serialize, $context);
+                    break;
+            }
         }
 
         return $serialized;
@@ -68,15 +70,17 @@ class Serializer
         $serializer = SerializerBuilder::create()->build();
         $context = self::getContext(true);
 
-        switch ($from) {
-            case self::S_ARRAY:
-                $deserialized = $serializer
-                    ->fromArray(array_filter($data), self::normalizeNamespace($entityType), $context);
-                break;
-            case self::S_JSON:
-                $deserialized = $serializer
-                    ->deserialize($data, self::normalizeNamespace($entityType), $from, $context);
-                break;
+        if ($context instanceof DeserializationContext) {
+            switch ($from) {
+                case self::S_ARRAY:
+                    $deserialized = $serializer
+                        ->fromArray(array_filter($data), self::normalizeNamespace($entityType), $context);
+                    break;
+                case self::S_JSON:
+                    $deserialized = $serializer
+                        ->deserialize($data, self::normalizeNamespace($entityType), $from, $context);
+                    break;
+            }
         }
 
         return $deserialized instanceof ModelInterface ? $deserialized : new ErrorOnlyResponse();
@@ -103,7 +107,7 @@ class Serializer
     /**
      * @param string $namespace
      *
-     * @return bool|string
+     * @return string
      */
     private static function normalizeNamespace(string $namespace)
     {

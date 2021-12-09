@@ -46,11 +46,6 @@ parameters:
 			path: src/Bot/Client.php
 
 		-
-			message: "#^Cannot cast Symfony\\\\Component\\\\Validator\\\\ConstraintViolationInterface to string\\.$#"
-			count: 1
-			path: src/Bot/HttpClient.php
-
-		-
 			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\HttpClient\\:\\:getErrors\\(\\) has parameter \\$errors with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Bot/HttpClient.php
@@ -1911,42 +1906,7 @@ parameters:
 			path: src/Register.php
 
 		-
-			message: "#^Method RetailCrm\\\\Common\\\\Serializer\\:\\:normalizeNamespace\\(\\) never returns bool so it can be removed from the return typehint\\.$#"
-			count: 1
-			path: src/Serializer.php
-
-		-
 			message: "#^Method RetailCrm\\\\Common\\\\Serializer\\:\\:serialize\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Serializer.php
-
-		-
-			message: "#^Parameter \\#2 \\$context of method JMS\\\\Serializer\\\\Serializer\\:\\:toArray\\(\\) expects JMS\\\\Serializer\\\\SerializationContext\\|null, JMS\\\\Serializer\\\\DeserializationContext\\|JMS\\\\Serializer\\\\SerializationContext given\\.$#"
-			count: 1
-			path: src/Serializer.php
-
-		-
-			message: "#^Parameter \\#2 \\$type of method JMS\\\\Serializer\\\\Serializer\\:\\:deserialize\\(\\) expects string, bool\\|string given\\.$#"
-			count: 1
-			path: src/Serializer.php
-
-		-
-			message: "#^Parameter \\#2 \\$type of method JMS\\\\Serializer\\\\Serializer\\:\\:fromArray\\(\\) expects string, bool\\|string given\\.$#"
-			count: 1
-			path: src/Serializer.php
-
-		-
-			message: "#^Parameter \\#3 \\$context of method JMS\\\\Serializer\\\\Serializer\\:\\:fromArray\\(\\) expects JMS\\\\Serializer\\\\DeserializationContext\\|null, JMS\\\\Serializer\\\\DeserializationContext\\|JMS\\\\Serializer\\\\SerializationContext given\\.$#"
-			count: 1
-			path: src/Serializer.php
-
-		-
-			message: "#^Parameter \\#3 \\$context of method JMS\\\\Serializer\\\\Serializer\\:\\:serialize\\(\\) expects JMS\\\\Serializer\\\\SerializationContext\\|null, JMS\\\\Serializer\\\\DeserializationContext\\|JMS\\\\Serializer\\\\SerializationContext given\\.$#"
-			count: 1
-			path: src/Serializer.php
-
-		-
-			message: "#^Parameter \\#4 \\$context of method JMS\\\\Serializer\\\\Serializer\\:\\:deserialize\\(\\) expects JMS\\\\Serializer\\\\DeserializationContext\\|null, JMS\\\\Serializer\\\\DeserializationContext\\|JMS\\\\Serializer\\\\SerializationContext given\\.$#"
 			count: 1
 			path: src/Serializer.php
 
