@@ -14,6 +14,7 @@ use Symfony\Component\Dotenv\Dotenv;
 $dotenv = new Dotenv();
 
 try {
+    $dotenv->usePutenv(true);
     $dotenv->load(__DIR__ . '/../.env');
 } catch (Exception $exception) {
     echo "WARNING: Can't load .env file. Using default environment.";

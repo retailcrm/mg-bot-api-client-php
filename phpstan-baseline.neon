@@ -1,0 +1,1917 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Client\\:\\:bots\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Client.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Client\\:\\:channels\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Client.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Client\\:\\:chats\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Client.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Client\\:\\:commands\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Client.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Client\\:\\:customers\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Client.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Client\\:\\:dialogs\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Client.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Client\\:\\:members\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Client.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Client\\:\\:messages\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Client.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Client\\:\\:users\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Client.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\HttpClient\\:\\:getErrors\\(\\) has parameter \\$errors with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/HttpClient.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\HttpClient\\:\\:parseJSON\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/HttpClient.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\HttpClient\\:\\:validateMethod\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/HttpClient.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\HttpClient\\:\\:validateResponse\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/HttpClient.php
+
+		-
+			message: "#^Property RetailCrm\\\\Mg\\\\Bot\\\\HttpClient\\:\\:\\$allowedMethods has no typehint specified\\.$#"
+			count: 1
+			path: src/Bot/HttpClient.php
+
+		-
+			message: "#^Property RetailCrm\\\\Mg\\\\Bot\\\\HttpClient\\:\\:\\$basePath has no typehint specified\\.$#"
+			count: 1
+			path: src/Bot/HttpClient.php
+
+		-
+			message: "#^Property RetailCrm\\\\Mg\\\\Bot\\\\HttpClient\\:\\:\\$client has no typehint specified\\.$#"
+			count: 1
+			path: src/Bot/HttpClient.php
+
+		-
+			message: "#^Property RetailCrm\\\\Mg\\\\Bot\\\\HttpClient\\:\\:\\$stdout has no typehint specified\\.$#"
+			count: 1
+			path: src/Bot/HttpClient.php
+
+		-
+			message: "#^Property RetailCrm\\\\Mg\\\\Bot\\\\HttpClient\\:\\:\\$token has no typehint specified\\.$#"
+			count: 1
+			path: src/Bot/HttpClient.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Bot\\:\\:getEvents\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Bot.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Bot\\:\\:getRoles\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Bot.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Bot\\:\\:setAvatarUrl\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Bot.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Bot\\:\\:setClientId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Bot.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Bot\\:\\:setCreatedAt\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Bot.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Bot\\:\\:setDeactivatedAt\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Bot.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Bot\\:\\:setEvents\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Bot.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Bot\\:\\:setEvents\\(\\) has parameter \\$events with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Bot.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Bot\\:\\:setId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Bot.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Bot\\:\\:setIsActive\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Bot.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Bot\\:\\:setIsSelf\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Bot.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Bot\\:\\:setIsSystem\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Bot.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Bot\\:\\:setName\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Bot.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Bot\\:\\:setRoles\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Bot.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Bot\\:\\:setRoles\\(\\) has parameter \\$roles with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Bot.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Bot\\:\\:setUpdatedAt\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Bot.php
+
+		-
+			message: "#^Property RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Bot\\:\\:\\$events type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Bot.php
+
+		-
+			message: "#^Property RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Bot\\:\\:\\$roles type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Bot.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Channel\\\\Channel\\:\\:setActivatedAt\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Channel/Channel.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Channel\\\\Channel\\:\\:setCreatedAt\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Channel/Channel.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Channel\\\\Channel\\:\\:setDeactivatedAt\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Channel/Channel.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Channel\\\\Channel\\:\\:setId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Channel/Channel.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Channel\\\\Channel\\:\\:setIsActive\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Channel/Channel.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Channel\\\\Channel\\:\\:setName\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Channel/Channel.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Channel\\\\Channel\\:\\:setSettings\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Channel/Channel.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Channel\\\\Channel\\:\\:setType\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Channel/Channel.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Channel\\\\Channel\\:\\:setUpdatedAt\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Channel/Channel.php
+
+		-
+			message: "#^Property RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Channel\\\\Channel\\:\\:\\$name has no typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Channel/Channel.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Channel\\\\ChannelSettings\\:\\:setFile\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Channel/ChannelSettings.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Channel\\\\ChannelSettings\\:\\:setImage\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Channel/ChannelSettings.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Channel\\\\ChannelSettings\\:\\:setOrder\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Channel/ChannelSettings.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Channel\\\\ChannelSettings\\:\\:setProduct\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Channel/ChannelSettings.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Channel\\\\ChannelSettings\\:\\:setSpamAllowed\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Channel/ChannelSettings.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Channel\\\\ChannelSettings\\:\\:setStatus\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Channel/ChannelSettings.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Channel\\\\ChannelSettings\\:\\:setText\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Channel/ChannelSettings.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Channel\\\\ChannelSettingsItem\\:\\:setCreating\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Channel/ChannelSettingsItem.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Channel\\\\ChannelSettingsItem\\:\\:setDeleting\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Channel/ChannelSettingsItem.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Channel\\\\ChannelSettingsItem\\:\\:setDelivered\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Channel/ChannelSettingsItem.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Channel\\\\ChannelSettingsItem\\:\\:setEditing\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Channel/ChannelSettingsItem.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Channel\\\\ChannelSettingsItem\\:\\:setMaxCharsCount\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Channel/ChannelSettingsItem.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Channel\\\\ChannelSettingsItem\\:\\:setMaxItemsCount\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Channel/ChannelSettingsItem.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Channel\\\\ChannelSettingsItem\\:\\:setNoteMaxCharsCount\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Channel/ChannelSettingsItem.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Channel\\\\ChannelSettingsItem\\:\\:setQuoting\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Channel/ChannelSettingsItem.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Channel\\\\ChannelSettingsStatus\\:\\:setDelivered\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Channel/ChannelSettingsStatus.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Channel\\\\ChannelSettingsStatus\\:\\:setRead\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Channel/ChannelSettingsStatus.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Chat\\\\Chat\\:\\:getMembers\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Chat/Chat.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Chat\\\\Chat\\:\\:setAuthorId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Chat/Chat.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Chat\\\\Chat\\:\\:setAvatar\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Chat/Chat.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Chat\\\\Chat\\:\\:setChannel\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Chat/Chat.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Chat\\\\Chat\\:\\:setCreatedAt\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Chat/Chat.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Chat\\\\Chat\\:\\:setCustomer\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Chat/Chat.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Chat\\\\Chat\\:\\:setId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Chat/Chat.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Chat\\\\Chat\\:\\:setLastActivity\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Chat/Chat.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Chat\\\\Chat\\:\\:setLastMessage\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Chat/Chat.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Chat\\\\Chat\\:\\:setMembers\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Chat/Chat.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Chat\\\\Chat\\:\\:setMembers\\(\\) has parameter \\$members with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Chat/Chat.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Chat\\\\Chat\\:\\:setName\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Chat/Chat.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Chat\\\\Chat\\:\\:setUpdatedAt\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Chat/Chat.php
+
+		-
+			message: "#^Property RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Chat\\\\Chat\\:\\:\\$members type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Chat/Chat.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Chat\\\\ChatLastMessage\\:\\:setId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Chat/ChatLastMessage.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Chat\\\\ChatLastMessage\\:\\:setTime\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Chat/ChatLastMessage.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Chat\\\\ChatLastMessage\\:\\:setType\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Chat/ChatLastMessage.php
+
+		-
+			message: "#^Property RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Chat\\\\ChatLastMessage\\:\\:\\$id has no typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Chat/ChatLastMessage.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Chat\\\\ChatMember\\:\\:setChatId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Chat/ChatMember.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Chat\\\\ChatMember\\:\\:setCreatedAt\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Chat/ChatMember.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Chat\\\\ChatMember\\:\\:setId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Chat/ChatMember.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Chat\\\\ChatMember\\:\\:setIsAuthor\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Chat/ChatMember.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Chat\\\\ChatMember\\:\\:setState\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Chat/ChatMember.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Chat\\\\ChatMember\\:\\:setUpdatedAt\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Chat/ChatMember.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Chat\\\\ChatMember\\:\\:setUserId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Chat/ChatMember.php
+
+		-
+			message: "#^Property RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Chat\\\\ChatMember\\:\\:\\$state has no typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Chat/ChatMember.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Command\\:\\:setCreatedAt\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Command.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Command\\:\\:setDescription\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Command.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Command\\:\\:setId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Command.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Command\\:\\:setName\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Command.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Command\\:\\:setUpdatedAt\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Command.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Customer\\:\\:setAvatarUrl\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Customer.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Customer\\:\\:setChannelId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Customer.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Customer\\:\\:setCountry\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Customer.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Customer\\:\\:setCreatedAt\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Customer.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Customer\\:\\:setEmail\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Customer.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Customer\\:\\:setExternalId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Customer.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Customer\\:\\:setFirstName\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Customer.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Customer\\:\\:setId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Customer.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Customer\\:\\:setLanguage\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Customer.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Customer\\:\\:setLastName\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Customer.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Customer\\:\\:setPhone\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Customer.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Customer\\:\\:setProfileUrl\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Customer.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Customer\\:\\:setRevokedAt\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Customer.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Customer\\:\\:setUpdatedAt\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Customer.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Customer\\:\\:setUsername\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Customer.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Dialog\\:\\:setBeginMessageId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Dialog.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Dialog\\:\\:setBotId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Dialog.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Dialog\\:\\:setChatId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Dialog.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Dialog\\:\\:setClosedAt\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Dialog.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Dialog\\:\\:setCreatedAt\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Dialog.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Dialog\\:\\:setEndingMessageId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Dialog.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Dialog\\:\\:setId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Dialog.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Dialog\\:\\:setIsActive\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Dialog.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Dialog\\:\\:setIsAssigned\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Dialog.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Dialog\\:\\:setResponsible\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Dialog.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Dialog\\:\\:setUpdatedAt\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Dialog.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\FileMeta\\:\\:setHeight\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/FileMeta.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\FileMeta\\:\\:setWidth\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/FileMeta.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\Item\\:\\:setCaption\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/Item.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\Item\\:\\:setId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/Item.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\Item\\:\\:setSize\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/Item.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\Message\\:\\:getItems\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/Message.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\Message\\:\\:setAction\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/Message.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\Message\\:\\:setActions\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/Message.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\Message\\:\\:setChannelId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/Message.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\Message\\:\\:setChannelSentAt\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/Message.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\Message\\:\\:setChatId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/Message.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\Message\\:\\:setContent\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/Message.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\Message\\:\\:setCreatedAt\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/Message.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\Message\\:\\:setDialog\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/Message.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\Message\\:\\:setFrom\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/Message.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\Message\\:\\:setId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/Message.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\Message\\:\\:setIsEdit\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/Message.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\Message\\:\\:setIsRead\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/Message.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\Message\\:\\:setItems\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/Message.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\Message\\:\\:setItems\\(\\) has parameter \\$items with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/Message.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\Message\\:\\:setOrder\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/Message.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\Message\\:\\:setProduct\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/Message.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\Message\\:\\:setScope\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/Message.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\Message\\:\\:setStatus\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/Message.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\Message\\:\\:setTime\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/Message.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\Message\\:\\:setType\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/Message.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\Message\\:\\:setUpdatedAt\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/Message.php
+
+		-
+			message: "#^Property RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\Message\\:\\:\\$items type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/Message.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\MessageCost\\:\\:setCurrency\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/MessageCost.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\MessageCost\\:\\:setValue\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/MessageCost.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\MessageDelivery\\:\\:setAddress\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/MessageDelivery.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\MessageDelivery\\:\\:setComment\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/MessageDelivery.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\MessageDelivery\\:\\:setName\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/MessageDelivery.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\MessageDelivery\\:\\:setPrice\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/MessageDelivery.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\MessageOrder\\:\\:getItems\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/MessageOrder.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\MessageOrder\\:\\:getPayments\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/MessageOrder.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\MessageOrder\\:\\:setCost\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/MessageOrder.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\MessageOrder\\:\\:setDate\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/MessageOrder.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\MessageOrder\\:\\:setDelivery\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/MessageOrder.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\MessageOrder\\:\\:setItems\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/MessageOrder.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\MessageOrder\\:\\:setItems\\(\\) has parameter \\$items with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/MessageOrder.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\MessageOrder\\:\\:setNumber\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/MessageOrder.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\MessageOrder\\:\\:setPayments\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/MessageOrder.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\MessageOrder\\:\\:setPayments\\(\\) has parameter \\$payments with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/MessageOrder.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\MessageOrder\\:\\:setStatus\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/MessageOrder.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\MessageOrder\\:\\:setUrl\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/MessageOrder.php
+
+		-
+			message: "#^Property RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\MessageOrder\\:\\:\\$items type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/MessageOrder.php
+
+		-
+			message: "#^Property RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\MessageOrder\\:\\:\\$payments type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/MessageOrder.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\MessageOrderItem\\:\\:setImg\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/MessageOrderItem.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\MessageOrderItem\\:\\:setName\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/MessageOrderItem.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\MessageOrderItem\\:\\:setPrice\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/MessageOrderItem.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\MessageOrderItem\\:\\:setQuantity\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/MessageOrderItem.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\MessageOrderItem\\:\\:setUrl\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/MessageOrderItem.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\MessageOrderPaymentStatus\\:\\:setName\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/MessageOrderPaymentStatus.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\MessageOrderPaymentStatus\\:\\:setPayed\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/MessageOrderPaymentStatus.php
+
+		-
+			message: "#^Property RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\MessageOrderPaymentStatus\\:\\:\\$payed has no typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/MessageOrderPaymentStatus.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\MessagePayment\\:\\:setAmount\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/MessagePayment.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\MessagePayment\\:\\:setName\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/MessagePayment.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\MessagePayment\\:\\:setStatus\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/MessagePayment.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\MessageProduct\\:\\:setArticle\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/MessageProduct.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\MessageProduct\\:\\:setCost\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/MessageProduct.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\MessageProduct\\:\\:setId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/MessageProduct.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\MessageProduct\\:\\:setImg\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/MessageProduct.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\MessageProduct\\:\\:setName\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/MessageProduct.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\MessageProduct\\:\\:setQuantity\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/MessageProduct.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\MessageProduct\\:\\:setUrl\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/MessageProduct.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\MessageQuantity\\:\\:setUnit\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/MessageQuantity.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\MessageQuantity\\:\\:setValue\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/MessageQuantity.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\MessageStatus\\:\\:setCode\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/MessageStatus.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\MessageStatus\\:\\:setName\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/MessageStatus.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\Suggestion\\:\\:setTitle\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/Suggestion.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\Suggestion\\:\\:setType\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/Suggestion.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\TransportAttachments\\:\\:getSuggestions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/TransportAttachments.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\TransportAttachments\\:\\:setSuggestions\\(\\) has parameter \\$suggestions with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/TransportAttachments.php
+
+		-
+			message: "#^Property RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Message\\\\TransportAttachments\\:\\:\\$suggestions type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Message/TransportAttachments.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Responsible\\:\\:setAssignedAt\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Responsible.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Responsible\\:\\:setId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Responsible.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\Responsible\\:\\:setType\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/Responsible.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\User\\:\\:setAvatar\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/User.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\User\\:\\:setCreatedAt\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/User.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\User\\:\\:setExternalId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/User.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\User\\:\\:setFirstName\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/User.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\User\\:\\:setId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/User.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\User\\:\\:setIsActive\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/User.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\User\\:\\:setIsOnline\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/User.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\User\\:\\:setLastName\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/User.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\User\\:\\:setName\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/User.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\User\\:\\:setRevokedAt\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/User.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\User\\:\\:setType\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/User.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\User\\:\\:setUpdatedAt\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/User.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Entity\\\\User\\:\\:setUsername\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Entity/User.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\ModelAdapter\\:\\:getResponseList\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/ModelAdapter.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\BotsRequest\\:\\:getRoles\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/BotsRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\BotsRequest\\:\\:setActive\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/BotsRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\BotsRequest\\:\\:setId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/BotsRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\BotsRequest\\:\\:setRoles\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/BotsRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\BotsRequest\\:\\:setRoles\\(\\) has parameter \\$roles with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/BotsRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\BotsRequest\\:\\:setSelf\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/BotsRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\BotsRequest\\:\\:setSince\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/BotsRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\BotsRequest\\:\\:setUntil\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/BotsRequest.php
+
+		-
+			message: "#^Property RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\BotsRequest\\:\\:\\$active has no typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/BotsRequest.php
+
+		-
+			message: "#^Property RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\BotsRequest\\:\\:\\$roles has no typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/BotsRequest.php
+
+		-
+			message: "#^Property RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\BotsRequest\\:\\:\\$self has no typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/BotsRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\ChannelsRequest\\:\\:getTypes\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/ChannelsRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\ChannelsRequest\\:\\:setActive\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/ChannelsRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\ChannelsRequest\\:\\:setId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/ChannelsRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\ChannelsRequest\\:\\:setSince\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/ChannelsRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\ChannelsRequest\\:\\:setTypes\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/ChannelsRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\ChannelsRequest\\:\\:setTypes\\(\\) has parameter \\$types with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/ChannelsRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\ChannelsRequest\\:\\:setUntil\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/ChannelsRequest.php
+
+		-
+			message: "#^Property RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\ChannelsRequest\\:\\:\\$active has no typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/ChannelsRequest.php
+
+		-
+			message: "#^Property RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\ChannelsRequest\\:\\:\\$types has no typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/ChannelsRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\ChatsRequest\\:\\:setChannelId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/ChatsRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\ChatsRequest\\:\\:setChannelType\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/ChatsRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\ChatsRequest\\:\\:setId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/ChatsRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\ChatsRequest\\:\\:setSince\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/ChatsRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\ChatsRequest\\:\\:setUntil\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/ChatsRequest.php
+
+		-
+			message: "#^Property RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\ChatsRequest\\:\\:\\$channelId has no typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/ChatsRequest.php
+
+		-
+			message: "#^Property RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\ChatsRequest\\:\\:\\$channelType has no typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/ChatsRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\CommandEditRequest\\:\\:setBotId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/CommandEditRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\CommandEditRequest\\:\\:setDescription\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/CommandEditRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\CommandEditRequest\\:\\:setName\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/CommandEditRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\CommandsRequest\\:\\:setId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/CommandsRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\CommandsRequest\\:\\:setName\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/CommandsRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\CommandsRequest\\:\\:setSince\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/CommandsRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\CommandsRequest\\:\\:setUntil\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/CommandsRequest.php
+
+		-
+			message: "#^Property RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\CommandsRequest\\:\\:\\$name has no typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/CommandsRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\CustomersRequest\\:\\:setExternalId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/CustomersRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\CustomersRequest\\:\\:setId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/CustomersRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\CustomersRequest\\:\\:setSince\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/CustomersRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\CustomersRequest\\:\\:setUntil\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/CustomersRequest.php
+
+		-
+			message: "#^Property RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\CustomersRequest\\:\\:\\$externalId has no typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/CustomersRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\DialogAssignRequest\\:\\:setBotId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/DialogAssignRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\DialogAssignRequest\\:\\:setDialogId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/DialogAssignRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\DialogAssignRequest\\:\\:setUserId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/DialogAssignRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\DialogsRequest\\:\\:setActive\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/DialogsRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\DialogsRequest\\:\\:setAssign\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/DialogsRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\DialogsRequest\\:\\:setBotId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/DialogsRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\DialogsRequest\\:\\:setChatId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/DialogsRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\DialogsRequest\\:\\:setId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/DialogsRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\DialogsRequest\\:\\:setSince\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/DialogsRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\DialogsRequest\\:\\:setUntil\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/DialogsRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\DialogsRequest\\:\\:setUserId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/DialogsRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\InfoRequest\\:\\:getRoles\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/InfoRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\InfoRequest\\:\\:setAvatarUrl\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/InfoRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\InfoRequest\\:\\:setName\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/InfoRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\InfoRequest\\:\\:setRoles\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/InfoRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\InfoRequest\\:\\:setRoles\\(\\) has parameter \\$roles with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/InfoRequest.php
+
+		-
+			message: "#^Property RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\InfoRequest\\:\\:\\$roles type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/InfoRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\MembersRequest\\:\\:setChatId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/MembersRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\MembersRequest\\:\\:setSince\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/MembersRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\MembersRequest\\:\\:setState\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/MembersRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\MembersRequest\\:\\:setUntil\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/MembersRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\MembersRequest\\:\\:setUserId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/MembersRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\MessageEditRequest\\:\\:setContent\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/MessageEditRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\MessageEditRequest\\:\\:setId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/MessageEditRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\MessageSendRequest\\:\\:getItems\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/MessageSendRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\MessageSendRequest\\:\\:setChatId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/MessageSendRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\MessageSendRequest\\:\\:setContent\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/MessageSendRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\MessageSendRequest\\:\\:setItems\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/MessageSendRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\MessageSendRequest\\:\\:setItems\\(\\) has parameter \\$items with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/MessageSendRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\MessageSendRequest\\:\\:setOrder\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/MessageSendRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\MessageSendRequest\\:\\:setProduct\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/MessageSendRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\MessageSendRequest\\:\\:setQuoteMessageId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/MessageSendRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\MessageSendRequest\\:\\:setScope\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/MessageSendRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\MessageSendRequest\\:\\:setTransportAttachments\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/MessageSendRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\MessageSendRequest\\:\\:setType\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/MessageSendRequest.php
+
+		-
+			message: "#^Property RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\MessageSendRequest\\:\\:\\$items type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/MessageSendRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\MessagesRequest\\:\\:setBotId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/MessagesRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\MessagesRequest\\:\\:setChannelId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/MessagesRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\MessagesRequest\\:\\:setChannelType\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/MessagesRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\MessagesRequest\\:\\:setChatId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/MessagesRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\MessagesRequest\\:\\:setCustomerId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/MessagesRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\MessagesRequest\\:\\:setDialogId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/MessagesRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\MessagesRequest\\:\\:setId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/MessagesRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\MessagesRequest\\:\\:setScope\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/MessagesRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\MessagesRequest\\:\\:setSince\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/MessagesRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\MessagesRequest\\:\\:setType\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/MessagesRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\MessagesRequest\\:\\:setUntil\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/MessagesRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\MessagesRequest\\:\\:setUserId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/MessagesRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\UploadFileByUrlRequest\\:\\:setUrl\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/UploadFileByUrlRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\UsersRequest\\:\\:setActive\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/UsersRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\UsersRequest\\:\\:setExternalId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/UsersRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\UsersRequest\\:\\:setId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/UsersRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\UsersRequest\\:\\:setOnline\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/UsersRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\UsersRequest\\:\\:setSince\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/UsersRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\UsersRequest\\:\\:setUntil\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/UsersRequest.php
+
+		-
+			message: "#^Property RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\UsersRequest\\:\\:\\$active has no typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/UsersRequest.php
+
+		-
+			message: "#^Property RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\UsersRequest\\:\\:\\$externalId has no typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/UsersRequest.php
+
+		-
+			message: "#^Property RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\UsersRequest\\:\\:\\$online has no typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/UsersRequest.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\AssignResponse\\:\\:getErrors\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/AssignResponse.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\AssignResponse\\:\\:setErrors\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/AssignResponse.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\AssignResponse\\:\\:setErrors\\(\\) has parameter \\$errors with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/AssignResponse.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\AssignResponse\\:\\:setIsReassign\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/AssignResponse.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\AssignResponse\\:\\:setLeftManagerId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/AssignResponse.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\AssignResponse\\:\\:setPreviousResponsible\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/AssignResponse.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\AssignResponse\\:\\:setResponsible\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/AssignResponse.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\AssignResponse\\:\\:setStatusCode\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/AssignResponse.php
+
+		-
+			message: "#^Property RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\AssignResponse\\:\\:\\$errors type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/AssignResponse.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\ErrorOnlyResponse\\:\\:getErrors\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/ErrorOnlyResponse.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\ErrorOnlyResponse\\:\\:setErrors\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/ErrorOnlyResponse.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\ErrorOnlyResponse\\:\\:setErrors\\(\\) has parameter \\$errors with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/ErrorOnlyResponse.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\ErrorOnlyResponse\\:\\:setStatusCode\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/ErrorOnlyResponse.php
+
+		-
+			message: "#^Property RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\ErrorOnlyResponse\\:\\:\\$errors type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/ErrorOnlyResponse.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\FullFileResponse\\:\\:getErrors\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/FullFileResponse.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\FullFileResponse\\:\\:setErrors\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/FullFileResponse.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\FullFileResponse\\:\\:setErrors\\(\\) has parameter \\$errors with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/FullFileResponse.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\FullFileResponse\\:\\:setId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/FullFileResponse.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\FullFileResponse\\:\\:setSize\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/FullFileResponse.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\FullFileResponse\\:\\:setStatusCode\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/FullFileResponse.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\FullFileResponse\\:\\:setType\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/FullFileResponse.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\FullFileResponse\\:\\:setUrl\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/FullFileResponse.php
+
+		-
+			message: "#^Property RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\FullFileResponse\\:\\:\\$errors type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/FullFileResponse.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\MessageSendResponse\\:\\:getErrors\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/MessageSendResponse.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\MessageSendResponse\\:\\:setErrors\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/MessageSendResponse.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\MessageSendResponse\\:\\:setErrors\\(\\) has parameter \\$errors with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/MessageSendResponse.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\MessageSendResponse\\:\\:setMessageId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/MessageSendResponse.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\MessageSendResponse\\:\\:setStatusCode\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/MessageSendResponse.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\MessageSendResponse\\:\\:setTime\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/MessageSendResponse.php
+
+		-
+			message: "#^Property RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\MessageSendResponse\\:\\:\\$errors type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/MessageSendResponse.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\UnassignResponse\\:\\:getErrors\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/UnassignResponse.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\UnassignResponse\\:\\:setErrors\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/UnassignResponse.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\UnassignResponse\\:\\:setErrors\\(\\) has parameter \\$errors with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/UnassignResponse.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\UnassignResponse\\:\\:setPreviousResponsible\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/UnassignResponse.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\UnassignResponse\\:\\:setStatusCode\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/UnassignResponse.php
+
+		-
+			message: "#^Property RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\UnassignResponse\\:\\:\\$errors type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/UnassignResponse.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\UploadFileResponse\\:\\:getErrors\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/UploadFileResponse.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\UploadFileResponse\\:\\:setCreatedAt\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/UploadFileResponse.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\UploadFileResponse\\:\\:setErrors\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/UploadFileResponse.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\UploadFileResponse\\:\\:setErrors\\(\\) has parameter \\$errors with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/UploadFileResponse.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\UploadFileResponse\\:\\:setHash\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/UploadFileResponse.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\UploadFileResponse\\:\\:setId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/UploadFileResponse.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\UploadFileResponse\\:\\:setMeta\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/UploadFileResponse.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\UploadFileResponse\\:\\:setMimeType\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/UploadFileResponse.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\UploadFileResponse\\:\\:setSize\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/UploadFileResponse.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\UploadFileResponse\\:\\:setSourceUrl\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/UploadFileResponse.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\UploadFileResponse\\:\\:setStatusCode\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/UploadFileResponse.php
+
+		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\UploadFileResponse\\:\\:setType\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/UploadFileResponse.php
+
+		-
+			message: "#^Property RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\UploadFileResponse\\:\\:\\$errors type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/UploadFileResponse.php
+
+		-
+			message: "#^Property RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Response\\\\UploadFileResponse\\:\\:\\$sourceUrl has no typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Response/UploadFileResponse.php
+
+		-
+			message: "#^Method RetailCrm\\\\Common\\\\Register\\:\\:getActions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Register.php
+
+		-
+			message: "#^Method RetailCrm\\\\Common\\\\Register\\:\\:getArrayConfiguration\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Register.php
+
+		-
+			message: "#^Method RetailCrm\\\\Common\\\\Register\\:\\:getAvailableCountries\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Register.php
+
+		-
+			message: "#^Method RetailCrm\\\\Common\\\\Register\\:\\:getIntegrations\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Register.php
+
+		-
+			message: "#^Method RetailCrm\\\\Common\\\\Register\\:\\:setAccountUrl\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Register.php
+
+		-
+			message: "#^Method RetailCrm\\\\Common\\\\Register\\:\\:setActions\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Register.php
+
+		-
+			message: "#^Method RetailCrm\\\\Common\\\\Register\\:\\:setActions\\(\\) has parameter \\$actions with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Register.php
+
+		-
+			message: "#^Method RetailCrm\\\\Common\\\\Register\\:\\:setActive\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Register.php
+
+		-
+			message: "#^Method RetailCrm\\\\Common\\\\Register\\:\\:setAvailableCountries\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Register.php
+
+		-
+			message: "#^Method RetailCrm\\\\Common\\\\Register\\:\\:setAvailableCountries\\(\\) has parameter \\$availableCountries with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Register.php
+
+		-
+			message: "#^Method RetailCrm\\\\Common\\\\Register\\:\\:setBaseUrl\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Register.php
+
+		-
+			message: "#^Method RetailCrm\\\\Common\\\\Register\\:\\:setClientId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Register.php
+
+		-
+			message: "#^Method RetailCrm\\\\Common\\\\Register\\:\\:setCode\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Register.php
+
+		-
+			message: "#^Method RetailCrm\\\\Common\\\\Register\\:\\:setIntegrationCode\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Register.php
+
+		-
+			message: "#^Method RetailCrm\\\\Common\\\\Register\\:\\:setIntegrations\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Register.php
+
+		-
+			message: "#^Method RetailCrm\\\\Common\\\\Register\\:\\:setIntegrations\\(\\) has parameter \\$integrations with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Register.php
+
+		-
+			message: "#^Method RetailCrm\\\\Common\\\\Register\\:\\:setLogo\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Register.php
+
+		-
+			message: "#^Method RetailCrm\\\\Common\\\\Register\\:\\:setName\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Register.php
+
+		-
+			message: "#^Property RetailCrm\\\\Common\\\\Register\\:\\:\\$actions type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Register.php
+
+		-
+			message: "#^Property RetailCrm\\\\Common\\\\Register\\:\\:\\$availableCountries type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Register.php
+
+		-
+			message: "#^Property RetailCrm\\\\Common\\\\Register\\:\\:\\$integrations type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Register.php
+
+		-
+			message: "#^Method RetailCrm\\\\Common\\\\Serializer\\:\\:serialize\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Serializer.php
+
+		-
+			message: "#^Method RetailCrm\\\\Common\\\\Url\\:\\:buildGetParameters\\(\\) has parameter \\$params with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Url.php
+
