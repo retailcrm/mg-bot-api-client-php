@@ -125,7 +125,7 @@ class Message implements ModelInterface
      * @var bool $isRead
      *
      * @Type("bool")
-     * @Accessor(getter="getIsRead",setter="setIsRead")
+     * @Accessor(getter="isRead",setter="setIsRead")
      * @SkipWhenEmpty()
      */
     private $isRead;
@@ -134,7 +134,7 @@ class Message implements ModelInterface
      * @var bool $isEdit
      *
      * @Type("bool")
-     * @Accessor(getter="getIsEdit",setter="setIsEdit")
+     * @Accessor(getter="isEdit",setter="setIsEdit")
      * @SkipWhenEmpty()
      */
     private $isEdit;
