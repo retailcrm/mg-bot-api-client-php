@@ -70,8 +70,11 @@ class Serializer
 
         switch ($from) {
             case self::S_ARRAY:
+                $filtered = array_filter($data, static function ($el) {
+                    return isset($el);
+                });
                 $deserialized = $serializer
-                    ->fromArray(array_filter($data), self::normalizeNamespace($entityType), $context);
+                    ->fromArray($filtered, self::normalizeNamespace($entityType), $context);
                 break;
             case self::S_JSON:
                 $deserialized = $serializer
