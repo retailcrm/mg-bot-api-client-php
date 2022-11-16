@@ -1,0 +1,63 @@
+[
+  {
+    "id": 30,
+    "avatar": "",
+    "name": "",
+    "channel": {
+      "id": 72,
+      "avatar": "",
+      "transport_id": 4,
+      "type": "fbmessenger",
+      "settings": {
+        "status": {
+          "delivered": "send"
+        },
+        "text": {
+          "creating": "both",
+          "editing": "both",
+          "quoting": "both",
+          "deleting": "receive",
+          "max_chars_count": 4096
+        },
+        "product": {
+          "creating": "receive",
+          "editing": "receive"
+        },
+        "order": {
+          "creating": "receive",
+          "editing": "receive"
+        },
+        "image": {
+          "creating": "both",
+          "editing": "both",
+          "quoting": "both",
+          "deleting": "receive",
+          "max_items_count": 10
+        },
+        "file": {
+          "creating": "both",
+          "editing": "both",
+          "quoting": "both",
+          "deleting": "receive",
+          "max_items_count": 1
+        }
+      },
+      "name": "testbot",
+      "is_active": true
+    },
+    "members": null,
+    "customer": {
+      "id": 39,
+      "type": "customer",
+      "avatar": "",
+      "name": "Иван",
+      "username": "Иван",
+      "first_name": "Иван"
+    },
+    "author_id": 0,
+    "last_message": null,
+    "last_activity": "2019-06-11T17:36:20+03:00",
+    "created_at": "2019-06-11T12:49:26.938879Z",
+    "updated_at": "2019-06-14T14:40:28.7111Z"
+  }
+]
