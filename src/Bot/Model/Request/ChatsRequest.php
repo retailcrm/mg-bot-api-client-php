@@ -40,6 +40,8 @@ class ChatsRequest implements ModelInterface
     private $channelType;
 
     /**
+     * @var int $customerId
+     *
      * @Type("int")
      * @Accessor(getter="getCustomerId",setter="setCustomerId")
      * @SkipWhenEmpty()
@@ -88,6 +90,7 @@ class ChatsRequest implements ModelInterface
 
     /**
      * @param int $customerId
+     * @return void
      */
     public function setCustomerId($customerId)
     {

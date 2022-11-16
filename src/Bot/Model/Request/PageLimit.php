@@ -22,7 +22,7 @@ use JMS\Serializer\Annotation\Type;
 trait PageLimit
 {
     /**
-     * @var int
+     * @var int $limit
      *
      * @Type("int")
      * @Accessor(getter="getLimit",setter="setLimit")
@@ -40,6 +40,7 @@ trait PageLimit
 
     /**
      * @param int $limit
+     * @return void
      */
     public function setLimit($limit)
     {
