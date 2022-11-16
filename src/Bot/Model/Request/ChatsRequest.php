@@ -23,6 +23,7 @@ use RetailCrm\Mg\Bot\Model\ModelInterface;
 class ChatsRequest implements ModelInterface
 {
     use CommonFields;
+    use PageLimit;
 
     /**
      * @Type("int")
@@ -37,6 +38,15 @@ class ChatsRequest implements ModelInterface
      * @SkipWhenEmpty()
      */
     private $channelType;
+
+    /**
+     * @var int $customerId
+     *
+     * @Type("int")
+     * @Accessor(getter="getCustomerId",setter="setCustomerId")
+     * @SkipWhenEmpty()
+     */
+    private $customerId;
 
     /**
      * @return int
@@ -68,5 +78,22 @@ class ChatsRequest implements ModelInterface
     public function setChannelType($channelType)
     {
         $this->channelType = $channelType;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getCustomerId(): ?int
+    {
+        return $this->customerId;
+    }
+
+    /**
+     * @param int $customerId
+     * @return void
+     */
+    public function setCustomerId($customerId)
+    {
+        $this->customerId = $customerId;
     }
 }
