@@ -79,6 +79,27 @@ class ClientListTest extends TestCase
      * @group("list")
      * @throws \Exception
      */
+    public function testGetChatsByCustomerId(): void
+    {
+        $client = self::getApiClient(
+            null,
+            null,
+            false,
+            $this->getJsonResponse('chatsByCustomerId')
+        );
+
+        $request = new Request\ChatsRequest();
+        $request->setCustomerId(39);
+
+        $response = $client->chats($request);
+        static::assertCount(1, $response, "Incorrect chats count");
+        static::assertInstanceOf(Chat::class, $response[0], "Incorrect chat instance");
+    }
+
+    /**
+     * @group("list")
+     * @throws \Exception
+     */
     public function testMembers()
     {
         $client = self::getApiClient(
