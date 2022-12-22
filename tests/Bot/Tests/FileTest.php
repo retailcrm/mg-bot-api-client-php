@@ -33,7 +33,7 @@ class FileTest extends TestCase
             null,
             null,
             false,
-            $this->getEmptyResponse(400)
+            $this->getErrorsResponse(400, 'Something is not quite right.')
         );
 
         self::expectException(\InvalidArgumentException::class);

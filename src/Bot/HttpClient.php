@@ -24,9 +24,9 @@ use RuntimeException;
 use Symfony\Component\Validator\Validation;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\Psr7\Utils;
 use GuzzleHttp\Exception\GuzzleException;
 use Psr\Http\Message\ResponseInterface;
-use function GuzzleHttp\Psr7\stream_for;
 
 /**
  * Class HttpClient
@@ -137,7 +137,7 @@ class HttpClient
             [self::METHOD_POST, self::METHOD_PUT, self::METHOD_PATCH, self::METHOD_DELETE]
         ) && is_string($requestBody)
         ) {
-            $request = $request->withBody(stream_for($requestBody));
+            $request = $request->withBody(Utils::streamFor($requestBody));
         }
 
         $responseObject = null;
