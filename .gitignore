@@ -195,3 +195,4 @@ build/*
 # Test report & coverage
 test-report.xml
 clover.xml
+composer.lock
