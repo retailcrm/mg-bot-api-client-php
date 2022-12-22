@@ -27,7 +27,7 @@ class UploadFileByUrlRequest implements ModelInterface
      *
      * @Type("string")
      * @Accessor(getter="getUrl",setter="setUrl")
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(allowNull=false)
      * @Assert\Url()
      */
     private $url;

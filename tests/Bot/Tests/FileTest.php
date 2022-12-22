@@ -27,7 +27,7 @@ class FileTest extends TestCase
      * @group("upload")
      * @throws \Exception
      */
-    public function testUploadFileByUrlException()
+    public function testUploadFileByUrlEmpty()
     {
         $client = self::getApiClient(
             null,
@@ -38,6 +38,21 @@ class FileTest extends TestCase
 
         self::expectException(\InvalidArgumentException::class);
         $client->uploadFileByUrl('');
+    }
+    /**
+     * @group("upload")
+     * @throws \Exception
+     */
+    public function testUploadFileByUrlInvalid()
+    {
+        $client = self::getApiClient(
+            null,
+            null,
+            false,
+            $this->getErrorsResponse(400, 'Something is not quite right.')
+        );
+
+        self::expectException(\InvalidArgumentException::class);
         $client->uploadFileByUrl('rar');
     }
 

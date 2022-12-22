@@ -13,7 +13,12 @@ namespace RetailCrm\Mg\Bot;
 use BadMethodCallException;
 use ErrorException;
 use Exception;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\Psr7\Utils;
 use InvalidArgumentException;
+use Psr\Http\Message\ResponseInterface;
 use RetailCrm\Common\Exception\InvalidJsonException;
 use RetailCrm\Common\Exception\LimitException;
 use RetailCrm\Common\Exception\NotFoundException;
@@ -22,11 +27,6 @@ use RetailCrm\Common\Serializer;
 use RetailCrm\Common\Url;
 use RuntimeException;
 use Symfony\Component\Validator\Validation;
-use GuzzleHttp\Client;
-use GuzzleHttp\Psr7\Request;
-use GuzzleHttp\Psr7\Utils;
-use GuzzleHttp\Exception\GuzzleException;
-use Psr\Http\Message\ResponseInterface;
 
 /**
  * Class HttpClient
@@ -216,14 +216,15 @@ class HttpClient
     /**
      * Validate given class
      *
-     * @param string $class
+     * @param object $class
      *
      * @return void
      */
-    private function validateRequest($class)
+    private function validateRequest(object $class)
     {
         $validator = Validation::createValidatorBuilder()
             ->enableAnnotationMapping()
+            ->addDefaultDoctrineAnnotationReader()
             ->getValidator();
 
         $errors = $validator->validate($class);
