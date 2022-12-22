@@ -100,7 +100,7 @@ class Chat implements ModelInterface
     /**
      * @var ChatLastMessage $lastMessage
      *
-     * @Type("ChatLastMessage")
+     * @Type("RetailCrm\Mg\Bot\Model\Entity\Chat\ChatLastMessage")
      * @Accessor(getter="getLastMessage",setter="setLastMessage")
      */
     private $lastMessage;
