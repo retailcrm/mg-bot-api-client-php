@@ -23,7 +23,7 @@ use RetailCrm\Mg\Bot\Model\Entity\User;
 class MessageQuote
 {
     /**
-     * @var int $creating
+     * @var int $id
      *
      * @Type("int")
      * @Accessor(getter="getId",setter="setId")
@@ -66,7 +66,7 @@ class MessageQuote
     private $content;
 
     /**
-     * @var array $items
+     * @var object[] $items
      *
      * @Type("array")
      * @Accessor(getter="getItems",setter="setItems")
@@ -75,17 +75,17 @@ class MessageQuote
     private $items;
 
     /**
-     * @return string|null
+     * @return int
      */
-    public function getId(): ?string
+    public function getId(): int
     {
         return $this->id;
     }
 
     /**
-     * @param string $id
+     * @param int $id
      */
-    public function setId(string $id)
+    public function setId(int $id): void
     {
         $this->id = $id;
     }
@@ -101,7 +101,7 @@ class MessageQuote
     /**
      * @param string $type
      */
-    public function setType(string $type)
+    public function setType(string $type): void
     {
         $this->type = $type;
     }
@@ -117,7 +117,7 @@ class MessageQuote
     /**
      * @param User $from
      */
-    public function setFrom(User $from)
+    public function setFrom(User $from): void
     {
         $this->from = $from;
     }
@@ -133,7 +133,7 @@ class MessageQuote
     /**
      * @param \DateTime $time
      */
-    public function setTime(\DateTime $time)
+    public function setTime(\DateTime $time): void
     {
         $this->time = $time;
     }
@@ -141,7 +141,7 @@ class MessageQuote
     /**
      * @return string
      */
-    public function getContent()
+    public function getContent(): string
     {
         return $this->content;
     }
@@ -155,7 +155,7 @@ class MessageQuote
     }
 
     /**
-    * @return array|null
+    * @return object[]|null
     */
     public function getItems(): ?array
     {
@@ -163,9 +163,9 @@ class MessageQuote
     }
 
     /**
-     * @param array $items
+     * @param object[] $items
      */
-    public function setItems(array $items)
+    public function setItems(array $items): void
     {
         $this->items = $items;
     }
