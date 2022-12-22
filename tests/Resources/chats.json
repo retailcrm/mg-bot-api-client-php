@@ -108,7 +108,26 @@
       "last_name": "Петрович"
     },
     "author_id": 0,
-    "last_message": null,
+    "last_message": {
+      "id": 1,
+      "time": "2022-12-21T17:15:54+01:00",
+      "type": "command",
+      "scope": "private",
+      "chat_id": 1053,
+      "is_read": false,
+      "is_edit": false,
+      "status": "received",
+      "from": {
+        "id": 2,
+        "external_id": "12",
+        "type": "user",
+        "avatar": null,
+        "name": "Cuenta Soporte",
+        "first_name": "Cuenta",
+        "last_name": "Soporte",
+        "is_technical_account": true
+      }
+    },
     "last_activity": "2019-06-13T11:07:14+03:00",
     "created_at": "2019-06-11T07:34:16.082957Z",
     "updated_at": "2019-06-16T08:10:28.657972Z"
