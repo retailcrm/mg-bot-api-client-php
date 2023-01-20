@@ -30,5 +30,21 @@
       "assigned_at": "2019-06-11T08:40:14.136916Z"
     },
     "is_active": true
+  },
+  {
+    "id": 58,
+    "chat_id": 28,
+    "begin_message_id": 1,
+    "ending_message_id": 30,
+    "created_at": "2019-06-11T07:34:16Z",
+    "updated_at": "2019-06-16T08:10:28Z",
+    "closed_at": "2019-06-16T08:10:28Z",
+    "is_assigned": true,
+    "responsible": {
+      "type": "user",
+      "id": 12,
+      "assigned_at": "2019-06-11T08:40:14Z"
+    },
+    "is_active": true
   }
 ]

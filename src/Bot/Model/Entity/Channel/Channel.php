@@ -33,7 +33,7 @@ class Channel implements ModelInterface
     /**
      * @var \DateTime $createdAt
      *
-     * @Type("DateTime<'Y-m-d\TH:i:s\.u\Z'>")
+     * @Type("DateTime<'Y-m-d\TH:i:s\.u\Z', null, ['Y-m-d\TH:i:s\.u\Z', 'Y-m-d\TH:i:s\Z']>")
      * @Accessor(getter="getCreatedAt",setter="setCreatedAt")
      */
     private $createdAt;
@@ -41,7 +41,7 @@ class Channel implements ModelInterface
     /**
      * @var \DateTime $updatedAt
      *
-     * @Type("DateTime<'Y-m-d\TH:i:s\.u\Z'>")
+     * @Type("DateTime<'Y-m-d\TH:i:s\.u\Z', null, ['Y-m-d\TH:i:s\.u\Z', 'Y-m-d\TH:i:s\Z']>")
      * @Accessor(getter="getUpdatedAt",setter="setUpdatedAt")
      */
     private $updatedAt;
@@ -49,7 +49,7 @@ class Channel implements ModelInterface
     /**
      * @var \DateTime $activatedAt
      *
-     * @Type("DateTime<'Y-m-d\TH:i:s\.u\Z'>")
+     * @Type("DateTime<'Y-m-d\TH:i:s\.u\Z', null, ['Y-m-d\TH:i:s\.u\Z', 'Y-m-d\TH:i:s\Z']>")
      * @Accessor(getter="getActivatedAt",setter="setActivatedAt")
      */
     private $activatedAt;
@@ -57,7 +57,7 @@ class Channel implements ModelInterface
     /**
      * @var \DateTime $deactivatedAt
      *
-     * @Type("DateTime<'Y-m-d\TH:i:s\.u\Z'>")
+     * @Type("DateTime<'Y-m-d\TH:i:s\.u\Z', null, ['Y-m-d\TH:i:s\.u\Z', 'Y-m-d\TH:i:s\Z']>")
      * @Accessor(getter="getDeactivatedAt",setter="setDeactivatedAt")
      */
     private $deactivatedAt;

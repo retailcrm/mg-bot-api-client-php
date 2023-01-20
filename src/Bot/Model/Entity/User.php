@@ -34,7 +34,7 @@ class User implements ModelInterface
     /**
      * @var \DateTime $createdAt
      *
-     * @Type("DateTime<'Y-m-d\TH:i:s\.u\Z'>")
+     * @Type("DateTime<'Y-m-d\TH:i:s\.u\Z', null, ['Y-m-d\TH:i:s\.u\Z', 'Y-m-d\TH:i:s\Z']>")
      * @Accessor(getter="getCreatedAt",setter="setCreatedAt")
      */
     private $createdAt;
@@ -42,7 +42,7 @@ class User implements ModelInterface
     /**
      * @var \DateTime $updatedAt
      *
-     * @Type("DateTime<'Y-m-d\TH:i:s\.u\Z'>")
+     * @Type("DateTime<'Y-m-d\TH:i:s\.u\Z', null, ['Y-m-d\TH:i:s\.u\Z', 'Y-m-d\TH:i:s\Z']>")
      * @Accessor(getter="getUpdatedAt",setter="setUpdatedAt")
      * @SkipWhenEmpty()
      */
@@ -136,7 +136,7 @@ class User implements ModelInterface
     /**
      * @var \DateTime $revokedAt
      *
-     * @Type("DateTime<'Y-m-d\TH:i:s\.u\Z'>")
+     * @Type("DateTime<'Y-m-d\TH:i:s\.u\Z', null, ['Y-m-d\TH:i:s\.u\Z', 'Y-m-d\TH:i:s\Z']>")
      * @Accessor(getter="getRevokedAt",setter="setRevokedAt")
      * @SkipWhenEmpty()
      */

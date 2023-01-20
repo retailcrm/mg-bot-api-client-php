@@ -44,5 +44,28 @@
     "channel_id": 61,
     "created_at": "2019-05-20T12:24:52.478633Z",
     "updated_at": "2019-05-20T12:24:52.585284Z"
+  },
+  {
+    "id": 3372,
+    "time": "2019-05-20T15:24:52+03:00",
+    "type": "text",
+    "scope": "public",
+    "chat_id": 26,
+    "is_read": false,
+    "is_edit": false,
+    "status": "seen",
+    "from": {
+      "id": 35,
+      "type": "customer",
+      "avatar": "",
+      "name": "Иванов Иван",
+      "username": "username",
+      "first_name": "Иванов Иван"
+    },
+    "content": "❤️",
+    "quote": null,
+    "channel_id": 61,
+    "created_at": "2019-05-20T12:24:52Z",
+    "updated_at": "2019-05-20T12:24:52Z"
   }
 ]
