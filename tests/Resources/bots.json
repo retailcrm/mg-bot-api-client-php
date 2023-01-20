@@ -42,5 +42,21 @@
     "is_active": true,
     "is_self": false,
     "is_system": false
+  },
+  {
+    "id": 5,
+    "name": "Weird date formats bot",
+    "events": null,
+    "client_id": "identifier_4",
+    "avatar_url": "https://s3.retailcrm.pro/eu-central-1/retailcrm-billing/images/5b97bfd983d2b-bot-logo-2.svg",
+    "roles": [
+      "responsible"
+    ],
+    "created_at": "2018-09-06T13:40:02Z",
+    "updated_at": "2018-09-12T06:15:32Z",
+    "deactivated_at": "2019-09-12T06:15:32Z",
+    "is_active": true,
+    "is_self": false,
+    "is_system": false
   }
 ]

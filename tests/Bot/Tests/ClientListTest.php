@@ -49,7 +49,7 @@ class ClientListTest extends TestCase
 
         $response = $client->channels($request);
 
-        static::assertCount(4, $response, "Incorrect channels count");
+        static::assertCount(5, $response, "Incorrect channels count");
         static::assertInstanceOf(Channel\Channel::class, $response[0], "Incorrect channel instance");
     }
 
@@ -71,7 +71,7 @@ class ClientListTest extends TestCase
 
         $response = $client->chats($request);
 
-        static::assertCount(2, $response, "Incorrect chats count");
+        static::assertCount(3, $response, "Incorrect chats count");
         static::assertInstanceOf(Chat::class, $response[0], "Incorrect chat instance");
     }
 
@@ -112,7 +112,7 @@ class ClientListTest extends TestCase
         $request = new Request\MembersRequest();
         $response = $client->members($request);
 
-        static::assertCount(4, $response, "Incorrect members count");
+        static::assertCount(5, $response, "Incorrect members count");
         static::assertInstanceOf(ChatMember::class, $response[0], "Incorrect member instance");
     }
 
@@ -135,7 +135,7 @@ class ClientListTest extends TestCase
 
         $response = $client->messages($request);
 
-        static::assertCount(2, $response, "Incorrect message count");
+        static::assertCount(3, $response, "Incorrect message count");
         static::assertInstanceOf(Message::class, $response[0], "Incorrect message instance");
     }
 
@@ -177,7 +177,7 @@ class ClientListTest extends TestCase
 
         $data = $client->bots($request);
 
-        static::assertCount(3, $data);
+        static::assertCount(4, $data);
     }
 
     /**
@@ -199,7 +199,7 @@ class ClientListTest extends TestCase
 
         $response = $client->users($request);
 
-        self::assertCount(2, $response);
+        self::assertCount(3, $response);
         self::assertInstanceOf(User::class, $response[0]);
     }
 
@@ -222,7 +222,7 @@ class ClientListTest extends TestCase
 
         $response = $client->dialogs($request);
 
-        self::assertCount(2, $response);
+        self::assertCount(3, $response);
         self::assertInstanceOf(Dialog::class, $response[0]);
     }
 
@@ -243,7 +243,7 @@ class ClientListTest extends TestCase
 
         $response = $client->customers($request);
 
-        self::assertCount(2, $response);
+        self::assertCount(3, $response);
         self::assertInstanceOf(Customer::class, $response[0]);
     }
 }

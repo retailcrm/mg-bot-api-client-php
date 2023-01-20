@@ -35,7 +35,7 @@ class Message implements ModelInterface
     /**
      * @var \DateTime $createdAt
      *
-     * @Type("DateTime<'Y-m-d\TH:i:s\.u\Z'>")
+     * @Type("DateTime<'Y-m-d\TH:i:s\.u\Z', null, ['Y-m-d\TH:i:s\.u\Z', 'Y-m-d\TH:i:s\Z']>")
      * @Accessor(getter="getCreatedAt",setter="setCreatedAt")
      */
     private $createdAt;
@@ -43,7 +43,7 @@ class Message implements ModelInterface
     /**
      * @var \DateTime $updatedAt
      *
-     * @Type("DateTime<'Y-m-d\TH:i:s\.u\Z'>")
+     * @Type("DateTime<'Y-m-d\TH:i:s\.u\Z', null, ['Y-m-d\TH:i:s\.u\Z', 'Y-m-d\TH:i:s\Z']>")
      * @Accessor(getter="getUpdatedAt",setter="setUpdatedAt")
      * @SkipWhenEmpty()
      */
@@ -178,7 +178,7 @@ class Message implements ModelInterface
     /**
      * @var \DateTime $channelSentAt
      *
-     * @Type("DateTime<'Y-m-d\TH:i:s\.u\Z'>")
+     * @Type("DateTime<'Y-m-d\TH:i:s\.u\Z', null, ['Y-m-d\TH:i:s\.u\Z', 'Y-m-d\TH:i:s\Z']>")
      * @Accessor(getter="getChannelSentAt",setter="setChannelSentAt")
      * @SkipWhenEmpty()
      */

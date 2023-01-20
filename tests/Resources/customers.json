@@ -30,5 +30,21 @@
     "language": "ru",
     "phone": "",
     "email": ""
+  },
+  {
+    "id": 37,
+    "external_id": "2272664739519803",
+    "channel_id": 3,
+    "username": "user2",
+    "first_name": "User2",
+    "last_name": "Lastname2",
+    "created_at": "2019-06-11T07:34:16Z",
+    "updated_at": "2019-06-13T08:07:14Z",
+    "avatar_url": "",
+    "profile_url": "",
+    "country": "",
+    "language": "ru",
+    "phone": "",
+    "email": ""
   }
 ]
