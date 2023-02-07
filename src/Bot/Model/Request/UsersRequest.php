@@ -23,6 +23,7 @@ use RetailCrm\Mg\Bot\Model\ModelInterface;
 class UsersRequest implements ModelInterface
 {
     use CommonFields;
+    use PageLimit;
 
     /**
      * @Type("string")

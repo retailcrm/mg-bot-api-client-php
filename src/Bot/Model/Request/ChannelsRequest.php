@@ -23,6 +23,7 @@ use RetailCrm\Mg\Bot\Model\ModelInterface;
 class ChannelsRequest implements ModelInterface
 {
     use CommonFields;
+    use PageLimit;
 
     /**
      * @Type("array")

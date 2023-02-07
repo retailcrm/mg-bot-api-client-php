@@ -23,6 +23,7 @@ use RetailCrm\Mg\Bot\Model\ModelInterface;
 class DialogsRequest implements ModelInterface
 {
     use CommonFields;
+    use PageLimit;
 
     /**
      * @var int $chatId

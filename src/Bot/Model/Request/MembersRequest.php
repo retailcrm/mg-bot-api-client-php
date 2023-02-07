@@ -22,6 +22,8 @@ use RetailCrm\Mg\Bot\Model\ModelInterface;
  */
 class MembersRequest implements ModelInterface
 {
+    use PageLimit;
+
     /**
      * @var int $chatId
      *

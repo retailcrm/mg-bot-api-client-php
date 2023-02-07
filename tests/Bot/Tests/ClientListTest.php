@@ -10,6 +10,9 @@
 
 namespace RetailCrm\Mg\Bot\Tests;
 
+use Psr\Http\Message\ResponseInterface;
+use RetailCrm\Mg\Bot\Client;
+use RetailCrm\Mg\Bot\HttpClient;
 use RetailCrm\Mg\Bot\Model\Constants;
 use RetailCrm\Mg\Bot\Model\Entity\Channel;
 use RetailCrm\Mg\Bot\Model\Entity\Chat\Chat;
