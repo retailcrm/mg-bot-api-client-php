@@ -10,6 +10,7 @@
 
 namespace RetailCrm\Mg\Bot\Model\Response;
 
+use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Accessor;
 use JMS\Serializer\Annotation\SkipWhenEmpty;
 use JMS\Serializer\Annotation\Type;
@@ -55,6 +56,7 @@ class FullFileResponse implements ModelInterface
      * @var string $url
      *
      * @Type("string")
+     * @SerializedName("Url")
      * @Accessor(getter="getUrl",setter="setUrl")
      * @SkipWhenEmpty()
      */
