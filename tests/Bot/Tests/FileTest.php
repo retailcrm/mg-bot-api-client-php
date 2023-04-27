@@ -116,5 +116,8 @@ class FileTest extends TestCase
 
         self::assertInstanceOf(FullFileResponse::class, $response);
         self::assertEquals($fileId, $response->getId());
+
+        $fileUrl = 'https://s3.eu-central-1.amazonaws.com/mg-node-files/files/21/b2bdba90-166c-4e0a-829d-69f26a09fd2a';
+        self::assertEquals($fileUrl, $response->getUrl());
     }
 }
