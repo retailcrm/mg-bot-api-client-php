@@ -398,7 +398,7 @@ class Message implements ModelInterface
     /**
      * @param string $note
      */
-    public function setNote(string $note)
+    public function setNote(string $note): void
     {
         $this->note = $note;
     }
