@@ -122,6 +122,15 @@ class Message implements ModelInterface
     private $content;
 
     /**
+     * @var string $note
+     *
+     * @Type("string")
+     * @Accessor(getter="getNote",setter="setNote")
+     * @SkipWhenEmpty()
+     */
+    private $note;
+
+    /**
      * @var bool $isRead
      *
      * @Type("bool")
@@ -376,6 +385,22 @@ class Message implements ModelInterface
     public function setContent(string $content)
     {
         $this->content = $content;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getNote(): ?string
+    {
+        return $this->note;
+    }
+
+    /**
+     * @param string $note
+     */
+    public function setNote(string $note)
+    {
+        $this->note = $note;
     }
 
     /**
