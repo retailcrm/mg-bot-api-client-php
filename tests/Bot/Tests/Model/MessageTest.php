@@ -37,6 +37,21 @@ class MessageTest extends TestCase
         self::assertEquals($content, $result->getContent());
     }
 
+    public function testDeserializationWithQuoute(): void
+    {
+        $json = file_get_contents(__DIR__ . '/../../../Resources/messageWithQuote.json');
+        /** @var Message $message */
+        $message = Serializer::deserialize($json, Message::class);
+
+        self::assertEquals(3373, $message->getId());
+        self::assertNotNull($message->getQuote());
+        self::assertEquals("22144962", $message->getQuote()->getId());
+        self::assertEquals("text", $message->getQuote()->getType());
+        self::assertEquals("11111", $message->getQuote()->getFrom()->getId());
+        self::assertEquals("Something content", $message->getQuote()->getContent());
+        self::assertNotNull($message->getQuote()->getTime());
+    }
+
     public function testSerialization_NoContent(): void
     {
         $item = new Message();

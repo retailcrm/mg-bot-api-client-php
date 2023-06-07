@@ -131,6 +131,14 @@ class Message implements ModelInterface
     private $note;
 
     /**
+     * @var ?Quote $quote
+     *
+     * @Type("RetailCrm\Mg\Bot\Model\Entity\Message\Quote")
+     * @SkipWhenEmpty()
+     */
+    private $quote;
+
+    /**
      * @var bool $isRead
      *
      * @Type("bool")
@@ -401,6 +409,18 @@ class Message implements ModelInterface
     public function setNote(string $note): void
     {
         $this->note = $note;
+    }
+
+    public function getQuote(): ?Quote
+    {
+        return $this->quote ?? null;
+    }
+
+    public function setQuote(?Quote $quote): Message
+    {
+        $this->quote = $quote;
+
+        return $this;
     }
 
     /**
