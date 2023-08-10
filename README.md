@@ -8,7 +8,7 @@
 
 ## Requirements
 
-* PHP 7.1 and above
+* PHP 7.3 and above
 * PHP's cURL support
 * PHP's JSON support
 
