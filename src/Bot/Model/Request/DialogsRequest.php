@@ -26,6 +26,15 @@ class DialogsRequest implements ModelInterface
     use PageLimit;
 
     /**
+     * @var int $sinceId
+     *
+     * @Type("int")
+     * @Accessor(getter="getSinceId",setter="setSinceId")
+     * @SkipWhenEmpty
+     */
+    private $sinceId;
+
+    /**
      * @var int $chatId
      *
      * @Type("int")
@@ -69,6 +78,22 @@ class DialogsRequest implements ModelInterface
      * @SkipWhenEmpty
      */
     private $assign;
+
+    /**
+     * @return int
+     */
+    public function getSinceId()
+    {
+        return $this->sinceId;
+    }
+
+    /**
+     * @param int $sinceId
+     */
+    public function setSinceId(int $sinceId)
+    {
+        $this->sinceId = $sinceId;
+    }
 
     /**
      * @return int

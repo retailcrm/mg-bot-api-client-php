@@ -1286,6 +1286,11 @@ parameters:
 			path: src/Bot/Model/Request/DialogsRequest.php
 
 		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\DialogsRequest\\:\\:setSinceId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/DialogsRequest.php
+
+		-
 			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\DialogsRequest\\:\\:setBotId\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/Bot/Model/Request/DialogsRequest.php
