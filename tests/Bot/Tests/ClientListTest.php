@@ -135,6 +135,7 @@ class ClientListTest extends TestCase
         $request = new Request\MessagesRequest();
         $request->setChannelType(Constants::CHANNEL_TYPE_INSTAGRAM);
         $request->setType(Constants::MESSAGE_TYPE_TEXT);
+        $request->setLimit(1000);
 
         $response = $client->messages($request);
 

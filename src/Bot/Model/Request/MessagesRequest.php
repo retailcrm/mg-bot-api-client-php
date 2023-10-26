@@ -106,6 +106,15 @@ class MessagesRequest implements ModelInterface
     private $type;
 
     /**
+     * @var int $limit
+     *
+     * @Type("int")
+     * @Accessor(getter="getLimit",setter="setLimit")
+     * @SkipWhenEmpty()
+     */
+    private $limit;
+
+    /**
      * @return int
      */
     public function getChatId()
@@ -247,5 +256,21 @@ class MessagesRequest implements ModelInterface
     public function setType(string $type)
     {
         $this->type = $type;
+    }
+
+    /**
+     * @return int
+     */
+    public function getLimit()
+    {
+        return $this->limit;
+    }
+
+    /**
+     * @param int $limit
+     */
+    public function setLimit(int $limit)
+    {
+        $this->limit = $limit;
     }
 }
