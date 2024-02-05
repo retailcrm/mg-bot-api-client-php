@@ -84,6 +84,15 @@ class ChannelSettings implements ModelInterface
     private $file;
 
     /**
+     * @var ChannelSettingsSuggestions $suggestions
+     *
+     * @Type("RetailCrm\Mg\Bot\Model\Entity\Channel\ChannelSettingsSuggestions")
+     * @Accessor(getter="getSuggestions",setter="setSuggestions")
+     * @SkipWhenEmpty()
+     */
+    private $suggestions;
+
+    /**
      * @return ChannelSettingsStatus|null
      */
     public function getStatus(): ?ChannelSettingsStatus
@@ -193,5 +202,21 @@ class ChannelSettings implements ModelInterface
     public function setFile(ChannelSettingsItem $file)
     {
         $this->file = $file;
+    }
+
+    /**
+     * @return ChannelSettingsSuggestions|null
+     */
+    public function getSuggestions(): ?ChannelSettingsSuggestions
+    {
+        return $this->suggestions;
+    }
+
+    /**
+     * @param ChannelSettingsSuggestions $suggestions
+     */
+    public function setSuggestions(ChannelSettingsSuggestions $suggestions)
+    {
+        $this->suggestions = $suggestions;
     }
 }
