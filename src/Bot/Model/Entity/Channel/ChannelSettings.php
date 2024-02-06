@@ -215,7 +215,7 @@ class ChannelSettings implements ModelInterface
     /**
      * @param ChannelSettingsSuggestions $suggestions
      */
-    public function setSuggestions(ChannelSettingsSuggestions $suggestions)
+    public function setSuggestions(ChannelSettingsSuggestions $suggestions): void
     {
         $this->suggestions = $suggestions;
     }

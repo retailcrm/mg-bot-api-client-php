@@ -13,7 +13,7 @@ namespace RetailCrm\Mg\Bot\Model\Entity\Channel;
 use JMS\Serializer\Annotation\Accessor;
 use JMS\Serializer\Annotation\SkipWhenEmpty;
 use JMS\Serializer\Annotation\Type;
-use Retailcrm\Mg\Bot\Model\ModelInterface;
+use RetailCrm\Mg\Bot\Model\ModelInterface;
 
 /**
  * ChannelSettingsSuggestions class
@@ -61,7 +61,7 @@ class ChannelSettingsSuggestions implements ModelInterface
     /**
      * @param string $email
      */
-    public function setEmail(string $email)
+    public function setEmail(string $email): void
     {
         $this->email = $email;
     }
@@ -77,7 +77,7 @@ class ChannelSettingsSuggestions implements ModelInterface
     /**
      * @param string $phone
      */
-    public function setPhone(string $phone)
+    public function setPhone(string $phone): void
     {
         $this->phone = $phone;
     }
@@ -93,7 +93,7 @@ class ChannelSettingsSuggestions implements ModelInterface
     /**
      * @param string $text
      */
-    public function setText(string $text)
+    public function setText(string $text): void
     {
         $this->text = $text;
     }
