@@ -54,6 +54,9 @@ class ClientListTest extends TestCase
 
         static::assertCount(5, $response, "Incorrect channels count");
         static::assertInstanceOf(Channel\Channel::class, $response[0], "Incorrect channel instance");
+
+        $textSuggestions = $response[0]->getSettings()->getSuggestions()->getText();
+        static::assertStringContainsString("both", $textSuggestions, "Incorrect text suggestions");
     }
 
     /**
