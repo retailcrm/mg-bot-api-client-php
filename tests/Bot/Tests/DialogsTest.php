@@ -152,6 +152,37 @@ class DialogsTest extends TestCase
      * @group("dialogs")
      * @throws \Exception
      */
+    public function testDialogAddTagError()
+    {
+        self::expectException(NotFoundException::class);
+
+        $client = self::getApiClient(
+            null,
+            null,
+            false,
+            $this->getErrorsResponse(404,
+                "'color_code can contain only the following values: " .
+                "light-red; light-blue; light-green; light-orange; light-gray; " .
+                "light-grayish-blue; red; blue; green; orange; gray; grayish-blue'"
+            )
+        );
+
+        $tags[0] = new Tag();
+        $tags[0]->setName('tag1');
+        $tags[0]->setColorCode('qwerty');
+
+        $request = new DialogTagRequest();
+        $request->setDialogId(60);
+        $request->setTags($tags);
+
+        $response = $client->dialogAddTag($request);
+        self::assertEmpty($response->getErrors());
+    }
+
+    /**
+     * @group("dialogs")
+     * @throws \Exception
+     */
     public function testDialogAddTag()
     {
         $client = self::getApiClient(
@@ -177,6 +208,28 @@ class DialogsTest extends TestCase
         self::assertInstanceOF(ErrorOnlyResponse::class, $response);
         self::assertTrue($response->isSuccessful());
         self::assertEmpty($response->getErrors());
+    }
+
+    /**
+     * @group("dialogs")
+     * @throws \Exception
+     */
+    public function testDialogDeleteTagError()
+    {
+        $this->expectException(\TypeError::class);
+
+        $client = self::getApiClient(
+            null,
+            null,
+            false,
+        );
+
+        $tags[0] = new Tag();
+
+        $request = new DialogTagRequest();
+        $request->setTags($tags);
+
+        $client->dialogDeleteTag($request);
     }
 
     /**
