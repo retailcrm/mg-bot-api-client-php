@@ -152,9 +152,9 @@ class DialogsTest extends TestCase
      * @group("dialogs")
      * @throws \Exception
      */
-    public function testDialogAddTagError()
+    public function testDialogAddTagColorError()
     {
-        self::expectException(NotFoundException::class);
+        $this->expectException(NotFoundException::class);
 
         $client = self::getApiClient(
             null,
@@ -175,8 +175,52 @@ class DialogsTest extends TestCase
         $request->setDialogId(60);
         $request->setTags($tags);
 
-        $response = $client->dialogAddTag($request);
-        self::assertEmpty($response->getErrors());
+        $client->dialogAddTag($request);
+    }
+
+    /**
+     * @group("dialogs")
+     * @throws \Exception
+     */
+    public function testDialogAddTagDialogError()
+    {
+        $this->expectException(NotFoundException::class);
+
+        $client = self::getApiClient(
+            null,
+            null,
+            false,
+            $this->getErrorsResponse(404, "dialog #123456789 not found")
+        );
+
+        $tags[0] = new Tag();
+        $tags[0]->setName('tag1');
+
+        $request = new DialogTagRequest();
+        $request->setDialogId(123456789);
+        $request->setTags($tags);
+
+        $client->dialogAddTag($request);
+    }
+
+
+    /**
+     * @group("dialogs")
+     * @throws \Exception
+     */
+    public function testDialogAddTagEmptyTagError()
+    {
+        $this->expectException(\TypeError::class);
+
+        $client = self::getApiClient();
+
+        $tags[0] = new Tag();
+
+        $request = new DialogTagRequest();
+        $request->setDialogId(60);
+        $request->setTags($tags);
+
+        $client->dialogAddTag($request);
     }
 
     /**
@@ -214,7 +258,32 @@ class DialogsTest extends TestCase
      * @group("dialogs")
      * @throws \Exception
      */
-    public function testDialogDeleteTagError()
+    public function testDialogDeleteTagDialogError()
+    {
+        $this->expectException(NotFoundException::class);
+
+        $client = self::getApiClient(
+            null,
+            null,
+            false,
+            $this->getErrorsResponse(404, "dialog #123456789 not found")
+        );
+
+        $tags[0] = new Tag();
+        $tags[0]->setName('tag1');
+
+        $request = new DialogTagRequest();
+        $request->setDialogId(123456789);
+        $request->setTags($tags);
+
+        $client->dialogAddTag($request);
+    }
+
+    /**
+     * @group("dialogs")
+     * @throws \Exception
+     */
+    public function testDialogDeleteTagEmptyTagError()
     {
         $this->expectException(\TypeError::class);
 
