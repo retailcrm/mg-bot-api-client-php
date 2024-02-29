@@ -314,6 +314,48 @@ class Client
     }
 
     /**
+     * Add tag to dialog
+     *
+     * @param Model\Request\DialogTagRequest $request Request parameters
+     *
+     * @return \RetailCrm\Mg\Bot\Model\ModelInterface
+     * @throws \Exception
+     */
+    public function dialogAddTag(Model\Request\DialogTagRequest $request)
+    {
+        $response = $this->client->makeRequest(
+            sprintf("/dialogs/%d/tags/add", $request->getDialogId()),
+            HttpClient::METHOD_PATCH,
+            $request
+        );
+
+        $adapter = new ModelAdapter(ErrorOnlyResponse::class);
+
+        return $adapter->getResponseModel($response);
+    }
+
+    /**
+     * Delete tag from dialog
+     *
+     * @param Model\Request\DialogTagRequest $request Request parameters
+     *
+     * @return \RetailCrm\Mg\Bot\Model\ModelInterface
+     * @throws \Exception
+     */
+    public function dialogDeleteTag(Model\Request\DialogTagRequest $request)
+    {
+        $response = $this->client->makeRequest(
+            sprintf("/dialogs/%d/tags/delete", $request->getDialogId()),
+            HttpClient::METHOD_PATCH,
+            $request
+        );
+
+        $adapter = new ModelAdapter(ErrorOnlyResponse::class);
+
+        return $adapter->getResponseModel($response);
+    }
+
+    /**
      * Returns filtered members list
      *
      * @param Model\Request\MembersRequest $request Request parameters
