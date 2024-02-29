@@ -218,11 +218,7 @@ class DialogsTest extends TestCase
     {
         $this->expectException(\TypeError::class);
 
-        $client = self::getApiClient(
-            null,
-            null,
-            false,
-        );
+        $client = self::getApiClient();
 
         $tags[0] = new Tag();
 
