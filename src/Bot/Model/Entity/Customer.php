@@ -168,6 +168,15 @@ class Customer implements ModelInterface
     private $email;
 
     /**
+     * @var Utm $utm
+     *
+     * @Type("RetailCrm\Mg\Bot\Model\Entity\Utm")
+     * @Accessor(getter="getUtm",setter="setUtm")
+     * @SkipWhenEmpty()
+     */
+    private $utm;
+
+    /**
      * @return string|null
      */
     public function getId(): ?string
@@ -405,5 +414,22 @@ class Customer implements ModelInterface
     public function setEmail(string $email)
     {
         $this->email = $email;
+    }
+
+    /**
+     * @return Utm|null
+     */
+    public function getUtm(): ?Utm
+    {
+        return $this->utm;
+    }
+
+    /**
+     * @param Utm $utm
+     * @return void
+     */
+    public function setUtm(Utm $utm): void
+    {
+        $this->utm = $utm;
     }
 }

@@ -13,7 +13,14 @@
     "country": "",
     "language": "en",
     "phone": "",
-    "email": ""
+    "email": "",
+    "utm": {
+      "campaign": "spring_sale",
+      "content": "textlink",
+      "medium": "cpc",
+      "source": "Google",
+      "term": "running"
+    }
   },
   {
     "id": 38,
@@ -29,7 +36,14 @@
     "country": "",
     "language": "ru",
     "phone": "",
-    "email": ""
+    "email": "",
+    "utm": {
+      "campaign": "test",
+      "content": "test",
+      "medium": "test",
+      "source": "test",
+      "term": "test"
+    }
   },
   {
     "id": 37,
@@ -45,6 +59,13 @@
     "country": "",
     "language": "ru",
     "phone": "",
-    "email": ""
+    "email": "",
+    "utm": {
+      "campaign": "",
+      "content": "",
+      "medium": "",
+      "source": "",
+      "term": ""
+    }
   }
 ]

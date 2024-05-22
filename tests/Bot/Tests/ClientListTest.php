@@ -252,5 +252,8 @@ class ClientListTest extends TestCase
 
         self::assertCount(3, $response);
         self::assertInstanceOf(Customer::class, $response[0]);
+
+        $utm = $response[0]->getUtm()->getCampaign();
+        static::assertEquals('spring_sale', $utm, "Incorrect utm data");
     }
 }
