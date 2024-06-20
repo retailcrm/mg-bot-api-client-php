@@ -73,6 +73,15 @@ class MessageSendRequest implements ModelInterface
     private $items;
 
     /**
+     * @var string $note
+     *
+     * @Type("string")
+     * @Accessor(getter="getNote",setter="setNote")
+     * @SkipWhenEmpty()
+     */
+    private $note;
+
+    /**
      * @var string $scope
      *
      * @Type("string")
@@ -239,6 +248,22 @@ class MessageSendRequest implements ModelInterface
     public function setItems(array $items)
     {
         $this->items = $items;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getNote(): ?string
+    {
+        return $this->note;
+    }
+
+    /**
+     * @param string $note
+     */
+    public function setNote(string $note): void
+    {
+        $this->note = $note;
     }
 
     /**

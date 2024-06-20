@@ -11,6 +11,7 @@
 namespace RetailCrm\Mg\Bot\Tests;
 
 use RetailCrm\Mg\Bot\Model\Constants;
+use RetailCrm\Mg\Bot\Model\Entity\Message\Item;
 use RetailCrm\Mg\Bot\Model\Entity\Message\MessageCost;
 use RetailCrm\Mg\Bot\Model\Entity\Message\MessageDelivery;
 use RetailCrm\Mg\Bot\Model\Entity\Message\MessageOrder;
@@ -359,6 +360,40 @@ class MessagesTest extends TestCase
             self::assertTrue($response->isSuccessful());
             self::assertCount(0, $response->getErrors());
             self::assertEquals(3636, $response->getMessageId());
+        }
+    }
+
+    public function testMessageSendItems()
+    {
+        $client = self::getApiClient(
+            null,
+            null,
+            false,
+            $this->getResponse(
+                '{"message_id":4242,"time":"2019-06-24T06:02:04.434291791Z"}',
+                201
+            )
+        );
+
+        $item = new Item();
+        $item->setCaption('demo caption');
+        $item->setId('e33e5398-814a-47d6-902a-466ba120ce45');
+
+        $request = new MessageSendRequest();
+        $request->setChatId(28);
+        $request->setScope(Constants::MESSAGE_SCOPE_PUBLIC);
+        $request->setContent("Hello");
+        $request->setItems([$item]);
+        $request->setNote('demo note');
+
+        $response = $client->messageSend($request);
+
+        self::assertInstanceOf(MessageSendResponse::class, $response);
+
+        if ($response instanceof MessageSendResponse) {
+            self::assertTrue($response->isSuccessful());
+            self::assertCount(0, $response->getErrors());
+            self::assertEquals(4242, $response->getMessageId());
         }
     }
 }
