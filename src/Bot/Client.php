@@ -24,6 +24,7 @@ use RetailCrm\Mg\Bot\Model\Entity\Message\Message;
 use RetailCrm\Mg\Bot\Model\Entity\Template\Template;
 use RetailCrm\Mg\Bot\Model\Entity\User;
 use RetailCrm\Mg\Bot\Model\ModelAdapter;
+use RetailCrm\Mg\Bot\Model\ModelInterface;
 use RetailCrm\Mg\Bot\Model\Request\UploadFileByUrlRequest;
 use RetailCrm\Mg\Bot\Model\Response\AssignResponse;
 use RetailCrm\Mg\Bot\Model\Response\ErrorOnlyResponse;
@@ -465,10 +466,10 @@ class Client
     /**
      * Returns templates list
      *
-     * @return array
+     * @return Template[]
      * @throws \Exception
      */
-    public function templates()
+    public function templates(): array
     {
         $response = $this->client->makeRequest(
             '/templates',
@@ -480,7 +481,7 @@ class Client
         return $adapter->getResponseList($response);
     }
 
-    public function templateSend(string $templateId, Model\Request\TemplateSendRequest $request)
+    public function templateSend(string $templateId, Model\Request\TemplateSendRequest $request): ModelInterface
     {
         $response = $this->client->makeRequest(
             sprintf('/templates/%d/send', $templateId),

@@ -72,7 +72,7 @@ class Template implements ModelInterface
     private $type;
 
     /**
-     * @var array $template
+     * @var array<string, string> $template
      *
      * @Type("array")
      * @Accessor(getter="getTemplate",setter="setTemplate")
@@ -129,7 +129,7 @@ class Template implements ModelInterface
     private $quality;
 
     /**
-     * @var array $header
+     * @var array<string, string> $header
      *
      * @Type("array")
      * @Accessor(getter="getHeader",setter="setHeader")
@@ -138,7 +138,7 @@ class Template implements ModelInterface
     private $header;
 
     /**
-     * @var array $header
+     * @var array<string, array<string, string>> $buttons
      *
      * @Type("array")
      * @Accessor(getter="getButtons",setter="setButtons")
@@ -243,7 +243,7 @@ class Template implements ModelInterface
     }
 
     /**
-     * @return array|null
+     * @return array<string, string>|null
      */
     public function getTemplate(): ?array
     {
@@ -251,9 +251,9 @@ class Template implements ModelInterface
     }
 
     /**
-     * @param mixed $template
+     * @param array<string, string> $template
      */
-    public function setTemplate($template): void
+    public function setTemplate(array $template): void
     {
         $this->template = $template;
     }
@@ -352,7 +352,7 @@ class Template implements ModelInterface
     }
 
     /**
-     * @return array|null
+     * @return array<string, string>|null
      */
     public function getHeader(): ?array
     {
@@ -360,7 +360,7 @@ class Template implements ModelInterface
     }
 
     /**
-     * @param array $header
+     * @param array<string, string> $header
      */
     public function setHeader(array $header): void
     {
@@ -368,7 +368,7 @@ class Template implements ModelInterface
     }
 
     /**
-     * @return array|null
+     * @return array<string, array<string, string>>|null
      */
     public function getButtons(): ?array
     {
@@ -376,7 +376,7 @@ class Template implements ModelInterface
     }
 
     /**
-     * @param array $buttons
+     * @param array<string, array<string, string>> $buttons
      */
     public function setButtons(array $buttons): void
     {

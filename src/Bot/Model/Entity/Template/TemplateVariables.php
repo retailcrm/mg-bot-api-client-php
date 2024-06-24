@@ -15,7 +15,7 @@ use RetailCrm\Mg\Bot\Model\ModelInterface;
 class TemplateVariables implements ModelInterface
 {
     /**
-     * @var array $header
+     * @var array<string, string> $header
      *
      * @Type("array")
      * @Accessor(getter="getHeader",setter="setHeader")
@@ -23,7 +23,7 @@ class TemplateVariables implements ModelInterface
     private $header;
 
     /**
-     * @var array $body
+     * @var array<string, string> $body
      *
      * @Type("array")
      * @Accessor(getter="getBody",setter="setBody")
@@ -31,7 +31,7 @@ class TemplateVariables implements ModelInterface
     private $body;
 
     /**
-     * @var array<array> $buttons
+     * @var array<string, array<string, string>> $buttons
      *
      * @Type("array")
      * @Accessor(getter="getButtons",setter="setButtons")
@@ -39,7 +39,7 @@ class TemplateVariables implements ModelInterface
     private $buttons;
 
     /**
-     * @return array|null
+     * @return array<string, string>|null
      */
     public function getHeader(): ?array
     {
@@ -47,7 +47,7 @@ class TemplateVariables implements ModelInterface
     }
 
     /**
-     * @param array $header
+     * @param array<string, string> $header
      */
     public function setHeader(array $header): void
     {
@@ -55,7 +55,7 @@ class TemplateVariables implements ModelInterface
     }
 
     /**
-     * @return array|null
+     * @return array<string, string>|null
      */
     public function getBody(): ?array
     {
@@ -63,7 +63,7 @@ class TemplateVariables implements ModelInterface
     }
 
     /**
-     * @param array $body
+     * @param array<string, string> $body
      */
     public function setBody(array $body): void
     {
@@ -71,7 +71,7 @@ class TemplateVariables implements ModelInterface
     }
 
     /**
-     * @return array[]|null
+     * @return array<string, array<string, string>>|null
      */
     public function getButtons(): ?array
     {
@@ -79,7 +79,7 @@ class TemplateVariables implements ModelInterface
     }
 
     /**
-     * @param array[] $buttons
+     * @param array<string, array<string, string>> $buttons
      */
     public function setButtons(array $buttons): void
     {
