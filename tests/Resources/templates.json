@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "code": "test1#ru",
+    "channel_id": 1,
+    "name": "test1",
+    "enabled": true,
+    "type": "media",
+    "template": [
+      "test1Template"
+    ],
+    "body": "test1Template",
+    "lang": "ru",
+    "category": "marketing",
+    "verification_status": "approved",
+    "header": {
+      "content": {
+        "type": "video"
+      }
+    }
+  },
+  {
+    "id": 2,
+    "code": "test2#ru",
+    "channel_id": 5,
+    "name": "test2",
+    "enabled": true,
+    "type": "media",
+    "template": [
+      "Вы не завершили покупку на нашем сайте.\n",
+      {
+        "var": "custom"
+      },
+      "Пройдите по ссылке чтобы оформить заказ."
+    ],
+    "body": "Вы не завершили покупку на нашем сайте.\n{{1}}Пройдите по ссылке чтобы оформить заказ.",
+    "lang": "ru",
+    "category": "marketing",
+    "verification_status": "approved",
+    "header": {
+      "content": {
+        "body": "Товары в вашей корзине ждут вас!",
+        "type": "text"
+      }
+    },
+    "buttons": {
+      "items": [
+        {
+          "label": "Перейти в корзину",
+          "url": "https://test-url/{{1}}",
+          "type": "url"
+        }
+      ]
+    }
+  }
+]

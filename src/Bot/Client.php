@@ -11,9 +11,8 @@
 namespace RetailCrm\Mg\Bot;
 
 use Psr\Http\Message\ResponseInterface;
-use RetailCrm\Common\Url;
 use RetailCrm\Common\Serializer;
-use RetailCrm\Mg\Bot\Model\ModelAdapter;
+use RetailCrm\Common\Url;
 use RetailCrm\Mg\Bot\Model\Entity\Bot;
 use RetailCrm\Mg\Bot\Model\Entity\Channel\Channel;
 use RetailCrm\Mg\Bot\Model\Entity\Chat\Chat;
@@ -22,13 +21,15 @@ use RetailCrm\Mg\Bot\Model\Entity\Command;
 use RetailCrm\Mg\Bot\Model\Entity\Customer;
 use RetailCrm\Mg\Bot\Model\Entity\Dialog;
 use RetailCrm\Mg\Bot\Model\Entity\Message\Message;
+use RetailCrm\Mg\Bot\Model\Entity\Template\Template;
 use RetailCrm\Mg\Bot\Model\Entity\User;
+use RetailCrm\Mg\Bot\Model\ModelAdapter;
 use RetailCrm\Mg\Bot\Model\Request\UploadFileByUrlRequest;
 use RetailCrm\Mg\Bot\Model\Response\AssignResponse;
-use RetailCrm\Mg\Bot\Model\Response\UnassignResponse;
 use RetailCrm\Mg\Bot\Model\Response\ErrorOnlyResponse;
 use RetailCrm\Mg\Bot\Model\Response\FullFileResponse;
 use RetailCrm\Mg\Bot\Model\Response\MessageSendResponse;
+use RetailCrm\Mg\Bot\Model\Response\UnassignResponse;
 use RetailCrm\Mg\Bot\Model\Response\UploadFileResponse;
 
 /**
@@ -456,6 +457,38 @@ class Client
         );
 
         $adapter = new ModelAdapter(ErrorOnlyResponse::class);
+
+        return $adapter->getResponseModel($response);
+    }
+
+
+    /**
+     * Returns templates list
+     *
+     * @return array
+     * @throws \Exception
+     */
+    public function templates()
+    {
+        $response = $this->client->makeRequest(
+            '/templates',
+            HttpClient::METHOD_GET
+        );
+
+        $adapter = new ModelAdapter(Template::class);
+
+        return $adapter->getResponseList($response);
+    }
+
+    public function templateSend(string $templateId, Model\Request\TemplateSendRequest $request)
+    {
+        $response = $this->client->makeRequest(
+            sprintf('/templates/%d/send', $templateId),
+            HttpClient::METHOD_POST,
+            $request
+        );
+
+        $adapter = new ModelAdapter(MessageSendResponse::class);
 
         return $adapter->getResponseModel($response);
     }
