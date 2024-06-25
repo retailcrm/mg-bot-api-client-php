@@ -481,6 +481,15 @@ class Client
         return $adapter->getResponseList($response);
     }
 
+    /**
+     * Send a template message
+     *
+     * @param string $templateId
+     * @param Model\Request\TemplateSendRequest $request Request parameters
+     *
+     * @return \RetailCrm\Mg\Bot\Model\ModelInterface
+     * @throws \Exception
+     */
     public function templateSend(string $templateId, Model\Request\TemplateSendRequest $request): ModelInterface
     {
         $response = $this->client->makeRequest(
