@@ -23,7 +23,7 @@ use RetailCrm\Mg\Bot\Model\ModelInterface;
 class TemplateAttachment implements ModelInterface
 {
     /**
-     * @var string $header
+     * @var string $id
      *
      * @Type("string")
      * @Accessor(getter="getId",setter="setId")
@@ -31,7 +31,7 @@ class TemplateAttachment implements ModelInterface
     private $id;
 
     /**
-     * @var string $header
+     * @var string $caption
      *
      * @Type("string")
      * @Accessor(getter="getCaption",setter="setCaption")
