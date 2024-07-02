@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * PHP version 7.1
+ *
+ * TemplateVariables entity
+ *
+ * @package  RetailCrm\Mg\Bot\Model\Entity\Template
+ */
+
 namespace RetailCrm\Mg\Bot\Model\Entity\Template;
 
 use JMS\Serializer\Annotation\Accessor;
@@ -21,6 +29,14 @@ class TemplateVariables implements ModelInterface
      * @Accessor(getter="getHeader",setter="setHeader")
      */
     private $header;
+
+
+    /** @var array<TemplateAttachment> $attachments
+     *
+     * @Type("array")
+     * @Accessor(getter="getAttachments",setter="setAttachments")
+     */
+    private $attachments;
 
     /**
      * @var array<string, string> $body
@@ -84,5 +100,21 @@ class TemplateVariables implements ModelInterface
     public function setButtons(array $buttons): void
     {
         $this->buttons = $buttons;
+    }
+
+    /**
+     * @return TemplateAttachment[]|null
+     */
+    public function getAttachments(): ?array
+    {
+        return $this->attachments;
+    }
+
+    /**
+     * @param TemplateAttachment[] $attachments
+     */
+    public function setAttachments(array $attachments): void
+    {
+        $this->attachments = $attachments;
     }
 }
