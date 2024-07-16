@@ -49,6 +49,15 @@ class ChatsRequest implements ModelInterface
     private $customerId;
 
     /**
+     * @var int $sinceId
+     *
+     * @Type("int")
+     * @Accessor(getter="getSinceId",setter="setSinceId")
+     * @SkipWhenEmpty()
+     */
+    private $sinceId;
+
+    /**
      * @return int
      */
     public function getChannelId()
@@ -95,5 +104,22 @@ class ChatsRequest implements ModelInterface
     public function setCustomerId($customerId)
     {
         $this->customerId = $customerId;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getSinceId()
+    {
+        return $this->sinceId;
+    }
+
+    /**
+     * @param int $sinceId
+     * @return void
+     */
+    public function setSinceId($sinceId)
+    {
+        $this->sinceId = $sinceId;
     }
 }
