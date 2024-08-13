@@ -114,6 +114,14 @@ class Chat implements ModelInterface
     private $lastActivity;
 
     /**
+     * @var \DateTime $replyDeadline
+     *
+     * @Type("DateTime<'Y-m-d\TH:i:sP'>")
+     * @Accessor(getter="getReplyDeadline",setter="setReplyDeadline")
+     */
+    private $replyDeadline;
+
+    /**
      * @return string|null
      */
     public function getId(): ?string
@@ -287,5 +295,21 @@ class Chat implements ModelInterface
     public function setLastActivity(\DateTime $lastActivity)
     {
         $this->lastActivity = $lastActivity;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getReplyDeadline(): ?\DateTime
+    {
+        return $this->replyDeadline;
+    }
+
+    /**
+     * @param \DateTime $replyDeadline
+     */
+    public function setReplyDeadline(\DateTime $replyDeadline): void
+    {
+        $this->replyDeadline = $replyDeadline;
     }
 }
