@@ -11,6 +11,7 @@
     "responsible": {
       "type": "user",
       "id": 12,
+      "external_id": "12",
       "assigned_at": "2019-06-11T12:49:34.716716Z"
     },
     "is_active": true
@@ -27,6 +28,7 @@
     "responsible": {
       "type": "user",
       "id": 12,
+      "external_id": "12",
       "assigned_at": "2019-06-11T08:40:14.136916Z"
     },
     "is_active": true
@@ -43,6 +45,7 @@
     "responsible": {
       "type": "user",
       "id": 12,
+      "external_id": "12",
       "assigned_at": "2019-06-11T08:40:14Z"
     },
     "is_active": true
