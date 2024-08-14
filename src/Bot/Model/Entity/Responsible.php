@@ -50,6 +50,15 @@ class Responsible implements ModelInterface
     private $type;
 
     /**
+     * @var string $externalId
+     *
+     * @Type("string")
+     * @Accessor(getter="getExternalId",setter="setExternalId")
+     * @SkipWhenEmpty()
+     */
+    private $externalId;
+
+    /**
      * @return string|null
      */
     public function getAssignedAt(): ?string
@@ -95,5 +104,21 @@ class Responsible implements ModelInterface
     public function setType(string $type)
     {
         $this->type = $type;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getExternalId(): ?string
+    {
+        return $this->externalId;
+    }
+
+    /**
+     * @param string $externalId
+     */
+    public function setExternalId(string $externalId): void
+    {
+        $this->externalId = $externalId;
     }
 }
