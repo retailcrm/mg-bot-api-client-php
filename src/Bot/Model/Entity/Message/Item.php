@@ -109,7 +109,7 @@ class Item implements ModelInterface
     /**
      * @return string|null
      */
-    public function getTranscription()
+    public function getTranscription(): ?string
     {
         return $this->transcription;
     }
@@ -117,7 +117,7 @@ class Item implements ModelInterface
     /**
      * @param string $transcription
      */
-    public function setTranscription(string $transcription)
+    public function setTranscription(string $transcription): void
     {
         $this->transcription = $transcription;
     }
