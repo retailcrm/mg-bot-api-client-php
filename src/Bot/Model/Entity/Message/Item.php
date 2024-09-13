@@ -50,6 +50,15 @@ class Item implements ModelInterface
     private $caption;
 
     /**
+     * @var string $transcription
+     *
+     * @Type("string")
+     * @Accessor(getter="getTranscription",setter="setTranscription")
+     * @SkipWhenEmpty()
+     */
+    private $transcription;
+
+    /**
      * @return string|null
      */
     public function getId(): ?string
@@ -95,5 +104,21 @@ class Item implements ModelInterface
     public function setCaption(string $caption)
     {
         $this->caption = $caption;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getTranscription()
+    {
+        return $this->transcription;
+    }
+
+    /**
+     * @param string $transcription
+     */
+    public function setTranscription(string $transcription)
+    {
+        $this->transcription = $transcription;
     }
 }
