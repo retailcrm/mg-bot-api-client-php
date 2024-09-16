@@ -24,6 +24,7 @@ class DialogsRequest implements ModelInterface
 {
     use CommonFields;
     use PageLimit;
+    use IncludeMassCommunication;
 
     /**
      * @var int $sinceId

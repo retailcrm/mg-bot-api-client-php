@@ -24,6 +24,7 @@ class ChatsRequest implements ModelInterface
 {
     use CommonFields;
     use PageLimit;
+    use IncludeMassCommunication;
 
     /**
      * @Type("int")

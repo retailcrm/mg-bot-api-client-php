@@ -23,6 +23,7 @@ use RetailCrm\Mg\Bot\Model\ModelInterface;
 class MessagesRequest implements ModelInterface
 {
     use CommonFields;
+    use IncludeMassCommunication;
 
     /**
      * @var int $chatId
