@@ -33,7 +33,7 @@ trait IncludeMassCommunication
     /**
      * @return int
      */
-    public function getIncludeMassCommunication(): int
+    public function getIncludeMassCommunication()
     {
         return $this->includeMassCommunication;
     }
@@ -41,7 +41,7 @@ trait IncludeMassCommunication
     /**
      * @param int $includeMassCommunication
      */
-    public function setIncludeMassCommunication(int $includeMassCommunication): void
+    public function setIncludeMassCommunication(?int $includeMassCommunication): void
     {
         $this->includeMassCommunication = $includeMassCommunication;
     }
