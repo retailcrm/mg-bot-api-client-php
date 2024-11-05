@@ -143,6 +143,15 @@ class User implements ModelInterface
     private $revokedAt;
 
     /**
+     * @var bool $isSystem
+     *
+     * @Type("bool")
+     * @Accessor(getter="isSystem",setter="setIsSystem")
+     * @SkipWhenEmpty()
+     */
+    private $isSystem;
+
+    /**
      * @return string|null
      */
     public function getId(): ?string
@@ -348,5 +357,21 @@ class User implements ModelInterface
     public function setRevokedAt(\DateTime $revokedAt)
     {
         $this->revokedAt = $revokedAt;
+    }
+
+    /**
+     * @return bool|null
+     */
+    public function isSystem(): ?bool
+    {
+        return $this->isSystem;
+    }
+
+    /**
+     * @param bool $isSystem
+     */
+    public function setIsSystem(bool $isSystem): void
+    {
+        $this->isSystem = $isSystem;
     }
 }
