@@ -38,6 +38,7 @@ class Constants
 
     const BOT_ROLE_DISTRIBUTOR = "distributor";
     const BOT_ROLE_RESPONSIBLE = "responsible";
+    const BOT_ROLE_HIDDEN = "hidden";
 
     const MESSAGE_SCOPE_PUBLIC  = "public";
     const MESSAGE_SCOPE_PRIVATE = "private";
