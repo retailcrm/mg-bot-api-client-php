@@ -22,6 +22,7 @@ use RetailCrm\Mg\Bot\Model\ModelInterface;
  */
 class MembersRequest implements ModelInterface
 {
+    use CommonFields;
     use PageLimit;
 
     /**
@@ -50,24 +51,6 @@ class MembersRequest implements ModelInterface
      * @SkipWhenEmpty
      */
     private $state;
-
-    /**
-     * @var string $since
-     *
-     * @Type("string")
-     * @Accessor(getter="getSince",setter="setSince")
-     * @SkipWhenEmpty
-     */
-    private $since;
-
-    /**
-     * @var string $until
-     *
-     * @Type("string")
-     * @Accessor(getter="getUntil",setter="setUntil")
-     * @SkipWhenEmpty
-     */
-    private $until;
 
     /**
      * @return int
@@ -115,37 +98,5 @@ class MembersRequest implements ModelInterface
     public function setState(string $state)
     {
         $this->state = $state;
-    }
-
-    /**
-     * @return string
-     */
-    public function getSince()
-    {
-        return $this->since;
-    }
-
-    /**
-     * @param string $since
-     */
-    public function setSince(string $since)
-    {
-        $this->since = $since;
-    }
-
-    /**
-     * @return string
-     */
-    public function getUntil()
-    {
-        return $this->until;
-    }
-
-    /**
-     * @param string $until
-     */
-    public function setUntil(string $until)
-    {
-        $this->until = $until;
     }
 }
