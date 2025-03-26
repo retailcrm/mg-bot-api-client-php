@@ -1356,6 +1356,11 @@ parameters:
 			path: src/Bot/Model/Request/MembersRequest.php
 
 		-
+			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\MembersRequest\\:\\:setId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Bot/Model/Request/MembersRequest.php
+
+		-
 			message: "#^Method RetailCrm\\\\Mg\\\\Bot\\\\Model\\\\Request\\\\MembersRequest\\:\\:setSince\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/Bot/Model/Request/MembersRequest.php
