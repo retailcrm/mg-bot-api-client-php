@@ -120,6 +120,15 @@ class Dialog implements ModelInterface
     private $isActive;
 
     /**
+     * @var Utm $utm
+     *
+     * @Type("RetailCrm\Mg\Bot\Model\Entity\Utm")
+     * @Accessor(getter="getUtm",setter="setUtm")
+     * @SkipWhenEmpty()
+     */
+    private $utm;
+
+    /**
      * @return string|null
      */
     public function getId(): ?string
@@ -293,5 +302,22 @@ class Dialog implements ModelInterface
     public function setIsActive(bool $isActive)
     {
         $this->isActive = $isActive;
+    }
+
+    /**
+     * @return Utm|null
+     */
+    public function getUtm(): ?Utm
+    {
+        return $this->utm;
+    }
+
+    /**
+     * @param Utm $utm
+     * @return void
+     */
+    public function setUtm(Utm $utm): void
+    {
+        $this->utm = $utm;
     }
 }
