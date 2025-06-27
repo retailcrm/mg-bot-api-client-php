@@ -35,7 +35,7 @@ class ChatLastMessage implements ModelInterface
     /**
      * @var \DateTime $time
      *
-     * @Type("DateTime<'Y-m-d\TH:i:sP'>")
+     * @Type("DateTime<'Y-m-d\TH:i:s\.u\Z', null, ['Y-m-d\TH:i:s\.u\Z', 'Y-m-d\TH:i:s\Z', 'Y-m-d\TH:i:sP']>")
      * @Accessor(getter="getTime",setter="setTime")
      * @SkipWhenEmpty()
      */

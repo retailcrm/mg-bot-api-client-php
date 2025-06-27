@@ -169,7 +169,7 @@ class Channel implements ModelInterface
     /**
      * @param \DateTime $deactivatedAt
      */
-    public function setDeactivatedAt(DateTime $deactivatedAt)
+    public function setDeactivatedAt(?DateTime $deactivatedAt)
     {
         $this->deactivatedAt = $deactivatedAt;
     }
