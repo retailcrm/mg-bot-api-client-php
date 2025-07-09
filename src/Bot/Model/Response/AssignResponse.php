@@ -104,7 +104,7 @@ class AssignResponse implements ModelInterface
     /**
      * @param Responsible $previousResponsible
      */
-    public function setPreviousResponsible(Responsible $previousResponsible)
+    public function setPreviousResponsible(?Responsible $previousResponsible)
     {
         $this->previousResponsible = $previousResponsible;
     }
