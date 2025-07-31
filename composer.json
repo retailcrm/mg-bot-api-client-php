@@ -17,7 +17,7 @@
         "ext-json": "*",
         "jms/serializer": "3.*",
         "symfony/validator": "5.4.*|^6",
-        "doctrine/annotations": "^1",
+        "doctrine/annotations": "^1 || ^2",
         "guzzlehttp/guzzle": "7.*",
         "symfony/intl": "5.4.*|^6",
         "symfony/cache": "5.4.*|^6"
