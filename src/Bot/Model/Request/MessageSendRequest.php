@@ -102,6 +102,15 @@ class MessageSendRequest implements ModelInterface
     private $transportAttachments;
 
     /**
+     * @var bool $massCommunication
+     *
+     * @Type("bool")
+     * @Accessor(getter="getMassCommunication",setter="setMassCommunication")
+     * @Serializer\SerializedName("mass_communication")
+     */
+    private $massCommunication;
+
+    /**
      * @var int $chatId
      *
      * @Type("int")
@@ -168,6 +177,22 @@ class MessageSendRequest implements ModelInterface
     public function setTransportAttachments(TransportAttachments $transportAttachments)
     {
         $this->transportAttachments = $transportAttachments;
+    }
+
+    /**
+     * @return bool|null
+     */
+    public function getMassCommunication(): ?bool
+    {
+        return $this->massCommunication;
+    }
+
+    /**
+     * @param bool|null $massCommunication
+     */
+    public function setMassCommunication(?bool $massCommunication): void
+    {
+        $this->massCommunication = $massCommunication;
     }
 
     /**
