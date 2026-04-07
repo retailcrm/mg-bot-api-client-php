@@ -36,6 +36,15 @@ class DialogsRequest implements ModelInterface
     private $sinceId;
 
     /**
+     * @var int $untilId
+     *
+     * @Type("int")
+     * @Accessor(getter="getUntilId",setter="setUntilId")
+     * @SkipWhenEmpty
+     */
+    private $untilId;
+
+    /**
      * @var int $chatId
      *
      * @Type("int")
@@ -94,6 +103,22 @@ class DialogsRequest implements ModelInterface
     public function setSinceId(int $sinceId)
     {
         $this->sinceId = $sinceId;
+    }
+
+    /**
+     * @return int
+     */
+    public function getUntilId()
+    {
+        return $this->untilId;
+    }
+
+    /**
+     * @param int $untilId
+     */
+    public function setUntilId(int $untilId)
+    {
+        $this->untilId = $untilId;
     }
 
     /**

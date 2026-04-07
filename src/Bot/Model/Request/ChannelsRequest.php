@@ -40,6 +40,20 @@ class ChannelsRequest implements ModelInterface
     private $active;
 
     /**
+     * @Type("int")
+     * @Accessor(getter="getSinceId",setter="setSinceId")
+     * @SkipWhenEmpty
+     */
+    private $sinceId;
+
+    /**
+     * @Type("int")
+     * @Accessor(getter="getUntilId",setter="setUntilId")
+     * @SkipWhenEmpty
+     */
+    private $untilId;
+
+    /**
      * @return array
      */
     public function getTypes()
@@ -69,5 +83,37 @@ class ChannelsRequest implements ModelInterface
     public function setActive($active)
     {
         $this->active = $active;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSinceId()
+    {
+        return $this->sinceId;
+    }
+
+    /**
+     * @param int $sinceId
+     */
+    public function setSinceId($sinceId)
+    {
+        $this->sinceId = $sinceId;
+    }
+
+    /**
+     * @return int
+     */
+    public function getUntilId()
+    {
+        return $this->untilId;
+    }
+
+    /**
+     * @param int $untilId
+     */
+    public function setUntilId($untilId)
+    {
+        $this->untilId = $untilId;
     }
 }

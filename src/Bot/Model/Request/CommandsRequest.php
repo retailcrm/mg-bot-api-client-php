@@ -32,6 +32,20 @@ class CommandsRequest implements ModelInterface
     private $name;
 
     /**
+     * @Type("int")
+     * @Accessor(getter="getSinceId",setter="setSinceId")
+     * @SkipWhenEmpty
+     */
+    private $sinceId;
+
+    /**
+     * @Type("int")
+     * @Accessor(getter="getUntilId",setter="setUntilId")
+     * @SkipWhenEmpty
+     */
+    private $untilId;
+
+    /**
      * @return string
      */
     public function getName()
@@ -45,5 +59,37 @@ class CommandsRequest implements ModelInterface
     public function setName($name)
     {
         $this->name = $name;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSinceId()
+    {
+        return $this->sinceId;
+    }
+
+    /**
+     * @param int $sinceId
+     */
+    public function setSinceId($sinceId)
+    {
+        $this->sinceId = $sinceId;
+    }
+
+    /**
+     * @return int
+     */
+    public function getUntilId()
+    {
+        return $this->untilId;
+    }
+
+    /**
+     * @param int $untilId
+     */
+    public function setUntilId($untilId)
+    {
+        $this->untilId = $untilId;
     }
 }
