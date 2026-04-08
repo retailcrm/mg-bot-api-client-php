@@ -47,6 +47,8 @@ class UsersRequest implements ModelInterface
     private $online;
 
     /**
+     * @var int $sinceId
+     *
      * @Type("int")
      * @Accessor(getter="getSinceId",setter="setSinceId")
      * @SkipWhenEmpty
@@ -54,6 +56,8 @@ class UsersRequest implements ModelInterface
     private $sinceId;
 
     /**
+     * @var int $untilId
+     *
      * @Type("int")
      * @Accessor(getter="getUntilId",setter="setUntilId")
      * @SkipWhenEmpty
@@ -119,7 +123,7 @@ class UsersRequest implements ModelInterface
     /**
      * @param int $sinceId
      */
-    public function setSinceId($sinceId)
+    public function setSinceId($sinceId): void
     {
         $this->sinceId = $sinceId;
     }
@@ -135,7 +139,7 @@ class UsersRequest implements ModelInterface
     /**
      * @param int $untilId
      */
-    public function setUntilId($untilId)
+    public function setUntilId($untilId): void
     {
         $this->untilId = $untilId;
     }

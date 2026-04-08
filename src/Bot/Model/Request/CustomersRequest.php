@@ -33,6 +33,8 @@ class CustomersRequest implements ModelInterface
     private $externalId;
 
     /**
+     * @var int $sinceId
+     *
      * @Type("int")
      * @Accessor(getter="getSinceId",setter="setSinceId")
      * @SkipWhenEmpty
@@ -40,6 +42,8 @@ class CustomersRequest implements ModelInterface
     private $sinceId;
 
     /**
+     * @var int $untilId
+     *
      * @Type("int")
      * @Accessor(getter="getUntilId",setter="setUntilId")
      * @SkipWhenEmpty
@@ -73,7 +77,7 @@ class CustomersRequest implements ModelInterface
     /**
      * @param int $sinceId
      */
-    public function setSinceId($sinceId)
+    public function setSinceId($sinceId): void
     {
         $this->sinceId = $sinceId;
     }
@@ -89,7 +93,7 @@ class CustomersRequest implements ModelInterface
     /**
      * @param int $untilId
      */
-    public function setUntilId($untilId)
+    public function setUntilId($untilId): void
     {
         $this->untilId = $untilId;
     }

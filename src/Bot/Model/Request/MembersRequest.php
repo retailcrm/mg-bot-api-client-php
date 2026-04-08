@@ -129,7 +129,7 @@ class MembersRequest implements ModelInterface
     /**
      * @param int $sinceId
      */
-    public function setSinceId(int $sinceId)
+    public function setSinceId(int $sinceId): void
     {
         $this->sinceId = $sinceId;
     }
@@ -145,7 +145,7 @@ class MembersRequest implements ModelInterface
     /**
      * @param int $untilId
      */
-    public function setUntilId(int $untilId)
+    public function setUntilId(int $untilId): void
     {
         $this->untilId = $untilId;
     }

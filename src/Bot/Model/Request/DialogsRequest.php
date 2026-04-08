@@ -116,7 +116,7 @@ class DialogsRequest implements ModelInterface
     /**
      * @param int $untilId
      */
-    public function setUntilId(int $untilId)
+    public function setUntilId(int $untilId): void
     {
         $this->untilId = $untilId;
     }

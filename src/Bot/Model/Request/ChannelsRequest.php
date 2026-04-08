@@ -40,6 +40,8 @@ class ChannelsRequest implements ModelInterface
     private $active;
 
     /**
+     * @var int $sinceId
+     *
      * @Type("int")
      * @Accessor(getter="getSinceId",setter="setSinceId")
      * @SkipWhenEmpty
@@ -47,6 +49,8 @@ class ChannelsRequest implements ModelInterface
     private $sinceId;
 
     /**
+     * @var int $untilId
+     *
      * @Type("int")
      * @Accessor(getter="getUntilId",setter="setUntilId")
      * @SkipWhenEmpty
@@ -96,7 +100,7 @@ class ChannelsRequest implements ModelInterface
     /**
      * @param int $sinceId
      */
-    public function setSinceId($sinceId)
+    public function setSinceId($sinceId): void
     {
         $this->sinceId = $sinceId;
     }
@@ -112,7 +116,7 @@ class ChannelsRequest implements ModelInterface
     /**
      * @param int $untilId
      */
-    public function setUntilId($untilId)
+    public function setUntilId($untilId): void
     {
         $this->untilId = $untilId;
     }
