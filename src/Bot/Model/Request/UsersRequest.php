@@ -47,6 +47,24 @@ class UsersRequest implements ModelInterface
     private $online;
 
     /**
+     * @var int $sinceId
+     *
+     * @Type("int")
+     * @Accessor(getter="getSinceId",setter="setSinceId")
+     * @SkipWhenEmpty
+     */
+    private $sinceId;
+
+    /**
+     * @var int $untilId
+     *
+     * @Type("int")
+     * @Accessor(getter="getUntilId",setter="setUntilId")
+     * @SkipWhenEmpty
+     */
+    private $untilId;
+
+    /**
      * @return string
      */
     public function getExternalId()
@@ -92,5 +110,37 @@ class UsersRequest implements ModelInterface
     public function setOnline($online)
     {
         $this->online = $online;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSinceId()
+    {
+        return $this->sinceId;
+    }
+
+    /**
+     * @param int $sinceId
+     */
+    public function setSinceId($sinceId): void
+    {
+        $this->sinceId = $sinceId;
+    }
+
+    /**
+     * @return int
+     */
+    public function getUntilId()
+    {
+        return $this->untilId;
+    }
+
+    /**
+     * @param int $untilId
+     */
+    public function setUntilId($untilId): void
+    {
+        $this->untilId = $untilId;
     }
 }
